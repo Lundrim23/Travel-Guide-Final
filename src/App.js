@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Places from "./pages/Places";
 import Events from "./pages/Events";
 import About from "./pages/About";
+import Error from "./pages/Error";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="places" element={<Places />} />
         <Route path="events" element={<Events />} />
         <Route path="about" element={<About />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );
