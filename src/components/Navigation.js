@@ -27,10 +27,11 @@ const Navigation = () => {
                   </a>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link' href='/'>
-                    Link
+                  <a className='nav-link active' aria-current='page' href='/'>
+                    About
                   </a>
                 </li>
+              
                 <li className='nav-item dropdown'>
                   <a
                     className='nav-link dropdown-toggle'
@@ -64,8 +65,13 @@ const Navigation = () => {
                   </ul>
                 </li>
                 <li className='nav-item'>
-                  <a className='nav-link disabled' href='/'>
-                    Disabled
+                  <a className='nav-link active' aria-current='page' href='/'>
+                    Contact
+                  </a>
+                </li>
+                <li className='nav-item'>
+                  <a className='nav-link active' aria-current='page' href='/'>
+                    Register
                   </a>
                 </li>
               </ul>
