@@ -11,6 +11,7 @@ import Events from "./pages/Events";
 import About from "./pages/About";
 import Error from "./pages/Error";
 import Register from "./pages/Register";
+import LogIn from "./pages/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="events" element={<Events />} />
         <Route path="about" element={<About />} />
         <Route path="register" element={<Register />} />
+        <Route path="login" element={<LogIn />} />
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
