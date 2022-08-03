@@ -1,14 +1,7 @@
-<<<<<<< HEAD
 
-import './App.css';
-import Layout from './components/Layout';
-
-function App() {
-  return (
-    <div className="App">
-    <Layout />
-    </div>
-=======
+//  import Layout from './components/Layout';
+    // <Layout />
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
@@ -30,7 +23,6 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
->>>>>>> ddd74b8efef11d1893a45023780bbf9de3511ffa
   );
 }
 
