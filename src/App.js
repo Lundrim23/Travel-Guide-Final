@@ -1,3 +1,7 @@
+
+//  import Layout from './components/Layout';
+    // <Layout />
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
