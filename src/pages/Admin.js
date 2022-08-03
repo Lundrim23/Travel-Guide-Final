@@ -214,6 +214,51 @@ function Admin() {
             </div>
             {/* grid ends here */}
 
+            {/* table starts here */}
+            <h1 className="p-5 font-bold text-gray-600">
+                Users
+            </h1>
+            <div className=" rounded-lg shadow hidden md:block w-4/5">
+                <table className="w-full ml-5">
+                    <thead className="bg-gray-50 border-b-2 border-gray-200">
+                        <tr>
+                            <th className="w-6 p-3 text-sm font-semibold tracking-wide text-left">Id</th>
+                            <th className="w-6 p-3 text-sm font-semibold tracking-wide text-left">Name</th>
+                            <th className="w-6 p-3 text-sm font-semibold tracking-wide text-left">Email</th>
+                            <th className="w-6 p-3 text-sm font-semibold tracking-wide text-left">Password</th>
+                            <th className="w-6 p-3 text-sm font-semibold tracking-wide text-left">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                        <tr className="bg-white">
+                            <td className="p-3 whitespace-nowrap text-sm text-gray-700"><a href="#" className="font-bold text-blue-500 hover:underline">1</a></td>
+                            <td className="p-3 whitespace-nowrap text-sm text-gray-700">asd</td>
+                            <td className="p-3 whitespace-nowrap text-sm text-gray-700">asd@asd.com</td>
+                            <td className="p-3 whitespace-nowrap text-sm text-gray-700">asd</td>
+                            <td className="p-3 whitespace-nowrap text-sm text-gray-700"><span className="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50">admin</span></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+                    <div className="bg-white space-y-3 p-4 rounded-lg shadow">
+                        <div className="flex items-center space-x-2 text-sm">
+                            <div>
+                                <a href="#" className="p-3 font-bold text-blue-500 hover:underline">Id</a>
+                            </div>
+                            <div  className="p-3 whitespace-nowrap text-sm text-gray-700">Name</div>
+                            <div className="p-3 whitespace-nowrap text-sm text-gray-700">Email</div>
+                            <div className="p-3 whitespace-nowrap text-sm text-gray-700">Password</div>
+                            <div className="p-1.5 text-xs font-medium uppercase tracking-wider text-yellow-800 bg-yellow-200 rounded-lg bg-opacity-50 w-14">Role</div>
+                        </div>
+                    </div>
+                </div>
+
+            {/* table ends here */}
+
+
           </div>
         </div>
       </div>
