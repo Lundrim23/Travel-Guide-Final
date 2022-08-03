@@ -19,7 +19,7 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="about" element={<About />} />
         </Route>
-          <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error />} />
         <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
