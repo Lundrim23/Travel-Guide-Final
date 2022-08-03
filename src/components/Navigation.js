@@ -20,7 +20,7 @@ function Navigation() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
-                    to="/register"
+                    to="/home"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Home
@@ -33,26 +33,32 @@ function Navigation() {
                     About
                   </Link>
 
-                  <a
+                  <Link
                     to="/places"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Places
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     to="/events"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Events
-                  </a>
+                  </Link>
 
-                  <a
+                  <Link
                     to="/contact"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Contact
-                  </a>
+                  </Link>
+                  <Link
+                    to="/register"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Register
+                  </Link>
                 </div>
               </div>
             </div>
@@ -116,7 +122,7 @@ function Navigation() {
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <Link
-                  to="/register"
+                  to="/home"
                   className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Home
@@ -148,6 +154,12 @@ function Navigation() {
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Contact
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  Register
                 </Link>
               </div>
             </div>

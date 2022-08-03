@@ -1,3 +1,8 @@
+//  import Hero from './components/Hero';
+//  import Layout from './components/Layout';
+// <Layout />
+import React from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
@@ -16,9 +21,9 @@ function App() {
           <Route path="places" element={<Places />} />
           <Route path="events" element={<Events />} />
           <Route path="about" element={<About />} />
-          <Route path="register" element={<Register />} />
           <Route path="*" element={<Error />} />
         </Route>
+        <Route path="register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );
