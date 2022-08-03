@@ -15,13 +15,13 @@ export function LogIn() {
 
             <div className="py-10">
               <h2 className="text-3xl font-bold text-blue-900 mb-2">
-                Sign In to Account
+                Sign in to Account
               </h2>
               <div className="border-2 w-10 border-blue-900 inline-block mb-2"></div>
               <p className="text-gray-400 my-3">to use all of our features.</p>
 
               <div className="flex flex-col items-center">
-                <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
+                <div className="bg-gray-100 w-64 p-2 flex items-center mb-3 rounded-2xl">
                   <FaRegEnvelope className="text-gray-400 m-2" />
                   <input
                     type="email"
@@ -31,7 +31,7 @@ export function LogIn() {
                   />
                 </div>
 
-                <div className="bg-gray-100 w-64 p-2 flex items-center">
+                <div className="bg-gray-100 w-64 p-2 flex items-center rounded-2xl">
                   <MdLockOutline className="text-gray-400 m-2" />
                   <input
                     type="password"
@@ -55,7 +55,7 @@ export function LogIn() {
                   href="#"
                   className="border-2 border-blue-900 text-blue-900 rounded-full px-12 py-2 inline-block font-semibold hover:bg-blue-900 hover:text-white"
                 >
-                  Sign In
+                  Log In
                 </a>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function LogIn() {
               to="/register"
               className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-blue-900"
             >
-              Sign Up
+              Register
             </Link>
           </div>
         </div>
