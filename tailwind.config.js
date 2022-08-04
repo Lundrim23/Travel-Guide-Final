@@ -19,5 +19,5 @@ module.exports = {
       "7xl": "5rem",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
