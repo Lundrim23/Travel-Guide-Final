@@ -6,7 +6,7 @@ function TeamCard(props) {
       <div className="flex flex-col items-center py-5">
         <img
           className="mb-3 w-24 h-24 rounded-full shadow-lg"
-          src={props.image}
+          src={props.img}
           alt={props.name}
         />
         <h5 className="mb-1 text-xl font-medium text-gray-700">{props.name}</h5>
