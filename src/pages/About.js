@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function About() {
   return (
-    <div>
-      <h1>About</h1>
-      <Link to="/">Home</Link>
-    </div>
+    <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">About</div>
   );
 }
 
