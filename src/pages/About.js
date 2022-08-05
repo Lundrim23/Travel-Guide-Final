@@ -29,7 +29,7 @@ function About() {
         </h1>
       </div>
       <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row   justify-around">
-        <div className="border border-1 p-5 leading-8 h-full sticky top-10 ">
+        <div className="border border-1 p-5 leading-8 h-full sm:sticky top-10  ">
           <p className="hover:underline text-xl">
             <a href="#1">Who are we?</a>
           </p>
