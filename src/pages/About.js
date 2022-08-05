@@ -29,23 +29,23 @@ function About() {
         </h1>
       </div>
       <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row   justify-around">
-        <div className="border border-1 p-5 leading-8 h-full ">
+        <div className="border border-1 p-5 leading-8 h-full sticky top-10 ">
           <p className="hover:underline text-xl">
-            <a href="#">Who are we?</a>
+            <a href="#1">Who are we?</a>
           </p>
           <p className="hover:underline text-xl">
-            <a href="#">What we offer?</a>
+            <a href="#2">What we offer?</a>
           </p>
           <p className="hover:underline text-xl">
-            <a href="#">Why should you choose us?</a>
+            <a href="#3">Why should you choose us?</a>
           </p>
           <p className="hover:underline text-xl">
-            <a href="#">Our team</a>
+            <a href="#4">Our team</a>
           </p>
         </div>
 
         <div className="flex-1 p-10 ">
-          <section>
+          <section id="1">
             <h1 className="text-3xl">Who are we?</h1>
             <p className="py-5">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -98,7 +98,8 @@ function About() {
             </p>
             <p>&nbsp;</p>
           </section>
-          <section className="py-5">
+
+          <section className="py-5" id="2">
             <h1 className="text-2xl">What we offer?</h1>
             <p className="py-5">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -116,7 +117,7 @@ function About() {
             </p>
           </section>
 
-          <section className="py-5">
+          <section className="py-5" id="3">
             <h1 className="text-2xl">Why should you choose us?</h1>
             <p className="py-5">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -134,7 +135,7 @@ function About() {
             </p>
           </section>
 
-          <section className="max-w-max py-5 ">
+          <section className="max-w-max py-5 " id="4">
             <h1 className="text-2xl mb-5">Our Team</h1>
             <div className="flex flex-row justify-between flex-wrap py-5 ">
               {" "}
