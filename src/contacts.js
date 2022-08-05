@@ -1,6 +1,13 @@
 const contacts = [
   {
     id: 1,
+    name: "Andi Namani",
+    image: require("./assets/ourteam/andi.png"),
+    title: "Team Leader",
+    email: "andi@starlabs.com",
+  },
+  {
+    id: 1,
     name: "Elantra Jashari",
     image: require("./assets/ourteam/elantra.png"),
     title: "Applications developer",
