@@ -33,11 +33,8 @@ function App() {
         <Route path="admin" element={<Admin />} />
 
         <Route path="login" element={<LogIn />} />
-<<<<<<< HEAD
-        <Route path="users" element={<Users />} />
-=======
 
->>>>>>> 3adb72bde8ef9be058400582f7224dd631dbe314
+        <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
        
       </Routes>

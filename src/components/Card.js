@@ -2,6 +2,7 @@ import React from 'react'
 
 const Card = (props) => {
   return (
+    <div class="mb-40">
     <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
     <a href="#" class="w-full block h-full">
         <img alt="blog photo" src="https://geoguessr.com/seterra/images/system/pristina.jpg" class="max-h-40 w-full object-cover"/>
@@ -29,7 +30,9 @@ const Card = (props) => {
                 </div>
             </div>
         </div>
+        
     </a>
+</div>
 </div>
 
   )
