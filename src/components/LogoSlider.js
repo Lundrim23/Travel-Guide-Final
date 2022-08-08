@@ -14,9 +14,9 @@ export default function LogoScroll() {
   };
 
   return (
-    <div className="relative flex items-center justify-center  ">
+    <div className="relative flex items-center justify-center ">
       <MdChevronLeft
-        className="opacity-50 cursor-pointer hover:opacity-100 sm:mr-10"
+        className="opacity-50 cursor-pointer hover:opacity-100"
         onClick={slideleft}
         size={40}
       ></MdChevronLeft>
