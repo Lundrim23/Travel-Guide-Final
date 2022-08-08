@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import AdminTable from "./components/adminComponent/adminTable.js";
-import AdminSidebar from "./components/adminComponent/AdminSidebar.js";
-import GridComponent from "./components/adminComponent/GridComponent.js";
+import AdminTable from '../components/adminComponent/adminTable.js';
+import AdminSidebar from '../components/adminComponent/AdminSidebar.js';
+import GridComponent from '../components/adminComponent/GridComponent.js'
+import AddEvent from '../components/adminComponent/AddEvent.js'
 
-import { Views } from "./components/AllSvgs.js";
-import { RegisteredUsers } from "./components/AllSvgs.js";
-import { Messages } from "./components/AllSvgs.js";
-import AddEvent from "./components/adminComponent/AddEvent.js";
+import { Views, RegisteredUsers, Messages } from "../components/AllSvgs.js";
+
+
 
 function Admin() {
 
