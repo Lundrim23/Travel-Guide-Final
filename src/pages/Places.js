@@ -1,9 +1,9 @@
 import React from "react";
-
+import Navigation from "../components/Navigation";
 function Places() {
   return (
     <div>
-      <h1>Places</h1>
+     <Navigation />
     </div>
   );
 }

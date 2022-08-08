@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Error from "./pages/Error";
 import Register from "./pages/Register";
 import LogIn from "./pages/Login";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<LogIn />} />
+        <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
+       
       </Routes>
     </BrowserRouter>
   );
