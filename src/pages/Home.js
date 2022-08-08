@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero"
 import Card from "../components/Card";
@@ -75,6 +76,19 @@ function Home() {
    
 
 
+=======
+import Hero from "../components/Hero";
+import LogoSlider from "../components/LogoSlider";
+import RegisterDivider from "../components/RegisterDivider";
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <LogoSlider />
+      <RegisterDivider />
+    </>
+>>>>>>> 3adb72bde8ef9be058400582f7224dd631dbe314
   );
 }
 
