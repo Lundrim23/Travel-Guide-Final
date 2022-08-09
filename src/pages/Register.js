@@ -49,7 +49,7 @@ function Register() {
       console.log(actions);
       await new Promise((reset) => setTimeout(reset, 1000));
       actions.resetForm();
-      // console.log("submitted");
+      console.log("submitted");
     },
   });
   return (
