@@ -25,10 +25,10 @@ function Register() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
+        <div className="bg-white rounded-2xl shadow-2xl flex lg:w-1/3 md:w-2/3 sm:w-full">
           {/* Sign In Section */}
-          <div className="w-3/5 p-5">
-            <div className="text-left font-bold">
+          <div className="w-full p-5">
+            <div className="text-center font-bold">
               <span className="text-blue-900">Travel </span>Guide
             </div>
 
@@ -181,11 +181,10 @@ function Register() {
                     </p>
                   ) : null}
                 </div>
-                <div className="flex justify-between w-64 mb-5 pt-3 rounded-2xl">
-                  <label className="flex items-center text-xs">
-                    <input type="checkbox" name="remember" className="mr-1" />{" "}
-                    Remember me
-                  </label>
+                <div className="w-64 mb-5 pt-3 rounded-2xl">
+                  <Link to="/login" className="items-center text-xs cursor-pointer">
+                    Already have an account ?
+                  </Link>
                 </div>
 
                 <button
@@ -201,21 +200,6 @@ function Register() {
                 </button>
               </form>
             </div>
-          </div>
-
-          {/* Sign Up Section */}
-          <div className="w-2/5 bg-blue-900 text-white rounded-tr-2xl rounded-br-2xl py-36 px-12 ">
-            <h2 className="text-3xl font-bold mb-3">Dear, User!</h2>
-            <div className="border-2 w-10 border-white inline-block mb-2"></div>
-            <p className="mb-10">
-              Fill up your account details and continue the journey with us.
-            </p>
-            <Link
-              to="/login"
-              className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-blue-900"
-            >
-              Log In
-            </Link>
           </div>
         </div>
       </main>
