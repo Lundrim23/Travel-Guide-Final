@@ -4,7 +4,7 @@ const EventSection = () => {
 
   return (
     <div>
-             <section class="mt-30 bg-gray-300">
+    <section class="mt-30 bg-gray-300">
   <div class="container mx-auto sm:px-4 mx-auto px-4">
     <div class="flex flex-wrap">
       <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
