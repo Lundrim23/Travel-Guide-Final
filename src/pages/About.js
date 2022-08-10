@@ -1,6 +1,6 @@
 import React from "react";
 import AboutHero from "../assets/img/about-hero.png";
-import contacts from "../contacts";
+import contacts from "../Data/contacts";
 import TeamCard from "../components/TeamCard";
 
 function createCard(contact) {
