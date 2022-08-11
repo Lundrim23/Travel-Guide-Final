@@ -15,6 +15,9 @@ import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 
 import "./App.css";
+import EventComponent from "./components/adminComponent/EventComponent";
+import PlaceComponent from "./components/adminComponent/PlaceComponent"
+import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
 
 
 function App() {
@@ -30,7 +33,12 @@ function App() {
         </Route>
         <Route path="register" element={<Register />} />
 
-        <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<Admin />} >
+          <Route path="event" element={<EventComponent />} />
+          <Route path="places" element={<PlaceComponent />} />
+          <Route path="users" element={<AllUsersComponent />} />
+        </Route>
+
 
         <Route path="login" element={<LogIn />} />
 
