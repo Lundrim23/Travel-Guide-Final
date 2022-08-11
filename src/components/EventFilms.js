@@ -31,18 +31,18 @@ const EventFilms = () => {
                           </div>
                           <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
                               <div class="mt-10 lg:mt-0">
-                                  <span class="font-semibold text-lg text-primary mb-2 block">
+                                  <span class="font-semibold text-lg text-gray-800 mb-2 block">
                                       Movie Festivals
                                   </span>
-                                  <h2 class="font-bold text-3xl sm:text-4xl text-dark mb-8">
+                                  <h2 class="font-bold text-3xl sm:text-4xl text-gray-800 mb-8">
                                       Art and Movie culture- not forgiven
                                   </h2>
-                                  <p class="text-base text-body-color mb-8">
+                                  <p class="text-gray-800 text-body-color mb-8">
                                       It is a long established fact that a reader will be distracted
                                       by the readable content of a page when looking at its layout.
                                       The point of using Lorem Ipsum is that it has a more-or-less.
                                   </p>
-                                  <p class="text-base text-body-color mb-12">
+                                  <p class="text-gray-800 text-body-color mb-12">
                                       A domain name is one of the first steps to establishing your
                                       brand. Secure a consistent brand image with a domain name that
                                       matches your business.
