@@ -3,6 +3,7 @@ import EventHero from "../components/EventHero";
 import EventSection from "../components/EventSection";
 import EventCard from "../components/EventCard";
 import EventTitle from "../components/EventTitle";
+import EventFilms from "../components/EventFilms";
 
 function Events() {
   return (
@@ -41,14 +42,18 @@ function Events() {
         <EventCard EventPlace="Prishtine,Kosove" EventName="SunnyHill" EventText="hwhfowfcohofcowfhcow" />
         <EventCard EventPlace="Prishtine,Kosove" EventName="SunnyHill" EventText="hwhfowfcohofcowfhcow" />
       </div>
-      <div class="h-60 bg-slate-50">
+      <div class="h-20 bg-slate-50">
       </div>
 
 
      
+<EventFilms />
 
-
-
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-slate-50 ">
+      <EventCard EventPlace="Prishtine,Kosove" EventName="SunnyHill" EventText="hwhfowfcohofcowfhcow" />
+        <EventCard EventPlace="Prishtine,Kosove" EventName="SunnyHill" EventText="hwhfowfcohofcowfhcow" />
+        <EventCard EventPlace="Prishtine,Kosove" EventName="SunnyHill" EventText="hwhfowfcohofcowfhcow" />
+    </div>
 
 
     </div>
