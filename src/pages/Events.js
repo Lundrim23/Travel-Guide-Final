@@ -7,7 +7,6 @@ import EventFilms from "../components/EventFilms";
 import EventPart from "../components/EventPart";
 function Events() {
   return (
-   
     <div>
     <EventHero />
     <div class="bg-slate-50">
@@ -65,6 +64,15 @@ function Events() {
       </div>
 
     </div>
+
+// import ReviewSlider from "../components/ReviewSlider";
+// import { data } from "../Data/EventsReviewData";
+
+
+    
+      // <ReviewSlider reviews={data} />
+   
+
   );
 }
 

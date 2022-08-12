@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
-import AdminTable from '../components/adminComponent/adminTable.js';
+
 import AdminSidebar from '../components/adminComponent/AdminSidebar.js';
 import GridComponent from '../components/adminComponent/GridComponent.js'
-import AddEvent from '../components/adminComponent/AddEvent.js'
+
 
 import { Views, RegisteredUsers, Messages } from "../components/AllSvgs.js";
-
 
 
 function Admin() {
@@ -55,18 +54,11 @@ function Admin() {
                 />
               </div>
 
-              {/* table starts here */}
-              <h1 className="p-5 font-bold text-gray-600">Users</h1>
-              <div className="container p-5 ">
-                <AdminTable />
-              </div>
-              {/* table ends here */}
+              <Outlet />
+              
               
 
-              {/* Popup starts here */}
-              <div>
-                <AddEvent />
-              </div>
+
             </div>
           </div>
         </div>
