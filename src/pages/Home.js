@@ -7,6 +7,7 @@ import LogoSlider from "../components/LogoSlider";
 import RegisterDivider from "../components/RegisterDivider";
 import CardTitle from "../components/CardTitle";
 import Categories from "../components/Categories";
+import Services from "../components/Services";
 
 import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
@@ -40,7 +41,9 @@ function Home() {
           <Categories title="COCKTAILS" paragraph="Cold cocktails" buttontxt="Read More" button="#" image={Cocktails} alttxt="cocktails"/>
           <Categories title="BEACHES" paragraph="Clean beaches" buttontxt="Read More" button="#" image={Beaches} alttxt="beaches"/>
           <Categories title="NIGHTLIFE" paragraph="With some good music" buttontxt="Read More" button="#" image={Nightlife} alttxt="nightlife"/>
-        </div>             
+        </div>     
+
+       <Services/>         
     </div>    
     </>
   );
