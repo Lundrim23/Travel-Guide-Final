@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Sidebar= (props) => {
   return (
-    <div>
+    <div class=" ">
  <div className="flex">
             <div className="flex flex-col h-screen w-80 p-5 bg-gray-800 shadow w-80">
-                <div className="space-y-3 space-x-8  mb:justify-end">
+                <div className="space-y-3 space-x-7 mb:justify-end ">
                     <div>
-                        <h2 className=" text-center text-2xl font-bold text-white">Dashboard</h2>
+                        <h2 className=" text-center text-2xl font-bold text-white ">Dashboard</h2>
                     </div>
                  <div class="border-b-2 border-slate-50"></div>
                     <div className="flex-1">
