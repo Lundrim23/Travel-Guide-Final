@@ -5,19 +5,18 @@ const Sidebar= (props) => {
   return (
     <div>
  <div className="flex">
-           
-            <div className="flex flex-col h-screen p-3 bg-gray-800 shadow w-60 ">
-                <div className="space-y-3 mb:justify-end">
-                    <div >
-                        <h2 className=" text-center text-xl font-bold text-white">User Dash</h2>
+            <div className="flex flex-col h-screen w-80 p-5 bg-gray-800 shadow w-80">
+                <div className="space-y-3 space-x-8  mb:justify-end">
+                    <div>
+                        <h2 className=" text-center text-2xl font-bold text-white">Dashboard</h2>
                     </div>
-                 
+                 <div class="border-b-2 border-slate-50"></div>
                     <div className="flex-1">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:bg-gray-700">
                                 <a
                                     href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                    className="flex items-center p-5 space-x-7 rounded-md"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +32,13 @@ const Sidebar= (props) => {
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                                         />
                                     </svg>
-                                    <span className="text-gray-100">Home</span>
+                                    <span className="text-gray-100 font-bold text-lg">Home</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:bg-gray-700 ">
                                 <a
                                     href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                    className="flex items-center  p-5 space-x-5 rounded-md"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +54,13 @@ const Sidebar= (props) => {
                                             d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
                                         />
                                     </svg>
-                                    <span className="text-gray-100">Inbox</span>
+                                    <span className="text-gray-100 font-bold text-lg">Inbox</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:bg-gray-700">
                                 <a
                                     href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                    className="flex items-center  p-5 space-x-5 rounded-md"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -77,13 +76,13 @@ const Sidebar= (props) => {
                                             d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                         />
                                     </svg>
-                                    <span className="text-gray-100">Orders</span>
+                                    <span className="text-gray-100 font-bold text-lg">Orders</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:bg-gray-700">
                                 <a
                                     href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                    className="flex items-center p-5 space-x-5 rounded-md"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -104,13 +103,13 @@ const Sidebar= (props) => {
                                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                         />
                                     </svg>
-                                    <span className="text-gray-100">Settings</span>
+                                    <span className="text-gray-100 font-bold text-lg">Settings</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:bg-gray-700">
                                 <a
                                     href="#"
-                                    className="flex items-center p-2 space-x-3 rounded-md"
+                                    className="flex items-center  p-5 space-x-5 rounded-md"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +125,7 @@ const Sidebar= (props) => {
                                             d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
                                         />
                                     </svg>
-                                    <span className="text-gray-100">Logout</span>
+                                    <span className="text-gray-100 font-bold text-lg">Logout</span>
                                 </a>
                             </li>
                         </ul>
