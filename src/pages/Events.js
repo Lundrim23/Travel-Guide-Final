@@ -1,5 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
+
 import EventHero from "../components/EventHero";
 import EventSection from "../components/EventSection";
 import EventCard from "../components/EventCard";
@@ -66,16 +66,16 @@ function Events() {
       </div>
 
     </div>
-=======
-import ReviewSlider from "../components/ReviewSlider";
-import { data } from "../Data/EventsReviewData";
 
-function Events() {
-  return (
-    <>
-      <ReviewSlider reviews={data} />
-    </>
->>>>>>> d3798dc30aaed60f041b051a3c11da212eb0d78c
+// import ReviewSlider from "../components/ReviewSlider";
+// import { data } from "../Data/EventsReviewData";
+
+// function Events() {
+  // return (
+    // <>
+      // <ReviewSlider reviews={data} />
+    // </>
+
   );
 }
 
