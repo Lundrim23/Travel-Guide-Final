@@ -18,6 +18,7 @@ function Home() {
     <>
     <div>
       <Hero />
+      <LogoSlider />      
       <CardTitle />
    
         {/*  */}
@@ -32,7 +33,6 @@ function Home() {
         
         </div>
 
-      <LogoSlider />
       <RegisterDivider />
 
         <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
