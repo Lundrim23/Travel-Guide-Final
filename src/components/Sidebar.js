@@ -3,17 +3,16 @@ import { Link } from "react-router-dom";
 
 const Sidebar= (props) => {
   return (
-    <div class=" ">
- <div className="flex">
-            <div className="flex flex-col h-screen w-80 p-5 bg-gray-800 shadow w-80">
+    <div>
+            <div className="flex-col lg:h-screen md:h-96 lg:w-80  md:w-screen p-5 bg-gray-800">
                 <div className="space-y-3 space-x-7 mb:justify-end ">
                     <div>
-                        <h2 className=" text-center text-2xl font-bold text-white ">Dashboard</h2>
+                        <h2 className=" text-center text-2xl font-bold text-white">Dashboard</h2>
                     </div>
                  <div class="border-b-2 border-slate-50"></div>
                     <div className="flex-1">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
-                            <li className="rounded-sm hover:bg-gray-700">
+                            <li className="rounded-sm hover:bg-gray-700 ">
                                 <a
                                     href="#"
                                     className="flex items-center p-5 space-x-7 rounded-md"
@@ -134,7 +133,7 @@ const Sidebar= (props) => {
             </div>
           
         </div>
-    </div>
+    
   )
 }
 
