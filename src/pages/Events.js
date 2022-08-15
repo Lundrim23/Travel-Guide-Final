@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 
-=======
->>>>>>> 81b5a2030b04f198a019810ba41a0ada13a8d5d7
 import EventHero from "../components/EventHero";
 import EventSection from "../components/EventSection";
 import EventCard from "../components/EventCard";
@@ -72,18 +69,17 @@ function Events() {
 // import ReviewSlider from "../components/ReviewSlider";
 // import { data } from "../Data/EventsReviewData";
 
-<<<<<<< HEAD
+
 // function Events() {
   // return (
     // <>
       // <ReviewSlider reviews={data} />
     // </>
-=======
+
 
     
       // <ReviewSlider reviews={data} />
-   
->>>>>>> 81b5a2030b04f198a019810ba41a0ada13a8d5d7
+
 
   );
 }
