@@ -31,7 +31,7 @@ function Places() {
   return (
     <>
       <PlacesSlider />
-      <section className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around ">
+      <section className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around ">
         <div className="container w-[200px] m-4 p-5 text-center  rounded-[10px] border border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md">
           <p className="text-2xl">
             <a href="#">Mountains</a>
@@ -54,23 +54,28 @@ function Places() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex relative items-center ">
-        <BsFillArrowLeftCircleFill
-          className="px-2"
-          onClick={slideLeft}
-          size={80}
-        />
-        <div
-          id="slider"
-          className="max-w-7xl mx-auto py-10  flex flex-row  justify-between overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
-        >
-          {places.map(createPlaces)}
+      <section></section>
+
+      <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 ">
+        <h1 className="text-4xl mx-10">Best places to visit...</h1>
+        <div className="slider max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex relative items-center ">
+          <BsFillArrowLeftCircleFill
+            className="px-2"
+            onClick={slideLeft}
+            size={80}
+          />
+          <div
+            id="slider"
+            className="max-w-7xl mx-auto py-10  flex flex-row  justify-between overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
+          >
+            {places.map(createPlaces)}
+          </div>
+          <BsFillArrowRightCircleFill
+            className="px-2"
+            onClick={slideRight}
+            size={80}
+          />
         </div>
-        <BsFillArrowRightCircleFill
-          className="px-2"
-          onClick={slideRight}
-          size={80}
-        />
       </section>
     </>
   );
