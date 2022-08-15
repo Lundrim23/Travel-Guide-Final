@@ -27,6 +27,7 @@ export default function LogoScroll() {
       >
         {data.map((item) => (
           <img
+            key={item.id}
             className="w-[90px]  inline-block p-2 cursor-pointer hover:scale-125 ease-in-out duration-300"
             src={item.img}
             alt="/"
