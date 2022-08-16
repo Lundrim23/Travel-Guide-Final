@@ -15,7 +15,7 @@ import {
 const AdminSidebar = () => {
   return (
     <div className="flex flex-row ">
-      <button class=" pl-3 relative z-30 lg:hidden peer h-14 w-14 rounded-full bg-cyan-500 hover:bg-cyan-600 focus:bg-cyan-600 active:bg-cyan-700 transition">
+      <button className=" pl-3 relative z-30 lg:hidden peer h-14 w-14 rounded-full bg-cyan-500 hover:bg-cyan-600 focus:bg-cyan-600 active:bg-cyan-700 transition">
         <HiddenMenuIcon className="place-items-center" />
       </button>
 
