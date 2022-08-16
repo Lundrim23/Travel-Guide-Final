@@ -1,11 +1,13 @@
 import React from "react";
 import "tw-elements";
+import axios from "axios";
 import PlacesCard from "../components/PlacesCard";
 import PlacesSlider from "../components/PlacesSlider";
 import places from "../Data/places.data";
 import kosovo from "../Data/kosovo.data";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import Prevalla from "../assets/kosovo-img/prevalla-natyra-kosova.jpg";
 
 function createPlaces(place) {
   return (
@@ -42,7 +44,7 @@ function Places() {
   return (
     <>
       <PlacesSlider />
-      <section className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around ">
+      <section className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row  justify-around ">
         <div className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md">
           <p className="text-2xl">
             <a href="#">Mountains</a>
@@ -76,11 +78,11 @@ function Places() {
       </section>
       <div className="border bg-gray-400"></div>
 
-      <section className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4">
-        <div className="max-w-xs">
-          <h1 className="text-xl">BEST KOSOVO PLACES</h1>
-          <h3>Get started today!</h3>
-          <p className="text-lg">
+      <section className="max-w-7xl min-h-screen my-auto mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-center items-center sm:py-5">
+        <div className="max-w-sm mx-10 sm:py-5">
+          <h1 className="text-3xl py-2">BEST KOSOVO PLACES</h1>
+          <h3 className="text-gray-500">Get started today!</h3>
+          <p className="text-lg leading-normal py-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
             sunt reiciendis et veritatis non perferendis eos neque, nemo illum
             perspiciatis!
@@ -92,14 +94,17 @@ function Places() {
             Read More
           </button>
         </div>
-        <div className="w-[300px]  bg-sky-400 h-[200px]"></div>
+        <div className="max-w-md flex flex-wrap">
+          <img src={Prevalla} alt="Prevalla" className="rounded-xl py-5" />
+        </div>
       </section>
 
-      <div className="border bg-gray-400 mt-3"></div>
-      <section className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4">
-        {kosovo.map(createKosovo)}
+      <h1 className="text-3xl text-center py-5">
+        Some of the best places to visit!
+      </h1>
+      <section className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5">
+        {kosovo.slice(1, 6).map(createKosovo)}
       </section>
-
       <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 ">
         <h1 className="text-4xl mx-10">Best places to visit...</h1>
         <div className="slider max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex relative items-center ">
