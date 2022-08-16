@@ -5,6 +5,11 @@ import PlacesSlider from "../components/PlacesSlider";
 import places from "../Data/places.data";
 import kosovo from "../Data/kosovo.data";
 import montenegro from "../Data/montenegro.data";
+import ReviewSlider from "../components/ReviewSlider";
+import { data } from "../Data/PlacesReviewData";
+import PlacesAlbania from "../components/PlacesAlbania";
+import PlacesCards from "../components/PlacesCards";
+import PlacesMacedonia from "../components/PlacesMacedonia";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Prevalla from "../assets/kosovo-img/prevalla-natyra-kosova.jpg";
@@ -74,9 +79,11 @@ const getFilters = (filters) => {
 const contryToVisit = (countries) => {
   return countries.map((x) => (
     <>
-      <section className="max-w-7xl h-screen my-auto mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-center items-center sm:py-5">
+      <section className="max-w-7xl my-auto mx-auto pt-8 px-4 sm:mx-auto sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-center items-center sm:py-5">
         <div className="max-w-sm mx-10 sm:py-5">
-          <h1 className="text-3xl py-2">BEST PLACES IN {x.country}</h1>
+          <h1 className="text-4xl text-gray-800 font-bold md:text-5xl py-2">
+            BEST PLACES IN <span className="text-emerald-700">{x.country}</span>
+          </h1>
           <h3 className="text-gray-500">Get started today!</h3>
           <p className="text-lg leading-normal py-5">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
@@ -90,15 +97,15 @@ const contryToVisit = (countries) => {
             Read More
           </button>
         </div>
-        <div className="max-w-md flex flex-wrap">
+        <div className="max-w-md flex flex-wrap py-5">
           <img src={x.image} alt={x.country} className="rounded-xl" />
         </div>
       </section>
       <section>
-        <h1 className="text-3xl text-center py-5">
+        <h1 className="text-3xl text-center py-5 font-medium">
           Some of the best places to visit!
         </h1>
-        <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5">
+        <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
           {x.places.slice(1, 6).map((y) => createPlace(y))}
         </div>
       </section>
@@ -128,7 +135,7 @@ function Places() {
       <section>{contryToVisit(countries)}</section>
 
       <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 md:py-8">
-        <h1 className="text-4xl mx-10">Best places to visit...</h1>
+        <h1 className="text-4xl mx-10 font-medium">Best places to visit...</h1>
         <div className="slider max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex relative items-center ">
           <BsFillArrowLeftCircleFill
             className="px-2"
@@ -148,6 +155,46 @@ function Places() {
           />
         </div>
       </section>
+
+      <PlacesAlbania />
+
+      <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
+        <PlacesCards
+          PlacesLocation="Tirane, Albania"
+          PlacesTitle="Albania"
+          PlacesText="Test test test"
+        />
+        <PlacesCards
+          PlacesLocation="Tirane, Albania"
+          PlacesTitle="Albania"
+          PlacesText="Test test test"
+        />
+        <PlacesCards
+          PlacesLocation="Tirane, Albania"
+          PlacesTitle="Albania"
+          PlacesText="Test test test"
+        />
+      </div>
+
+      <PlacesMacedonia />
+      <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
+        <PlacesCards
+          PlacesLocation="Macedonia"
+          PlacesTitle="Macedonia"
+          PlacesText="Test test test"
+        />
+        <PlacesCards
+          PlacesLocation="Macedonia"
+          PlacesTitle="Macedonia"
+          PlacesText="Test test test"
+        />
+        <PlacesCards
+          PlacesLocation="Maedonia"
+          PlacesTitle="Macedonia"
+          PlacesText="Test test test"
+        />
+      </div>
+      <ReviewSlider reviews={data} />
     </>
   );
 }
