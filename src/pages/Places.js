@@ -11,12 +11,17 @@ function Places() {
       <PlacesAlbania />
 
       <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
-      <PlacesCards />
-      <PlacesCards />
-      <PlacesCards />
+      <PlacesCards PlacesLocation="Tirane, Albania" PlacesTitle="Albania" PlacesText="Test test test"/>
+      <PlacesCards PlacesLocation="Tirane, Albania" PlacesTitle="Albania" PlacesText="Test test test"/>
+      <PlacesCards  PlacesLocation="Tirane, Albania" PlacesTitle="Albania" PlacesText="Test test test"/>
       </div>
 
       <PlacesMacedonia />
+      <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
+      <PlacesCards PlacesLocation="Macedonia" PlacesTitle="Macedonia" PlacesText="Test test test"/>
+      <PlacesCards PlacesLocation="Macedonia" PlacesTitle="Macedonia" PlacesText="Test test test"/>
+      <PlacesCards PlacesLocation="Maedonia" PlacesTitle="Macedonia" PlacesText="Test test test"/>
+      </div>
     </>
   );
 }
