@@ -2,6 +2,7 @@ import React from 'react'
 import { Disclosure, Menu,  } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 
+
 const Dashboardnav = () => {
     return (
         <Disclosure as="nav" className="bg-gray-800">
@@ -10,10 +11,17 @@ const Dashboardnav = () => {
                     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                         <div className="relative flex items-center justify-between h-16">
                             <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                                {/* no other links */}
+                              <div>
+                              {/* <svg class="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg> */}
+                             
+                              </div>
+
+
                             </div>
 
                             {/*  */}
+                        
+                           
                             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                 <button
                                     type="button"
@@ -41,10 +49,12 @@ const Dashboardnav = () => {
                         </div>
                     </div>
 
-
+               
                 </>
             )}
         </Disclosure>
+
+        
     )
 }
 export default Dashboardnav

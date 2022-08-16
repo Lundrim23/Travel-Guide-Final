@@ -1,4 +1,5 @@
 import React from "react";
+
 import EventHero from "../components/EventHero";
 import EventSection from "../components/EventSection";
 import EventCard from "../components/EventCard";
@@ -69,9 +70,16 @@ function Events() {
 // import { data } from "../Data/EventsReviewData";
 
 
+// function Events() {
+  // return (
+    // <>
+      // <ReviewSlider reviews={data} />
+    // </>
+
+
     
       // <ReviewSlider reviews={data} />
-   
+
 
   );
 }
