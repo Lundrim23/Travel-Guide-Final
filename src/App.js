@@ -7,18 +7,15 @@ import Places from "./pages/Places";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
-
 import Admin from "./pages/Admin";
-
 import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 
-import "./App.css";
 import EventComponent from "./components/adminComponent/EventComponent";
-import PlaceComponent from "./components/adminComponent/PlaceComponent"
+import PlaceComponent from "./components/adminComponent/PlaceComponent";
 import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
-
+import "./App.css";
 
 function App() {
   return (
@@ -32,19 +29,16 @@ function App() {
           <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="register" element={<Register />} />
-
-        <Route path="admin" element={<Admin />} >
+        <Route path="admin" element={<Admin />} />
+        <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />
           <Route path="places" element={<PlaceComponent />} />
           <Route path="users" element={<AllUsersComponent />} />
         </Route>
 
-
         <Route path="login" element={<LogIn />} />
-
         <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
-       
       </Routes>
     </BrowserRouter>
   );
