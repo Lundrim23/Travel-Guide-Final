@@ -2,7 +2,7 @@ import React from "react";
 
 function PlacesCard(props) {
   return (
-    <div className="w-80  mx-3 hover:opacity-75 " key={props.id}>
+    <div className="w-80  mx-3 hover:opacity-75 py-3 " key={props.id}>
       <img
         className="w-full h-[300px] object-cover rounded-lg "
         src={props.img}
