@@ -3,6 +3,7 @@ import ReviewSlider from "../components/ReviewSlider";
 import { data } from "../Data/PlacesReviewData";
 import PlacesAlbania from "../components/PlacesAlbania";
 import PlacesCards from "../components/PlacesCards";
+import PlacesMacedonia from "../components/PlacesMacedonia";
 function Places() {
   return (
     <>
@@ -14,6 +15,8 @@ function Places() {
       <PlacesCards />
       <PlacesCards />
       </div>
+
+      <PlacesMacedonia />
     </>
   );
 }
