@@ -1,20 +1,24 @@
 import React from "react";
+import PlaceTable from "./PlaceTable";
+import AddNewPlace from "./AddNewPlace";
 
 const PlaceComponent = () => {
   return (
     <>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
-      <h1>Place Compoment</h1>
+      <AddNewPlace 
+        // name={""}
+        // location={""}
+        // details={""}
+        // image={""}
+      />
+      <PlaceTable
+        name={"Kosovo Tour"}
+        location={"Kosovo"}
+        details={"Details"}
+        photo={"photo"}
+        edit={"edit"}
+        delete={"delete"}
+      />
     </>
   );
 };
