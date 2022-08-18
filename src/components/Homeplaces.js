@@ -6,7 +6,7 @@ function Homeplaces() {
     <div>
 
 
-<div class="flex items-center justify-center min-h-screen bg-white py-48">
+<div class="flex items-center justify-center min-h-screen bg-white ">
    
             <div class="container max-w-7xl px-4">
                 <div class="flex flex-wrap">

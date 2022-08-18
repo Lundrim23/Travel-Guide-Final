@@ -9,16 +9,16 @@ function HomePart() {
       <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
         <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
           <div class="max-w-xl mb-6 ">    
-            <h2 class=" text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none max-w-lg mb-6">
-             Lorem Ipsum Is Cool.
+            <h2 class=" text-3xl font-bold tracking-tight lg:text-white md:text-slate-500 sm:text-slate-500 sm:text-4xl sm:leading-none max-w-lg mb-6">
+             Lorem Ipsum
             </h2>
-            <p class="text-white text-base md:text-lg"> Lorem Ipsum is so cool and awesome to act and so cool to think. And very awesome to eat and talk.
+            <p class="lg:text-white  md:text-slate-500 text-base md:text-lg"> Lorem Ipsum is so cool and awesome to act and so cool to think. And very awesome to eat and talk.
             </p>
           </div>
           <div class="flex items-center space-x-3">
 
-            <a
-      class="flex object-cover sm:mr-64 mr-32 object-top items-center text-white border border-2 justify-center w-full sm:px-10 py-4 leading-6 bg-black rounded-lg font-black"
+            <a href=""
+      class="flex object-cover sm:mr-64 mr-32 object-top items-center text-white border border-2 justify-center w-full sm:px-10 py-4 leading-6 bg-indigo-500 rounded-lg font-black"
     >
  Get Started
     </a>
@@ -41,8 +41,8 @@ function HomePart() {
           
           <div class="max-w-xl mb-6">
             
-            <h2 class="font-sans text-3xl sm:mt-0 mt-6 font-bold tracking-tight text-white sm:text-4xl sm:leading-none max-w-lg mb-6">
-             Step 2 : Awesome Is Lorem Ipsum
+            <h2 class="text-3xl sm:mt-0 mt-6 font-bold tracking-tight text-white sm:text-4xl sm:leading-none max-w-lg mb-6">
+              Lorem Ipsum
             </h2>
             <p class="text-white text-base md:text-lg">Lorem Ipsum is so cool and awesome to act and so cool to think. And very awesome to eat and talk.
 
@@ -50,10 +50,10 @@ function HomePart() {
           </div>
           <div class="flex items-center space-x-3">
    
-            <a
+            <a href=""
       class="flex object-cover 
       sm:mr-64 mr-32 object-top items-center text-white border border-2 justify-center
-       w-full sm:px-10 py-4 leading-6 bg-black rounded-lg font-black"
+       w-full sm:px-10 py-4 leading-6 bg-indigo-500 rounded-lg font-black"
     >
      Get Started
     </a>
@@ -69,7 +69,7 @@ function HomePart() {
       <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
         <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
           <div class="max-w-xl mb-6 ">    
-            <h2 class="font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none max-w-lg mb-6">
+            <h2 class=" text-3xl font-bold tracking-tight text-white  sm:text-4xl sm:leading-none max-w-lg mb-6">
              Lorem Ipsum Is Cool.
             </h2>
             <p class="text-white text-base md:text-lg"> Lorem Ipsum is so cool and awesome to act and so cool to think. And very awesome to eat and talk.
@@ -77,8 +77,8 @@ function HomePart() {
           </div>
           <div class="flex items-center space-x-3">
 
-            <a
-      class="flex object-cover sm:mr-64 mr-32 object-top items-center text-white border border-2 justify-center w-full sm:px-10 py-4 leading-6 bg-black rounded-lg font-black"
+            <a href=""
+      class="flex object-cover sm:mr-64 mr-32 object-top items-center text-white border border-2 justify-center w-full sm:px-10 py-4 leading-6 bg-indigo-500 rounded-lg font-black"
     >
  Get Started
     </a>
