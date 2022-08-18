@@ -3,7 +3,7 @@ import React from 'react'
 const Card = () => {
   return (
     <div>
-   
+        
                             <a href="#" class="mx-auto">
                                 <img class="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                                     src="https://pbs.twimg.com/media/FWwGvkwWIAALOB3?format=jpg&name=large">
