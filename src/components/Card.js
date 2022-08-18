@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Card = (props) => {
+const Card = () => {
   return (
     <div className="mb-40">
       <div className="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
@@ -30,4 +30,5 @@ Card.propTypes = {
   countryName: PropTypes.string,
   contentName: PropTypes.string,
 };
+
 export default Card;

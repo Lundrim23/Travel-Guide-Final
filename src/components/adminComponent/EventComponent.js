@@ -9,6 +9,7 @@ const EventComponent = () => {
     location: "",
     address: "",
     description: "",
+    imageUrl: "",
   });
 
   //this one displays event on the table
@@ -17,6 +18,8 @@ const EventComponent = () => {
   useEffect(() => {
     fetchEvents();
   }, []);
+
+  const [image, setImage] = useState('');
 
   //this one populates state with data
   function handleChange(event) {
@@ -28,13 +31,28 @@ const EventComponent = () => {
         [name]: value,
       };
     });
+
+    setImage(event.target.files[0]);
+
   }
 
+
   //this one saves data to db throught be
-  function handleClick(event, id) {
+  const handleClick = async (event, id, async) => {
     const url = process.env.REACT_APP_SAVE_DATA;
 
     event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('file', image);
+    formData.append('upload_preset', "jipopo2x");
+  
+      const res = await axios.post(process.env.REACT_APP_CLOUDINARY_UPLOAD , formData);
+      const imageUrle = res.data.secure_url;
+      console.log("this is image url "+imageUrle);
+
+      //setImage(imageUrle.data);
+      
 
     const newEvent = {
       eventName: input.eventName,
@@ -43,6 +61,7 @@ const EventComponent = () => {
       location: input.location,
       address: input.address,
       description: input.description,
+      imageUrl: imageUrle,
     };
 
     axios.post(url, newEvent);
@@ -73,6 +92,7 @@ const EventComponent = () => {
       location: input.location,
       address: input.address,
       description: input.description,
+      imageUrl: input.imageUrl,
     };
 
     axios.patch(url + id, article);
@@ -91,20 +111,6 @@ const EventComponent = () => {
       .catch((err) => console.error(err));
   }
 
-  //radio button venue value
-  const handleVenueChange = () => {
-    setInput({
-      ...input,
-      location: "Venue",
-    });
-  };
-  //radio button online value
-  const handleOnlineChange = () => {
-    setInput({
-      ...input,
-      location: "Online",
-    });
-  };
 
   return (
     <>
@@ -182,42 +188,9 @@ const EventComponent = () => {
                 </div>
 
                 <div className="flex ">
-                  <div className="w-1/2 px-1">
+                  <div className="w-2/3 px-1">
                     <div class="flex items-center mb-4 mt-3">
-                      <input
-                        type="radio"
-                        id="radio-example-1"
-                        name="radio"
-                        class="h-4 w-4 text-gray-700 px-3 py-3 border rounded mr-2"
-                        onChange={(e) => {
-                          handleChange(e);
-                          handleVenueChange();
-                        }}
-                        value={input.radio}
-                      />
-                      <label for="radio-example-1" class="text-gray-600">
-                        Venue
-                      </label>
-                    </div>
-                    <div class="flex items-center">
-                      <input
-                        type="radio"
-                        id="radio-example-2"
-                        name="radio"
-                        class="h-4 w-4 text-gray-700 px-3 py-3 border rounded mr-2"
-                        onChange={(e) => {
-                          handleChange(e);
-                          handleOnlineChange();
-                        }}
-                        value={input.radio}
-                      />
-                      <label for="radio-example-2" class="text-gray-600">
-                        Online
-                      </label>
-                    </div>
-                  </div>
-
-                  <div className="w-1/2 px-1">
+                    <div className="w-1/2 px-1">
                     <label class="text-gray-600 font-light ">
                       Event Address
                     </label>
@@ -230,6 +203,10 @@ const EventComponent = () => {
                       value={input.address}
                     />
                   </div>
+                    </div>
+                  </div>
+
+
                 </div>
               </div>
 
@@ -288,8 +265,11 @@ const EventComponent = () => {
                 </label>
                 <input
                   type="file"
+                  name='image'
+                  onChange={handleChange}
                   class="w-full text-gray-700 px-3 py-2 border rounded"
                 />
+                <input className='file-path validate' type='text' />
               </div>
 
               <button
@@ -312,9 +292,9 @@ const EventComponent = () => {
               <th class="p-3 text-left">Event Name</th>
               <th class="p-3 text-left">Event Organizator</th>
               <th class="p-3 text-left">Event Tags</th>
-              <th class="p-3 text-left">Location</th>
               <th class="p-3 text-left">Address</th>
               <th class="p-3 text-left">Description</th>
+              <th class="p-3 text-left">Image</th>
               <th class="p-3 text-left">Update</th>
               <th class="p-3 text-left">Delete</th>
             </tr>
@@ -336,13 +316,13 @@ const EventComponent = () => {
                     {event.eventTags}
                   </td>
                   <td class="border-grey-light border hover:bg-gray-100 p-3">
-                    {event.location}
-                  </td>
-                  <td class="border-grey-light border hover:bg-gray-100 p-3">
                     {event.address}
                   </td>
                   <td class="border-grey-light border hover:bg-gray-100 p-3">
                     {event.description}
+                  </td>
+                  <td class="border-grey-light border hover:bg-gray-100 p-3">
+                    <img cloudName="starlabstitans" className="w-12" src={event.imageUrl}/>
                   </td>
                   <td class="border-grey-light border hover:bg-gray-100 p-3">
                     <button onClick={() => update(event._id)}>Update</button>

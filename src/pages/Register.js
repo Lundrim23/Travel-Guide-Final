@@ -15,8 +15,8 @@ function Register() {
       confirmPassword: "",
     },
     validationSchema: userSchema,
-    onSubmit: async (values, actions) => {
-      if (formik.isValid()) {
+    onSubmit: async (actions) => {
+      if (formik.isValid) {
         await new Promise((reset) => setTimeout(reset, 1000));
         actions.resetForm();
       }
@@ -136,6 +136,7 @@ function Register() {
                 >
                   <MdLockOutline className="text-gray-400 m-2" />
                   <input
+                    id="password"
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -164,6 +165,7 @@ function Register() {
                 >
                   <MdLockOutline className="text-gray-400 m-2" />
                   <input
+                    id="password"
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm Passwod"

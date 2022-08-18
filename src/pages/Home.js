@@ -1,12 +1,12 @@
 import React from "react";
-
-import Card from "../components/Card";
 import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import RegisterDivider from "../components/RegisterDivider";
 import CardTitle from "../components/CardTitle";
 import Categories from "../components/Categories";
 import Services from "../components/Services";
+import Homeplaces from "../components/Homeplaces";
+import HomePart from "../components/HomePart";
 
 import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
