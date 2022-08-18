@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
 const AddNewPlace = (props) => {
+
+  // const [place, setPlace] = useState({
+  //   placeName: "",
+  //   placeLocation: "",
+  //   placeDetails: "",
+  //   placePhoto: "",
+  // });
+
+  // const handleChange = (event) => {
+
+  //   const {name, value} = event.target;
+  //   console.log("Event: ", event.target.value)
+
+  //   setPlace((prevInput) => {
+  //     return {
+  //       ...prevInput,
+  //       [name]: value,
+  //     };
+  //   });
+  // } 
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+
+  // const newPlace = {
+  //     placeName: place.placeName,
+  //     placeLocation: place.placeLocation,
+  //     placeDetails: place.placeDetails,
+  //     placePhoto: place.placePhoto,
+  //   }
+
+  //   console.log("State inside handlesubmit: ", newPlace);
+  // }
+
+  // console.log("qitu outside place: ", place);
     return(
+      
         <div>
+
+        
+
         <div className="lg:flex">
           <div className="bg-white lg:w-2/4 px-6 lg:ml-4 rounded-l-lg">
             <h1 className="text-3xl tex-gray-700 py-6 p-3 w-2/3 m-auto">
@@ -22,10 +61,14 @@ const AddNewPlace = (props) => {
                 <div className="w-full lg:w-1/2 px-1">
                   <label class="text-gray-600 font-light ">Place name</label>
                   <input
-                    type="text"
-                    placeholder="Enter your Place name here"
-                    className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
-                  >{props.name}</input>
+                  type="text"
+                  placeholder="Enter your Place name here"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  onChange={props.handleChange}
+                  name="placeName"
+                  // value={place.placeName}
+                  value={props.value.placeName}
+                  />
                 </div>
 
                 <div className="w-full lg:w-1/2 px-1">
@@ -36,7 +79,10 @@ const AddNewPlace = (props) => {
                     type="text"
                     placeholder="Enter your Place location here"
                     className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
-                  >{props.location}</input>
+                    onChange={props.handleChange}
+                    name="placeLocation"
+                    value={props.value.placeLocation}
+                  />
                 </div>
               </div>
             </div>
@@ -56,7 +102,10 @@ const AddNewPlace = (props) => {
                     type="text"
                     placeholder="Enter your place details here"
                     className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
-                  >{props.details}</textarea>
+                    onChange={props.handleChange}
+                    name="placeDetails"
+                    value={props.value.placeDetails}
+                  />
                 </div>
               </div>
             </div>
@@ -67,9 +116,13 @@ const AddNewPlace = (props) => {
                   type="file"
                   placeholder="Enter your Place location here"
                   className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
-                >{props.image}</input>
+                  onChange={props.handleChange}
+                  name="placePhoto"
+                  value={props.value.placePhoto}
+                />
               </div>
               <button
+                onClick={props.handleSubmit}
                 type="submit"
                 class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
               >
