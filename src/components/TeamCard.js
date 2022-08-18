@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function TeamCard(props) {
   return (
@@ -20,5 +21,12 @@ function TeamCard(props) {
     </div>
   );
 }
+
+TeamCard.propTypes = {
+  img: PropTypes.string,
+  name: PropTypes.string,
+  title: PropTypes.string,
+  email: PropTypes.string,
+};
 
 export default TeamCard;

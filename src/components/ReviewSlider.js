@@ -5,6 +5,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../components/reviewslider.css";
 import { Pagination, Navigation } from "swiper";
+import PropTypes from "prop-types";
 
 const ReviewSlider = ({ reviews }) => {
   return (
@@ -50,6 +51,13 @@ const ReviewSlider = ({ reviews }) => {
       </Swiper>
     </div>
   );
+};
+
+ReviewSlider.propTypes = {
+  id: PropTypes.number,
+  img: PropTypes.string,
+  username: PropTypes.string,
+  review: PropTypes.string,
 };
 
 export default ReviewSlider;

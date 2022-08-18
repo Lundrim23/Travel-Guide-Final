@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const Categories = (props) => {
   return (
     <>
@@ -9,8 +11,7 @@ const Categories = (props) => {
           <p className="px-2">{props.paragraph}</p>
           <a
             href={props.button}
-            className="bg-transparent hover:bg-[#6366F1] text-white font-bold hover:text-white py-2 
-                                                px-4 border border-white mx-2 rounded absolute bottom-4 cursor-pointer"
+            className="bg-transparent hover:bg-[#6366F1] text-white font-bold hover:text-white py-2 px-4 border border-white mx-2 rounded absolute bottom-4 cursor-pointer"
             target="_blank"
             rel="noreferrer"
           >
@@ -25,6 +26,14 @@ const Categories = (props) => {
       </div>
     </>
   );
+};
+
+Categories.propTypes = {
+  title: PropTypes.string,
+  paragraph: PropTypes.string,
+  image: PropTypes.string,
+  alttxt: PropTypes.string,
+  buttontxt: PropTypes.string,
 };
 
 export default Categories;

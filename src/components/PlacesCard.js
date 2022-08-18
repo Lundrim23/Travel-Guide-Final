@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function PlacesCard(props) {
   return (
@@ -18,5 +19,12 @@ function PlacesCard(props) {
     </div>
   );
 }
+
+PlacesCard.propTypes = {
+  id: PropTypes.number,
+  img: PropTypes.string,
+  name: PropTypes.string,
+  title: PropTypes.string,
+};
 
 export default PlacesCard;

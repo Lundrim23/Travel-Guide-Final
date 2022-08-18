@@ -42,7 +42,10 @@ export function LogIn() {
                 </div>
 
                 <div className="flex justify-between w-64 mb-5 pt-5">
-                  <Link to="/register" className="flex items-center text-xs cursor-pointer">
+                  <Link
+                    to="/register"
+                    className="flex items-center text-xs cursor-pointer"
+                  >
                     Dont't have an account ?
                   </Link>
                   <a href="#" className="text-xs">

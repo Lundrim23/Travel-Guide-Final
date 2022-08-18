@@ -182,7 +182,10 @@ function Register() {
                   ) : null}
                 </div>
                 <div className="w-64 mb-5 pt-3 rounded-2xl">
-                  <Link to="/login" className="items-center text-xs cursor-pointer">
+                  <Link
+                    to="/login"
+                    className="items-center text-xs cursor-pointer"
+                  >
                     Already have an account ?
                   </Link>
                 </div>

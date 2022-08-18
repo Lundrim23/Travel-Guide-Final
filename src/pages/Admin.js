@@ -1,16 +1,12 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-
-import AdminSidebar from '../components/adminComponent/AdminSidebar.js';
-import GridComponent from '../components/adminComponent/GridComponent.js'
-
+import AdminSidebar from "../components/adminComponent/AdminSidebar.js";
+import GridComponent from "../components/adminComponent/GridComponent.js";
 
 import { Views, RegisteredUsers, Messages } from "../components/AllSvgs.js";
 
-
 function Admin() {
-
   //this one gets the todays date
   const current = new Date();
   const date = `${current.getDate()}/${
@@ -30,7 +26,7 @@ function Admin() {
         <div className="flex-auto lg:pl-72">
           <div className="flex flex-col">
             <div className="flex flex-col bg-gray-100 pl-5">
-                <h4 className="font-bold text-gray-500 p-1">Dashboard</h4>
+              <h4 className="font-bold text-gray-500 p-1">Dashboard</h4>
               <p className="text-gray-500 p-1">{date}</p>
             </div>
 
@@ -55,10 +51,6 @@ function Admin() {
               </div>
 
               <Outlet />
-              
-              
-
-
             </div>
           </div>
         </div>
