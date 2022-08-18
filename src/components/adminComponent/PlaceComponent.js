@@ -53,7 +53,7 @@ const PlaceComponent = (props) => {
     formData.append("file", image);
     formData.append("upload_preset", "jipopo2x");
 
-    const res = await axios.post(url, formData);
+    const res = await axios.post("https://api.cloudinary.com/v1_1/starlabstitans/image/upload", formData);
     const imageUrl = res.data.secure_url;
     console.log("this is image url " + imageUrl);
 
@@ -100,6 +100,7 @@ const PlaceComponent = (props) => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         value={place}
+        name={image}
       />
       <PlaceTable
         displayPlaces={displayPlaces}
