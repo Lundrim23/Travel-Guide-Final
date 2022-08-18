@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
+import axios from "axios";
 
 const PlaceComponent = (props) => {
-
   const [place, setPlace] = useState({
     placeName: "",
     placeLocation: "",
@@ -11,11 +11,29 @@ const PlaceComponent = (props) => {
     placePhoto: "",
   });
 
-  
-  const handleChange = (event) => {
+  const [displayPlaces, setDisplayPlaces] = useState([]);
 
-    const {name, value} = event.target;
-    console.log("Event: ", event.target.value)
+  useEffect(() => {
+    fetchPlaces();
+  }, []);
+
+  //this method gets all places
+  const fetchPlaces = () => {
+    const url = "http://localhost:5000/api/places/get";
+
+    axios
+      .get(url)
+      .then((res) => {
+        setDisplayPlaces(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  //this method populates state with data
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
     setPlace((prevInput) => {
       return {
@@ -23,59 +41,71 @@ const PlaceComponent = (props) => {
         [name]: value,
       };
     });
-  } 
+  };
 
-  const handleSubmit = (event) => {
+  const [image, setImage] = useState("");
+  //Submit method to submit all data in db ("creates a new place")
+  const handleSubmit = async (event) => {
+    const url = "http://localhost:5000/api/places/";
     event.preventDefault();
 
-  const newPlace = {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "jipopo2x");
+
+    const res = await axios.post(url, formData);
+    const imageUrl = res.data.secure_url;
+    console.log("this is image url " + imageUrl);
+
+    const newPlace = {
+      placeName: place.placeName,
+      placeLocation: place.placeLocation,
+      placeDetails: place.placeDetails,
+      placePhoto: imageUrl,
+    };
+
+    axios.post(url, newPlace);
+  };
+
+  //this method updates an event
+  const updatePlace = (id) => {
+    const url = "http://localhost:5000/api/places/edit/";
+
+    const updatePlace = {
       placeName: place.placeName,
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
       placePhoto: place.placePhoto,
-    }
+    };
 
-    console.log("State inside handlesubmit: ", newPlace);
-  }
+    axios.patch(url + id, updatePlace);
+  };
 
-  console.log("qitu outside place: ", place);
+  //this method deletes a place
+  const removePlace = (id) => {
+    const url = "http://localhost:5000/api/places/delete/";
 
+    axios
+      .delete(url + id)
+      .then((res) => {
+        const myAllData = displayPlaces.filter((item) => item._id !== id);
+        setDisplayPlaces(myAllData);
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <>
-      <AddNewPlace 
-        handleChange = {handleChange}
-        handleSubmit = {handleSubmit}
-        value = {place}
+      <AddNewPlace
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        value={place}
       />
       <PlaceTable
-        name={"Kosovo Tour"}
-        location={"Kosovo"}
-        details={"Details"}
-        photo={"photo"}
-        edit={"edit"}
-        delete={"delete"}
+        displayPlaces={displayPlaces}
+        remove={removePlace}
+        update={updatePlace}
       />
-
-{/* <div className="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4 lg:hidden w-3/4 pl-4">
-        <div className="bg-white p-4 rounded-lg shadow">
-          <div className="text-sm text-gray-700">{props.name}</div>
-          <div className="text-sm text-gray-700">{props.location}</div>
-          <div className="text-sm text-gray-700">{props.details}</div>
-          <div className="text-sm text-gray-700">{props.photo}</div>
-          <div className="flex items-center space-x-2 text-sm">
-            <div className="font-bold text-blue-500 hover:underline">{props.edit}</div>
-            <div className="font-bold text-red-500 hover:underline">{props.delete}</div>
-            <div className="text-sm text-gray-700">name</div>
-          <div className="text-sm text-gray-700">location</div>
-          <div className="text-sm text-gray-700">details</div>
-          <div className="text-sm text-gray-700">photo</div>
-          <div className="flex items-center space-x-2 text-sm">
-            <div className="font-bold text-blue-500 hover:underline">edit</div>
-            <div className="font-bold text-red-500 hover:underline">delete</div>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };
