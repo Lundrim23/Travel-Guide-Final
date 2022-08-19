@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const ServicesComponent = (props) => {
   return (
     <div className="flex">
@@ -11,6 +13,11 @@ const ServicesComponent = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default ServicesComponent
+ServicesComponent.propTypes = {
+  title: PropTypes.string,
+  paragraph: PropTypes.string,
+};
+
+export default ServicesComponent;
