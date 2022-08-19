@@ -12,6 +12,7 @@ import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
 import Beaches from "../assets/img/beaches.jpg";
 import Nightlife from "../assets/img/nightlife.jpg";
+import Card from "../components/Card";
 
 function Home() {
   return (
