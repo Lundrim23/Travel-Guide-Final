@@ -1,11 +1,20 @@
 import { AiOutlineUser, AiOutlinePhone } from "react-icons/ai";
 import { FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userSchema } from "./Utils/Schema/user-validation.schema";
+import axios from "axios";
+import { useState } from "react";
 
 function Register() {
+  // my code
+  const history = useNavigate();
+ 
+
+  let sendRequest;
+
+///
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -18,9 +27,14 @@ function Register() {
     onSubmit: async (actions) => {
       if (formik.isValid) {
         await new Promise((reset) => setTimeout(reset, 1000));
+        
         actions.resetForm();
       }
     },
+
+      
+      
+    
   });
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
@@ -38,7 +52,7 @@ function Register() {
               </h2>
               <div className="border-2 w-10 border-blue-900 inline-block mb-2"></div>
 
-              <form
+              <form 
                 className="flex flex-col items-center"
                 onSubmit={formik.handleSubmit}
                 autoComplete="off"
