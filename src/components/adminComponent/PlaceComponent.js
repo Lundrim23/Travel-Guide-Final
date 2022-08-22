@@ -19,7 +19,7 @@ const PlaceComponent = () => {
 
   //this method gets all places
   const fetchPlaces = () => {
-    const url = "http://localhost:5000/api/places/get";
+    const url = process.env.REACT_APP_GET_ALL_PLACES;
 
     axios
       .get(url)
@@ -31,7 +31,6 @@ const PlaceComponent = () => {
       });
   };
 
-  // const [image, setImage] = useState("");
   //this method populates state with data
   function handleChange(event) {
     const { name, value } = event.target;
@@ -45,8 +44,8 @@ const PlaceComponent = () => {
   };
 
 
-  //this method uploads photo in cloudinary 
  const [uplphoto, setUplphoto] = useState("")
+   //this method uploads photo in cloudinary 
   const imageUpload = async(event) => {
     
     const files = event.target.files
@@ -61,7 +60,7 @@ const PlaceComponent = () => {
 
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event, id) => {
-    const url = "http://localhost:5000/api/places/";
+    const url = process.env.REACT_APP_SAVE_NEW_PLACE;
     event.preventDefault();
 
     const newPlace = {
@@ -76,13 +75,13 @@ const PlaceComponent = () => {
 
   //this method updates an event
   const updatePlace = (id) => {
-    const url = "http://localhost:5000/api/places/edit/";
+    const url = process.env.REACT_APP_EDIT_PLACE;
 
     const updatePlace = {
       placeName: place.placeName,
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
-      placePhoto: place.placePhoto,
+      placePhoto: uplphoto,
     };
 
     axios.patch(url + id, updatePlace);
@@ -90,7 +89,7 @@ const PlaceComponent = () => {
 
   //this method deletes a place
   const removePlace = (id) => {
-    const url = "http://localhost:5000/api/places/delete/";
+    const url = process.env.REACT_APP_DELETE_PLACE;
 
     axios
       .delete(url + id)
