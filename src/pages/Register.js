@@ -5,37 +5,34 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userSchema } from "./Utils/Schema/user-validation.schema";
 import axios from "axios";
-import { useState } from "react";
 
 function Register() {
-  // my code
+  
   const history = useNavigate();
  
-
-  let sendRequest;
-
-///
   const formik = useFormik({
-    initialValues: {
-      username: "",
-      email: "",
-      phone: "",
-      password: "",
-      confirmPassword: "",
-    },
+   initialValues:{
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
+   },
     validationSchema: userSchema,
-    onSubmit: async (actions) => {
-      if (formik.isValid) {
+    onSubmit: async (values, actions ) => {
+      if (formik.isValid ) {
+          await axios.post('http://localhost:5000/api/users/register', {
+          username: values.username,
+          email: values.email,
+          phone: values.phone,
+          password: values.password
+        }).catch((err) => console.log(err));
         await new Promise((reset) => setTimeout(reset, 1000));
-        
+        history('/login');
         actions.resetForm();
-      }
-    },
-
-      
-      
-    
-  });
+        
+    }
+  }});
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
