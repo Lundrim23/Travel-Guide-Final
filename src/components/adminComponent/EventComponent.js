@@ -20,7 +20,6 @@ const EventComponent = () => {
     fetchEvents();
   }, []);
 
-  const [image, setImage] = useState("");
 
   //this one populates state with data
   function handleChange(event) {
@@ -32,18 +31,15 @@ const EventComponent = () => {
         [name]: value,
       };
     });
-
-    setImage(event.target.files[0]);
   }
 
-  //this one saves data to db throught be
-  const handleClick = async (event, id, async) => {
-    const url = process.env.REACT_APP_SAVE_DATA;
+  //this method uploads photo in cloudinary
+  const [photoUpload, setPhotoUpload] = useState("")
+  const uploadPhoto = async(event) => {
 
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("file", image);
+    const files = event.target.files
+    const formData = new FormData()
+    formData.append("file", files[0]);
     formData.append("upload_preset", "jipopo2x");
 
     const res = await axios.post(
@@ -51,9 +47,15 @@ const EventComponent = () => {
       formData
     );
     const imageUrle = res.data.secure_url;
-    console.log("this is image url " + imageUrle);
+    setPhotoUpload(imageUrle)
+  }
 
-    //setImage(imageUrle.data);
+
+  //this one saves data to db throught be
+  const handleClick = async (event, id, async) => {
+    const url = process.env.REACT_APP_SAVE_DATA;
+
+    event.preventDefault();
 
     const newEvent = {
       eventName: input.eventName,
@@ -62,7 +64,7 @@ const EventComponent = () => {
       location: input.location,
       address: input.address,
       description: input.description,
-      imageUrl: imageUrle,
+      imageUrl: photoUpload,
     };
 
     axios.post(url, newEvent);
@@ -116,8 +118,9 @@ const EventComponent = () => {
     <>
       <AddEvent
         handleChange={handleChange}
-        input={input}
         handleClick={handleClick}
+        uploadPhoto={uploadPhoto}
+        input={input}
       />
       <hr />
       <EventTable events={events} update={update} remove={remove} />

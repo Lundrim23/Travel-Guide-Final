@@ -134,7 +134,7 @@ const AddEvent = (props) => {
                 <input
                   type="file"
                   name='image'
-                  onChange={props.handleChange}
+                  onChange={props.uploadPhoto}
                   class="w-full text-gray-700 px-3 py-2 border rounded"
                 />
                 <input className='file-path validate' type='text' />
