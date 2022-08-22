@@ -10,8 +10,6 @@ import {
   PlaceIcon,
 } from "../AllSvgs.js";
 
-
-
 const AdminSidebar = () => {
   return (
     <div className="flex flex-row ">
@@ -25,28 +23,25 @@ const AdminSidebar = () => {
         </div>
 
         <div className="flex flex-col flex-auto left-[-300px]">
+          <AdminSidebarElements
+            name={<Link to="/admin">Dashboard</Link>}
+            icon={<DashboardIcon />}
+          />
 
-        <AdminSidebarElements 
-          name={<Link to="/admin">Dashboard</Link>}
-          icon={<DashboardIcon />}
-        />
+          <AdminSidebarElements
+            name={<Link to="/admin/event">Events</Link>}
+            icon={<EventIcon />}
+          />
 
-        <AdminSidebarElements 
-          name={<Link to="/admin/event">Events</Link>}
-          icon={<EventIcon />}
-        />
+          <AdminSidebarElements
+            name={<Link to="/admin/places">Places</Link>}
+            icon={<PlaceIcon />}
+          />
 
-        <AdminSidebarElements 
-          name={<Link to="/admin/places">Places</Link>}
-          icon={<PlaceIcon />}
-        />
-
-        <AdminSidebarElements 
-          name={<Link to="/admin/users">Users</Link>}
-          icon={<AdminIcon />}
-        />
-
-
+          <AdminSidebarElements
+            name={<Link to="/admin/users">Users</Link>}
+            icon={<AdminIcon />}
+          />
         </div>
 
         <div className="flex flex-col">
