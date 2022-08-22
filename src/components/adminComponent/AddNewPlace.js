@@ -2,99 +2,8 @@ import React, { useState } from "react";
 import Axios from "axios";
 
 const AddNewPlace = (props) => {
-
-  const [imageSelected, setImageSelected] = useState({
-    placeName: "",
-    placeLocation: "",
-    placeDetails: "",
-    placePhoto: "",
-  });
-
-    //this method populates state with data
-    const handChange = (event) => {
-      const { name, value } = event.target;
-  
-      setImageSelected((prevInput) => {
-        return {
-          ...prevInput,
-          [name]: value,
-        };
-        
-      });
-      
-    };
-
-
-  const uploadImage =async (event) => {
-    const url = "http://localhost:5000/api/places/";
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "jipopo2x");
-
-    const res = await Axios.post(
-      "https://api.cloudinary.com/v1_1/starlabstitans/image/upload",
-      formData
-    ).then((res) => {
-      console.log(res);
-      const imageUrle = res.data.secure_url;
-      // console.log("this is image url " + imageUrle);
-      // setImageSelected({
-      //   ...imageSelected,
-      //   placePhoto: imageUrle,
-      // })
-    });
-
-    const newPlace = {
-      placeName: imageSelected.placeName,
-      placeLocation: imageSelected.placeLocation,
-      placeDetails: imageSelected.placeDetails,
-      placePhoto: imageSelected.placePhoto,
-    };
-
-    console.log("Qikjo new place ",newPlace)
-
-    Axios.post(url, newPlace);
-  };
-
-  console.log("qikjo image selected ",imageSelected);
-
   return (
     <div>
-      <div>
-      <input
-                  type="text"
-                  placeholder="Enter your Place name here"
-                  onChange={handChange}
-                  name="placeName"
-                  value={imageSelected.placeName}
-                />
-                 <input
-                  type="text"
-                  placeholder="Enter your Place location here"
-                 onChange={handChange}
-                  name="placeLocation"
-                  value={imageSelected.placeLocation}
-                />
-                  <textarea
-                  type="text"
-                  placeholder="Enter your place details here"
-                  onChange={handChange}
-                  name="placeDetails"
-                  value={imageSelected.placeDetails}
-                />
-        <input
-          type="file"
-          name="image"
-          // onChange={(e) => {
-          //   setImageSelected(e.target.files[0]);
-          // }}
-          onChange={handChange}
-        />
-        <button onClick={uploadImage}>Upload Image</button>
-      </div>
-
       <div className="lg:flex">
         <div className="bg-white lg:w-2/4 px-6 lg:ml-4 rounded-l-lg">
           <h1 className="text-3xl tex-gray-700 py-6 p-3 w-2/3 m-auto">
@@ -117,7 +26,7 @@ const AddNewPlace = (props) => {
                   className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
                   onChange={props.handleChange}
                   name="placeName"
-                  value={props.value.placeName}
+                  value={props.place.placeName}
                 />
               </div>
 
@@ -129,7 +38,7 @@ const AddNewPlace = (props) => {
                   className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
                   onChange={props.handleChange}
                   name="placeLocation"
-                  value={props.value.placeLocation}
+                  value={props.place.placeLocation}
                 />
               </div>
             </div>
@@ -152,7 +61,7 @@ const AddNewPlace = (props) => {
                   className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
                   onChange={props.handleChange}
                   name="placeDetails"
-                  value={props.value.placeDetails}
+                  value={props.place.placeDetails}
                 />
               </div>
             </div>
@@ -162,10 +71,9 @@ const AddNewPlace = (props) => {
               <label class="text-gray-600 font-light ">Place photo</label>
               <input
                 type="file"
-                placeholder="Enter your Place location here"
                 className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
                 onChange={props.handleChange}
-                name={props.name}
+                name="image"
                 // value={props.value.placePhoto}
               />
               <input className="file-path validate" type="text" />

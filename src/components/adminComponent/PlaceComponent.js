@@ -3,7 +3,7 @@ import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
 import axios from "axios";
 
-const PlaceComponent = (props) => {
+const PlaceComponent = () => {
   const [place, setPlace] = useState({
     placeName: "",
     placeLocation: "",
@@ -31,8 +31,9 @@ const PlaceComponent = (props) => {
       });
   };
 
+  const [image, setImage] = useState("");
   //this method populates state with data
-  const handleChange = (event) => {
+  function handleChange(event) {
     const { name, value } = event.target;
 
     setPlace((prevInput) => {
@@ -41,11 +42,13 @@ const PlaceComponent = (props) => {
         [name]: value,
       };
     });
+
+    setImage(event.target.files[0]);
   };
 
-  const [image, setImage] = useState("");
+
   //Submit method to submit all data in db ("creates a new place")
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event, id) => {
     const url = "http://localhost:5000/api/places/";
     event.preventDefault();
 
@@ -99,8 +102,7 @@ const PlaceComponent = (props) => {
       <AddNewPlace
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        value={place}
-        name={image}
+        place={place}
       />
       <PlaceTable
         displayPlaces={displayPlaces}

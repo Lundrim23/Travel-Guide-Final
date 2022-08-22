@@ -41,7 +41,11 @@ const PlaceTable = (props) => {
                     {place.placeDetails}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
-                    {place.placePhoto}
+                    <img 
+                    className="w-12"
+                      src={place.placePhoto}
+                      alt="On table"
+                    />
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
                     <button
