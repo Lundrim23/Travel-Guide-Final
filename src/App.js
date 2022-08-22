@@ -7,15 +7,12 @@ import Places from "./pages/Places";
 import Events from "./pages/Events";
 import Contact from "./pages/Contact";
 import Register from "./pages/Register";
-
 import Admin from "./pages/Admin";
-
 import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 
 import "./App.css";
-
 
 function App() {
   return (
@@ -29,14 +26,10 @@ function App() {
           <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="register" element={<Register />} />
-
         <Route path="admin" element={<Admin />} />
-
         <Route path="login" element={<LogIn />} />
-
         <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
-       
       </Routes>
     </BrowserRouter>
   );
