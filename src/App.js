@@ -16,6 +16,7 @@ import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
 import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
 import "./App.css";
+import Reviews from "./pages/Reviews";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="users" element={<AllUsersComponent />} />
         </Route>
 
+<Route path="reviews" element={<Reviews />} />
         <Route path="login" element={<LogIn />} />
         <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
