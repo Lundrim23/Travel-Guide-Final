@@ -31,7 +31,7 @@ const PlaceComponent = () => {
       });
   };
 
-  const [image, setImage] = useState("");
+  // const [image, setImage] = useState("");
   //this method populates state with data
   function handleChange(event) {
     const { name, value } = event.target;
@@ -42,29 +42,33 @@ const PlaceComponent = () => {
         [name]: value,
       };
     });
-
-    setImage(event.target.files[0]);
   };
 
+
+  //this method uploads photo in cloudinary 
+ const [uplphoto, setUplphoto] = useState("")
+  const imageUpload = async(event) => {
+    
+    const files = event.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append("upload_preset", "jipopo2x");
+
+    const res = await axios.post("https://api.cloudinary.com/v1_1/starlabstitans/image/upload", data);
+
+    setUplphoto(res.data.secure_url);
+  }
 
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event, id) => {
     const url = "http://localhost:5000/api/places/";
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append("upload_preset", "jipopo2x");
-
-    const res = await axios.post("https://api.cloudinary.com/v1_1/starlabstitans/image/upload", formData);
-    const imageUrl = res.data.secure_url;
-    console.log("this is image url " + imageUrl);
-
     const newPlace = {
       placeName: place.placeName,
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
-      placePhoto: imageUrl,
+      placePhoto: uplphoto,
     };
 
     axios.post(url, newPlace);
@@ -100,6 +104,7 @@ const PlaceComponent = () => {
   return (
     <>
       <AddNewPlace
+        imageUpload={imageUpload}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         place={place}

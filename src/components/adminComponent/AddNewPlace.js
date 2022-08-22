@@ -72,8 +72,8 @@ const AddNewPlace = (props) => {
               <input
                 type="file"
                 className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
-                onChange={props.handleChange}
-                name="image"
+                onChange={props.imageUpload}
+                name="placePhoto"
                 // value={props.value.placePhoto}
               />
               <input className="file-path validate" type="text" />
