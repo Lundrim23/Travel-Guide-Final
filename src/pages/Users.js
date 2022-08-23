@@ -3,14 +3,11 @@ import Sidebar from "../components/Sidebar";
 import Dashboardnav from "../components/Dashboardnav";
 function Users() {
   return (
-   
     <div>
-        <Dashboardnav />
-     <Sidebar />
-     
-
+      <Dashboardnav />
+      <Sidebar />
     </div>
-  )
+  );
 }
 
 export default Users;
