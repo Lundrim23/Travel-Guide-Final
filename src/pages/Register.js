@@ -7,32 +7,31 @@ import { userSchema } from "./Utils/Schema/user-validation.schema";
 import axios from "axios";
 
 function Register() {
-  
   const history = useNavigate();
- 
   const formik = useFormik({
-   initialValues:{
-    username: "",
-    email: "",
-    phone: "",
-    password: "",
-    confirmPassword: "",
-   },
+    initialValues: {
+      username: "",
+      email: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+    },
     validationSchema: userSchema,
-    onSubmit: async (values, actions ) => {
-      if (formik.isValid ) {
-          await axios.post('http://localhost:5000/api/users/register', {
-          username: values.username,
-          email: values.email,
-          phone: values.phone,
-          password: values.password
-        }).catch((err) => console.log(err));
+    onSubmit: async (values, actions) => {
+      if (formik.isValid) {
+       const res = await axios.post("http://localhost:5000/api/users/register", {
+            username: values.username,
+            email: values.email,
+            phone: values.phone,
+            password: values.password,
+          })
+          .catch((err) => console.log(err));
         await new Promise((reset) => setTimeout(reset, 1000));
-        history('/login');
         actions.resetForm();
-        
-    }
-  }});
+        history("/login");
+      }
+    },
+  });
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
@@ -49,7 +48,7 @@ function Register() {
               </h2>
               <div className="border-2 w-10 border-blue-900 inline-block mb-2"></div>
 
-              <form 
+              <form
                 className="flex flex-col items-center"
                 onSubmit={formik.handleSubmit}
                 autoComplete="off"
