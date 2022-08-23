@@ -15,6 +15,7 @@ import Users from "./pages/Users";
 import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
 import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
+import CountryComponent from "./components/adminComponent/CountryComponent";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />
           <Route path="places" element={<PlaceComponent />} />
+          <Route path="country" element={<CountryComponent />} />
           <Route path="users" element={<AllUsersComponent />} />
         </Route>
 
