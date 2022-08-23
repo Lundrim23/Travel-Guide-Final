@@ -18,18 +18,15 @@ function Register() {
     },
     validationSchema: userSchema,
     onSubmit: async (values, actions) => {
-      if (formik.isValid) {
-       const res = await axios.post("http://localhost:5000/api/users/register", {
+      const res = await axios.post("http://localhost:5000/api/users/register", {
             username: values.username,
             email: values.email,
             phone: values.phone,
             password: values.password,
-          })
-          .catch((err) => console.log(err));
-        await new Promise((reset) => setTimeout(reset, 1000));
-        actions.resetForm();
-        history("/login");
-      }
+      }).catch((err)=>alert("User Exists! Sign in instead") + actions.resetForm()+ history('/login'))
+          const data = await res.data
+          return data;
+    
     },
   });
   return (
