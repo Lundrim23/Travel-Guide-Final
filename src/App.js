@@ -30,6 +30,7 @@ function App() {
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
+
         <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />
           <Route path="places" element={<PlaceComponent />} />
