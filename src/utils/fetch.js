@@ -1,17 +1,18 @@
 import axios from "axios";
 
-const api = axios.create({
-    baseURL: REACT_APP_BASE_URL
+export const api = axios.create({
+  baseURL: "http://localhost:5000/api/events",
+});
+
+export const apii = axios.create({
+    baseURL: "http://localhost:5000/api/places"
 })
 
-export const remove = (id) => {
-    const url = process.env.REACT_APP_DELETE_FILE;
+export const fetchEvents = async () => {
+    const response = await api.get('/get');
+    return response.data;
+}
 
-    axios
-      .delete(url + id)
-      .then((res) => {
-        const myalldata = events.filter((item) => item._id !== id);
-        setEvents(myalldata);
-      })
-      .catch((err) => console.error(err));
-  }
+export function getUser(){
+    return axios.get('http://localhost:5000/api/events/get/6304c2725ef19a219767e507')
+}
