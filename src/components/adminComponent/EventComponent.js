@@ -3,6 +3,8 @@ import axios from "axios";
 import EventTable from "./EventTable";
 import AddEvent from "./AddEvent";
 
+import { remove } from "../../utils/fetch";
+
 const EventComponent = () => {
   const [input, setInput] = useState({
     eventName: "",
@@ -102,17 +104,17 @@ const EventComponent = () => {
   }
 
   // this one deletes an event
-  function remove(id) {
-    const url = process.env.REACT_APP_DELETE_FILE;
+  // function remove(id) {
+  //   const url = process.env.REACT_APP_DELETE_FILE;
 
-    axios
-      .delete(url + id)
-      .then((res) => {
-        const myalldata = events.filter((item) => item._id !== id);
-        setEvents(myalldata);
-      })
-      .catch((err) => console.error(err));
-  }
+  //   axios
+  //     .delete(url + id)
+  //     .then((res) => {
+  //       const myalldata = events.filter((item) => item._id !== id);
+  //       setEvents(myalldata);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
 
   return (
     <>
