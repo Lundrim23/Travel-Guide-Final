@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
+import Stars from './Stars';
 
 
 
@@ -14,7 +15,7 @@ function CommentSection() {
       <h1 class="text-center text-2xl font-bold text-gray-400 mb-10">ADD YOUR REVIEW</h1>
       <div class="space-y-4">
         <div>
-         <p> Stars section</p>
+     <Stars />
         </div>
         <div>
           <label for="description" class="block mb-2 text-lg font-bold text-gray-700">Description:</label>
@@ -22,7 +23,7 @@ function CommentSection() {
         </div>
         <div>
           <label for="email" class="text-lx font-bold text-gray-700">Email:</label>
-          <input type="text" placeholder="Email" id="email" class="ml-8 outline-none py-1 px-8 text-md border-2 rounded-md" />
+          <input type="text" placeholder="Email" id="email" class="ml-9 outline-none py-1 px-8 text-md border-2 rounded-md" />
         </div>
         <div>
           <label for="email" class="text-lx font-bold text-gray-700">Password:</label>
