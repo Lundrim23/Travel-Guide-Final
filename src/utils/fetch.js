@@ -1,53 +1,67 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:5000/api/events",
+  baseURL: process.env.REACT_APP_BASE_URL
 });
-
-export const place = axios.create({
-    baseURL: "http://localhost:5000/api/places"
-})
 
 export const cloudinaryApi = axios.create({
-    baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
+    baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD
 });
 
-//event module api calls
+//photo upload cloudinary
 export function uploadCloudinary(data){
     return cloudinaryApi.post('/', data);
 }
 
+//event module api calls
   export function getEvents(){
-    return api.get('/get');
+    return api.get('/events/get');
   }
 
   export function addEvents(data){
-    return api.post('/', data);
+    return api.post('events/', data);
   }
 
   export function updateEvents(id, data){
-    return api.patch('/update/'+id, data);
+    return api.patch('/events/update/'+id, data);
   }
 
   export function deleteEvent(id){
-    return api.delete('/delete/'+id);
+    return api.delete('/events/delete/'+id);
   }
 
 
 //place module api calls
   export function getPlaces(){
-    return place.get('/get');
+    return api.get('/places/get');
   }
 
   export function addPlace(data){
-    return place.post('/', data);
+    return api.post('places/', data);
   }
 
   export function updatePlacee(id, data){
-    return place.patch('/edit/'+id, data);
+    return api.patch('/places/edit/'+id, data);
   }
 
   export function deletePlace (id){
-    return place.delete('/delete/'+id);
+    return api.delete('/places/delete/'+id);
   }
+
+//country module api calls
+export function getCountries(){
+  return api.get('/countries/get');
+}
+
+export function addCountry(data){
+  return api.post('countries/', data);
+}
+
+export function updateCountryy(id, data){
+  return api.patch('/countries/edit/'+id, data);
+}
+
+export function deleteCountryy(id){
+  return api.delete('/countries/delete/'+id);
+}
 
