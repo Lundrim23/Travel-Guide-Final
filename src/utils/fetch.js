@@ -8,11 +8,33 @@ export const apii = axios.create({
     baseURL: "http://localhost:5000/api/places"
 })
 
-export const fetchEvents = async () => {
-    const response = await api.get('/get');
-    return response.data;
+// const axiosClient = axios.create({
+//     baseURL: "http://localhost:5000/api/events"
+// });
+
+export const cloudinaryApi = axios.create({
+    baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
+});
+
+export function uploadCloudinary(data){
+    return cloudinaryApi.post('/', data);
 }
 
-export function getUser(){
-    return axios.get('http://localhost:5000/api/events/get/6304c2725ef19a219767e507')
-}
+  export function getEvents(){
+    return api.get('/get');
+  }
+
+  export function addEvents(data){
+    return api.post('/', data);
+  }
+
+  export function updateEvents(id, data){
+    return api.patch('/update/'+id, data);
+  }
+
+  export function deleteEvent(id){
+    return api.delete('/delete/'+id);
+  }
+
+
+

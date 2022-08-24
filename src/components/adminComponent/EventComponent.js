@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import EventTable from "./EventTable";
 import AddEvent from "./AddEvent";
-import { api, fetchEvents, getUser } from "../../utils/fetch";
+import {
+  addEvents,
+  deleteEvent,
+  getEvents,
+  updateEvents,
+  uploadCloudinary,
+} from "../../utils/fetch";
 
 const EventComponent = () => {
   const [input, setInput] = useState({
@@ -17,14 +22,13 @@ const EventComponent = () => {
   //this one displays event on the table
   const [events, setEvents] = useState([]);
 
-
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         //this method gets data from db and populates state with data
-        const response = await api.get("/get");
-        setEvents(response.data);
-        
+        getEvents().then(function (response) {
+          setEvents(response.data);
+        });
       } catch (err) {
         if (err.response) {
           //not in the 200 respose range
@@ -59,10 +63,8 @@ const EventComponent = () => {
     formData.append("file", files[0]);
     formData.append("upload_preset", "jipopo2x");
 
-    const res = await axios.post(
-      process.env.REACT_APP_CLOUDINARY_UPLOAD,
-      formData
-    );
+    const res = await uploadCloudinary(formData);
+    console.log(res);
     const imageUrle = res.data.secure_url;
     setPhotoUpload(imageUrle);
   };
@@ -80,17 +82,15 @@ const EventComponent = () => {
       description: input.description,
       imageUrl: photoUpload,
     };
-       
-    try{
-      const response = await api.post('/', newEvent)
-      const allEvents = [...events, response.data];
-    setEvents(allEvents);
 
-    } catch (err){
+    try {
+      addEvents(newEvent).then((response) => {
+        setEvents([...events, response.data]);
+      });
+    } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-
 
   //this one updates an event
   const update = async (id) => {
@@ -104,25 +104,29 @@ const EventComponent = () => {
       imageUrl: photoUpload,
     };
 
-    try{
-      const response = await api.patch(`update/${id}`, article)
-      setEvents(events.map(event => event.id === id ? {...response.data} : event ));
-    } catch (err){
+    try {
+      updateEvents(id, article).then((response) => {
+        setEvents(
+          events.map((event) =>
+            event.id === id ? { ...response.data } : event
+          )
+        );
+      });
+    } catch (err) {
       console.log(`Error: ${err.message}`);
     }
-  }
+  };
 
   // this one deletes an event
-  const remove = async(id) => {
-    try{
-      await api.delete(`/delete/${id}`);
+  const remove = async (id) => {
+    try {
+      deleteEvent(id);
       const myalldata = events.filter((item) => item._id !== id);
       setEvents(myalldata);
-    } catch (err){
+    } catch (err) {
       console.log(`Error: ${err.message}`);
     }
-
-  }
+  };
 
   return (
     <>
