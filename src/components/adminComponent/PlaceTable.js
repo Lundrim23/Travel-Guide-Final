@@ -49,7 +49,7 @@ const PlaceTable = (props) => {
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
                     <button
-                      onClick={() => props.update(place._id)}
+                      onClick={() => props.update(place._id) }
                       className="font-bold text-blue-500 hover:underline"
                     >
                       Edit

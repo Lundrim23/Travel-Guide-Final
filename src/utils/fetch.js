@@ -4,18 +4,15 @@ export const api = axios.create({
   baseURL: "http://localhost:5000/api/events",
 });
 
-export const apii = axios.create({
+export const place = axios.create({
     baseURL: "http://localhost:5000/api/places"
 })
-
-// const axiosClient = axios.create({
-//     baseURL: "http://localhost:5000/api/events"
-// });
 
 export const cloudinaryApi = axios.create({
     baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
 });
 
+//event module api calls
 export function uploadCloudinary(data){
     return cloudinaryApi.post('/', data);
 }
@@ -37,4 +34,20 @@ export function uploadCloudinary(data){
   }
 
 
+//place module api calls
+  export function getPlaces(){
+    return place.get('/get');
+  }
+
+  export function addPlace(data){
+    return place.post('/', data);
+  }
+
+  export function updatePlacee(id, data){
+    return place.patch('/edit/'+id, data);
+  }
+
+  export function deletePlace (id){
+    return place.delete('/delete/'+id);
+  }
 

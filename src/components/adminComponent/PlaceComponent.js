@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
 import axios from "axios";
-import { apii } from "../../utils/fetch";
+import {
+  addPlace,
+  deletePlace,
+  getPlaces,
+  updatePlacee,
+  uploadCloudinary,
+} from "../../utils/fetch";
 
 const PlaceComponent = () => {
   const [place, setPlace] = useState({
@@ -18,8 +24,9 @@ const PlaceComponent = () => {
     //this method gets all places
     const fetchPlaces = async () => {
       try {
-        const response = await apii.get("/get");
-        setDisplayPlaces(response.data);
+        getPlaces().then(function (response) {
+          setDisplayPlaces(response.data);
+        });
       } catch (err) {
         if (err.response) {
           //not in the 200 respose range
@@ -54,11 +61,7 @@ const PlaceComponent = () => {
     data.append("file", files[0]);
     data.append("upload_preset", "jipopo2x");
 
-    const res = await axios.post(
-      "https://api.cloudinary.com/v1_1/starlabstitans/image/upload",
-      data
-    );
-
+    const res = await uploadCloudinary(data);
     setUplphoto(res.data.secure_url);
   };
 
@@ -74,9 +77,9 @@ const PlaceComponent = () => {
     };
 
     try {
-      const response = await apii.post("/", newPlace);
-      const allPlaces = [...displayPlaces, response.data];
-      setDisplayPlaces(allPlaces);
+      addPlace(newPlace).then((response) => {
+        setDisplayPlaces([...displayPlaces, response.data]);
+      });
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -92,12 +95,13 @@ const PlaceComponent = () => {
     };
 
     try {
-      const response = await apii.patch(`/edit/${id}`, updatePlace);
-      setDisplayPlaces(
-        displayPlaces.map((onePlace) =>
-          onePlace.id === id ? { ...response.data } : displayPlaces
-        )
-      );
+      updatePlacee(id, updatePlace).then((response) => {
+        setDisplayPlaces(
+          displayPlaces.map((plac) =>
+            plac.id === id ? { ...response.data } : displayPlaces
+          )
+        );
+      });
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -106,8 +110,8 @@ const PlaceComponent = () => {
   //this method deletes a place
   const removePlace = async (id) => {
     try {
-      await apii.delete(`/delete/${id}`);
-      const myAllData = displayPlaces.filter((oneplace) => oneplace._id !== id);
+      deletePlace(id);
+      const myAllData = displayPlaces.filter((place) => place._id !== id);
       setDisplayPlaces(myAllData);
     } catch (err) {
       console.log(`Error: ${err.message}`);
