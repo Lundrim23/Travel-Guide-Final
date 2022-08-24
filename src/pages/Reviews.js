@@ -1,11 +1,16 @@
 import React from 'react'
-import CommentSection from '../components/CommentSection'
+import ReviewForm from '../components/ReviewForm'
+import ReviewTable from '../components/ReviewTable';
 
 function Reviews() {
   return (
     <div>
-        
-<CommentSection />
+    <ReviewTable  />
+<ReviewForm
+    // handleChange={handleChange}
+    // handleClick={handleClick}
+    // input={input} 
+    />
     </div>
   )
 }
