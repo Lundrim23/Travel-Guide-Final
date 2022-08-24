@@ -10,7 +10,7 @@ var overscrollOptions = {
 };
 
 var options = {
-  damping: 0.03,
+  damping: 0.07,
   plugins: {
     overscroll: { ...overscrollOptions },
   },
@@ -20,10 +20,6 @@ const Scroll = () => {
   useEffect(() => {
     Scrollbar.use(OverscrollPlugin);
     Scrollbar.init(document.body, options);
-
-    return () => {
-      if (Scrollbar) Scrollbar.destroy(document.body);
-    };
   }, []);
   return null;
 };
