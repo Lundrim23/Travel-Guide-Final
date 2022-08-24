@@ -5,9 +5,13 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { userSchema } from "./Utils/Schema/user-validation.schema";
 import axios from "axios";
+import { useState } from "react";
 
 function Register() {
   const history = useNavigate();
+
+  const [error, setError] = useState(null);
+
   const formik = useFormik({
     initialValues: {
       username: "",
@@ -18,15 +22,34 @@ function Register() {
     },
     validationSchema: userSchema,
     onSubmit: async (values, actions) => {
-      const res = await axios.post("http://localhost:5000/api/users/register", {
-            username: values.username,
-            email: values.email,
-            phone: values.phone,
-            password: values.password,
-      }).catch((err)=>alert("User Exists! Sign in instead") + actions.resetForm()+ history('/login'))
-          const data = await res.data
-          return data;
-    
+      await axios
+        .post("http://localhost:5000/api/users/register", {
+          username: values.username,
+          email: values.email,
+          phone: values.phone,
+          password: values.password,
+        })
+        .catch((error) => {
+          if (error.response) {
+            actions.resetForm();
+            throw Error(
+              "User already exists, Sign in or Refresh the page to try again!"
+            );
+          } else if (error.request) {
+            history("/register");
+            throw Error("HTTP REQUEST FAIL");
+          } else {
+            throw Error(error);
+          }
+        })
+        .catch((error) => {
+          setError(error.message);
+        })
+        .then((error) => {
+          if (!error.response) {
+            history("/login");
+          }
+        });
     },
   });
   return (
@@ -36,6 +59,11 @@ function Register() {
           {/* Sign In Section */}
           <div className="w-full p-5">
             <div className="text-center font-bold">
+              {error && (
+                <div style={{ backgroundColor: "red", borderRadius: "10px" }}>
+                  {error}
+                </div>
+              )}
               <span className="text-blue-900">Travel </span>Guide
             </div>
 
