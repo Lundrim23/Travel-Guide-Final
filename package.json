@@ -23,12 +23,9 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "smooth-scrollbar": "^8.7.5",
-=======
     "react-spring": "^9.0.0-rc.3",
     "styled-components": "^5.3.5",
->>>>>>> 988d2cd69838371d5e08a4f30fce5a26361b5586
     "swiper": "^8.3.2",
     "tailwind-scrollbar-hide": "^1.1.7",
     "tw-elements": "^1.0.0-alpha12",
