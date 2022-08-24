@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import EventTable from "./EventTable";
 import AddEvent from "./AddEvent";
+import {
+  addEvents,
+  deleteEvent,
+  getEvents,
+  updateEvents,
+  uploadCloudinary,
+} from "../../utils/fetch";
 
 const EventComponent = () => {
   const [input, setInput] = useState({
@@ -17,9 +23,25 @@ const EventComponent = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        //this method gets data from db and populates state with data
+        getEvents().then(function (response) {
+          setEvents(response.data);
+        });
+      } catch (err) {
+        if (err.response) {
+          //not in the 200 respose range
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    };
     fetchEvents();
   }, []);
-
 
   //this one populates state with data
   function handleChange(event) {
@@ -34,27 +56,21 @@ const EventComponent = () => {
   }
 
   //this method uploads photo in cloudinary
-  const [photoUpload, setPhotoUpload] = useState("")
-  const uploadPhoto = async(event) => {
-
-    const files = event.target.files
-    const formData = new FormData()
+  const [photoUpload, setPhotoUpload] = useState("");
+  const uploadPhoto = async (event) => {
+    const files = event.target.files;
+    const formData = new FormData();
     formData.append("file", files[0]);
     formData.append("upload_preset", "jipopo2x");
 
-    const res = await axios.post(
-      process.env.REACT_APP_CLOUDINARY_UPLOAD,
-      formData
-    );
+    const res = await uploadCloudinary(formData);
+    console.log(res);
     const imageUrle = res.data.secure_url;
-    setPhotoUpload(imageUrle)
-  }
-
+    setPhotoUpload(imageUrle);
+  };
 
   //this one saves data to db throught be
-  const handleClick = async (event, id, async) => {
-    const url = process.env.REACT_APP_SAVE_DATA;
-
+  const handleClick = async (event, id) => {
     event.preventDefault();
 
     const newEvent = {
@@ -67,27 +83,17 @@ const EventComponent = () => {
       imageUrl: photoUpload,
     };
 
-    axios.post(url, newEvent);
-  };
-
-  const fetchEvents = () => {
-    const url = process.env.REACT_APP_GET_ALL_EVENTS;
-
-    axios
-      .get(url)
-      .then((res) => {
-        console.log(res);
-        setEvents(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      addEvents(newEvent).then((response) => {
+        setEvents([...events, response.data]);
       });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   //this one updates an event
-  function update(id) {
-    const url = process.env.REACT_APP_UPDATE_FILE;
-
+  const update = async (id) => {
     const article = {
       eventName: input.eventName,
       eventOrganizator: input.eventOrganizator,
@@ -95,24 +101,32 @@ const EventComponent = () => {
       location: input.location,
       address: input.address,
       description: input.description,
-      imageUrl: input.imageUrl,
+      imageUrl: photoUpload,
     };
 
-    axios.patch(url + id, article);
-  }
+    try {
+      updateEvents(id, article).then((response) => {
+        setEvents(
+          events.map((event) =>
+            event.id === id ? { ...response.data } : event
+          )
+        );
+      });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
 
   // this one deletes an event
-  function remove(id) {
-    const url = process.env.REACT_APP_DELETE_FILE;
-
-    axios
-      .delete(url + id)
-      .then((res) => {
-        const myalldata = events.filter((item) => item._id !== id);
-        setEvents(myalldata);
-      })
-      .catch((err) => console.error(err));
-  }
+  const remove = async (id) => {
+    try {
+      deleteEvent(id);
+      const myalldata = events.filter((item) => item._id !== id);
+      setEvents(myalldata);
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
 
   return (
     <>
