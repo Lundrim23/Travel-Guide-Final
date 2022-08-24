@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
 import axios from "axios";
+import {
+  addPlace,
+  deletePlace,
+  getPlaces,
+  updatePlacee,
+  uploadCloudinary,
+} from "../../utils/fetch";
 
 const PlaceComponent = () => {
   const [place, setPlace] = useState({
@@ -14,22 +21,25 @@ const PlaceComponent = () => {
   const [displayPlaces, setDisplayPlaces] = useState([]);
 
   useEffect(() => {
+    //this method gets all places
+    const fetchPlaces = async () => {
+      try {
+        getPlaces().then(function (response) {
+          setDisplayPlaces(response.data);
+        });
+      } catch (err) {
+        if (err.response) {
+          //not in the 200 respose range
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    };
     fetchPlaces();
   }, []);
-
-  //this method gets all places
-  const fetchPlaces = () => {
-    const url = process.env.REACT_APP_GET_ALL_PLACES;
-
-    axios
-      .get(url)
-      .then((res) => {
-        setDisplayPlaces(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   //this method populates state with data
   function handleChange(event) {
@@ -41,26 +51,22 @@ const PlaceComponent = () => {
         [name]: value,
       };
     });
-  };
+  }
 
-
- const [uplphoto, setUplphoto] = useState("")
-   //this method uploads photo in cloudinary 
-  const imageUpload = async(event) => {
-    
-    const files = event.target.files
-    const data = new FormData()
-    data.append('file', files[0])
+  const [uplphoto, setUplphoto] = useState("");
+  //this method uploads photo in cloudinary
+  const imageUpload = async (event) => {
+    const files = event.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
     data.append("upload_preset", "jipopo2x");
 
-    const res = await axios.post("https://api.cloudinary.com/v1_1/starlabstitans/image/upload", data);
-
+    const res = await uploadCloudinary(data);
     setUplphoto(res.data.secure_url);
-  }
+  };
 
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event, id) => {
-    const url = process.env.REACT_APP_SAVE_NEW_PLACE;
     event.preventDefault();
 
     const newPlace = {
@@ -70,13 +76,17 @@ const PlaceComponent = () => {
       placePhoto: uplphoto,
     };
 
-    axios.post(url, newPlace);
+    try {
+      addPlace(newPlace).then((response) => {
+        setDisplayPlaces([...displayPlaces, response.data]);
+      });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   //this method updates an event
-  const updatePlace = (id) => {
-    const url = process.env.REACT_APP_EDIT_PLACE;
-
+  const updatePlace = async (id) => {
     const updatePlace = {
       placeName: place.placeName,
       placeLocation: place.placeLocation,
@@ -84,20 +94,28 @@ const PlaceComponent = () => {
       placePhoto: uplphoto,
     };
 
-    axios.patch(url + id, updatePlace);
+    try {
+      updatePlacee(id, updatePlace).then((response) => {
+        setDisplayPlaces(
+          displayPlaces.map((plac) =>
+            plac.id === id ? { ...response.data } : displayPlaces
+          )
+        );
+      });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   //this method deletes a place
-  const removePlace = (id) => {
-    const url = process.env.REACT_APP_DELETE_PLACE;
-
-    axios
-      .delete(url + id)
-      .then((res) => {
-        const myAllData = displayPlaces.filter((item) => item._id !== id);
-        setDisplayPlaces(myAllData);
-      })
-      .catch((err) => console.error(err));
+  const removePlace = async (id) => {
+    try {
+      deletePlace(id);
+      const myAllData = displayPlaces.filter((place) => place._id !== id);
+      setDisplayPlaces(myAllData);
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
   };
 
   return (
