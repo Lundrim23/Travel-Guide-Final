@@ -15,7 +15,7 @@ function Register() {
       confirmPassword: "",
     },
     validationSchema: userSchema,
-    onSubmit: async (actions) => {
+    onSubmit: async (values, actions) => {
       if (formik.isValid) {
         await new Promise((reset) => setTimeout(reset, 1000));
         actions.resetForm();
@@ -59,6 +59,7 @@ function Register() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.username}
+                    autoFocus
                     className="bg-gray-100 outline-none text-sm flex-1"
                   />
                 </div>
@@ -165,7 +166,7 @@ function Register() {
                 >
                   <MdLockOutline className="text-gray-400 m-2" />
                   <input
-                    id="password"
+                    id="confirmPassword"
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm Passwod"
@@ -193,12 +194,12 @@ function Register() {
                 </div>
 
                 <button
-                  disabled={!(formik.isValid && formik.dirty)}
+                  disabled={!formik.isValid}
                   type="submit"
                   className={
-                    !formik.isValid && formik.errors
-                      ? "border-2 border-blue-900 text-blue-900 mb-3 rounded-full px-12 py-2 inline-block font-semibold hover:bg-blue-900 hover:text-white"
-                      : "border-2 border-blue-900 text-blue-900 mb-3 rounded-full px-12 py-2 inline-block font-semibold "
+                    !formik.isValid
+                      ? "border-2 border-blue-900 text-blue-900 mb-3 rounded-full px-12 py-2 inline-block font-semibold opacity-50"
+                      : "border-2 border-blue-900 text-blue-900 mb-3 rounded-full px-12 py-2 inline-block font-semibold hover:bg-blue-900 hover:text-white"
                   }
                 >
                   Register
