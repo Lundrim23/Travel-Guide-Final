@@ -28,7 +28,7 @@ const AddEvent = (props) => {
                     <input
                       type="text"
                       placeholder="Enter your Event name here"
-                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                       onChange={props.handleChange}
                       name="eventName"
                       value={props.input.eventName}
@@ -42,7 +42,7 @@ const AddEvent = (props) => {
                     <input
                       type="text"
                       placeholder="Enter your Event Organizator name here"
-                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                       onChange={props.handleChange}
                       name="eventOrganizator"
                       value={props.input.eventOrganizator}
@@ -55,7 +55,7 @@ const AddEvent = (props) => {
                   <input
                     type="text"
                     placeholder="Enter your Event tags here"
-                    class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                    class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                     onChange={props.handleChange}
                     name="eventTags"
                     value={props.input.eventTags}
@@ -85,7 +85,7 @@ const AddEvent = (props) => {
                     <input
                       type="text"
                       placeholder="Enter your Event Address here"
-                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                      class="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                       onChange={props.handleChange}
                       name="address"
                       value={props.input.address}
@@ -117,7 +117,7 @@ const AddEvent = (props) => {
                     <textarea
                       id="comment"
                       rows="4"
-                      class="px-0 w-full  text-gray-700 border-0 focus:ring-0 "
+                      class="px-0 w-full  text-gray-700 border-0 bg-gray-50 focus:border-green-500"
                       placeholder="Write a short decription about your event..."
                       onChange={props.handleChange}
                       name="description"
@@ -135,7 +135,7 @@ const AddEvent = (props) => {
                   type="file"
                   name='image'
                   onChange={props.uploadPhoto}
-                  class="w-full text-gray-700 px-3 py-2 border rounded"
+                  class="w-full text-gray-700 px-3 py-2 border rounded bg-gray-50"
                 />
                 <input className='file-path validate' type='text' />
               </div>

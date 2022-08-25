@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 
 const AddNewPlace = (props) => {
   return (
@@ -23,7 +22,7 @@ const AddNewPlace = (props) => {
                 <input
                   type="text"
                   placeholder="Enter your Place name here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="placeName"
                   value={props.place.placeName}
@@ -35,7 +34,7 @@ const AddNewPlace = (props) => {
                 <input
                   type="text"
                   placeholder="Enter your Place location here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="placeLocation"
                   value={props.place.placeLocation}
@@ -54,15 +53,34 @@ const AddNewPlace = (props) => {
 
             <div className="flex">
               <div className="w-full px-1">
-                <label class="text-gray-600 font-light ">Details</label>
+                <label class="text-gray-600 font-light">Details</label>
                 <textarea
                   type="text"
                   placeholder="Enter your place details here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="placeDetails"
                   value={props.place.placeDetails}
                 />
+
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                  Choose Place terrain
+                </label>
+                <select
+                  class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                  value={props.valuee}
+                  onChange={props.provo}
+                >
+                  <option>--Choose--</option>
+                  <option value="Beach">Beach</option>
+                  <option value="City">City</option>
+                  <option value="Cultural Heritage">Cultural Heritage</option>
+                  <option value="Lake">Lake</option>
+                  <option value="Mountain">Mountain</option>
+                  <option value="Park">Park</option>
+                  <option value="Rivers">Rivers</option>
+                  <option value="Waterfall">Waterfall</option>
+                </select>
               </div>
             </div>
           </div>
@@ -71,7 +89,7 @@ const AddNewPlace = (props) => {
               <label class="text-gray-600 font-light ">Place photo</label>
               <input
                 type="file"
-                className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                 onChange={props.imageUpload}
                 name="placePhoto"
                 // value={props.value.placePhoto}

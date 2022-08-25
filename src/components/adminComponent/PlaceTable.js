@@ -17,6 +17,9 @@ const PlaceTable = (props) => {
                 Details
               </th>
               <th className="p-3 text-sm font-semibold tracking-wide text-left">
+                Terrain
+              </th>
+              <th className="p-3 text-sm font-semibold tracking-wide text-left">
                 Photo
               </th>
               <th className="w-24  p-3 text-sm font-semibold tracking-wide text-left">
@@ -39,6 +42,9 @@ const PlaceTable = (props) => {
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
                     {place.placeDetails}
+                  </td>
+                  <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
+                    {place.terrain}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
                     <img 
@@ -77,7 +83,12 @@ const PlaceTable = (props) => {
               <div className="text-sm text-gray-700">{place.placeName}</div>
               <div className="text-sm text-gray-700">{place.placeLocation}</div>
               <div className="text-sm text-gray-700">{place.placeDetails}</div>
-              <div className="text-sm text-gray-700">{place.placePhoto}</div>
+              <div className="text-sm text-gray-700">{place.terrain}</div>
+              <div className="text-sm text-gray-700">                    <img 
+                    className="w-4"
+                      src={place.placePhoto}
+                      alt="On table"
+                    /></div>
               <div className="flex items-center space-x-2 text-sm">
                 <div className="font-bold text-blue-500 hover:underline">
                   Edit
