@@ -92,7 +92,7 @@ const ReviewComponent = () => {
     }
   };
 
-   // deleting reviews
+   // deleting
    const remove = async (id) => {
     try {
       deleteReview(id);

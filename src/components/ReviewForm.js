@@ -20,22 +20,27 @@ const ReviewForm = (props) => {
         </div>
         <div>
           <label for="description" class="block mb-2 text-lg font-bold text-gray-700">Description:</label>
-          <textarea id="description" cols="30" rows="10" placeholder="Write your review..." class="w-full font-serif  p-4 text-gray-600 bg-gray-100 outline-none rounded-md"
-        //  onChange={props.handleChange}
-        //  value={props.input.reviewDescription}
+          <textarea  cols="30" rows="10" placeholder="Write your review..." class="w-full font-serif  p-4 text-gray-600 bg-gray-100 outline-none rounded-md"
+         onChange={props.handleChange}
+         name="description"
+         value={props.input.description}
+         required
          ></textarea>
         </div>
         
         <div>
           <label for="Name" class="text-lx font-bold text-gray-700">Name:</label>
-          <input type="text" placeholder='Name...' id="name" class="ml-2 mb-4 outline-none py-1 px-2 text-md border-2 rounded-md" 
-        //  onChange={props.handleChange}
-        //  value={props.input.reviewName} 
+          <input type="text" placeholder='Name...' class="ml-2 mb-4 outline-none py-1 px-2 text-md border-2 rounded-md" 
+        name="name"
+        onChange={props.handleChange}
+         value={props.input.name} 
          />
         </div>
         <button class=" px-6 py-2 mx-auto block 
         rounded-md text-lg font-semibold text-white bg-indigo-400  "
-        onClick={props.handleClick}>ADD REVIEW</button>
+        type="submit"
+        onClick={props.handleClick}>ADD REVIEW
+        </button>
       </div>
     </div>
   </div>
