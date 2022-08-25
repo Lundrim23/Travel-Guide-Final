@@ -1,18 +1,17 @@
 import React from "react";
+
 import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import RegisterDivider from "../components/RegisterDivider";
 import CardTitle from "../components/CardTitle";
 import Categories from "../components/Categories";
 import Services from "../components/Services";
-import Homeplaces from "../components/Homeplaces";
 import HomePart from "../components/HomePart";
 
 import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
 import Beaches from "../assets/img/beaches.jpg";
 import Nightlife from "../assets/img/nightlife.jpg";
-import Card from "../components/Card";
 
 function Home() {
   return (
@@ -21,7 +20,7 @@ function Home() {
         <Hero />
         <CardTitle />
         <HomePart />
-        <LogoSlider />
+
         <RegisterDivider />
 
         <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
@@ -59,6 +58,7 @@ function Home() {
           />
         </div>
         <Services />
+        <LogoSlider />
       </div>
     </>
   );
