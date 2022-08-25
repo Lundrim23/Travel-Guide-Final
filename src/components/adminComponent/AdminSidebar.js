@@ -8,6 +8,7 @@ import {
   AdminIcon,
   EventIcon,
   PlaceIcon,
+  CountryIcon,
 } from "../AllSvgs.js";
 
 const AdminSidebar = () => {
@@ -36,6 +37,11 @@ const AdminSidebar = () => {
           <AdminSidebarElements
             name={<Link to="/admin/places">Places</Link>}
             icon={<PlaceIcon />}
+          />
+
+          <AdminSidebarElements
+            name={<Link to="/admin/country">Country</Link>}
+            icon={<CountryIcon />}
           />
 
           <AdminSidebarElements
