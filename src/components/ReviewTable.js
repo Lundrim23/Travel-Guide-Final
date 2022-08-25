@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ReviewTable() {
+const ReviewTable = (props) => {
   return (
     <div>
          <div class="bg-gray-300 min-h-full pt-20 pb-20">

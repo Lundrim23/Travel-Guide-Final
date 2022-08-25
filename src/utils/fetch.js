@@ -12,6 +12,9 @@ export const cloudinaryApi = axios.create({
     baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
 });
 
+export const reviews = axios.create({
+  baseURL: "http://localhost:5000/api/reviews"
+})
 //event module api calls
 export function uploadCloudinary(data){
     return cloudinaryApi.post('/', data);
@@ -51,3 +54,20 @@ export function uploadCloudinary(data){
     return place.delete('/delete/'+id);
   }
 
+  // review module
+
+ export function getReview(){
+    return api.get('/get');
+  }
+
+  export function addReview(data){
+    return api.post('/', data);
+  }
+
+  export function updateReview(id, data){
+    return api.patch('/update/'+id, data);
+  }
+
+  export function deleteReview (id){
+    return api.delete('/delete/'+id);
+  }

@@ -1,18 +1,20 @@
-import React from 'react'
-import ReviewForm from '../components/ReviewForm'
-import ReviewTable from '../components/ReviewTable';
+import React, { useEffect, useState } from "react";
+
+import ReviewComponent from "../components/ReviewComponent";
 
 function Reviews() {
+
+  
+  
+
+
+
   return (
     <div>
-    <ReviewTable  />
-<ReviewForm
-    // handleChange={handleChange}
-    // handleClick={handleClick}
-    // input={input} 
-    />
+    <ReviewComponent  />
+
     </div>
   )
-}
+  }
 
 export default Reviews;
