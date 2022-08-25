@@ -3,8 +3,20 @@ import { MdLockOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
+import axios from "axios";
 
 export function LogIn() {
+// my code
+  const [first, setfirst] = useState()
+  const handleSubmit =() =>{
+
+  }
+
+
+
+
+///
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,7 +37,10 @@ export function LogIn() {
     }),
     onSubmit: async (values, actions) => {
       if (formik.isValid) {
-        console.log(values);
+        await axios.post('http://localhost:5000/api/users/login',{
+          email: values.email,
+          password: values.password
+        }).catch((err)=> console.log(err));
         await new Promise((reset) => setTimeout(reset, 1000));
         actions.resetForm();
       }
