@@ -26,12 +26,12 @@ const ReviewTable = (props) => {
                 {reviews.reviewRating}
               </td>
             
-            
-              <td class="border-grey-light border hover:bg-gray-100 p-3">
-                <button onClick={() => props.update(reviews._id)}>Update</button>
-              </td>
-              <td class="border-grey-light border hover:bg-gray-100 p-3">
-                <button onClick={() => props.remove(reviews._id)}>Delete</button>
+           
+              {/* <td class="border-grey-light border hover:bg-gray-100 p-3"> */}
+                {/* <button onClick={() => props.update(reviews._id)}>Update</button> */}
+              {/* </td> */}
+              <td class="border-grey-light border hover:bg-gray-200 p-3">
+                <button onClick={() => props.deleteReview(reviews._id)}>Delete</button>
               </td>
             </tr>
           </>

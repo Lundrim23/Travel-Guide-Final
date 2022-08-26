@@ -52,7 +52,7 @@ const ReviewComponent = () => {
  }
 
  // saves data to db throught be
- const handleClick = async (reviews, id) => {
+ const handleSubmit = async (reviews, id) => {
     reviews.preventDefault();
 
     const newReview = {
@@ -72,15 +72,15 @@ const ReviewComponent = () => {
   };
 
   //updates reviews
-  const update = async (id) => {
-    const article = {
+  const updateReview = async (id) => {
+    const updateReview = {
         reviewName: input.reviewName,
         reviewDescription: input.reviewDescription,
         reviewRating: input.reviewRating
     };
 
     try {
-      updateReview(id, article).then((response) => {
+      updateReview(id, updateReview ).then((response) => {
         setReviews(
           reviews.map((reviews) =>
             reviews.id === id ? { ...response.data } : reviews
@@ -93,7 +93,7 @@ const ReviewComponent = () => {
   };
 
    // deleting
-   const remove = async (id) => {
+   const deleteReview =  (id) => {
     try {
       deleteReview(id);
       const myalldata = reviews.filter((item) => item._id !== id);
@@ -106,10 +106,12 @@ const ReviewComponent = () => {
 
   return (
     <div>
-    <ReviewTable reviews={reviews} update={update} remove={remove} />
+    <ReviewTable reviews={reviews} 
+    update={updateReview} 
+    deleteReview={deleteReview} />
 <ReviewForm
      handleChange={handleChange}
-     handleClick={handleClick}
+     handleSubmit={handleSubmit}
      input={input} 
     />
     </div>

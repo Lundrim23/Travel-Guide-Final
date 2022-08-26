@@ -22,8 +22,8 @@ const ReviewForm = (props) => {
           <label for="description" class="block mb-2 text-lg font-bold text-gray-700">Description:</label>
           <textarea  cols="30" rows="10" placeholder="Write your review..." class="w-full font-serif  p-4 text-gray-600 bg-gray-100 outline-none rounded-md"
          onChange={props.handleChange}
-         name="description"
-         value={props.input.description}
+         name="reviewDescription"
+         value={props.input.reviewDescription}
          required
          ></textarea>
         </div>
@@ -31,15 +31,23 @@ const ReviewForm = (props) => {
         <div>
           <label for="Name" class="text-lx font-bold text-gray-700">Name:</label>
           <input type="text" placeholder='Name...' class="ml-2 mb-4 outline-none py-1 px-2 text-md border-2 rounded-md" 
-        name="name"
+        name="reviewName"
         onChange={props.handleChange}
-         value={props.input.name} 
+         value={props.input.reviewName} 
+         />
+        </div>
+        <div>
+          <label for="Rating" class="text-lx font-bold text-gray-700">Rating:</label>
+          <input type="text" placeholder='Rating...' class="ml-2 mb-4 outline-none py-1 px-2 text-md border-2 rounded-md" 
+        name="reviewRating"
+        onChange={props.handleChange}
+         value={props.input.reviewRating} 
          />
         </div>
         <button class=" px-6 py-2 mx-auto block 
         rounded-md text-lg font-semibold text-white bg-indigo-400  "
         type="submit"
-        onClick={props.handleClick}>ADD REVIEW
+        onClick={props.handleSubmit}>ADD REVIEW
         </button>
       </div>
     </div>

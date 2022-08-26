@@ -71,17 +71,17 @@ export function deleteCountryy(id){
   // review module
 
  export function getReview(){
-    return api.get('/get');
+    return api.get('/reviews/get');
   }
 
   export function addReview(data){
-    return api.post('/', data);
+    return api.post('reviews/', data);
   }
 
   export function updateReview(id, data){
-    return api.patch('/update/'+id, data);
+    return api.patch('/reviews/update/'+id, data);
   }
 
   export function deleteReview (id){
-    return api.delete('/delete/'+id);
+    return api.delete('/reviews/delete/'+id);
   }
