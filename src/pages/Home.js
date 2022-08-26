@@ -6,6 +6,7 @@ import RegisterDivider from "../components/RegisterDivider";
 import CardTitle from "../components/CardTitle";
 import Categories from "../components/Categories";
 import Services from "../components/Services";
+import Homeplaces from "../components/Homeplaces";
 import HomePart from "../components/HomePart";
 
 import Food from "../assets/img/food.jpg";
@@ -18,7 +19,11 @@ function Home() {
     <>
       <div>
         <Hero />
+
         <CardTitle />
+
+        <Homeplaces />
+
         <HomePart />
 
         <RegisterDivider />
@@ -57,6 +62,7 @@ function Home() {
             alttxt="nightlife"
           />
         </div>
+
         <Services />
         <LogoSlider />
       </div>
