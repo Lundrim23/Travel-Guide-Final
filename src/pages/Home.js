@@ -1,4 +1,5 @@
 import React from "react";
+
 import Hero from "../components/Hero";
 import LogoSlider from "../components/LogoSlider";
 import RegisterDivider from "../components/RegisterDivider";
@@ -12,7 +13,6 @@ import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
 import Beaches from "../assets/img/beaches.jpg";
 import Nightlife from "../assets/img/nightlife.jpg";
-import Card from "../components/Card";
 
 function Home() {
   return (
@@ -22,43 +22,9 @@ function Home() {
 
         <CardTitle />
 
-        {/*  */}
+        <Homeplaces />
 
-        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12">
-          <LogoSlider />
-          <CardTitle />
-
-          {/*  */}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12">
-            <Card
-              countryName="Kosova"
-              contentName="Work at home, remote, is the new age of the job, every  person can work at home...."
-              userName="Elantra Jashari"
-              dateName="20 mars 2029 - 6 min read"
-            />
-            <Card
-              countryName="Albania"
-              contentName="Work at home, remote, is the new age of the job, every  person can work at home...."
-              userName="Elantra Jashari"
-              dateName="20 mars 2029 - 6 min read"
-            />
-            <Card
-              countryName="Macedonia"
-              contentName="Work at home, remote, is the new age of the job, every  person can work at home...."
-              userName="Elantra Jashari"
-              dateName="20 mars 2029 - 6 min read"
-            />
-            <Card
-              countryName="Montenegro"
-              contentName="Work at home, remote, is the new age of the job, every  person can work at home...."
-              userName="Elantra Jashari"
-              dateName="20 mars 2029 - 6 min read"
-            />
-          </div>
-        </div>
-        <LogoSlider />
-        <RegisterDivider />
+        <HomePart />
 
         <RegisterDivider />
 
@@ -98,6 +64,7 @@ function Home() {
         </div>
 
         <Services />
+        <LogoSlider />
       </div>
     </>
   );

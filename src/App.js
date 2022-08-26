@@ -12,8 +12,6 @@ import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 
-import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
-
 import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
 import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
@@ -23,7 +21,6 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <Scroll />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
