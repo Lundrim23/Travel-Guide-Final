@@ -8,6 +8,9 @@ export const cloudinaryApi = axios.create({
     baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD
 });
 
+export const reviews = axios.create({
+  baseURL: "http://localhost:5000/api/reviews"
+})
 //photo upload cloudinary
 export function uploadCloudinary(data){
     return cloudinaryApi.post('/', data);
@@ -65,3 +68,20 @@ export function deleteCountryy(id){
   return api.delete('/countries/delete/'+id);
 }
 
+  // review module
+
+ export function getReview(){
+    return api.get('/reviews/get');
+  }
+
+  export function addReview(data){
+    return api.post('reviews/', data);
+  }
+
+  export function updateReview(id, data){
+    return api.patch('/reviews/update/'+id, data);
+  }
+
+  export function deleteReview (id){
+    return api.delete('/reviews/delete/'+id);
+  }
