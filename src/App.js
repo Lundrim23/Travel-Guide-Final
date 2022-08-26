@@ -11,6 +11,7 @@ import Admin from "./pages/Admin";
 import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
+import SpecificPlace from "./pages/SpecificPlace";
 
 import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="events" element={<Events />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="specific-place" element={<SpecificPlace />} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
