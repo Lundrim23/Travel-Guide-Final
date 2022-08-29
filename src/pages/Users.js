@@ -1,11 +1,14 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
-import Dashboardnav from "../components/Dashboardnav";
+import UserProfile from "../components/UserProfile";
+
 function Users() {
   return (
     <div>
-      <Dashboardnav />
-      <Sidebar />
+      {/* <Dashboardnav /> */}
+      {/* <Sidebar /> */}
+      
+      <UserProfile />
+
     </div>
   );
 }
