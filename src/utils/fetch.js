@@ -1,7 +1,8 @@
 import axios from "axios";
 
-export const api = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL
+ const api = axios.create({
+  // baseURL: process.env.REACT_APP_BASE_URL
+  baseURL: "http://localhost:5000/api"
 });
 
 export const cloudinaryApi = axios.create({
@@ -22,7 +23,7 @@ export function uploadCloudinary(data){
   }
 
   export function addEvents(data){
-    return api.post('events/', data);
+    return api.post('/events/', data);
   }
 
   export function updateEvents(id, data){
@@ -57,7 +58,7 @@ export function getCountries(){
 }
 
 export function addCountry(data){
-  return api.post('countries/', data);
+  return api.post('/countries/', data);
 }
 
 export function updateCountryy(id, data){
@@ -75,7 +76,7 @@ export function deleteCountryy(id){
   }
 
   export function addReview(data){
-    return api.post('reviews/', data);
+    return api.post('/reviews/', data);
   }
 
   export function updateReview(id, data){

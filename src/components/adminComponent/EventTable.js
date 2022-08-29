@@ -1,4 +1,5 @@
 import React from "react";
+import { SortIcon } from "../AllSvgs";
 
 const EventTable = (props) => {
   return (
@@ -6,11 +7,11 @@ const EventTable = (props) => {
       <thead class="text-white">
         <tr class="bg-gray-300 text-gray-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
           <th class="p-3 text-left">Id</th>
-          <th class="p-3 text-left">Event Name</th>
-          <th class="p-3 text-left">Event Organizator</th>
-          <th class="p-3 text-left">Event Tags</th>
-          <th class="p-3 text-left">Address</th>
-          <th class="p-3 text-left">Description</th>
+          <th onClick={() => props.sort("eventName")} class="p-3 text-left">Event Name <SortIcon /> </th>
+          <th onClick={() => props.sort("eventOrganizator")} class="p-3 text-left">Event Organizator <SortIcon /></th>
+          <th onClick={() => props.sort("eventTags")} class="p-3 text-left">Event Tags <SortIcon /></th>
+          <th onClick={() => props.sort("address")} class="p-3 text-left">Address <SortIcon /></th>
+          <th onClick={() => props.sort("description")} class="p-3 text-left">Description <SortIcon /></th>
           <th class="p-3 text-left">Image</th>
           <th class="p-3 text-left">Update</th>
           <th class="p-3 text-left">Delete</th>
