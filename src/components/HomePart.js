@@ -6,7 +6,7 @@ import AlbaniaRiver from "../assets/HomePart-img/AlbaniaRiver.jpg";
 function HomePart() {
   return (
     <div>
-      <div class="w-full my-16 z-50 sticky px-6 bg-gradient-to-b from-white via-slate-500 to-white">
+      <div class="w-full z-50 sticky px-6 bg-gradient-to-b from-white via-slate-500 to-white">
         <div class="px-4 py-26 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
           <div class="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
             <div class="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">

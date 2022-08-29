@@ -14,10 +14,10 @@ import MontenegroImg from "./Images/Montenegro.png";
 
 const ButtonStyles = styled.div`
   text-align: center;
-  margin: auto;
+  // margin: auto;
   display: flex;
   display: grid;
-  margin-top: 20px;
+  margin-top: 40px;
 
   .button-home {
     color: white;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Card = (props) => {
   return (
-    <div>
+    <div className="pt-12">
       <a href="/a" class="mx-auto">
         <img
           class="rounded-2xl drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"

@@ -20,7 +20,9 @@ function Home() {
       <div>
         <Hero />
 
-        <CardTitle />
+        <LogoSlider />
+
+        <CardTitle title="Places to visit" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
 
         <Homeplaces />
 
@@ -28,7 +30,9 @@ function Home() {
 
         <RegisterDivider />
 
-        <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+        <CardTitle title="Events" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
+
+        <div className="max-w-[1270px] mx-auto p-4 py-12 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
           <Categories
             title="FOOD"
             paragraph="That tastes great"
@@ -63,8 +67,9 @@ function Home() {
           />
         </div>
 
+        <CardTitle title="Services" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
+
         <Services />
-        <LogoSlider />
       </div>
     </>
   );
