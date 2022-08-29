@@ -24,7 +24,7 @@ const AddNewCountry = (props) => {
                 <input
                   type="text"
                   placeholder="Enter your Country name here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="CountryName"
                   value={props.country.CountryName}
@@ -36,7 +36,7 @@ const AddNewCountry = (props) => {
                 <input
                   type="text"
                   placeholder="Enter your Country Capital here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="CapitalCity"
                   value={props.country.CapitalCity}
@@ -61,7 +61,7 @@ const AddNewCountry = (props) => {
                 <textarea
                   type="number"
                   placeholder="Enter your Country population here"
-                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                  className="w-full mt-2 mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
                   onChange={props.handleChange}
                   name="Population"
                   value={props.country.props}
