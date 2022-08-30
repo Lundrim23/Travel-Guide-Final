@@ -20,7 +20,7 @@ const AddNewCountry = (props) => {
             </div>
             <div className="lg:flex">
               <div className="w-full lg:w-1/2 px-1">
-                <label class="text-gray-600 font-light ">Country Name</label>
+                <label className="text-gray-600 font-light ">Country Name</label>
                 <input
                   type="text"
                   placeholder="Enter your Country name here"
@@ -32,7 +32,7 @@ const AddNewCountry = (props) => {
               </div>
 
               <div className="w-full lg:w-1/2 px-1">
-                <label class="text-gray-600 font-light ">Country Capital</label>
+                <label className="text-gray-600 font-light ">Country Capital</label>
                 <input
                   type="text"
                   placeholder="Enter your Country Capital here"
@@ -73,7 +73,7 @@ const AddNewCountry = (props) => {
             <button
               onClick={props.handleSubmit}
               type="submit"
-              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
             >
               Save Country
             </button>

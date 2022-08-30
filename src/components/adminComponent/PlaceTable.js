@@ -1,4 +1,5 @@
 import React from "react";
+import { SortIcon } from "../AllSvgs";
 
 const PlaceTable = (props) => {
   return (
@@ -7,17 +8,37 @@ const PlaceTable = (props) => {
         <table className=" w-2/3">
           <thead className="bg-gray-50 border-b-2 border-gray-200">
             <tr>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Name
+              <th
+                onClick={() => props.sort("placeName")}
+                className="p-3 text-sm font-semibold tracking-wide text-left cursor-pointer"
+              >
+                <div className="flex">
+                  Name <SortIcon className="ml-2" />
+                </div>
               </th>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Location
+              <th
+                onClick={() => props.sort("placeLocation")}
+                className="p-3 text-sm font-semibold tracking-wide text-left cursor-pointer"
+              >
+                <div className="flex">
+                  Location <SortIcon className="ml-2" />
+                </div>
               </th>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Details
+              <th
+                onClick={() => props.sort("placeDetails")}
+                className="p-3 text-sm font-semibold tracking-wide text-left cursor-pointer"
+              >
+                <div className="flex">
+                  Details <SortIcon className="ml-2" />
+                </div>
               </th>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Terrain
+              <th
+                onClick={() => props.sort("terrain")}
+                className="p-3 text-sm font-semibold tracking-wide text-left cursor-pointer"
+              >
+                <div className="flex">
+                  Terrain <SortIcon className="ml-2" />
+                </div>
               </th>
               <th className="p-3 text-sm font-semibold tracking-wide text-left">
                 Photo
@@ -47,15 +68,15 @@ const PlaceTable = (props) => {
                     {place.terrain}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
-                    <img 
-                    className="w-12"
+                    <img
+                      className="w-12"
                       src={place.placePhoto}
                       alt="On table"
                     />
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap ">
                     <button
-                      onClick={() => props.update(place._id) }
+                      onClick={() => props.update(place._id)}
                       className="font-bold text-blue-500 hover:underline"
                     >
                       Edit
@@ -84,11 +105,9 @@ const PlaceTable = (props) => {
               <div className="text-sm text-gray-700">{place.placeLocation}</div>
               <div className="text-sm text-gray-700">{place.placeDetails}</div>
               <div className="text-sm text-gray-700">{place.terrain}</div>
-              <div className="text-sm text-gray-700">                    <img 
-                    className="w-4"
-                      src={place.placePhoto}
-                      alt="On table"
-                    /></div>
+              <div className="text-sm text-gray-700">
+                <img className="w-4" src={place.placePhoto} alt="On table" />
+              </div>
               <div className="flex items-center space-x-2 text-sm">
                 <div className="font-bold text-blue-500 hover:underline">
                   Edit

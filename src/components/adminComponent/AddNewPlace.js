@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const AddNewPlace = (props) => {
   return (
@@ -18,7 +18,7 @@ const AddNewPlace = (props) => {
             </div>
             <div className="lg:flex">
               <div className="w-full lg:w-1/2 px-1">
-                <label class="text-gray-600 font-light ">Place name</label>
+                <label className="text-gray-600 font-light ">Place name</label>
                 <input
                   type="text"
                   placeholder="Enter your Place name here"
@@ -30,7 +30,7 @@ const AddNewPlace = (props) => {
               </div>
 
               <div className="w-full lg:w-1/2 px-1">
-                <label class="text-gray-600 font-light ">Place location</label>
+                <label className="text-gray-600 font-light ">Place location</label>
                 <input
                   type="text"
                   placeholder="Enter your Place location here"
@@ -53,7 +53,7 @@ const AddNewPlace = (props) => {
 
             <div className="flex">
               <div className="w-full px-1">
-                <label class="text-gray-600 font-light">Details</label>
+                <label className="text-gray-600 font-light">Details</label>
                 <textarea
                   type="text"
                   placeholder="Enter your place details here"
@@ -63,11 +63,11 @@ const AddNewPlace = (props) => {
                   value={props.place.placeDetails}
                 />
 
-                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
+                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
                   Choose Place terrain
                 </label>
                 <select
-                  class="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
+                  className="bg-gray-50 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
                   value={props.valuee}
                   onChange={props.provo}
                 >
@@ -86,7 +86,7 @@ const AddNewPlace = (props) => {
           </div>
           <div className="p-3 w-2/3 m-auto">
             <div className="w-full px-1">
-              <label class="text-gray-600 font-light ">Place photo</label>
+              <label className="text-gray-600 font-light ">Place photo</label>
               <input
                 type="file"
                 className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-50"
@@ -99,7 +99,7 @@ const AddNewPlace = (props) => {
             <button
               onClick={props.handleSubmit}
               type="submit"
-              class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
             >
               Save Place
             </button>

@@ -1,21 +1,23 @@
 import React from "react";
-import "../adminComponent/admin.css";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  updateUser,
-  loadUsers,
-  deleteUser,
-} from "../../redux/features/users/userSlice";
-import { useEffect } from "react";
 
-const AdminTable = () => {
-  const dispatch = useDispatch();
+// import "../adminComponent/admin.css";
+// import { useSelector, useDispatch } from "react-redux";
+// import {
+//   updateUser,
+//   loadUsers,
+//   deleteUser,
+// } from "../../redux/features/users/userSlice";
+// import { useEffect } from "react";
+
+const UsersTable = () => {
+  // const dispatch = useDispatch();
 
   // useEffect(() => {
   //   dispatch(loadUsers());
   // }, [dispatch]);
 
-  const { users } = useSelector((state) => state.users.users);
+  // const { users } = useSelector((state) => state.users.users);
+
 
   return (
     <div>
@@ -55,4 +57,4 @@ const AdminTable = () => {
   );
 };
 
-export default AdminTable;
+export default UsersTable;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
-import axios from "axios";
 import {
   addPlace,
   deletePlace,
@@ -126,6 +125,23 @@ const PlaceComponent = () => {
     }
   };
 
+    //this method sorts by name
+  const [order, setOrder] = useState("ASC");
+  const sort = (col) => {
+    if(order === "ASC"){
+      const sorted = [...displayPlaces].sort((a,b) => 
+      a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1 );
+      setDisplayPlaces(sorted);
+      setOrder("DSC")
+    }
+    if(order === "DSC"){
+      const sorted = [...displayPlaces].sort((a,b) => 
+      a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1 );
+      setDisplayPlaces(sorted);
+      setOrder("ASC")
+    }
+  }
+
   return (
     <>
       <AddNewPlace
@@ -140,6 +156,7 @@ const PlaceComponent = () => {
         displayPlaces={displayPlaces}
         remove={removePlace}
         update={updatePlace}
+        sort={sort}
       />
     </>
   );
