@@ -16,3 +16,8 @@ REACT_APP_GET_ALL_COUNTRIES=http://localhost:5000/api/countries/get/
 REACT_APP_SAVE_NEW_COUNTRY=http://localhost:5000/api/countries/
 REACT_APP_EDIT_COUNTRY=http://localhost:5000/api/countries/edit/
 REACT_APP_DELETE_COUNTRY=http://localhost:5000/api/countries/delete/
+
+REACT_APP_DELETE_FILE=http://localhost:5000/api/reviews/delete/
+REACT_APP_UPDATE_FILE=http://localhost:5000/api/reviews/update/
+REACT_APP_GET_ALL_REVIEWS=http://localhost:5000/api/reviews/get/
+REACT_APP_SAVE_DATA=http://localhost:5000/api/reviews/

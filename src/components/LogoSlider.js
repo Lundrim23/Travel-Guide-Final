@@ -15,10 +15,12 @@ export default function LogoScroll() {
 
   return (
     <>
-      <p className="bg-[#1F2937] text-white pt-10 text-center">A mature support from hundreds of brands</p>    
-      <div className="relative flex items-center justify-center bg-[#1F2937] py-10">
+      <p className=" text-black pt-10 text-center">
+        A mature support from hundreds of brands
+      </p>
+      <div className="relative flex items-center justify-center  py-10">
         <MdChevronLeft
-          className="opacity-50 cursor-pointer hover:opacity-100 text-white"
+          className="opacity-50 cursor-pointer hover:opacity-100 text-black"
           onClick={slideleft}
           size={40}
         ></MdChevronLeft>
@@ -37,7 +39,7 @@ export default function LogoScroll() {
         </div>
 
         <MdChevronRight
-          className="opacity-50 cursor-pointer hover:opacity-100 text-white"
+          className="opacity-50 cursor-pointer hover:opacity-100 text-black"
           onClick={sliderRight}
           size={40}
         ></MdChevronRight>
