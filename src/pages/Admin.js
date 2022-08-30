@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 import AdminSidebar from "../components/adminComponent/AdminSidebar.js";
 import GridComponent from "../components/adminComponent/GridComponent.js";
+import useDarkMode from "../components/adminComponent/UseDarkMode.js";
 
-import { Views, RegisteredUsers, Messages } from "../components/AllSvgs.js";
+import {
+  Views,
+  RegisteredUsers,
+  Messages,
+  LightIcon,
+  DarkIcon,
+} from "../components/AllSvgs.js";
 
 function Admin() {
   //this one gets the todays date
@@ -13,6 +20,7 @@ function Admin() {
     current.getMonth() + 1
   }/${current.getFullYear()}`;
 
+  const [colorTheme, setColorTheme] = useDarkMode();
   return (
     <>
       <div>
@@ -28,6 +36,18 @@ function Admin() {
             <div className="flex flex-col bg-gray-100 pl-5">
               <h4 className="font-bold text-gray-500 p-1">Dashboard</h4>
               <p className="text-gray-500 p-1">{date}</p>
+
+              <div onClick={() => setColorTheme(colorTheme)}>
+                {colorTheme === "light" ? (
+                  <button className="cursor-pointer">
+                    <LightIcon />
+                  </button>
+                ) : (
+                  <button className="cursor-pointer">
+                    <DarkIcon />
+                  </button>
+                )}
+              </div>
             </div>
 
             <div className="min-h-screen bg-gray-200">
