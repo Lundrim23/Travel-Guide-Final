@@ -128,6 +128,7 @@ const EventComponent = () => {
     }
   };
 
+    //this method sorts by name
   const [order, setOrder] = useState("ASC");
   const sort = (col) => {
     if(order === "ASC"){

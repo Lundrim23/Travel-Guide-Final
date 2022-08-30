@@ -1,7 +1,6 @@
 import React from "react";
-import '../adminComponent/admin.css';
 
-const AdminTable = () => {
+const UsersTable = () => {
   return (
     <div>
       <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
@@ -36,4 +35,4 @@ const AdminTable = () => {
   );
 };
 
-export default AdminTable;
+export default UsersTable;
