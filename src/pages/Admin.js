@@ -16,7 +16,6 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loadUsers } from "../redux/features/users/userSlice.js";
-d
 
 function Admin() {
   const dispatch = useDispatch();
@@ -46,24 +45,24 @@ function Admin() {
       <div className="w-full">
         <div className="flex-auto lg:pl-72">
           <div className="flex flex-col">
-            <div className="flex flex-col bg-gray-100 pl-5">
-              <h4 className="font-bold text-gray-500 p-1">Dashboard</h4>
-              <p className="text-gray-500 p-1">{date}</p>
+            <div className="flex flex-col bg-gray-100 pl-5 dark:bg-neutral-800 transition delay-100">
+              <h4 className="font-bold text-gray-500 p-1 dark:text-gray-50 transition delay-200">Dashboard</h4>
+              <p className="text-gray-500 p-1 dark:text-gray-50 transition delay-500">{date}</p>
 
               <div onClick={() => setColorTheme(colorTheme)}>
                 {colorTheme === "light" ? (
                   <button className="cursor-pointer">
-                    <LightIcon />
+                    <DarkIcon />
                   </button>
                 ) : (
                   <button className="cursor-pointer">
-                    <DarkIcon />
+                    <LightIcon />
                   </button>
                 )}
               </div>
             </div>
 
-            <div className="min-h-screen bg-gray-200">
+            <div className="min-h-screen bg-gray-200 dark:bg-neutral-900 transition delay-100">
               <div className="mt-8 grid gap-10 lg:grid-cols-3 sm-grid-cols md p-4 w-4/5">
                 {/* grid starts here */}
                 <GridComponent

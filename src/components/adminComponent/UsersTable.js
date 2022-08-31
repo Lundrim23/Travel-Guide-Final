@@ -18,7 +18,6 @@ const UsersTable = () => {
 
   // const { users } = useSelector((state) => state.users.users);
 
-
   return (
     <div>
       <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
