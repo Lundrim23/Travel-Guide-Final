@@ -15,7 +15,18 @@ const AdminTable = () => {
   //   dispatch(loadUsers());
   // }, [dispatch]);
 
-  const { users } = useSelector((state) => state.users.users);
+  const users = useSelector((state) => state.users.users);
+  const amount = useSelector((state) => state.users.amount);
+
+  if (amount < 1) {
+    return (
+      <section>
+        <h2 className="text-center text-3xl text-slate-400">
+          We don't have any user to show!
+        </h2>
+      </section>
+    );
+  }
 
   return (
     <div>
@@ -29,28 +40,35 @@ const AdminTable = () => {
             <th className="p-3 text-left" width="110px"></th>
           </tr>
         </thead>
-        <tbody className="flex-1 sm:flex-none">
-          <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              1
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              John
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">
-              contato@johncovv.com
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              Admin
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3 text-yellow-800 hover:font-medium cursor-pointer"></td>
-          </tr>
-        </tbody>
+        {users.map((item) => {
+          return (
+            <tbody className="flex-1 sm:flex-none">
+              <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                <td className="border-grey-light border hover:bg-gray-100 p-3">
+                  {item.id}
+                </td>
+                <td className="border-grey-light border hover:bg-gray-100 p-3">
+                  {item.name}
+                </td>
+                <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">
+                  {item.email}
+                </td>
+                <td className="border-grey-light border hover:bg-gray-100 p-3">
+                  {item.role}
+                </td>
+                <td className="border-grey-light border p-3 text-yellow-800 hover:font-medium cursor-pointer">
+                  <button
+                    onClick={() => dispatch(deleteUser({ id: item.id }))}
+                    className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full"
+                  >
+                    Detele
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          );
+        })}
       </table>
-
-      {/* E.P.: Example of deleting user from the table, using dispatch 
-            TODO: Add 'remove user' button to table*/}
-      {/* <button onClick={() => dispatch(deleteUser({ id: 1 }))}>delete</button> */}
     </div>
   );
 };
