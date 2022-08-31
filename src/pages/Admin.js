@@ -46,19 +46,30 @@ function Admin() {
         <div className="flex-auto lg:pl-72">
           <div className="flex flex-col">
             <div className="flex flex-col bg-gray-100 pl-5 dark:bg-neutral-800 transition delay-100">
-              <h4 className="font-bold text-gray-500 p-1 dark:text-gray-50 transition delay-200">Dashboard</h4>
-              <p className="text-gray-500 p-1 dark:text-gray-50 transition delay-500">{date}</p>
+              <div className="flex">
+                <div>
+                  <h4 className="font-bold text-gray-500 p-1 dark:text-gray-50 transition delay-200">
+                    Dashboard
+                  </h4>
+                  <p className="text-gray-500 p-1 dark:text-gray-50 transition delay-500">
+                    {date}
+                  </p>
+                </div>
 
-              <div onClick={() => setColorTheme(colorTheme)}>
-                {colorTheme === "light" ? (
-                  <button className="cursor-pointer">
-                    <DarkIcon />
-                  </button>
-                ) : (
-                  <button className="cursor-pointer">
-                    <LightIcon />
-                  </button>
-                )}
+                <div
+                  className="flex justify-between relative left-2/3"
+                  onClick={() => setColorTheme(colorTheme)}
+                >
+                  {colorTheme === "light" ? (
+                    <button className="cursor-pointer">
+                      <DarkIcon />
+                    </button>
+                  ) : (
+                    <button className="cursor-pointer">
+                      <LightIcon />
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
 

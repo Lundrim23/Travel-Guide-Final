@@ -18,7 +18,7 @@ const AdminSidebar = () => {
         <HiddenMenuIcon className="place-items-center" />
       </button>
 
-      <div className="flex flex-col bg-gray-100 justify-between z-20 fixed top-0 -left-full lg:left-0 h-screen w-9/12 lg:w-72 shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-200 dark:bg-neutral-700 transition delay-500">
+      <div className="flex flex-col bg-gray-100 justify-between z-20 fixed top-0 -left-full lg:left-0 h-screen w-9/12 lg:w-72 shadow-2xl peer-focus:left-0 peer:transition ease-out delay-150 duration-200 dark:bg-neutral-700 transition ">
         <div className="flex items-center justify-between text-gray-600 text-3xl px-5 py-8 dark:text-gray-50 transition delay-400">
           <b>Starlabs</b>
         </div>

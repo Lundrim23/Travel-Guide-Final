@@ -1,12 +1,14 @@
 import axios from "axios";
 
+
  const api = axios.create({
   // baseURL: process.env.REACT_APP_BASE_URL
   baseURL: "http://localhost:5000/api"
 });
 
 export const cloudinaryApi = axios.create({
-    baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD
+  // baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
+  baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD
 });
 
 export const reviews = axios.create({
