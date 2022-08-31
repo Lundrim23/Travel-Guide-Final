@@ -13,7 +13,20 @@ import {
   DarkIcon,
 } from "../components/AllSvgs.js";
 
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { loadUsers } from "../redux/features/users/userSlice.js";
+d
+
 function Admin() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadUsers());
+  }, [dispatch]);
+
+  const amount = useSelector((state) => state.users.amount);
+
   //this one gets the todays date
   const current = new Date();
   const date = `${current.getDate()}/${
@@ -60,7 +73,7 @@ function Admin() {
                 />
                 <GridComponent
                   name={"Registered Users"}
-                  count={"100"}
+                  count={amount}
                   svg={<RegisteredUsers />}
                 />
                 <GridComponent

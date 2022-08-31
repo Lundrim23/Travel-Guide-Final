@@ -1,4 +1,5 @@
 import React from "react";
+import { SortIcon } from "../AllSvgs";
 
 const CountryTable = (props) => {
   return (
@@ -7,13 +8,17 @@ const CountryTable = (props) => {
         <table className=" w-2/3">
           <thead className="bg-gray-50 border-b-2 border-gray-200">
             <tr>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Country Name
+              <th onClick={() => props.sort("CountryName")} className="p-3 text-sm font-semibold tracking-wide text-left">
+                <div className="flex">
+                Country Name <SortIcon className="ml-2" />
+                </div>
               </th>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
-                Country Capital
+              <th onClick={() => props.sort("CapitalCity")} className="p-3 text-sm font-semibold tracking-wide text-left">
+                <div className="flex">
+                Country Capital <SortIcon className="ml-2" />
+                </div>
               </th>
-              <th className="p-3 text-sm font-semibold tracking-wide text-left">
+              <th onClick={() => props.sort("Population")} className="p-3 text-sm font-semibold tracking-wide text-left">
                 Country Population
               </th>
               <th className="w-24  p-3 text-sm font-semibold tracking-wide text-left">
