@@ -30,6 +30,24 @@ const getUsers = [
     email: "andi@gmail.com",
     role: "Member",
   },
+  {
+    id: 6,
+    name: "Glauk Aliu",
+    email: "glauk@gmail.com",
+    role: "Member",
+  },
+  {
+    id: 7,
+    name: "Elantra Jashari",
+    email: "elanra@gmail.com",
+    role: "Member",
+  },
+  {
+    id: 8,
+    name: "Lundrim Aliu",
+    email: "lundrim@gmail.com",
+    role: "Member",
+  },
 ];
 
 export default getUsers;
