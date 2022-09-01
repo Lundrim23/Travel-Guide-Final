@@ -8,6 +8,7 @@ const GridComponent = (props) => {
         <h1 className="text-sm text-gray-400 dark:text-gray-50 transition">
           {props.name}
         </h1>
+        <h1 className="text-sm text-gray-400">{props.name}</h1>
         <div className="flex items-center pt-1">
           <h1 className="text-3xl font-medium text-gray-600 dark:text-gray-100 transition delay-400">
             {props.count}

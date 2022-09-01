@@ -2,32 +2,50 @@
 const getUsers = [
   {
     id: 1,
-    name: "ejup",
+    name: "Ejup Pllashniku",
     email: "ejup@gmail.com",
     role: "Admin",
   },
   {
     id: 2,
-    name: "andi",
-    email: "andi@gmail.com",
+    name: "Arndrit Bajqinca",
+    email: "arndrit@gmail.com",
     role: "Member",
   },
   {
     id: 3,
-    name: "lorik",
+    name: "Lorik Loku",
     email: "lorik@gmail.com",
     role: "Member",
   },
   {
     id: 4,
-    name: "Sami",
-    email: "sami@gmail.com",
+    name: "Elton Tahiri",
+    email: "elton@gmail.com",
     role: "Member",
   },
   {
     id: 5,
-    name: "avni",
-    email: "avni@gmail.com",
+    name: "Andi Nimani",
+    email: "andi@gmail.com",
+    role: "Member",
+  },
+  {
+    id: 6,
+    name: "Glauk Aliu",
+    email: "glauk@gmail.com",
+    role: "Member",
+  },
+  {
+    id: 7,
+    name: "Elantra Jashari",
+    email: "elanra@gmail.com",
+    role: "Member",
+  },
+  {
+    id: 8,
+    name: "Lundrim Aliu",
+    email: "lundrim@gmail.com",
     role: "Member",
   },
 ];

@@ -1,57 +1,104 @@
 import React from "react";
-
-// import "../adminComponent/admin.css";
-// import { useSelector, useDispatch } from "react-redux";
-// import {
-//   updateUser,
-//   loadUsers,
-//   deleteUser,
-// } from "../../redux/features/users/userSlice";
-// import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateUser,
+  loadUsers,
+  deleteUser,
+} from "../../redux/features/users/userSlice";
+import { useEffect } from "react";
 
 const UsersTable = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   // useEffect(() => {
   //   dispatch(loadUsers());
   // }, [dispatch]);
 
-  // const { users } = useSelector((state) => state.users.users);
+  const users = useSelector((state) => state.users.users);
+  const amount = useSelector((state) => state.users.amount);
+
+
+  if (amount < 1) {
+    return (
+      <section>
+        <h2 className="text-center text-3xl text-slate-400">
+          We don't have any user to show!
+        </h2>
+      </section>
+    );
+  }
+
 
   return (
-    <div>
-      <table className="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
-        <thead className="text-white">
-          <tr className="bg-gray-300 text-gray-700 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
-            <th className="p-3 text-left">Id</th>
-            <th className="p-3 text-left">Name</th>
-            <th className="p-3 text-left">Email</th>
-            <th className="p-3 text-left">Role</th>
-            <th className="p-3 text-left" width="110px"></th>
-          </tr>
-        </thead>
-        <tbody className="flex-1 sm:flex-none">
-          <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              1
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              John
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3 truncate">
-              contato@johncovv.com
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3">
-              Admin
-            </td>
-            <td className="border-grey-light border hover:bg-gray-100 p-3 text-yellow-800 hover:font-medium cursor-pointer"></td>
-          </tr>
-        </tbody>
-      </table>
-
-      {/* E.P.: Example of deleting user from the table, using dispatch 
-            TODO: Add 'remove user' button to table*/}
-      {/* <button onClick={() => dispatch(deleteUser({ id: 1 }))}>delete</button> */}
+    <div className="flex flex-col">
+      <div className="overflow-x-auto ">
+        <div className="inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="overflow-hidden">
+            <table className="min-w-full">
+              <thead className="bg-slate-300">
+                <tr>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    ID
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left "
+                  >
+                    Name
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Email
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                  >
+                    Role
+                  </th>
+                  <th
+                    scope="col"
+                    className="text-sm font-medium text-gray-900 px-6 py-4 text-center "
+                  >
+                    -
+                  </th>
+                </tr>
+              </thead>
+              {users.map((user) => {
+                return (
+                  <tbody>
+                    <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                      <td className="px-6 py-4  font-medium  ">{user.id}</td>
+                      <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {user.name}
+                      </td>
+                      <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {user.email}
+                      </td>
+                      <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        {user.role}
+                      </td>
+                      <td className=" text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                        <button
+                          onClick={() => dispatch(deleteUser({ id: user.id }))}
+                          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
