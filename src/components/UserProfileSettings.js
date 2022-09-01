@@ -28,10 +28,10 @@ function UserProfileSettings() {
   </div>
   <div class="-mx-3 md:flex mb-6">
     <div class="md:w-full px-3">
-      <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-password">
+      <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-email">
         Email
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="Email">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-email" type="email" placeholder="Email">
       </input>
       <p class="text-blue-600 text-xs italic">Please fill out this field.</p>
     </div>
@@ -57,7 +57,18 @@ function UserProfileSettings() {
   
    
   </div>
+  <div className='pt-12 pb-8 flex flex-wrap justify-center'>
+  <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
+  Cancel
+</button>
+<button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full ml-4">
+  Save Changes
+</button>
+  </div>
+  
 </div>
+
+
     </div>
   )
 }
