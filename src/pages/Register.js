@@ -6,6 +6,7 @@ import { useFormik } from "formik";
 import { userSchema } from "./Utils/Schema/user-validation.schema";
 import axios from "axios";
 import { useState } from "react";
+import * as UserService from "../utils/services/users.service";
 
 function Register() {
   const history = useNavigate();
@@ -22,13 +23,19 @@ function Register() {
     },
     validationSchema: userSchema,
     onSubmit: async (values, actions) => {
-      await axios
-        .post("http://localhost:5000/api/users/register", {
-          username: values.username,
-          email: values.email,
-          phone: values.phone,
-          password: values.password,
-        })
+      // await axios
+      //   .post("http://localhost:5000/api/users/register", {
+      //     username: values.username,
+      //     email: values.email,
+      //     phone: values.phone,
+      //     password: values.password,
+      //   })
+      await UserService.registerUser({
+        username: values.username,
+        email: values.email,
+        phone: values.phone,
+        password: values.password,
+      })
         .catch((error) => {
           if (error.response) {
             actions.resetForm();
