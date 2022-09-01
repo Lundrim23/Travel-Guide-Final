@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CountryTable from "./CountryTable";
 import AddNewCountry from "./AddNewCountry";
-import { addCountry, getCountries, updateCountryy, deleteCountryy } from "../../utils/fetch";
+import {
+  addCountry,
+  getCountries,
+  updateCountryy,
+  deleteCountryy,
+} from "../../utils/fetch";
 
 const CountryComponent = () => {
   const [country, setCountry] = useState({
@@ -16,7 +21,7 @@ const CountryComponent = () => {
   useEffect(() => {
     //This method gets all the countries
     const fetchCountries = () => {
-      try{
+      try {
         getCountries().then(function (response) {
           setDisplayCountries(response.data);
         });
@@ -57,11 +62,11 @@ const CountryComponent = () => {
       Population: country.Population,
     };
 
-    try{
+    try {
       addCountry(newCountry).then((response) => {
         setDisplayCountries([...displayCountries, response.data]);
       });
-    } catch(err){
+    } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
@@ -74,11 +79,12 @@ const CountryComponent = () => {
       Population: country.Population,
     };
 
-    try{
+    try {
       updateCountryy(id, updateCountry).then((response) => {
         setDisplayCountries(
-          displayCountries.map((oneCountry) => 
-          oneCountry.id === id? {...response.data} : oneCountry)
+          displayCountries.map((oneCountry) =>
+            oneCountry.id === id ? { ...response.data } : oneCountry
+          )
         );
       });
     } catch (err) {
@@ -88,7 +94,7 @@ const CountryComponent = () => {
 
   //this method deletes a country
   const deleteCountry = (id) => {
-    try{
+    try {
       deleteCountryy(id);
       const myAllData = displayCountries.filter((item) => item._id !== id);
       setDisplayCountries(myAllData);
@@ -100,19 +106,21 @@ const CountryComponent = () => {
   //this method sorts by name
   const [order, setOrder] = useState("ASC");
   const sort = (col) => {
-    if(order === "ASC"){
-      const sorted = [...displayCountries].sort((a,b) => 
-      a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1 );
+    if (order === "ASC") {
+      const sorted = [...displayCountries].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
       setDisplayCountries(sorted);
-      setOrder("DSC")
+      setOrder("DSC");
     }
-    if(order === "DSC"){
-      const sorted = [...displayCountries].sort((a,b) => 
-      a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1 );
+    if (order === "DSC") {
+      const sorted = [...displayCountries].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
       setDisplayCountries(sorted);
-      setOrder("ASC")
+      setOrder("ASC");
     }
-  }
+  };
 
   return (
     <>

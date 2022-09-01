@@ -17,6 +17,7 @@ const UsersTable = () => {
   const users = useSelector((state) => state.users.users);
   const amount = useSelector((state) => state.users.amount);
 
+
   if (amount < 1) {
     return (
       <section>
@@ -26,6 +27,7 @@ const UsersTable = () => {
       </section>
     );
   }
+
 
   return (
     <div className="flex flex-col">
