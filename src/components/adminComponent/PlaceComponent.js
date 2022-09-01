@@ -65,10 +65,10 @@ const PlaceComponent = () => {
     setUplphoto(res.data.secure_url);
   };
 
-  const [valuee, setValuee] = useState('');
+  const [valuee, setValuee] = useState("");
   const provo = (event) => {
     setValuee(event.target.value);
-  }
+  };
 
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event, id) => {
@@ -125,22 +125,24 @@ const PlaceComponent = () => {
     }
   };
 
-    //this method sorts by name
+  //this method sorts by name
   const [order, setOrder] = useState("ASC");
   const sort = (col) => {
-    if(order === "ASC"){
-      const sorted = [...displayPlaces].sort((a,b) => 
-      a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1 );
+    if (order === "ASC") {
+      const sorted = [...displayPlaces].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
       setDisplayPlaces(sorted);
-      setOrder("DSC")
+      setOrder("DSC");
     }
-    if(order === "DSC"){
-      const sorted = [...displayPlaces].sort((a,b) => 
-      a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1 );
+    if (order === "DSC") {
+      const sorted = [...displayPlaces].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
       setDisplayPlaces(sorted);
-      setOrder("ASC")
+      setOrder("ASC");
     }
-  }
+  };
 
   return (
     <>
