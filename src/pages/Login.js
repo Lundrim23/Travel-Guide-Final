@@ -1,10 +1,19 @@
 import { FaRegEnvelope } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { authActions } from "../store";
 
-export function LogIn() {
+const LogIn =() => {
+  const dispatch = useDispatch();
+  const history = useNavigate();
+  
+  const [error, setError] = useState(null);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -24,11 +33,20 @@ export function LogIn() {
         .required("This field is Required"),
     }),
     onSubmit: async (values, actions) => {
-      if (formik.isValid) {
-        console.log(values);
-        await new Promise((reset) => setTimeout(reset, 1000));
-        actions.resetForm();
-      }
+      await axios.post("http://localhost:5000/api/users/login", {
+        email: values.email,
+        password: values.password,
+      }).catch((error) => {
+        if(error.response){
+          throw Error("User doesnt exist, please check your credentials")
+        }
+      }).catch((error) => {
+        setError(error.message)
+      }).then((error)=>{
+        if(!error.response ){
+         dispatch(authActions.login()).then(history('/'))
+        }
+      })
     },
   });
   return (
@@ -38,6 +56,11 @@ export function LogIn() {
           {/* Sign In Section */}
           <div className="w-full p-5">
             <div className="text-center font-bold">
+            {error && (
+                <div style={{padding:"3px", backgroundColor: "red", borderRadius: "10px" }}>
+                  {error}
+                  </div>
+            )}
               <span className="text-blue-900">Travel </span>Guide
             </div>
 

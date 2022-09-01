@@ -1,9 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { authActions } from "../store";
 
-function Navigation() {
+axios.defaults.withCredentials = true;
+let firstRender = true;
+
+const Navigation = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+
+  const sendLogoutRequest = async () => {
+    const res = await axios.post(
+      "http://localhost:5000/api/users/logout",
+      null,
+      {
+        withCredentials: true,
+      }
+    );
+    if (res.status == 200) {
+      return res;
+    }
+    return new Error("Unable to logout, please try agin");
+  };
+  const handleLogout = () => {
+    sendLogoutRequest()
+      .then(() => dispatch(authActions.logout()))
+      .then(window.location.reload(false));
+  };
+
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState();
+
+  const refreshToken = async () => {
+    const res = await axios
+      .get("http://localhost:5000/api/users/refresh", {
+        withCredentials: true,
+      })
+      .catch((err) => console.log(err));
+
+    const data = await res.data;
+    return data;
+  };
+  const sendRequest = async () => {
+    const res = await axios
+      .get("http://localhost:5000/api/users/user", {
+        withCredentials: true,
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
+  useEffect(() => {
+    if (firstRender) {
+      firstRender = false;
+    }
+    sendRequest().then((data) => setUser(data.user));
+    let interval = setInterval(() => {
+      refreshToken().then((data) => setUser(data.user));
+    }, 1000 * 29);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div>
       <nav className="bg-gray-800">
@@ -53,18 +112,41 @@ function Navigation() {
                   >
                     Contact
                   </Link>
-                  <Link
-                    to="/register"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Register
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    Login
-                  </Link>
+                  {!isLoggedIn && (
+                    <Link
+                      to="/register"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Register
+                    </Link>
+                  )}
+                  {!isLoggedIn && (
+                    <Link
+                      to="/login"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Login
+                    </Link>
+                  )}
+                  {isLoggedIn && (
+                    <Link
+                      to="/users/"
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      {user &&
+                        user.username.charAt(0).toUpperCase() +
+                          user.username.slice(1)}
+                    </Link>
+                  )}
+                  {isLoggedIn && (
+                    <Link
+                      to="/"
+                      onClick={handleLogout}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Logout
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
@@ -204,6 +286,23 @@ function Navigation() {
                 >
                   Login
                 </Link>
+                <Link
+                  to="/users/"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  {user &&
+                    user.username.charAt(0).toUpperCase() +
+                      user.username.slice(1)}
+                </Link>
+                {isLoggedIn && (
+                  <Link
+                    to="/"
+                    onClick={handleLogout}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Logout
+                  </Link>
+                )}
               </div>
             </div>
           )}
@@ -218,6 +317,6 @@ function Navigation() {
       </header>  */}
     </div>
   );
-}
+};
 
 export default Navigation;

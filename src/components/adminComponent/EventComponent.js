@@ -128,6 +128,25 @@ const EventComponent = () => {
     }
   };
 
+  //this method sorts by name
+  const [order, setOrder] = useState("ASC");
+  const sort = (col) => {
+    if (order === "ASC") {
+      const sorted = [...events].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setEvents(sorted);
+      setOrder("DSC");
+    }
+    if (order === "DSC") {
+      const sorted = [...events].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setEvents(sorted);
+      setOrder("ASC");
+    }
+  };
+
   return (
     <>
       <AddEvent
@@ -136,8 +155,8 @@ const EventComponent = () => {
         uploadPhoto={uploadPhoto}
         input={input}
       />
-      <hr />
-      <EventTable events={events} update={update} remove={remove} />
+
+      <EventTable events={events} update={update} remove={remove} sort={sort} />
     </>
   );
 };

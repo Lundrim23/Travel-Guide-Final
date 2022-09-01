@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PlaceTable from "./PlaceTable";
 import AddNewPlace from "./AddNewPlace";
-import axios from "axios";
 import {
   addPlace,
   deletePlace,
@@ -16,6 +15,7 @@ const PlaceComponent = () => {
     placeLocation: "",
     placeDetails: "",
     placePhoto: "",
+    terrain: "",
   });
 
   const [displayPlaces, setDisplayPlaces] = useState([]);
@@ -65,6 +65,11 @@ const PlaceComponent = () => {
     setUplphoto(res.data.secure_url);
   };
 
+  const [valuee, setValuee] = useState("");
+  const provo = (event) => {
+    setValuee(event.target.value);
+  };
+
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event, id) => {
     event.preventDefault();
@@ -74,6 +79,7 @@ const PlaceComponent = () => {
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
       placePhoto: uplphoto,
+      terrain: valuee,
     };
 
     try {
@@ -92,6 +98,7 @@ const PlaceComponent = () => {
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
       placePhoto: uplphoto,
+      terrain: place.terrain,
     };
 
     try {
@@ -118,6 +125,25 @@ const PlaceComponent = () => {
     }
   };
 
+  //this method sorts by name
+  const [order, setOrder] = useState("ASC");
+  const sort = (col) => {
+    if (order === "ASC") {
+      const sorted = [...displayPlaces].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setDisplayPlaces(sorted);
+      setOrder("DSC");
+    }
+    if (order === "DSC") {
+      const sorted = [...displayPlaces].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setDisplayPlaces(sorted);
+      setOrder("ASC");
+    }
+  };
+
   return (
     <>
       <AddNewPlace
@@ -125,11 +151,14 @@ const PlaceComponent = () => {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
         place={place}
+        valuee={valuee}
+        provo={provo}
       />
       <PlaceTable
         displayPlaces={displayPlaces}
         remove={removePlace}
         update={updatePlace}
+        sort={sort}
       />
     </>
   );
