@@ -12,7 +12,7 @@ import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 import SearchPage from "./pages/SearchPage"
-import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
+// import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
 import SpecificPlace from "./pages/SpecificPlace";
 
 
