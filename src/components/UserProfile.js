@@ -1,10 +1,11 @@
 import React from 'react'
 
+
 function UserProfile() {
   return (
     <div >
    
-<div class="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40">
+<div class="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
     <div class="px-6">
         <div class="flex flex-wrap justify-center">
             <div class="w-full flex justify-center">

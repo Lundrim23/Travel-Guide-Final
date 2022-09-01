@@ -13,12 +13,14 @@ import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 import SpecificPlace from "./pages/SpecificPlace";
 
+
 import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
 import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
 import CountryComponent from "./components/adminComponent/CountryComponent";
 import "./App.css";
 import Reviews from "./pages/Reviews";
+import UserProfileSettings from "./components/UserProfileSettings";
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="contact" element={<Contact />} />
           <Route path="specific-place" element={<SpecificPlace />} />
+          <Route path="UserProfileSettings" element={<UserProfileSettings/>} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
