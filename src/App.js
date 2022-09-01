@@ -12,7 +12,7 @@ import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 import SearchPage from "./pages/SearchPage"
-import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
+// import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
 import SpecificPlace from "./pages/SpecificPlace";
 
 
@@ -22,6 +22,7 @@ import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
 import CountryComponent from "./components/adminComponent/CountryComponent";
 import "./App.css";
 import Reviews from "./pages/Reviews";
+import UserProfileSettings from "./components/UserProfileSettings";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />
+          <Route path="UserProfileSettings" element={<UserProfileSettings/>} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
