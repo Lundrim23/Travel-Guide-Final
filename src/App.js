@@ -11,7 +11,9 @@ import Admin from "./pages/Admin";
 import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
+import SearchPage from "./pages/SearchPage"
 import SpecificPlace from "./pages/SpecificPlace";
+
 
 import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
@@ -30,10 +32,12 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="events" element={<Events />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
+        
 
         <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />
