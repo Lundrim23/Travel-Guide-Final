@@ -1,11 +1,15 @@
 import React from "react";
-import Sidebar from "../components/Sidebar";
-import Dashboardnav from "../components/Dashboardnav";
+import UserProfile from "../components/UserProfile";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 function Users() {
   return (
     <div>
-      <Dashboardnav />
-      <Sidebar />
+      {/* <Dashboardnav /> */}
+      {/* <Sidebar /> */}
+<Navigation />
+      <UserProfile />
+<Footer/>
     </div>
   );
 }
