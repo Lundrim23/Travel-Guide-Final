@@ -15,7 +15,7 @@ export default function LogoScroll() {
 
   return (
     <>
-      <p className=" text-black pt-10 text-center">
+      <p className="pt-20 text-center text-2xl font-light text-gray-400">
         A mature support from hundreds of brands
       </p>
       <div className="relative flex items-center justify-center  py-10">

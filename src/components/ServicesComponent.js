@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const ServicesComponent = (props) => {
   return (
     <div className="flex">
-      <div className="mr-4 text-[#6366F1] text-5xl">
+      <div className="mr-4 text-[#66768C] text-5xl">
         <props.icon />
       </div>
 

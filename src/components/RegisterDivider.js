@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const RegisterDivider = () => {
   return (
-    <div className='bg-[#1F2937] w-full py-16 text-white px-4'>
+    <div className='bg-[#66768C] max-w-[1240px] py-16 text-white px-4 mx-auto rounded-lg mt-10'>
         <div className='max-w-[1240px] mx-auto grid lg:grid-cols-3'>
             <div className='lg:col-span-2 my-4'>
                 <h1 className='md:text-4xl sm:text-3xl text-2xl font-bold py-2'>Want to use our powerful features ?</h1>
