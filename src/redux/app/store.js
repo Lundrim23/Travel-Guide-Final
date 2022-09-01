@@ -1,14 +1,20 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "@reduxjs/toolkit";
 import userReducer from "../features/users/userSlice";
 import authReducer from "../features/loginSlice"
 
-const reducer = combineReducers({
-  userReducer,
-  authReducer
-})
 
 
+// verzioni qe spom bon vv
 export const store = configureStore({
-  reducer
+  reducer:{
+    user: userReducer,
+    auth: authReducer,
+  }
 });
+
+
+//verzioni qe pom bon
+// export const store = configureStore({
+//   reducer:userReducer,authReducer,
+  
+// });
