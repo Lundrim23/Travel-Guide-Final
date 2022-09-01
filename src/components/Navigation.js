@@ -12,8 +12,7 @@ let firstRender = true;
 const Navigation = () => {
   const [user, setUser] = useState();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  console.log(isLoggedIn)
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const sendLogoutRequest = async () => {
     const res = await axios.post(
