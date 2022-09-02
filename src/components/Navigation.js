@@ -3,14 +3,16 @@ import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { authActions } from "../store";
+import { authActions } from "../redux/features/loginSlice";
+
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
 
 const Navigation = () => {
+  const [user, setUser] = useState();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const sendLogoutRequest = async () => {
     const res = await axios.post(
@@ -23,17 +25,14 @@ const Navigation = () => {
     if (res.status == 200) {
       return res;
     }
-    return new Error("Unable to logout, please try agin");
+    return new Error("Unable to logout, please try again");
   };
   const handleLogout = () => {
-    sendLogoutRequest()
-      .then(() => dispatch(authActions.logout()))
+    sendLogoutRequest().then(() => dispatch(authActions.logout()))
       .then(window.location.reload(false));
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState();
-
   const refreshToken = async () => {
     const res = await axios
       .get("http://localhost:5000/api/users/refresh", {

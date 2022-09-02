@@ -5,9 +5,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { authActions } from "../store";
 import * as UserService from "../utils/services/users.service";
+import { authActions } from "../redux/features/loginSlice";
 
 const LogIn = () => {
   const dispatch = useDispatch();
@@ -34,11 +34,6 @@ const LogIn = () => {
         .required("This field is Required"),
     }),
     onSubmit: async (values, actions) => {
-      // await axios
-      //   .post("http://localhost:5000/api/users/login", {
-      //     email: values.email,
-      //     password: values.password,
-      //   })
       await UserService.login({
         email: values.email,
         password: values.password,
@@ -53,6 +48,7 @@ const LogIn = () => {
         })
         .then((error) => {
           if (!error.response) {
+            dispatch(authActions.login()).then(history("/"));
             dispatch(authActions.login()).then(history("/"));
           }
         });
