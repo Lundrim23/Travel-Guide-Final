@@ -6,12 +6,11 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
-import { authActions } from "../store";
+import { authActions } from "../redux/features/loginSlice";
 
-const LogIn =() => {
+const LogIn = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
-  
   const [error, setError] = useState(null);
 
   const formik = useFormik({
@@ -33,20 +32,24 @@ const LogIn =() => {
         .required("This field is Required"),
     }),
     onSubmit: async (values, actions) => {
-      await axios.post("http://localhost:5000/api/users/login", {
-        email: values.email,
-        password: values.password,
-      }).catch((error) => {
-        if(error.response){
-          throw Error("User doesnt exist, please check your credentials")
-        }
-      }).catch((error) => {
-        setError(error.message)
-      }).then((error)=>{
-        if(!error.response ){
-         dispatch(authActions.login()).then(history('/'))
-        }
-      })
+      await axios
+        .post("http://localhost:5000/api/users/login", {
+          email: values.email,
+          password: values.password,
+        })
+        .catch((error) => {
+          if (error.response) {
+            throw Error("User doesnt exist, please check your credentials");
+          }
+        })
+        .catch((error) => {
+          setError(error.message);
+        })
+        .then((error) => {
+          if (!error.response) {
+            dispatch(authActions.login()).then(history('/'))
+          }
+        });
     },
   });
   return (
@@ -56,11 +59,17 @@ const LogIn =() => {
           {/* Sign In Section */}
           <div className="w-full p-5">
             <div className="text-center font-bold">
-            {error && (
-                <div style={{padding:"3px", backgroundColor: "red", borderRadius: "10px" }}>
+              {error && (
+                <div
+                  style={{
+                    padding: "3px",
+                    backgroundColor: "red",
+                    borderRadius: "10px",
+                  }}
+                >
                   {error}
-                  </div>
-            )}
+                </div>
+              )}
               <span className="text-blue-900">Travel </span>Guide
             </div>
 
@@ -161,6 +170,6 @@ const LogIn =() => {
       </main>
     </div>
   );
-}
+};
 
 export default LogIn;
