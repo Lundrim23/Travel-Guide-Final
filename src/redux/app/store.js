@@ -3,9 +3,8 @@ import userReducer from "../features/users/userSlice";
 import authReducer from "../features/loginSlice";
 
 export const store = configureStore({
-  reducer:{
-    user: userReducer,
+  reducer: {
+    users: userReducer,
     auth: authReducer,
-  }
+  },
 });
-
