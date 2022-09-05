@@ -106,7 +106,7 @@ const contryToVisit = (countries) => {
           Some of the best places to visit!
         </h1>
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-          {x.places.slice(1, 6).map((y) => createPlace(y))}
+          {x.places.slice(0, 6).map((y) => createPlace(y))}
         </div>
       </section>
     </>

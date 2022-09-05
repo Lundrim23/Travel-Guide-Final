@@ -17,8 +17,7 @@ const kosovo = [
     id: 3,
     image: require("../assets/kosovo-img/newborn.jpg"),
     name: "NEWBORN",
-    title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, adipisci.",
+    title: "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
   },
   {
     id: 4,
