@@ -99,7 +99,7 @@ const AddNewPlace = (props) => {
               <label className="text-gray-600 font-light dark:text-gray-50 transition delay-500 ">
                 Place photo
               </label>
-              <input
+              {/* <input
                 type="file"
                 className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-100 dark:bg-neutral-800 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"
                 onChange={props.imageUpload}
@@ -108,6 +108,11 @@ const AddNewPlace = (props) => {
               <input
                 className="file-path validate dark:bg-neutral-700"
                 type="text"
+              /> */}
+              <input 
+              className="w-full mb-6 px-2 py-1 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500 bg-gray-100 dark:bg-neutral-800 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"
+              type="file" 
+              onChange={props.processFile} 
               />
             </div>
             <button
