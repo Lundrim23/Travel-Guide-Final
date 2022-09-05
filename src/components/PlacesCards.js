@@ -17,6 +17,13 @@ const PlacesCards = (props) => {
           <p class="text-sm tracking-tight font-light text-slate-400 leading-6">
             {props.PlacesText}
           </p>
+          <button
+            type="button"
+            title="more about"
+            class="w-full order-first py-2 px-3 mt-2 text-center rounded-xl bg-gray-100 transition hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
+          >
+            <span class="block text-gray-600 font-semibold">Read more</span>
+          </button>
         </div>
       </div>
     </div>

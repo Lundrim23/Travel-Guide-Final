@@ -28,11 +28,13 @@ const createPlace = (place) => {
 
 const countries = [
   {
+    id: 1,
     country: "Kosovo",
     image: Prevalla,
     places: kosovo,
   },
   {
+    id: 2,
     country: "Montenegro",
     image: Montenegro,
     places: montenegro,
@@ -41,26 +43,32 @@ const countries = [
 
 const filters = [
   {
+    id: 1,
     name: "Mountains",
     href: "#",
   },
   {
+    id: 2,
     name: "Cities",
     href: "#",
   },
   {
+    id: 3,
     name: "Lakes",
     href: "#",
   },
   {
+    id: 4,
     name: "Beaches",
     href: "#",
   },
   {
+    id: 5,
     name: "Parks",
     href: "#",
   },
   {
+    id: 6,
     name: "Waterfalls",
     href: "#",
   },
@@ -68,7 +76,10 @@ const filters = [
 
 const getFilters = (filters) => {
   return filters.map((x) => (
-    <div className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md">
+    <div
+      key={x.id}
+      className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+    >
       <p className="text-2xl">
         <a href={x.href}>{x.name}</a>
       </p>
@@ -79,7 +90,10 @@ const getFilters = (filters) => {
 const contryToVisit = (countries) => {
   return countries.map((x) => (
     <>
-      <section className="max-w-7xl my-auto mx-auto pt-8 px-4 sm:mx-auto sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-center items-center sm:py-5">
+      <section
+        key={x.id}
+        className="max-w-7xl my-auto mx-auto pt-8 px-4 sm:mx-auto sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-center items-center sm:py-5"
+      >
         <div className="max-w-sm mx-10 sm:py-5">
           <h1 className="text-4xl text-gray-800 font-bold md:text-5xl py-2">
             BEST PLACES IN <span className="text-emerald-700">{x.country}</span>
@@ -106,7 +120,7 @@ const contryToVisit = (countries) => {
           Some of the best places to visit!
         </h1>
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-          {x.places.slice(1, 6).map((y) => createPlace(y))}
+          {x.places.slice(0, 6).map((y) => createPlace(y))}
         </div>
       </section>
     </>
