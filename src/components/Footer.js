@@ -3,67 +3,67 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-white dark:bg-gray-800 pt-4 pb-8 xl:pt-8">
+      <footer className="bg-white dark:bg-gray-800 pt-6 pb-8 xl:pt-12">
         <div className="max-w-screen-lg xl:max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 text-gray-400 dark:text-gray-300">
-          <ul className="text-lg font-light pb-8 flex flex-wrap justify-center">
-            <li className="w-1/2 md:w-1/3 lg:w-1/3">
+          <ul className="text-lg  pb-8 flex flex-wrap justify-center">
+            <li className="w-full md:w-full lg:w-1/3">
               <div className="text-center">
-                <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
+                <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium">
                   Components
                 </h2>
-                <ul>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Elements</a>
+                <ul class="font-normal text-gray-400">
+                  <li className="mb-4 hover:text-gray-800  ">
+                    <a href="#">Home</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Forms</a>
+                  <li className="mb-4 hover:text-gray-800  ">
+                    <a href="#">About</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Commerces</a>
+                  <li className="mb-4 hover:text-gray-800 ">
+                    <a href="#">Contact Us</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Navigation</a>
+                  <li className="mb-4 hover:text-gray-800 ">
+                    <a href="#">Search</a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li className="w-1/2 md:w-1/3 lg:w-1/3">
+            <li className="w-full md:w-full lg:w-1/3" >
               <div className="text-center">
-                <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
-                  Contacts
+                <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium ">
+                  Components
                 </h2>
-                <ul>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Github</a>
+                <ul class="font-normal">
+                  <li className="mb-4  hover:text-gray-800 ">
+                    <a href="#">Places</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Facebook</a>
+                  <li className="mb-4  hover:text-gray-800">
+                    <a href="#">Events</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Twitter</a>
+                  <li className="mb-4  hover:text-gray-800">
+                    <a href="#">Restaurants</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">LinkedIn</a>
+                  <li className="mb-4  hover:text-gray-800">
+                    <a href="#">Hotels</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li className="w-1/2 md:w-1/3 lg:w-1/3">
               <div className="text-center">
-                <h2 className="text-gray-500 dark:text-gray-200 text-md uppercase mb-4">
+                <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium">
                   Customization
                 </h2>
-                <ul>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
-                    <a href="#">Settings</a>
+                <ul class="font-normal">
+                  <li className="mb-4 hover:text-gray-800">
+                    <a href="#">Profile</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+                  <li className="mb-4 hover:text-gray-800">
                     <a href="#">Themes</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+                  <li className="mb-4 hover:text-gray-800 ">
                     <a href="#">Plugins</a>
                   </li>
-                  <li className="mb-4 hover:text-gray-800 dark:hover:text-white transition-colors duration-200">
+                  <li className="mb-4 hover:text-gray-800 ">
                     <a href="#">LinkedIn</a>
                   </li>
                 </ul>
