@@ -16,17 +16,14 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { loadUsers } from "../redux/features/users/userSlice.js";
-import { getEventet } from "../redux/features/users/eventsSlice.js";
 
 function Admin() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUsers());
-    dispatch(getEventet());
   }, [dispatch]);
 
-  const eventet = useSelector((state) => state.eventet.eventet)
 
   const amount = useSelector((state) => state.users.amount);
 
@@ -39,12 +36,6 @@ function Admin() {
   const [colorTheme, setColorTheme] = useDarkMode();
   return (
     <>
-      <h1>Eventet....</h1>
-      {eventet.map((event) => {
-        return(
-          <h1> {event.title} </h1>
-        )
-      })}
       <div>
         <Link to="/"></Link>
       </div>

@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../features/users/userSlice";
 import authReducer from "../features/loginSlice";
-import eventsReducer from "../features/users/eventsSlice";
+import postReducer from "../features/posts/postsSlice";
 
 export const store = configureStore({
   reducer: {
     users: userReducer,
     auth: authReducer,
-    eventet: eventsReducer,
+    posts: postReducer,
   },
 });
