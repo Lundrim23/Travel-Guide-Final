@@ -41,8 +41,14 @@ function UserProfileSettings() {
     <div class="md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-first-name">
         First Name
+        
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Name...">
+      
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
+       id="grid-first-name" type="text" placeholder="Name..."
+       value={values.name}
+        onChange={(e) => setValues({ ...values, name: e.target.value })}>
+      
       </input>
    
     </div>
@@ -59,7 +65,9 @@ function UserProfileSettings() {
       <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-email">
         Email
       </label>
-      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-email" type="email" placeholder="Email">
+      <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3" id="grid-email" type="email" placeholder="Email"
+      value={values.email}
+      onChange={(e) => setValues({ ...values, email: e.target.value })}>
       </input>
       <p class="text-blue-600 text-xs italic">Please fill out this field.</p>
     </div>
