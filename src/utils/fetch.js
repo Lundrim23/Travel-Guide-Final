@@ -6,7 +6,8 @@ import axios from "axios";
 });
 
 export const cloudinaryApi = axios.create({
-  baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD,
+  // baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD,
+  baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
 });
 
 export const reviews = axios.create({
@@ -40,7 +41,7 @@ export function getPlaces() {
 }
 
 export function addPlace(data) {
-  return api.post("places/", data);
+  return api.post("/places/", data);
 }
 
 export function updatePlacee(id, data) {
