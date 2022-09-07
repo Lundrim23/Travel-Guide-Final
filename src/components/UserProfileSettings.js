@@ -1,6 +1,34 @@
-import React from 'react'
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { useNavigate, useParams } from "react-router-dom"
+
+import { updateUser } from "./userSlice"
+
 
 function UserProfileSettings() {
+
+  const params = useParams();
+  const dispatch = useDispatch();
+  const users = useSelector(store => store.users);
+  const navigate = useNavigate();
+  const existingUser = users.filter(user => user.id === params.id);
+  const { name, email } = existingUser[0];
+  const [values, setValues] = useState({
+    name,
+    email
+  });
+
+  const handleEditUser = () => {
+    setValues({ name: '', email: '' });
+    dispatch(updateUser({
+      id: params.id,
+      name: values.name,
+      email: values.email
+    }));
+    navigate('/');
+  }
+
+
   return (
     <div>
 
@@ -61,7 +89,8 @@ function UserProfileSettings() {
   <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
   Cancel
 </button>
-<button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full ml-4">
+<button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full ml-4"
+ onClick={handleEditUser}>
   Save Changes
 </button>
   </div>
