@@ -42,7 +42,7 @@ function Events() {
       </div>
 
       {/* posts from redux toolkit */}
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-slate-50 to-gray-300 pt-10 ">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-300 pt-10 ">
         <Posts />
       </div>
 
