@@ -24,6 +24,7 @@ function Admin() {
     dispatch(loadUsers());
   }, [dispatch]);
 
+
   const amount = useSelector((state) => state.users.amount);
 
   //this one gets the todays date

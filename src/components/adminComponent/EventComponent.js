@@ -5,8 +5,10 @@ import {
   addEvents,
   deleteEvent,
   getEvents,
+  like,
+  unlike,
   updateEvents,
-  uploadCloudinary,
+  // uploadCloudinary,
 } from "../../utils/fetch";
 
 const EventComponent = () => {
@@ -127,10 +129,10 @@ const EventComponent = () => {
         // do something to response
         // console.log(this.responseText);
         // var response = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
           var url = response.secure_url; //get the url
-          var json = { location: url }; //set it in the format tinyMCE wants it
+          // var json = { location: url }; //set it in the format tinyMCE wants it
           // success(json.location);
           console.log(url);
           setPhotoUpload(url);
@@ -233,6 +235,30 @@ const EventComponent = () => {
     }
   };
 
+  //this method likes an event
+  const likeEvent = async (id) => {
+    try {
+      // like(id).then((response) => {
+      //   setEvents([...events, response.data]);
+      // });
+
+      like(id).then((res) => {
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //this method unlikes an event
+  const unlikeEvenet = (id) => {
+    try {
+      unlike(id);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
       <AddEvent
@@ -243,7 +269,14 @@ const EventComponent = () => {
         input={input}
       />
 
-      <EventTable events={events} update={update} remove={remove} sort={sort} />
+      <EventTable
+        events={events}
+        update={update}
+        remove={remove}
+        sort={sort}
+        like={likeEvent}
+        unlike={unlikeEvenet}
+      />
     </>
   );
 };

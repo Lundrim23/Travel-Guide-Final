@@ -54,6 +54,12 @@ const EventTable = (props) => {
               <th className="p-3 text-sm font-semibold tracking-wide text-left dark:text-gray-50 transition delay-">
                 Image
               </th>
+              {/* <th className="p-3 text-sm font-semibold tracking-wide text-left dark:text-gray-50 transition delay-">
+                Like
+              </th>
+              <th className="p-3 text-sm font-semibold tracking-wide text-left dark:text-gray-50 transition delay-">
+                Dislike
+              </th> */}
               <th className="w-24  p-3 text-sm font-semibold tracking-wide text-left dark:text-gray-50 transition delay-">
                 Update
               </th>
@@ -92,6 +98,18 @@ const EventTable = (props) => {
                       alt="on Table"
                     />
                   </td>
+                  {/* <td>
+                  <h6>{event.likes.length} Likes</h6>
+                  <button onClick={() => props.like(event._id)}>
+                    <Like />
+                  </button>
+
+                  </td>
+                  <td>
+                    <button onClick={() => props.unlike(event._id)}>
+                      <Dislike />
+                    </button>
+                  </td> */}
                   <td className="p-3 text-sm whitespace-nowrap ">
                     <button
                       className="font-bold text-blue-500 dark:text-teal-500 hover:underline"
