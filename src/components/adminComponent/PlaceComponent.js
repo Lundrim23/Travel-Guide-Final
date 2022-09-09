@@ -6,7 +6,7 @@ import {
   deletePlace,
   getPlaces,
   updatePlacee,
-  uploadCloudinary,
+  // uploadCloudinary,
 } from "../../utils/fetch";
 
 const PlaceComponent = () => {
@@ -121,7 +121,7 @@ const PlaceComponent = () => {
       xhr.onload = function () {
         // console.log(this.responseText);
         // var response = JSON.parse(xhr.responseText);
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
           var url = response.secure_url; //get the url
           // var json = { location: url }; //set it in the format tinyMCE wants it

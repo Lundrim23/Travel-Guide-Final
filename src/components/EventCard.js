@@ -8,6 +8,7 @@ const EventCard = (props) => {
         <img
           class="aspect-video w-96 rounded-t-2xl object-cover object-center"
           src="https://www.newsdelivers.com/wp-content/uploads/2022/06/Sunny-Hill-Festival-however-held-in-Prishtina.jpg"
+          alt="throwing error without alt"
         />
         <div class="p-4">
           <small class="text-pink-500 text-xs">{props.EventPlace}</small>
