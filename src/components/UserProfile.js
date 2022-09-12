@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 function UserProfile() {
@@ -43,8 +44,9 @@ function UserProfile() {
             <div class="flex flex-wrap justify-center">
                 <div class="w-full px-4">
                     <p class="font-light leading-relaxed text-slate-600 mb-4">An artist of considerable range, Mike is the name taken by Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and records all of his own music, giving it a warm.</p>
-                    <button href="" class="px-8 py-2 bg-indigo-400 outline-none border border-indigo-100 rounded text-white font-medium active:scale-95 hover:bg-indigo-600 hover:text-white focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 
+                <Link to="/UserProfileSettings">   <button href="" class="px-8 py-2 bg-indigo-400 outline-none border border-indigo-100 rounded text-white font-medium active:scale-95 hover:bg-indigo-600 hover:text-white focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2 
                     disabled:bg-gray-400/80 disabled:shadow-none disabled:cursor-not-allowed transition-colors duration-200">Edit Profile</button>
+              </Link>
                 </div>
             </div>
         </div>
