@@ -7,23 +7,28 @@ export default function WidgetLg() {
 
       <table className="w-full border-spacing-48">
         <tr>
-          <th>Event</th>
-          <th>Place</th>
-          <th>Description</th>
-          <th>Tags</th>
+          <th className="text-left">Event Name</th>
+          <th className="text-left">Event Organizator</th>
+          <th className="text-left">Event Tags</th>
+          <th className="text-left">Event Address</th>
+          <th className="text-left">Event Description</th>
+          <th className="text-left">Event Image</th>
         </tr>
+
         <tr>
-          <td>
+          <td className="font-light">Sunnyhill</td>
+          <td className="font-light">Organizator</td>
+          <td className="font-light">Tags</td>
+          <td className="font-light">Address</td>
+          <td className="font-light">Description</td>
+          <td className="flex items-center">
             <img
-              className="w-10 rounded-full object-cover"
+              className="w-10 rounded-full object-cover mr-2"
               src="https://image.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg"
               alt="user"
             />
             <span>User</span>
           </td>
-          <td>2 jun 2021</td>
-          <td>place</td>
-          <td>2 jun 2021</td>
         </tr>
       </table>
     </div>

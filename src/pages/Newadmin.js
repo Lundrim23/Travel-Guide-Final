@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import Topbar from "../components/adminComponent/topbar/Topbar";
-import Sidebar from "../components/adminComponent/sidebar/Sidebar";
+
 import Home from "../components/adminComponent/pages/Home";
+import Topbar from "../components/adminComponent/pages/Topbar";
+import Sidebar from "../components/adminComponent/pages/Sidebar";
 
 function Newadmin() {
   return (
@@ -12,11 +13,14 @@ function Newadmin() {
       </div>
 
       <Topbar />
+      <Outlet />
 
       <div className="flex mt-2">
         <Sidebar />
         <Home />
       </div>
+
+
     </>
   );
 }

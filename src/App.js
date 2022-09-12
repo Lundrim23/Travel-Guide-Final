@@ -24,7 +24,8 @@ import "./App.css";
 import Reviews from "./pages/Reviews";
 import UserProfileSettings from "./components/UserProfileSettings";
 import Newadmin from "./pages/Newadmin";
-
+import UserList from "./components/adminComponent/pages/UserList";
+import Homee from "./components/adminComponent/pages/Home";
 
 function App() {
   return (
@@ -42,7 +43,12 @@ function App() {
         </Route>
         <Route path="register" element={<Register />} />
 
+        <Route path="admin" element={<Newadmin />}>
+
         <Route path="admin" element={<Newadmin />} />
+          <Route path="users" element={<UserList />} />
+        </Route>
+
         {/* <Route path="admin" element={<Admin />} />
         
 
