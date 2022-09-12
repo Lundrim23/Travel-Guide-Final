@@ -11,10 +11,9 @@ import Admin from "./pages/Admin";
 import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
-import SearchPage from "./pages/SearchPage"
-// import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
+import SearchPage from "./pages/SearchPage";
 import SpecificPlace from "./pages/SpecificPlace";
-
+import Api from "./pages/Api";
 
 import EventComponent from "./components/adminComponent/EventComponent";
 import PlaceComponent from "./components/adminComponent/PlaceComponent";
@@ -36,11 +35,11 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />
-          <Route path="UserProfileSettings" element={<UserProfileSettings/>} />
+          <Route path="UserProfileSettings" element={<UserProfileSettings />} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
-        
+        <Route path="api" element={<Api />} />
 
         <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />
@@ -49,7 +48,7 @@ function App() {
           <Route path="users" element={<AllUsersComponent />} />
         </Route>
 
-<Route path="reviews" element={<Reviews />} />
+        <Route path="reviews" element={<Reviews />} />
         <Route path="login" element={<LogIn />} />
         <Route path="users" element={<Users />} />
         <Route path="*" element={<Error />} />
