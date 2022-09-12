@@ -23,6 +23,8 @@ import CountryComponent from "./components/adminComponent/CountryComponent";
 import "./App.css";
 import Reviews from "./pages/Reviews";
 import UserProfileSettings from "./components/UserProfileSettings";
+import Newadmin from "./pages/Newadmin";
+
 
 function App() {
   return (
@@ -39,7 +41,9 @@ function App() {
           <Route path="UserProfileSettings" element={<UserProfileSettings/>} />
         </Route>
         <Route path="register" element={<Register />} />
-        <Route path="admin" element={<Admin />} />
+
+        <Route path="admin" element={<Newadmin />} />
+        {/* <Route path="admin" element={<Admin />} />
         
 
         <Route path="admin" element={<Admin />}>
@@ -47,7 +51,7 @@ function App() {
           <Route path="places" element={<PlaceComponent />} />
           <Route path="country" element={<CountryComponent />} />
           <Route path="users" element={<AllUsersComponent />} />
-        </Route>
+        </Route> */}
 
 <Route path="reviews" element={<Reviews />} />
         <Route path="login" element={<LogIn />} />
