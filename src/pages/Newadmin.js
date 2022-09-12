@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Topbar from "../components/adminComponent/topbar/Topbar";
 import Sidebar from "../components/adminComponent/sidebar/Sidebar";
+import Home from "../components/adminComponent/pages/Home";
 
 function Newadmin() {
   return (
@@ -12,11 +13,9 @@ function Newadmin() {
 
       <Topbar />
 
-      <div className="flex">
+      <div className="flex mt-2">
         <Sidebar />
-        <div className="flex-auto w-10/12 ">
-            Other pages
-        </div>
+        <Home />
       </div>
     </>
   );
