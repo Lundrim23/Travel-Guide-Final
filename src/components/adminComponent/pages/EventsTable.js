@@ -5,6 +5,7 @@ import { SortIcon, Delete } from "../../AllSvgs";
 export default function EventsTable() {
   return (
     <div className="flex-auto w-10/12 px-5">
+          <Outlet />
       <div class="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -81,7 +82,7 @@ export default function EventsTable() {
           </tbody>
         </table>
       </div>
-      <Outlet />
+
     </div>
   );
 }
