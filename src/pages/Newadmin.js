@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
-import Home from "../components/adminComponent/pages/Home";
+// import Home from "../components/adminComponent/pages/Home";
 import Topbar from "../components/adminComponent/pages/Topbar";
 import Sidebar from "../components/adminComponent/pages/Sidebar";
 

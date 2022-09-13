@@ -28,6 +28,7 @@ import Homee from "./components/adminComponent/pages/Home";
 import EventsTable from "./components/adminComponent/pages/EventsTable";
 import PlaceTable from "./components/adminComponent/pages/PlaceTable";
 import CountryTable from "./components/adminComponent/pages/CountryTable";
+import EditEvent from "./components/adminComponent/pages/EditEvent";
 
 function App() {
   return (
@@ -48,9 +49,11 @@ function App() {
         <Route path="admin" element={<Newadmin />}>
           <Route path="" element={<Homee />} />
           <Route path="users" element={<UserList />} />
-          <Route path="events" element={<EventsTable /> } />
-          <Route path="places" element={<PlaceTable /> } />
-          <Route path="countries" element={<CountryTable /> } />
+          <Route path="events" element={<EventsTable />}>
+            <Route path="editevent" element={<EditEvent />} />
+          </Route>
+          <Route path="places" element={<PlaceTable />} />
+          <Route path="countries" element={<CountryTable />} />
         </Route>
 
         {/* <Route path="admin" element={<Admin />} />
