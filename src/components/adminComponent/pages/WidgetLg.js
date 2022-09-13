@@ -2,7 +2,7 @@ import React from "react";
 
 export default function WidgetLg() {
   return (
-    <div className="flex-auto w-8/12 p-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+    <div className="flex-auto w-8/12 p-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg">
       <h3 className="text-2xl font-bold">Latest Events</h3>
 
       <table className="w-full border-spacing-48">
