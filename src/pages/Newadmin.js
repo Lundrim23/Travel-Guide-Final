@@ -13,14 +13,14 @@ function Newadmin() {
       </div>
 
       <Topbar />
-      <Outlet />
 
       <div className="flex mt-2">
         <Sidebar />
-        <Home />
+        {/* <Home /> */}
+        <Outlet />
       </div>
 
-
+      {/* <Outlet /> */}
     </>
   );
 }
