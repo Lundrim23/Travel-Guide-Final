@@ -6,9 +6,6 @@ export default function EditEvent() {
     <div className="px-4 py-4">
       <div className="flex items-center justify-between">
         <h1>Edit Event</h1>
-        <button className="w-20 border-none p-1 bg-teal-400 rounded-md cursor-pointer text-white">
-          Create
-        </button>
       </div>
 
       <div className="flex mt-5">
@@ -90,15 +87,14 @@ export default function EditEvent() {
                   className="border-none w-64"
                 ></input>
               </div>
-            </div>
-
-            <div>
-              <label className="mb-1 text-sm">eventdescription</label>
-              <input
-                type="text"
-                placeholder="eventdescription"
-                className="border-none w-64"
-              ></input>
+              <div>
+                <label className="mb-1 text-sm">eventdescription</label>
+                <input
+                  type="text"
+                  placeholder="eventdescription"
+                  className="border-none w-64"
+                ></input>
+              </div>
             </div>
 
             <div className="flex flex-col content-between">

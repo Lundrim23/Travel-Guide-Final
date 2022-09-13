@@ -29,6 +29,7 @@ import EventsTable from "./components/adminComponent/pages/EventsTable";
 import PlaceTable from "./components/adminComponent/pages/PlaceTable";
 import CountryTable from "./components/adminComponent/pages/CountryTable";
 import EditEvent from "./components/adminComponent/pages/EditEvent";
+import AddEvent from "./components/adminComponent/pages/AddEvent";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           </Route>
           <Route path="places" element={<PlaceTable />} />
           <Route path="countries" element={<CountryTable />} />
+          <Route path="newEvent" element={<AddEvent /> } />
         </Route>
 
         {/* <Route path="admin" element={<Admin />} />

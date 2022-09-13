@@ -47,6 +47,12 @@ function Sidebar() {
                 <Link to="/admin/users">Users</Link>
               </h1>
             </li>
+            <li className="flex cursor-pointer p-1 items-center hover:bg-gray-300  hover:text-cyan-600  dark:hover:bg-neutral-800">
+              <UserIcon />
+              <h1 className="pl-2 hover:text-cyan-600 dark:text-gray-50 transition delay-400 dark:hover:text-cyan-600">
+                <Link to="/admin/newEvent">Add New Event</Link>
+              </h1>
+            </li>
           </ul>
         </div>
       </div>
