@@ -128,7 +128,7 @@ export default function AddEvent() {
           </div>
         </div>
 
-        <button className="border-none bg-slate-400 text-white " >Create</button>
+        <button className="border-none bg-slate-400 text-white ">Create</button>
       </form>
     </div>
   );

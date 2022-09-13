@@ -5,7 +5,7 @@ export default function FeaturedInfo() {
   return (
     <div className="w-full flex justify-between">
       <div className="flex-1 my-0 mx-5 p-7 rounded-xl cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <span className="text-xl">Revenue</span>
+        <span className="text-xl">Users</span>
         <div className="flex mx-0 my-3 items-center">
           <span className="flex text-3xl font-bold">111</span>
           <span className="flex items-center ml-4">
@@ -16,7 +16,7 @@ export default function FeaturedInfo() {
       </div>
 
       <div className="flex-1 my-0 mx-5 p-7 rounded-xl cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <span className="text-xl">Saes</span>
+        <span className="text-xl">This</span>
         <div className="flex mx-0 my-3 items-center">
           <span className="flex text-3xl font-bold">444</span>
           <span className="flex items-center ml-4">
@@ -27,7 +27,7 @@ export default function FeaturedInfo() {
       </div>
 
       <div className="flex-1 my-0 mx-5 p-7 rounded-xl cursor-pointer shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <span className="text-xl">Costs</span>
+        <span className="text-xl">Month</span>
         <div className="flex mx-0 my-3 items-center">
           <span className="flex text-3xl font-bold">222</span>
           <span className="flex items-center ml-4">

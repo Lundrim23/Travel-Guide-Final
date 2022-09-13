@@ -4,7 +4,7 @@ import { Visible } from "../../AllSvgs";
 export default function WidgetSm() {
   return (
     <div className="flex-auto w-2/12 p-7 mr-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg">
-      <span className="text-2xl font-bold">New Join Members</span>
+      <span className="text-2xl font-bold">New Joined Members</span>
       <ul className="m-0 p-0 list-none  ">
         <li className="flex items-center content-between my-5 mx-0">
           <img
