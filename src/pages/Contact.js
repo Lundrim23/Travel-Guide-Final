@@ -2,21 +2,19 @@ import { useRef } from "react";
 import emailjs from "emailjs-com";
 
 function Contact() {
-
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_pxyn2op",
-        "template_droiwxf",
-        form.current,
-        "VFZnH8dS_3YfELjED"
-      )
+    emailjs.sendForm(
+      "service_pxyn2op",
+      "template_droiwxf",
+      form.current,
+      "VFZnH8dS_3YfELjED"
+    );
 
-    e.target.reset()
+    e.target.reset();
   };
 
   return (
