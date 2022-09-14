@@ -15,7 +15,7 @@ export default function AddEvent() {
                 type="text"
                 id="eventname"
                 required
-                class=" focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class=" bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventname"
@@ -30,7 +30,7 @@ export default function AddEvent() {
                 type="text"
                 id="eventorganizator"
                 required
-                class="focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventorganizator"
@@ -45,7 +45,7 @@ export default function AddEvent() {
                 type="text"
                 id="eventtags"
                 required
-                class="focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventtags"
@@ -60,7 +60,7 @@ export default function AddEvent() {
                 type="text"
                 id="eventaddress"
                 required
-                class="focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventaddress"
@@ -76,7 +76,7 @@ export default function AddEvent() {
                 id="eventdescription"
                 required
                 rows="4" 
-                class="focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               ></textarea>
               <label
                 for="eventdescription"
