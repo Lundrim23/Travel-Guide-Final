@@ -3,23 +3,23 @@ import { Upload } from "../../AllSvgs";
 
 export default function AddCountry() {
   return (
-    <div className=" flex flex-auto w-10/12 px-5 ">
-      <div class="flex w-full lg:w-6/12  bg-white space-y-8 ">
+    <div className=" flex flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500 ">
+      <div class="flex w-full lg:w-6/12  bg-white space-y-8 dark:bg-neutral-800 transition delay-500">
         <div class="w-full px-8 md:px-32 lg:px-24 ">
-          <form class="bg-white rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5">
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">Hello Admin!</h1>
-            <p class="text-sm font-normal text-gray-600 mb-8">Add a country</p>
+          <form class="bg-white dark:bg-neutral-700 transition delay-500 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5">
+            <h1 class="text-gray-800 dark:text-gray-50 font-bold text-2xl mb-1">Hello Admin!</h1>
+            <p class="text-sm font-normal text-gray-600 dark:text-gray-400 mb-8">Add a country</p>
             {/* <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl"> */}
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
                 type="text"
                 id="countryname"
                 required
-                class=" bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class=" bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 focus:border-emerald-300 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="countryname"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Country Name
               </label>
@@ -30,11 +30,11 @@ export default function AddCountry() {
                 type="text"
                 id="countrycapital"
                 required
-                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 focus:border-emerald-300 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="countrycapital"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Country Capital
               </label>
@@ -45,11 +45,11 @@ export default function AddCountry() {
                 type="number"
                 id="countrypopulation"
                 required
-                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 focus:border-emerald-300 dark:focus:border-neutral-400 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="countrypopulation"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Coutnry Population
               </label>

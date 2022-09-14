@@ -14,7 +14,7 @@ function Newadmin() {
 
       <Topbar />
 
-      <div className="flex mt-2">
+      <div className="flex mt-2 ">
         <Sidebar />
         {/* <Home /> */}
         <Outlet />

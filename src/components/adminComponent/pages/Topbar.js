@@ -12,8 +12,8 @@ function Topbar() {
 
   const [colorTheme, setColorTheme] = useDarkMode();
   return (
-    <div className="w-full h-12 sticky top-0">
-      <div className="h-full px-5 flex items-center justify-between">
+    <div className="w-full h-12 sticky top-0 dark:bg-neutral-900 transition delay-100">
+      <div className="h-full px-5 flex items-center justify-between ">
         <div>
           <div className="text-sm text-blue-400 cursor-pointer">
             Starlabs-Titans

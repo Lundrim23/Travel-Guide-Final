@@ -10,7 +10,7 @@ import {
 
 function Sidebar() {
   return (
-    <div className="flex-auto w-2/12 sticky rounded-lg top-12 h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+    <div className="flex-auto w-2/12 sticky rounded-lg top-12 h-screen shadow-[0_3px_10px_rgb(0,0,0,0.2)] dark:bg-neutral-700 transition delay-100">
       <div className="p-5">
         <div className="mb-2">
           <h3 className="text-2xl">Dashboard</h3>
