@@ -7,21 +7,21 @@ import Sidebar from "../components/adminComponent/pages/Sidebar";
 
 function Newadmin() {
   return (
-    <>
+    <div className="dark:bg-neutral-800">
       <div>
         <Link to="/"></Link>
       </div>
 
       <Topbar />
 
-      <div className="flex mt-2 ">
+      <div className="flex mt-2">
         <Sidebar />
         {/* <Home /> */}
         <Outlet />
       </div>
 
       {/* <Outlet /> */}
-    </>
+    </div>
   );
 }
 

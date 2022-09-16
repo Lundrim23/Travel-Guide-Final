@@ -3,23 +3,27 @@ import { Upload } from "../../AllSvgs";
 
 export default function AddEvent() {
   return (
-    <div className=" flex flex-auto w-10/12 px-5 ">
-      <div class="flex w-full lg:w-6/12  bg-white space-y-8 ">
-        <div class="w-full px-8 md:px-32 lg:px-24 ">
-          <form class="bg-white rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5">
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">Hello Admin!</h1>
-            <p class="text-sm font-normal text-gray-600 mb-8">Add an event</p>
+    <div className=" flex flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500 ">
+      <div class="flex w-full lg:w-6/12  bg-white space-y-8 dark:bg-neutral-800 transition delay-500 ">
+        <div class="w-full px-8 md:px-32 lg:px-24">
+          <form class="bg-white dark:bg-neutral-700 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] p-5">
+            <h1 class="text-gray-800 dark:text-gray-50 font-bold text-2xl mb-1">
+              Hello Admin!
+            </h1>
+            <p class="text-sm font-normal text-gray-600 dark:text-gray-400 mb-8">
+              Add an event
+            </p>
             {/* <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl"> */}
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
                 type="text"
                 id="eventname"
                 required
-                class=" bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class=" bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventname"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event name
               </label>
@@ -30,11 +34,11 @@ export default function AddEvent() {
                 type="text"
                 id="eventorganizator"
                 required
-                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventorganizator"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event organizator
               </label>
@@ -45,11 +49,11 @@ export default function AddEvent() {
                 type="text"
                 id="eventtags"
                 required
-                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventtags"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event tags
               </label>
@@ -60,11 +64,11 @@ export default function AddEvent() {
                 type="text"
                 id="eventaddress"
                 required
-                class="bg-gray-100 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
                 for="eventaddress"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event address
               </label>
@@ -75,27 +79,24 @@ export default function AddEvent() {
                 type="text"
                 id="eventdescription"
                 required
-                rows="4" 
-                class="bg-gray-100 focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
+                rows="4"
+                class="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               ></textarea>
               <label
                 for="eventdescription"
-                class="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+                class="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event description
               </label>
             </div>
 
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
-            <label className="pl-3 cursor-pointer flex" htmlFor="file"><Upload /><span className="ml-2">Upload a photo</span></label>
-                <input 
-                  type="file"
-                  id="file"
-                  className="hidden"
-                />
+              <label className="pl-3 cursor-pointer flex" htmlFor="file">
+                <Upload />
+                <span className="ml-2 dark:text-gray-50 ">Upload a photo</span>
+              </label>
+              <input type="file" id="file" className="hidden" />
             </div>
-
-
 
             <button
               type="submit"

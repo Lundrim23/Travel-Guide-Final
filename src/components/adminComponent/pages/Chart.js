@@ -42,9 +42,9 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="m-5 p-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg">
+    <div className="m-5 p-5 dark:bg-neutral-700 transition shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg">
       {/* chart tiele */}
-      <h3 className="mb-5">User analytics</h3>
+      <h3 className="mb-5 dark:text-gray-300">User analytics</h3>
       <ResponsiveContainer width="100%" aspect={4 / 1}>
         <LineChart data={data}>
           <XAxis dataKey="name" />

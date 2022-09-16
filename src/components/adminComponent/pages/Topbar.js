@@ -3,12 +3,11 @@ import { NotificationIcon, Settings, DarkIcon, LightIcon } from "../../AllSvgs";
 import useDarkMode from "../UseDarkMode";
 
 function Topbar() {
-
-    //this one gets the todays date
-    const current = new Date();
-    const date = `${current.getDate()}/${
-      current.getMonth() + 1
-    }/${current.getFullYear()}`;
+  //this one gets the todays date
+  const current = new Date();
+  const date = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
 
   const [colorTheme, setColorTheme] = useDarkMode();
   return (
@@ -21,9 +20,9 @@ function Topbar() {
         </div>
 
         <div className="flex items-center">
-        <p className="text-gray-500 p-1 dark:text-gray-50 transition delay-500 mr-2">
-                    {date}
-                  </p>
+          <p className="text-gray-500 p-1 dark:text-gray-50 transition delay-500 mr-2">
+            {date}
+          </p>
           <div
             className="flex justify-between relative mr-2"
             onClick={() => setColorTheme(colorTheme)}

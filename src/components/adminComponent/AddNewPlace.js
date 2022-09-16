@@ -5,7 +5,7 @@ const AddNewPlace = (props) => {
     <div>
       <div className="lg:flex">
         <div className="bg-white lg:w-2/4 px-6 lg:ml-4 rounded-l-lg dark:bg-neutral-700 transition delay-500">
-          <h1 className="text-3xl tex-gray-700 py-6 p-3 w-2/3 m-auto dark:text-gray-50 transition delay-500">
+          <h1 className="text-3xl tex-gray-700 py-6 p-3 w-2/3 m-auto dark:text-gray-50 dark:bg-neutral-800 transition delay-500">
             Add Place
           </h1>
           <hr className="mx-40 dark:border-gray-500 transition delay-500" />

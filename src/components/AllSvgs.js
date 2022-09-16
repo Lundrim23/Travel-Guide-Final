@@ -294,7 +294,7 @@ export const NotificationIcon = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="w-6 h-6"
+      class="w-6 h-6 dark:fill-slate-200"
     >
       <path
         stroke-linecap="round"
@@ -313,7 +313,7 @@ export const Settings = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="w-6 h-6"
+      class="w-6 h-6 dark:fill-slate-200"
     >
       <path
         stroke-linecap="round"
@@ -456,7 +456,7 @@ export const Upload = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      class="w-6 h-6"
+      class="w-6 h-6 dark:fill-slate-100"
     >
       <path
         stroke-linecap="round"
