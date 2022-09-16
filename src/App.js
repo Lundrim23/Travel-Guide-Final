@@ -15,19 +15,19 @@ import SearchPage from "./pages/SearchPage";
 // import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
 import SpecificPlace from "./pages/SpecificPlace";
 
-import EventComponent from "./components/adminComponent/EventComponent";
-import PlaceComponent from "./components/adminComponent/PlaceComponent";
-import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
-import CountryComponent from "./components/adminComponent/CountryComponent";
+// import EventComponent from "./components/adminComponent/EventComponent";
+// import PlaceComponent from "./components/adminComponent/PlaceComponent";
+// import AllUsersComponent from "./components/adminComponent/AllUsersComponent";
+// import CountryComponent from "./components/adminComponent/CountryComponent";
 import "./App.css";
 import Reviews from "./pages/Reviews";
 import UserProfileSettings from "./components/UserProfileSettings";
 import Newadmin from "./pages/Newadmin";
 import UserList from "./components/adminComponent/pages/UserList";
 import Homee from "./components/adminComponent/pages/Home";
-import EventsTable from "./components/adminComponent/pages/EventsTable";
-import PlaceTable from "./components/adminComponent/pages/PlaceTable";
-import CountryTable from "./components/adminComponent/pages/CountryTable";
+import EventComponent from "./components/adminComponent/pages/EventComponent";
+import PlaceComponent from './components/adminComponent/pages/PlaceComponent'
+import CountryComponent from "./components/adminComponent/pages/CountryComponent";
 import EditEvent from "./components/adminComponent/pages/EditEvent";
 import AddEvent from "./components/adminComponent/pages/AddEvent";
 import AddPlace from "./components/adminComponent/pages/AddPlace";
@@ -52,11 +52,11 @@ function App() {
         <Route path="admin" element={<Newadmin />}>
           <Route path="" element={<Homee />} />
           <Route path="users" element={<UserList />} />
-          <Route path="events" element={<EventsTable />}>
+          <Route path="events" element={<EventComponent />}>
             <Route path="editevent" element={<EditEvent />} />
           </Route>
-          <Route path="places" element={<PlaceTable />} />
-          <Route path="countries" element={<CountryTable />} />
+          <Route path="places" element={<PlaceComponent />} />
+          <Route path="countries" element={<CountryComponent />} />
           <Route path="newevent" element={<AddEvent />} />
           <Route path="newplace" element={<AddPlace />} />
           <Route path="newcountry" element={<AddCountry />} />
