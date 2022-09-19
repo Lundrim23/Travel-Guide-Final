@@ -8,8 +8,13 @@ import axios from "axios";
 import { useState } from "react";
 import * as UserService from "../utils/services/users.service";
 import Navigation from "../components/Navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
+  const notify =() => {
+    toast.success("Registered successfull, you can now login")
+  }
   const history = useNavigate();
 
   const [error, setError] = useState(null);
@@ -55,7 +60,8 @@ function Register() {
         })
         .then((error) => {
           if (!error.response) {
-            history("/login");
+            notify();
+            history("/");
           }
         });
     },

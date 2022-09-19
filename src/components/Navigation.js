@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/features/loginSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 axios.defaults.withCredentials = true;
@@ -148,6 +150,7 @@ const Navigation = () => {
                   )}
                 </div>
               </div>
+              <ToastContainer autoClose={2000} hideProgressBar={true}/>
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
