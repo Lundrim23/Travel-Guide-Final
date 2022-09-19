@@ -1,35 +1,35 @@
-import React from "react"
+import { useState } from "react"
 import TextField from "./TextField"
-// import { useDispatch, useSelector } from "react-redux"
-// import { useNavigate, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+ import { useNavigate, useParams } from "react-router-dom"
 
-// import { updateUser } from "../redux/features/users/userSlice"
+ import { editUser } from "../redux/features/users/profileSlice"
 
 
 const UserProfileSettings = () => {
 
-  /* 
+  
   const params = useParams();
- const dispatch = useDispatch();
- const users = useSelector(store => store.users);
- const navigate = useNavigate();
- const existingUser = users.filter(user => user.id === params.id);
- const { name, email } = existingUser[0];
- const [values, setValues] = useState({
-   name,
-   email
+  const dispatch = useDispatch();
+  const users = useSelector(store => store.users);
+  const navigate = useNavigate();
+  const existingUser = users.filter(user => user.id === params.id);
+  const { name, email } = existingUser[0];
+  const [values, setValues] = useState({
+    name,
+    email
  });
 
  const handleEditUser = () => {
    setValues({ name: '', email: '' });
-   dispatch(updateUser({
+   dispatch(editUser({
      id: params.id,
      name: values.name,
      email: values.email
    }));
    navigate('/');
  }
-*/
+
 
   return (
     <div>
@@ -59,8 +59,8 @@ const UserProfileSettings = () => {
         <TextField
           label="Email"
           inputProps={{ type: 'text', placeholder: 'Email' }}
-        //  value={values.email}
-        //  onChange={(e) => setValues({ ...values, email: e.target.value })}
+          value={values.email}
+         onChange={(e) => setValues({ ...values, email: e.target.value })}
         />
 
         <TextField
@@ -79,7 +79,7 @@ const UserProfileSettings = () => {
             Cancel
           </button>
           <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full ml-4"
-          //  onClick={handleEditUser}
+           onClick={handleEditUser}
           >
             Save Changes
           </button>
