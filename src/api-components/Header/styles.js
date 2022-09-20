@@ -4,12 +4,6 @@ export default makeStyles((theme) => ({
   nav: {
     backgroundColor: "#f5f5f5",
   },
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
   search: {
     color: "#7F8992",
     position: "relative",
@@ -39,8 +33,8 @@ export default makeStyles((theme) => ({
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: { width: "20ch" },
+    width: "50ch",
+    [theme.breakpoints.up("md")]: { width: "80ch" },
   },
   toolbar: {
     display: "flex",
