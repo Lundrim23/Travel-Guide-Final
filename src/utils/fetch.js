@@ -35,6 +35,13 @@ export function deleteEvent(id) {
   return api.delete("/events/delete/" + id);
 }
 
+export function like(id) {
+  return api.put("/events/like/"+id)
+}
+export function unlike(id) {
+  return api.put("/events/unlike/"+id)
+}
+
 //place module api calls
 export function getPlaces() {
   return api.get("/places/get");

@@ -7,9 +7,17 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as UserService from "../utils/services/users.service";
 import { authActions } from "../redux/features/loginSlice";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
   const dispatch = useDispatch();
+
+
+  const notify = () => {toast.success("Login Successful")}
+
+
+
   const history = useNavigate();
 
   const [error, setError] = useState(null);
@@ -47,8 +55,8 @@ const LogIn = () => {
         })
         .then((error) => {
           if (!error.response) {
-            dispatch(authActions.login()).then(history("/"));
-            dispatch(authActions.login()).then(history("/"));
+          notify();
+          dispatch(authActions.login()).then(history("/"));
           }
         });
     },
