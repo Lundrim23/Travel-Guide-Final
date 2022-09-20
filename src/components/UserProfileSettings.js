@@ -11,10 +11,10 @@ const UserProfileSettings = () => {
   
   const params = useParams();
   const dispatch = useDispatch();
-  const users = useSelector(store => store.users);
+  const users = useSelector((state) => state.users.users);
   const navigate = useNavigate();
   const existingUser = users.filter(user => user.id === params.id);
-  const { name, email } = existingUser[0];
+  const { name, email } = existingUser;
   const [values, setValues] = useState({
     name,
     email
@@ -25,7 +25,8 @@ const UserProfileSettings = () => {
    dispatch(editUser({
      id: params.id,
      name: values.name,
-     email: values.email
+     email: values.email,
+     password: values.password
    }));
    navigate('/');
  }
@@ -50,6 +51,8 @@ const UserProfileSettings = () => {
           <div class="md:w-1/2 px-3">
             <TextField
               label="Name"
+              value={values.name}
+              onChange={(e) => setValues({ ...values, name: e.target.value })}
               inputProps={{ type: 'text', placeholder: 'Name..' }}
             />
           </div>
@@ -65,6 +68,8 @@ const UserProfileSettings = () => {
 
         <TextField
           label="Password"
+          value={values.password}
+          onChange={(e) => setValues({ ...values, password: e.target.value })}
           inputProps={{ type: 'text', placeholder: 'Password' }}
         />
 
