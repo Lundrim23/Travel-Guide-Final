@@ -22,6 +22,8 @@ export default makeStyles((theme) => ({
     marginBottom: "30px",
   },
   list: {
+    position: "sticky",
+    top: "0",
     height: "75vh",
     overflow: "auto",
   },

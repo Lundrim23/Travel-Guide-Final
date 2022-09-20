@@ -9,10 +9,12 @@ export default makeStyles(() => ({
     width: "100px",
   },
   mapContainer: {
-    height: "90vh",
+    height: "80vh",
     width: "100%",
   },
   markerContainer: {
+    position: "-webkit-sticky",
+    position: "sticky",
     position: "absolute",
     transform: "translate(-50%, -50%)",
     zIndex: 1,

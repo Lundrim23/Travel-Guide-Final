@@ -36,10 +36,10 @@ function App() {
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />
           <Route path="UserProfileSettings" element={<UserProfileSettings />} />
+          <Route path="api" element={<Api />} />
         </Route>
         <Route path="register" element={<Register />} />
         <Route path="admin" element={<Admin />} />
-        <Route path="api" element={<Api />} />
 
         <Route path="admin" element={<Admin />}>
           <Route path="event" element={<EventComponent />} />

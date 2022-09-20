@@ -23,7 +23,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
   return (
     <Card elevation={6}>
       <CardMedia
-        style={{ height: 350 }}
+        style={{ height: 200 }}
         image={
           place.photo
             ? place.photo.images.large.url
@@ -64,7 +64,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             color="textSecondary"
             className={classes.subtitle}
           >
-            <LocationOnIcon />
+            <LocationOnIcon color="secondary" />
             {place.address}
           </Typography>
         )}
@@ -74,7 +74,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
             color="textSecondary"
             className={classes.spacing}
           >
-            <PhoneIcon /> {place.phone}
+            <PhoneIcon color="primary" /> {place.phone}
           </Typography>
         )}
       </CardContent>

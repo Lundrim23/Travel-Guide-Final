@@ -1,6 +1,9 @@
 import { alpha, makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles((theme) => ({
+  nav: {
+    backgroundColor: "#f5f5f5",
+  },
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {
@@ -8,16 +11,15 @@ export default makeStyles((theme) => ({
     },
   },
   search: {
+    color: "#7F8992",
     position: "relative",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
     marginRight: theme.spacing(4),
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
+      marginLeft: theme.spacing(2),
+      width: "100%",
     },
   },
   searchIcon: {
@@ -33,6 +35,7 @@ export default makeStyles((theme) => ({
     color: "inherit",
   },
   inputInput: {
+    height: "30px",
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),

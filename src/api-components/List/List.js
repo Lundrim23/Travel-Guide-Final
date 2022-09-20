@@ -12,17 +12,22 @@ import {
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 import useStyles from "./styles";
 
-const List = ({ places, childClicked, isLoading }) => {
+const List = ({
+  places,
+  childClicked,
+  isLoading,
+  type,
+  setType,
+  rating,
+  setRating,
+}) => {
   const classes = useStyles();
-  const [type, setType] = useState("restaurants");
-  const [rating, setRating] = useState("");
   const [elRefs, setElRefs] = useState([]);
 
   useEffect(() => {
     const refs = Array(places?.length)
       .fill()
       .map((_, i) => elRefs[i] || createRef());
-
     setElRefs(refs);
   }, [places]);
 
@@ -35,13 +40,16 @@ const List = ({ places, childClicked, isLoading }) => {
         </div>
       ) : (
         <>
+          {/* hotel/restaurants filter */}
           <FormControl className={classes.formControl}>
             <InputLabel>Type</InputLabel>
             <Select value={type} onChange={(e) => setType(e.target.value)}>
               <MenuItem value="restaurants">Restaurants</MenuItem>
               <MenuItem value="hotels">Hotels</MenuItem>
+              <MenuItem value="attractions">Attractions</MenuItem>
             </Select>
           </FormControl>
+          {/* rating filter */}
           <FormControl className={classes.formControl}>
             <InputLabel>Rating</InputLabel>
             <Select value={rating} onChange={(e) => setRating(e.target.value)}>
@@ -51,6 +59,7 @@ const List = ({ places, childClicked, isLoading }) => {
               <MenuItem value={4.5}>Above 4.5</MenuItem>
             </Select>
           </FormControl>
+          {/* List of Restaurants and Hotels */}
           <Grid container spacing={3} className={classes.list}>
             {places?.map((place, index) => (
               <Grid ref={elRefs[index]} item key={index} xs={12}>
