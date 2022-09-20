@@ -6,6 +6,7 @@ import {
   PlaceIcon,
   EventIcon,
   UserIcon,
+  AddNew,
 } from "../../AllSvgs";
 
 function Sidebar() {
@@ -48,19 +49,19 @@ function Sidebar() {
             </li>
             <h3 className="text-2xl">Add new</h3>
             <li className="flex cursor-pointer p-1 items-center hover:bg-gray-300  hover:text-cyan-600  dark:hover:bg-neutral-800">
-              <UserIcon />
+              <AddNew />
               <h1 className="pl-2 hover:text-cyan-600 dark:text-gray-50 transition delay-400 dark:hover:text-cyan-600">
                 <Link to="/admin/newevent">Add New Event</Link>
               </h1>
             </li>
             <li className="flex cursor-pointer p-1 items-center hover:bg-gray-300  hover:text-cyan-600  dark:hover:bg-neutral-800">
-              <UserIcon />
+              <AddNew />
               <h1 className="pl-2 hover:text-cyan-600 dark:text-gray-50 transition delay-400 dark:hover:text-cyan-600">
                 <Link to="/admin/newplace">Add New Place</Link>
               </h1>
             </li>
             <li className="flex cursor-pointer p-1 items-center hover:bg-gray-300  hover:text-cyan-600  dark:hover:bg-neutral-800">
-              <UserIcon />
+              <AddNew />
               <h1 className="pl-2 hover:text-cyan-600 dark:text-gray-50 transition delay-400 dark:hover:text-cyan-600">
                 <Link to="/admin/newcountry">Add New Country</Link>
               </h1>
