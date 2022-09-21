@@ -16,7 +16,6 @@ const Header = ({ setCoordinates }) => {
     const lng = autocomplete.getPlace().geometry.location.lng();
 
     setCoordinates({ lat, lng });
-    console.log({ lat, lng });
   };
   return (
     <AppBar position="static" className={classes.nav}>

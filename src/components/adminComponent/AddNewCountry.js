@@ -61,7 +61,7 @@ const AddNewCountry = (props) => {
 
             <div className="flex">
               <div className="w-full px-1">
-                <label class="text-gray-600 font-light dark:text-gray-50 transition delay-500 ">
+                <label className="text-gray-600 font-light dark:text-gray-50 transition delay-500 ">
                   Country Population
                 </label>
                 <textarea

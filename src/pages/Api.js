@@ -43,9 +43,6 @@ const Api = () => {
     }
   }, [type, bounds]);
 
-  console.log(places);
-  console.log(filteredPlaces);
-
   return (
     <>
       <CssBaseline />
