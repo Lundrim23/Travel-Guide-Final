@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/features/loginSlice";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
@@ -30,7 +29,8 @@ const Navigation = () => {
     return new Error("Unable to logout, please try again");
   };
   const handleLogout = () => {
-    sendLogoutRequest().then(() => dispatch(authActions.logout()))
+    sendLogoutRequest()
+      .then(() => dispatch(authActions.logout()))
       .then(window.location.reload(false));
   };
 
@@ -108,6 +108,13 @@ const Navigation = () => {
                   </Link>
 
                   <Link
+                    to="/api"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    Hotel/Restaurants
+                  </Link>
+
+                  <Link
                     to="/contact"
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
@@ -150,7 +157,7 @@ const Navigation = () => {
                   )}
                 </div>
               </div>
-              <ToastContainer autoClose={2000} hideProgressBar={true}/>
+              <ToastContainer autoClose={2000} hideProgressBar={true} />
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
