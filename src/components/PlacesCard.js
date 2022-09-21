@@ -19,9 +19,9 @@ function PlacesCard(props) {
       <button
         type="button"
         title="more about"
-        class="w-full order-first py-2 px-3 ml-2 mb-2 text-center rounded-xl bg-gray-200 transition hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
+        className="w-full order-first py-2 px-3 ml-2 mb-2 text-center rounded-xl bg-gray-200 transition hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
       >
-        <span class="block text-gray-600 font-semibold">Read more</span>
+        <span className="block text-gray-600 font-semibold">Read more</span>
       </button>
     </div>
   );

@@ -20,7 +20,7 @@ const Sidebar = (props) => {
                     Dashboard
                   </h2>
                 </div>
-                <div class="border-b-2 border-slate-50"></div>
+                <div className="border-b-2 border-slate-50"></div>
                 <div className="flex-1">
                   <ul className="pt-2 pb-4 space-y-1 text-sm">
                     <li className="rounded-sm hover:bg-gray-700 ">
