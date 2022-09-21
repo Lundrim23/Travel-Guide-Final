@@ -26,12 +26,17 @@ import Newadmin from "./pages/Newadmin";
 import UserList from "./components/adminComponent/pages/UserList";
 import Homee from "./components/adminComponent/pages/Home";
 import EventComponent from "./components/adminComponent/pages/EventComponent";
-import PlaceComponent from './components/adminComponent/pages/PlaceComponent'
+import PlaceComponent from "./components/adminComponent/pages/PlaceComponent";
 import CountryComponent from "./components/adminComponent/pages/CountryComponent";
 import EditEvent from "./components/adminComponent/pages/EditEvent";
 import AddEvent from "./components/adminComponent/pages/AddEvent";
 import AddPlace from "./components/adminComponent/pages/AddPlace";
 import AddCountry from "./components/adminComponent/pages/AddCountry";
+import EventTable from "./components/adminComponent/pages/EventTable";
+import EditPlace from "./components/adminComponent/pages/EditPlace";
+import PlaceTable from "./components/adminComponent/pages/PlaceTable";
+import EditCountry from "./components/adminComponent/pages/EditCountry";
+import TableCountry from "./components/adminComponent/pages/TableCountry";
 
 function App() {
   return (
@@ -52,11 +57,16 @@ function App() {
         <Route path="admin" element={<Newadmin />}>
           <Route path="" element={<Homee />} />
           <Route path="users" element={<UserList />} />
-          <Route path="events" element={<EventComponent />}>
-            <Route path="editevent" element={<EditEvent />} />
+          <Route path="events" element={<EventTable />}>
+            <Route path="editevent/:id" element={<EditEvent />} />
           </Route>
-          <Route path="places" element={<PlaceComponent />} />
-          <Route path="countries" element={<CountryComponent />} />
+          <Route path="places" element={<PlaceTable />}>
+            <Route path="editplace/:id" element={<EditPlace />} />
+          </Route>
+          <Route path="countries" element={<TableCountry />}>
+            <Route path="editcountry/:id" element={<EditCountry />} />
+          </Route>
+
           <Route path="newevent" element={<AddEvent />} />
           <Route path="newplace" element={<AddPlace />} />
           <Route path="newcountry" element={<AddCountry />} />

@@ -230,11 +230,12 @@ export default function PlaceComponent() {
   };
 
   return (
-    <PlaceTable
-      displayPlaces={displayPlaces}
-      remove={removePlace}
-      update={updatePlace}
-      sort={sort}
-    />
+    // <PlaceTable
+    //   displayPlaces={displayPlaces}
+    //   remove={removePlace}
+    //   update={updatePlace}
+    //   sort={sort}
+    // />
+    <h1>Place component</h1>
   );
 }

@@ -1,22 +1,279 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { SortIcon, Delete } from "../../AllSvgs";
+import {
+  addEvents,
+  deleteEvent,
+  getEvents,
+  like,
+  unlike,
+  updateEvents,
+} from "../../../utils/fetch";
 
 function EventTable(props) {
+  const [input, setInput] = useState({
+    eventName: "",
+    eventOrganizator: "",
+    eventTags: "",
+    address: "",
+    description: "",
+    imageUrl: "",
+  });
+
+  //this one displays event on the table
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        //this method gets data from db and populates state with data
+        getEvents().then(function (response) {
+          setEvents(response.data.reverse());
+        });
+      } catch (err) {
+        if (err.response) {
+          //not in the 200 respose range
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+        } else {
+          console.log(`Error: ${err.message}`);
+        }
+      }
+    };
+    fetchEvents();
+  }, []);
+
+  //this one populates state with data
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  }
+
+  //this method uploads photo in cloudinary
+  const [photoUpload, setPhotoUpload] = useState("");
+  // const uploadPhoto = async (event) => {
+  //   const files = event.target.files;
+  //   const formData = new FormData();
+  //   formData.append("file", files[0]);
+  //   formData.append("upload_preset", "jipopo2x");
+
+  //   const res = await uploadCloudinary(formData);
+  //   console.log(res);
+  //   const imageUrle = res.data.secure_url;
+  //   setPhotoUpload(imageUrle);
+  // };
+  const processFile = async (e) => {
+    var file = e.target.files[0];
+
+    // Set your cloud name and unsigned upload preset here:
+    var YOUR_CLOUD_NAME = "starlabstitans";
+    var YOUR_UNSIGNED_UPLOAD_PRESET = "jipopo2x";
+
+    var POST_URL = "https://api.cloudinary.com/v1_1/starlabstitans/auto/upload";
+
+    var XUniqueUploadId = +new Date();
+
+    processFile();
+
+    function processFile(e) {
+      var size = file.size;
+      var sliceSize = 20000000000000000000;
+      var start = 0;
+
+      setTimeout(loop, 3);
+
+      function loop() {
+        var end = start + sliceSize;
+
+        if (end > size) {
+          end = size;
+        }
+        var s = slice(file, start, end);
+        send(s, start, end - 1, size);
+        if (end < size) {
+          start += sliceSize;
+          setTimeout(loop, 3);
+        }
+      }
+    }
+
+    function send(piece, start, end, size) {
+      console.log("start ", start);
+      console.log("end", end);
+
+      var formdata = new FormData();
+      console.log(XUniqueUploadId);
+
+      formdata.append("file", piece);
+      formdata.append("cloud_name", YOUR_CLOUD_NAME);
+      formdata.append("upload_preset", YOUR_UNSIGNED_UPLOAD_PRESET);
+      // formdata.append("public_id", "myChunkedFile2");
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", POST_URL, false);
+      xhr.setRequestHeader("X-Unique-Upload-Id", XUniqueUploadId);
+      xhr.setRequestHeader(
+        "Content-Range",
+        "bytes " + start + "-" + end + "/" + size
+      );
+
+      xhr.onload = function () {
+        // do something to response
+        // console.log(this.responseText);
+        // var response = JSON.parse(xhr.responseText);
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var url = response.secure_url; //get the url
+          // var json = { location: url }; //set it in the format tinyMCE wants it
+          // success(json.location);
+          console.log(url);
+          setPhotoUpload(url);
+        }
+      };
+
+      xhr.send(formdata);
+    }
+
+    function slice(file, start, end) {
+      var slice = file.mozSlice
+        ? file.mozSlice
+        : file.webkitSlice
+        ? file.webkitSlice
+        : file.slice
+        ? file.slice
+        : noop;
+
+      return slice.bind(file)(start, end);
+    }
+
+    function noop() {}
+  };
+
+  //this one saves data to db throught be
+  const handleClick = async (event, id) => {
+    event.preventDefault();
+
+    const newEvent = {
+      eventName: input.eventName,
+      eventOrganizator: input.eventOrganizator,
+      eventTags: input.eventTags,
+      location: input.location,
+      address: input.address,
+      description: input.description,
+      imageUrl: photoUpload,
+    };
+
+    try {
+      addEvents(newEvent).then((response) => {
+        setEvents([...events, response.data]);
+      });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
+  //this one updates an event
+  const update = async (id) => {
+    const article = {
+      eventName: input.eventName,
+      eventOrganizator: input.eventOrganizator,
+      eventTags: input.eventTags,
+      location: input.location,
+      address: input.address,
+      description: input.description,
+      imageUrl: photoUpload,
+    };
+
+    try {
+      updateEvents(id, article).then((response) => {
+        setEvents(
+          events.map((event) =>
+            event.id === id ? { ...response.data } : event
+          )
+        );
+      });
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
+  // this one deletes an event
+  const remove = async (id) => {
+    try {
+      deleteEvent(id);
+      const myalldata = events.filter((item) => item._id !== id);
+      setEvents(myalldata);
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
+  //this method sorts by name
+  const [order, setOrder] = useState("ASC");
+  const sort = (col) => {
+    if (order === "ASC") {
+      const sorted = [...events].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setEvents(sorted);
+      setOrder("DSC");
+    }
+    if (order === "DSC") {
+      const sorted = [...events].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setEvents(sorted);
+      setOrder("ASC");
+    }
+  };
+
+  //this method likes an event
+  const likeEvent = async (id) => {
+    try {
+      // like(id).then((response) => {
+      //   setEvents([...events, response.data]);
+      // });
+
+      like(id).then((res) => {
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //this method unlikes an event
+  const unlikeEvenet = (id) => {
+    try {
+      unlike(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500">
+      {/* <Link to="/admin/newevent" state={{from: "all users", username: "hello", emri: "emri" }}> */}
       <Link to="/admin/newevent">
         <button className="w-40 border-none p-1 mb-4 bg-teal-400 rounded-md cursor-pointer text-white">
           Create Event
         </button>
       </Link>
+
       <Outlet />
       <div class="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
             <tr className="dark:text-gray-50 cursor-pointer">
               <th
-                onClick={() => props.sort("eventName")}
+                onClick={() => sort("eventName")}
                 scope="col"
                 class="py-3 px-6"
               >
@@ -26,7 +283,7 @@ function EventTable(props) {
                 </div>
               </th>
               <th
-                onClick={() => props.sort("eventOrganizator")}
+                onClick={() => sort("eventOrganizator")}
                 scope="col"
                 class="py-3 px-6"
               >
@@ -36,7 +293,7 @@ function EventTable(props) {
                 </div>
               </th>
               <th
-                onClick={() => props.sort("eventTags")}
+                onClick={() => sort("eventTags")}
                 scope="col"
                 class="py-3 px-6"
               >
@@ -45,18 +302,14 @@ function EventTable(props) {
                   <SortIcon />
                 </div>
               </th>
-              <th
-                onClick={() => props.sort("address")}
-                scope="col"
-                class="py-3 px-6"
-              >
+              <th onClick={() => sort("address")} scope="col" class="py-3 px-6">
                 <div class="flex items-center">
                   Event Address
                   <SortIcon />
                 </div>
               </th>
               <th
-                onClick={() => props.sort("description")}
+                onClick={() => sort("description")}
                 scope="col"
                 class="py-3 px-6"
               >
@@ -77,7 +330,7 @@ function EventTable(props) {
             </tr>
           </thead>
           <tbody className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50">
-            {props.events.map((event) => (
+            {events.map((event) => (
               <>
                 <tr class="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
                   <th
@@ -100,7 +353,7 @@ function EventTable(props) {
                     />
                   </td>
                   <td class="py-4 px-6 text-left">
-                    <Link to="editevent">
+                    <Link to={`editevent/${event._id}`}>
                       <button className="font-medium text-blue-600 dark:text-blue-500 dark:bg-gray-700 px-2 py-1 rounded-full hover:underline">
                         Edit
                       </button>
@@ -108,7 +361,7 @@ function EventTable(props) {
                   </td>
                   <td class="py-4 px-6 text-left">
                     <button
-                      onClick={() => props.remove(event._id)}
+                      onClick={() => remove(event._id)}
                       className="font-medium text-red-500 dark:text-red-500 hover:underline"
                     >
                       <Delete />

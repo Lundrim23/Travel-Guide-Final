@@ -1,7 +1,164 @@
 import React from "react";
 import { Upload } from "../../AllSvgs";
+import { useState } from "react";
+import { addEvents } from "../../../utils/fetch";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export default function AddEvent() {
+  // const location = useLocation();
+
+  // React.useEffect(() => {
+  //   console.log("Location from new user ", location)
+  // }, [])
+
+  const [input, setInput] = useState({
+    eventName: "",
+    eventOrganizator: "",
+    eventTags: "",
+    address: "",
+    description: "",
+    imageUrl: "",
+  });
+
+  //this one populates state with data
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  }
+
+  //this method uploads photo in cloudinary
+  const [photoUpload, setPhotoUpload] = useState("");
+  // const uploadPhoto = async (event) => {
+  //   const files = event.target.files;
+  //   const formData = new FormData();
+  //   formData.append("file", files[0]);
+  //   formData.append("upload_preset", "jipopo2x");
+
+  //   const res = await uploadCloudinary(formData);
+  //   console.log(res);
+  //   const imageUrle = res.data.secure_url;
+  //   setPhotoUpload(imageUrle);
+  // };
+  const processFile = async (e) => {
+    var file = e.target.files[0];
+
+    // Set your cloud name and unsigned upload preset here:
+    var YOUR_CLOUD_NAME = "starlabstitans";
+    var YOUR_UNSIGNED_UPLOAD_PRESET = "jipopo2x";
+
+    var POST_URL = "https://api.cloudinary.com/v1_1/starlabstitans/auto/upload";
+
+    var XUniqueUploadId = +new Date();
+
+    processFile();
+
+    function processFile(e) {
+      var size = file.size;
+      var sliceSize = 20000000000000000000;
+      var start = 0;
+
+      setTimeout(loop, 3);
+
+      function loop() {
+        var end = start + sliceSize;
+
+        if (end > size) {
+          end = size;
+        }
+        var s = slice(file, start, end);
+        send(s, start, end - 1, size);
+        if (end < size) {
+          start += sliceSize;
+          setTimeout(loop, 3);
+        }
+      }
+    }
+
+    function send(piece, start, end, size) {
+      console.log("start ", start);
+      console.log("end", end);
+
+      var formdata = new FormData();
+      console.log(XUniqueUploadId);
+
+      formdata.append("file", piece);
+      formdata.append("cloud_name", YOUR_CLOUD_NAME);
+      formdata.append("upload_preset", YOUR_UNSIGNED_UPLOAD_PRESET);
+      // formdata.append("public_id", "myChunkedFile2");
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", POST_URL, false);
+      xhr.setRequestHeader("X-Unique-Upload-Id", XUniqueUploadId);
+      xhr.setRequestHeader(
+        "Content-Range",
+        "bytes " + start + "-" + end + "/" + size
+      );
+
+      xhr.onload = function () {
+        // do something to response
+        // console.log(this.responseText);
+        // var response = JSON.parse(xhr.responseText);
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var url = response.secure_url; //get the url
+          // var json = { location: url }; //set it in the format tinyMCE wants it
+          // success(json.location);
+          console.log(url);
+          setPhotoUpload(url);
+        }
+      };
+
+      xhr.send(formdata);
+    }
+
+    function slice(file, start, end) {
+      var slice = file.mozSlice
+        ? file.mozSlice
+        : file.webkitSlice
+        ? file.webkitSlice
+        : file.slice
+        ? file.slice
+        : noop;
+
+      return slice.bind(file)(start, end);
+    }
+
+    function noop() {}
+  };
+
+  const navigate = useNavigate();
+
+  //this one saves data to db throught be
+  const handleClick = async (event, id) => {
+    event.preventDefault();
+
+    const newEvent = {
+      eventName: input.eventName,
+      eventOrganizator: input.eventOrganizator,
+      eventTags: input.eventTags,
+      location: input.location,
+      address: input.address,
+      description: input.description,
+      imageUrl: photoUpload,
+    };
+
+    try {
+      // setTimeout(() => {
+      //   addEvents(newEvent).then(navigate('/admin/events'))
+      // }, 2200);
+      addEvents(newEvent);
+    } catch (err) {
+      console.log(`Error: ${err.message}`);
+    }
+  };
+
   return (
     <div className=" flex flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500 ">
       <div class="flex w-full lg:w-6/12  bg-white space-y-8 dark:bg-neutral-800 transition delay-500 ">
@@ -16,6 +173,9 @@ export default function AddEvent() {
             {/* <div class="flex items-center border-2 mb-8 py-2 px-3 rounded-2xl"> */}
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
+                onChange={handleChange}
+                name="eventName"
+                value={input.eventName}
                 type="text"
                 id="eventname"
                 required
@@ -31,6 +191,9 @@ export default function AddEvent() {
 
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
+                onChange={handleChange}
+                name="eventOrganizator"
+                value={input.eventOrganizator}
                 type="text"
                 id="eventorganizator"
                 required
@@ -46,6 +209,9 @@ export default function AddEvent() {
 
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
+                onChange={handleChange}
+                name="eventTags"
+                value={input.eventTags}
                 type="text"
                 id="eventtags"
                 required
@@ -61,6 +227,9 @@ export default function AddEvent() {
 
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <input
+                onChange={handleChange}
+                name="address"
+                value={input.address}
                 type="text"
                 id="eventaddress"
                 required
@@ -76,6 +245,9 @@ export default function AddEvent() {
 
             <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <textarea
+                onChange={handleChange}
+                name="description"
+                value={input.description}
                 type="text"
                 id="eventdescription"
                 required
@@ -95,10 +267,16 @@ export default function AddEvent() {
                 <Upload />
                 <span className="ml-2 dark:text-gray-50 ">Upload a photo</span>
               </label>
-              <input type="file" id="file" className="hidden" />
+              <input
+                type="file"
+                id="file"
+                className="hidden"
+                onChange={processFile}
+              />
             </div>
 
             <button
+              onClick={handleClick}
               type="submit"
               class="block w-full bg-teal-400 mt-5 py-2 rounded-2xl hover:bg-teal-600 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2"
             >

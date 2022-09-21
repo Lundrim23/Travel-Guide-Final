@@ -257,13 +257,14 @@ export default function EventComponent() {
     }
   };
   return (
-    <EventTable
-      events={events}
-      update={update}
-      remove={remove}
-      sort={sort}
-      like={likeEvent}
-      unlike={unlikeEvenet}
-    />
+    // <EventTable
+    //   events={events}
+    //   update={update}
+    //   remove={remove}
+    //   sort={sort}
+    //   like={likeEvent}
+    //   unlike={unlikeEvenet}
+    // />
+    <h1>Hello from eventcomponent</h1>
   );
 }

@@ -124,12 +124,13 @@ const CountryTable = (props) => {
   };
   return (
     <>
-      <TableCountry
+      {/* <TableCountry
         displayCountries={displayCountries}
         update={updateCountry}
         remove={deleteCountry}
         sort={sort}
-      />
+      /> */}
+      <h1>Country component</h1>
     </>
   );
 };
