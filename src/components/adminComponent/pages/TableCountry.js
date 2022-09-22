@@ -189,7 +189,7 @@ const TableCountry = () => {
                   <td class="py-4 px-6 text-left">
                     <Link to={`editcountry/${country._id}`}>
                       <button
-                        onClick={() => updateCountry(country._id)}
+                        // onClick={() => updateCountry(country._id)}
                         className="font-medium text-blue-600 dark:text-blue-500 dark:bg-gray-700 px-2 py-1 rounded-full hover:underline"
                       >
                         Edit

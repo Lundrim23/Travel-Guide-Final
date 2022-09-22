@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { updateEvents } from "../../../utils/fetch";
+import { getEventById, updateEvents } from "../../../utils/fetch";
 import { UserIcon, Upload } from "../../AllSvgs";
 
 export default function EditEvent() {
@@ -17,32 +17,19 @@ export default function EditEvent() {
     imageUrl: "",
   });
 
-  const [event, setEvent] = useState();
-
   const navigate = useNavigate();
-
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchEv = async () => {
-      try {
-        axios.get(`http://localhost:5000/api/events/get/${id}`).then((res) => {
-          setEvent(res.data);
-        });
-      } catch (err) {
-        if (err.response) {
-          //not in the 200 respose range
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
+    const editEventById = () => {
+      getEventById(id).then(function (res) {
+        setInput(res.data);
+      });
     };
-    fetchEv();
-  }, [event]);
+    editEventById();
+  }, [id]);
 
+  console.log("inputi", input);
 
   //this method uploads photo in cloudinary
   const [photoUpload, setPhotoUpload] = useState("");
@@ -122,7 +109,14 @@ export default function EditEvent() {
           // var json = { location: url }; //set it in the format tinyMCE wants it
           // success(json.location);
           console.log(url);
-          setPhotoUpload(url);
+          // setInput.imageUrl(url);
+          // setPhotoUpload(url);
+          setInput((prevInput) => {
+            return {
+              ...prevInput,
+              imageUrl: url,
+            };
+          });
         }
       };
 
@@ -144,18 +138,6 @@ export default function EditEvent() {
     function noop() {}
   };
 
-  //this one populates state with data
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setInput((prevInput) => {
-      return {
-        ...prevInput,
-        [name]: value,
-      };
-    });
-  }
-
   //this one updates an event
   const update = async (id) => {
     const article = {
@@ -165,22 +147,30 @@ export default function EditEvent() {
       location: input.location,
       address: input.address,
       description: input.description,
-      imageUrl: photoUpload,
+      imageUrl: input.imageUrl,
     };
 
     try {
       updateEvents(id, article);
-      // .then(
-      //   navigate("/admin/events")
-      // )
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
 
+  const handleEdit = (e) => {
+    const { name, value } = e.target;
+
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        [name]: value,
+      };
+    });
+  };
+
   return (
     <>
-      {event && (
+      {input && (
         <>
           <div className="px-4 py-4">
             <div className="flex items-center justify-between">
@@ -229,8 +219,8 @@ export default function EditEvent() {
                         type="text"
                         placeholder="event Name"
                         className="border-none w-64"
-                        onChange={handleChange}
-                        defaultValue={event.eventName}
+                        onChange={(e) => handleEdit(e)}
+                        value={input.eventName}
                         name="eventName"
                       />
                     </div>
@@ -240,43 +230,30 @@ export default function EditEvent() {
                         type="text"
                         placeholder="eventorganizator"
                         className="border-none w-64"
-                        defaultValue={event.eventOrganizator}
-                        onChange={handleChange}
+                        value={input.eventOrganizator}
+                        onChange={(e) => handleEdit(e)}
                         name="eventOrganizator"
                       ></input>
                     </div>
-
-                    <div>
-                      <label className="mb-1 text-sm">Event details</label>
-                      <input
-                        type="text"
-                        placeholder="Event details"
-                        className="border-none w-64"
-                        defaultValue={event.description}
-                        onChange={handleChange}
-                      ></input>
-                    </div>
-
                     <div>
                       <label className="mb-1 text-sm">eventtags</label>
                       <input
                         type="text"
                         placeholder="eventtags"
                         className="border-none w-64"
-                        defaultValue={event.eventTags}
-                        onChange={handleChange}
+                        value={input.eventTags}
+                        onChange={(e) => handleEdit(e)}
                         name="eventTags"
                       ></input>
                     </div>
-
                     <div>
                       <label className="mb-1 text-sm">eventaddress</label>
                       <input
                         type="text"
                         placeholder="eventaddress"
                         className="border-none w-64"
-                        defaultValue={event.address}
-                        onChange={handleChange}
+                        value={input.address}
+                        onChange={(e) => handleEdit(e)}
                         name="address"
                       ></input>
                     </div>
@@ -286,8 +263,8 @@ export default function EditEvent() {
                         type="text"
                         placeholder="eventdescription"
                         className="border-none w-64"
-                        defaultValue={event.description}
-                        onChange={handleChange}
+                        value={input.description}
+                        onChange={(e) => handleEdit(e)}
                         name="description"
                       ></input>
                     </div>
@@ -296,10 +273,9 @@ export default function EditEvent() {
                   <div className="flex flex-col content-between">
                     <div className="flex items-center">
                       <img
-                        src={event.imageUrl}
+                        src={input.imageUrl}
                         alt="userupdate"
                         className="w-24 h-24 rounded-xl object-cover mr-5"
-                        onChange={processFile}
                       />
                       <label htmlFor="file">
                         <Upload />
@@ -312,7 +288,7 @@ export default function EditEvent() {
                       />
                     </div>
                     <button
-                      onClick={() => update(event._id)}
+                      onClick={() => update(input._id)}
                       className="border-none rounded-md cursor-pointer bg-slate-500 text-white font-semibold"
                     >
                       Update
