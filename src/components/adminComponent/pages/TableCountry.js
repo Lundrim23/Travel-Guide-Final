@@ -2,19 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Delete, SortIcon } from "../../AllSvgs";
 import { Link, Outlet } from "react-router-dom";
 import {
-  addCountry,
   getCountries,
-  updateCountryy,
   deleteCountryy,
 } from "../../../utils/fetch";
 
 const TableCountry = () => {
-  const [country, setCountry] = useState({
-    CountryName: "",
-    CapitalCity: "",
-    Population: "",
-  });
-
   //to display countries on the table
   const [displayCountries, setDisplayCountries] = useState([]);
 
@@ -40,57 +32,6 @@ const TableCountry = () => {
     fetchCountries();
   }, []);
 
-  //populate state with data
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setCountry((prevInput) => {
-      return {
-        ...prevInput,
-        [name]: value,
-      };
-    });
-  }
-
-  //to submit all data in db
-  const handleSubmit = async (event, id) => {
-    event.preventDefault();
-
-    const newCountry = {
-      CountryName: country.CountryName,
-      CapitalCity: country.CapitalCity,
-      Population: country.Population,
-    };
-
-    try {
-      addCountry(newCountry).then((response) => {
-        setDisplayCountries([...displayCountries, response.data]);
-      });
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
-
-  //this method updates a country
-  const updateCountry = (id) => {
-    const updateCountry = {
-      CountryName: country.CountryName,
-      CapitalCity: country.CapitalCity,
-      Population: country.Population,
-    };
-
-    try {
-      updateCountryy(id, updateCountry).then((response) => {
-        setDisplayCountries(
-          displayCountries.map((oneCountry) =>
-            oneCountry.id === id ? { ...response.data } : oneCountry
-          )
-        );
-      });
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
 
   //this method deletes a country
   const deleteCountry = (id) => {
