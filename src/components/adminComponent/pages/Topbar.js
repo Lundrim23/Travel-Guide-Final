@@ -1,6 +1,7 @@
 import React from "react";
 import { NotificationIcon, Settings, DarkIcon, LightIcon } from "../../AllSvgs";
 import useDarkMode from "../UseDarkMode";
+import { Link } from "react-router-dom";
 
 function Topbar() {
   //this one gets the todays date
@@ -45,7 +46,11 @@ function Topbar() {
           </div>
 
           <div className="relative cursor-pointer mr-2">
-            <Settings />
+            <Link to='/admin/settings'>
+              <button>
+                <Settings />
+              </button>
+            </Link>
           </div>
           <img
             src="https://image.shutterstock.com/image-vector/user-login-authenticate-icon-human-260nw-1365533969.jpg"
