@@ -11,7 +11,7 @@ const Footer = () => {
                 <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium">
                   Components
                 </h2>
-                <ul class="font-normal text-gray-400">
+                <ul className="font-normal text-gray-400">
                   <li className="mb-4 hover:text-gray-800  ">
                     <a href="#">Home</a>
                   </li>
@@ -32,7 +32,7 @@ const Footer = () => {
                 <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium ">
                   Components
                 </h2>
-                <ul class="font-normal">
+                <ul className="font-normal">
                   <li className="mb-4  hover:text-gray-800 ">
                     <a href="#">Places</a>
                   </li>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <h2 className="text-indigo-400 dark:text-gray-200 text-md uppercase mb-4 font-medium">
                   Customization
                 </h2>
-                <ul class="font-normal">
+                <ul className="font-normal">
                   <li className="mb-4 hover:text-gray-800">
                     <a href="#">Profile</a>
                   </li>
