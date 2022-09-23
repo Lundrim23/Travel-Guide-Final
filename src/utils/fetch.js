@@ -35,6 +35,10 @@ export function deleteEvent(id) {
   return api.delete("/events/delete/" + id);
 }
 
+export function getEventById(id){
+  return api.get('/events/get/' + id);
+}
+
 export function like(id) {
   return api.put("/events/like/"+id)
 }
@@ -59,6 +63,10 @@ export function deletePlace(id) {
   return api.delete("/places/delete/" + id);
 }
 
+export function getPlaceById(id){
+  return api.get('/places/get/' + id)
+}
+
 //country module api calls
 export function getCountries() {
   return api.get("/countries/get");
@@ -74,6 +82,10 @@ export function updateCountryy(id, data) {
 
 export function deleteCountryy(id) {
   return api.delete("/countries/delete/" + id);
+}
+
+export function getCoutrybyId(id){
+  return api.get("/countries/get/" + id);
 }
 
 // review module
