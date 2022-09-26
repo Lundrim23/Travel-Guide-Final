@@ -1,7 +1,10 @@
 import { React, useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import { updatePlacee, getPlaceById } from "../../../utils/fetch";
-import { UserIcon, Upload } from "../../AllSvgs";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import EditPlaceForm from "./EditPlaceForm";
 
 function EditPlace() {
   const [place, setPlace] = useState({
@@ -12,8 +15,11 @@ function EditPlace() {
     placePhoto: "",
   });
 
-  const navigate = useNavigate();
   const { id } = useParams();
+
+  const notify = () => {
+    toast.success("Place Updated Successfuly");
+  };
 
   useEffect(() => {
     const editPlaceById = () => {
@@ -25,16 +31,16 @@ function EditPlace() {
     editPlaceById();
   }, [id]);
 
-  const [uplphoto, setUplphoto] = useState("");
+  // const [uplphoto, setUplphoto] = useState("");
   //this method uploads photo in cloudinary
-  const imageUpload = async (event) => {
-    // const files = event.target.files;
-    // const data = new FormData();
-    // data.append("file", files[0]);
-    // data.append("upload_preset", "jipopo2x");
-    // const res = await uploadCloudinary(data);
-    // setUplphoto(res.data.secure_url);
-  };
+  // const imageUpload = async (event) => {
+  // const files = event.target.files;
+  // const data = new FormData();
+  // data.append("file", files[0]);
+  // data.append("upload_preset", "jipopo2x");
+  // const res = await uploadCloudinary(data);
+  // setUplphoto(res.data.secure_url);
+  // };
   const processFile = async (e) => {
     var file = e.target.files[0];
 
@@ -139,6 +145,7 @@ function EditPlace() {
 
     try {
       updatePlacee(id, updatePlace);
+      notify();
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
@@ -169,130 +176,13 @@ function EditPlace() {
     <>
       {place && (
         <>
-          <div className="bg-white p-10 md:w-3/4 lg:w-1/2 mb-5 rounded-lg dark:bg-neutral-700 transition shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
-            <form action="">
-              <div className="flex items-center mb-5">
-                <label
-                  for="countrypopulation"
-                  className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
-                >
-                  Name
-                </label>
-                <input
-                  value={place.placeName}
-                  onChange={(e) => handleEdit(e)}
-                  type="text"
-                  id="name"
-                  name="placeName"
-                  className="flex-1 py-2 pl-2 border-b-2 bg-gray-100 border-gray-400 dark:bg-neutral-600 dark:text-gray-50 rounded-md focus:border-teal-400 text-gray-600 placeholder-gray-400 outline-none"
-                />
-              </div>
-
-              <div className="flex items-center mb-5">
-                <label
-                  for="countrypopulation"
-                  className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
-                >
-                  Location
-                </label>
-                <input
-                  value={place.placeLocation}
-                  onChange={(e) => handleEdit(e)}
-                  name="placeLocation"
-                  type="text"
-                  id="countrycapital"
-                  className="flex-1 py-2 pl-2 border-b-2 bg-gray-100 border-gray-400 dark:bg-neutral-600 dark:text-gray-50 rounded-md focus:border-teal-400 text-gray-600 placeholder-gray-400 outline-none"
-                />
-              </div>
-
-              <div class="flex items-center mb-5">
-                <label
-                  for="countrypopulation"
-                  className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
-                >
-                  Details
-                </label>
-                <input
-                  type="text"
-                  id="countrypopulation"
-                  value={place.placeDetails}
-                  onChange={(e) => handleEdit(e)}
-                  name="placeDetails"
-                  className="flex-1 py-2 pl-2 border-b-2 bg-gray-100 dark:bg-neutral-600 dark:text-gray-50 rounded-md border-gray-400 focus:border-teal-400 text-gray-600 placeholder-gray-400 outline-none"
-                />
-              </div>
-
-              <div class="flex items-center mb-5">
-                <label
-                  for="countrypopulation"
-                  className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
-                >
-                  Terrain
-                </label>
-                <select
-                  className="bg-gray-100 border ml-2 border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-600 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"
-                  value={place.terrain}
-                  onChange={provo}
-                >
-                  <option>--Choose--</option>
-                  <option value="Beach">Beach</option>
-                  <option value="City">City</option>
-                  <option value="Cultural Heritage">Cultural Heritage</option>
-                  <option value="Lake">Lake</option>
-                  <option value="Mountain">Mountain</option>
-                  <option value="Park">Park</option>
-                  <option value="Rivers">Rivers</option>
-                  <option value="Waterfall">Waterfall</option>
-                </select>
-              </div>
-
-              <div class="flex items-center mb-5">
-                <label
-                  for="countrypopulation"
-                  className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
-                >
-                  Photo
-                </label>
-                <div className="flex items-center">
-                  <img
-                    src={place.placePhoto}
-                    alt="userupdate"
-                    className="w-24 h-24 rounded-xl object-cover mr-5"
-                  />
-                  <label htmlFor="file" className="cursor-pointer">
-                    <Upload />
-                  </label>
-                  <input
-                    type="file"
-                    id="file"
-                    style={{ display: "none" }}
-                    onChange={processFile}
-                    name="placePhoto"
-                  />
-                </div>
-              </div>
-
-              <div className="flex justify-end">
-                <div className="mr-2">
-                  <button
-                    onClick={() => navigate("/admin/places")}
-                    className="py-3 px-8 bg-red-400 rounded-lg text-white font-bold"
-                  >
-                    Cancel
-                  </button>
-                </div>
-
-                <div className="text-right">
-                  <button
-                    onClick={() => update(place._id)}
-                    className="py-3 px-8 bg-teal-400 rounded-lg text-white font-bold"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+          <EditPlaceForm
+            place={place}
+            handleEdit={handleEdit}
+            provo={provo}
+            processFile={processFile}
+            update={update}
+          />
         </>
       )}
     </>

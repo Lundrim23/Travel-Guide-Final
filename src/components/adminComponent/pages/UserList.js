@@ -1,15 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+// import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
 import { Delete, SortIcon } from "../../AllSvgs";
-import {
-  updateUser,
-  loadUsers,
-  deleteUser,
-} from "../../../redux/features/users/userSlice";
+// import {
+//   updateUser,
+//   loadUsers,
+//   deleteUser,
+// } from "../../../redux/features/users/userSlice";
 
 export default function UserList() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   // useEffect(() => {
   //   dispatch(loadUsers());

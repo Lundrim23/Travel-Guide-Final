@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { SortIcon, Delete } from "../../AllSvgs";
 import { Link, Outlet } from "react-router-dom";
-import {
-  deletePlace,
-  getPlaces,
-} from "../../../utils/fetch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { deletePlace, getPlaces } from "../../../utils/fetch";
 
 function PlaceTable() {
   const [displayPlaces, setDisplayPlaces] = useState([]);
@@ -30,10 +29,15 @@ function PlaceTable() {
     fetchPlaces();
   }, []);
 
+  const notify = () => {
+    toast.success("Place Deleted Successfuly");
+  };
+
   //this method deletes a place
   const removePlace = async (id) => {
     try {
       deletePlace(id);
+      notify();
       const myAllData = displayPlaces.filter((place) => place._id !== id);
       setDisplayPlaces(myAllData);
     } catch (err) {
@@ -169,6 +173,7 @@ function PlaceTable() {
             ))}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
     </div>
   );
