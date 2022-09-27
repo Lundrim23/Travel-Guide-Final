@@ -11,7 +11,7 @@ import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 import SearchPage from "./pages/SearchPage";
-// import Scroll from "./components/Smooth-Scrollbar/SmoothScroll";
+import Api from "./pages/Api";
 import SpecificPlace from "./pages/SpecificPlace";
 
 import "./App.css";
@@ -29,7 +29,7 @@ import EditPlace from "./components/adminComponent/pages/EditPlace";
 import PlaceTable from "./components/adminComponent/pages/PlaceTable";
 import EditCountry from "./components/adminComponent/pages/EditCountry";
 import TableCountry from "./components/adminComponent/pages/TableCountry";
-import Settings from './components/adminComponent/pages/Settings'
+import Settings from "./components/adminComponent/pages/Settings";
 
 function App() {
   return (
@@ -40,6 +40,7 @@ function App() {
           <Route path="places" element={<Places />} />
           <Route path="about" element={<About />} />
           <Route path="events" element={<Events />} />
+          <Route path="api" element={<Api />} />
           <Route path="contact" element={<Contact />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />

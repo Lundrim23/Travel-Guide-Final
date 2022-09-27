@@ -38,6 +38,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.4",
     "react-spring": "^9.0.0-rc.3",
+    "react-toastify": "^9.0.8",
     "recharts": "^2.1.14",
     "smooth-scrollbar": "^8.7.5",
     "styled-components": "^5.3.5",
