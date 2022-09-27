@@ -14,6 +14,7 @@ import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import Prevalla from "../assets/kosovo-img/prevalla-natyra-kosova.jpg";
 import Montenegro from "../assets/montenegro-img/anton-matis-btrBrLNldMk-unsplash.jpg";
+import AllPlaces from "../redux/features/places/AllPlaces.js";
 
 const createPlace = (place) => {
   return (
@@ -120,6 +121,9 @@ const contryToVisit = (countries) => {
           Some of the best places to visit!
         </h1>
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
+          <AllPlaces />
+        </div>
+        <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
           {x.places.slice(0, 6).map((y) => createPlace(y))}
         </div>
       </section>
@@ -147,7 +151,6 @@ function Places() {
       <div className="border bg-gray-400"></div>
 
       <section>{contryToVisit(countries)}</section>
-
       <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 md:py-8">
         <h1 className="text-4xl mx-10 font-medium">Best places to visit...</h1>
         <div className="slider max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex relative items-center ">
