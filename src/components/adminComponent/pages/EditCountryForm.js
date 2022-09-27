@@ -9,7 +9,7 @@ function EditCountryForm(props) {
       <form action="">
         <div className="flex items-center mb-5">
           <label
-            for="name"
+            htmlFor="name"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Name
@@ -26,7 +26,7 @@ function EditCountryForm(props) {
 
         <div className="flex items-center mb-5">
           <label
-            for="countrycapital"
+            htmlFor="countrycapital"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Capital
@@ -41,9 +41,9 @@ function EditCountryForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Population

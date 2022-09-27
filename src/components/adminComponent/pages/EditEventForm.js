@@ -11,7 +11,7 @@ function EditEventForm(props) {
       <form action="">
         <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 text-left mr-8 font-bold text-gray-600 dark:text-gray-200"
           >
             Name
@@ -28,7 +28,7 @@ function EditEventForm(props) {
 
         <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-right font-bold text-gray-600 dark:text-gray-200"
           >
             Organizator
@@ -43,9 +43,9 @@ function EditEventForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Tags
@@ -60,9 +60,9 @@ function EditEventForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Address
@@ -77,9 +77,9 @@ function EditEventForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Description
@@ -94,9 +94,9 @@ function EditEventForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Photo
