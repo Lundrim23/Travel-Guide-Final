@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Delete, SortIcon } from "../../AllSvgs";
 import { Link, Outlet } from "react-router-dom";
-import {
-  getCountries,
-  deleteCountryy,
-} from "../../../utils/fetch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getCountries, deleteCountryy } from "../../../utils/fetch";
 
 const TableCountry = () => {
   //to display countries on the table
@@ -32,11 +31,15 @@ const TableCountry = () => {
     fetchCountries();
   }, []);
 
+  const notify = () => {
+    toast.success("Country Deleted Successfuly");
+  };
 
   //this method deletes a country
   const deleteCountry = (id) => {
     try {
       deleteCountryy(id);
+      notify();
       const myAllData = displayCountries.filter((item) => item._id !== id);
       setDisplayCountries(myAllData);
     } catch (err) {
@@ -151,6 +154,7 @@ const TableCountry = () => {
             ))}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
     </div>
   );

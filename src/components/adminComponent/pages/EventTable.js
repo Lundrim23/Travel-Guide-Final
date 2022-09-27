@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { SortIcon, Delete } from "../../AllSvgs";
-import {
-  deleteEvent,
-  getEvents,
-  like,
-  unlike,
-} from "../../../utils/fetch";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { deleteEvent, getEvents } from "../../../utils/fetch";
+// import { like, unlike } from "../../../utils/fetch";
 
 function EventTable(props) {
   //this one displays event on the table
   const [events, setEvents] = useState([]);
+
+  const notify = () => {
+    toast.success("Event Deleted Successfuly");
+  };
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -37,6 +39,7 @@ function EventTable(props) {
   const remove = async (id) => {
     try {
       deleteEvent(id);
+      notify();
       const myalldata = events.filter((item) => item._id !== id);
       setEvents(myalldata);
     } catch (err) {
@@ -64,28 +67,28 @@ function EventTable(props) {
   };
 
   //this method likes an event
-  const likeEvent = async (id) => {
-    try {
-      // like(id).then((response) => {
-      //   setEvents([...events, response.data]);
-      // });
+  // const likeEvent = async (id) => {
+  //   try {
+  // like(id).then((response) => {
+  //   setEvents([...events, response.data]);
+  // });
 
-      like(id).then((res) => {
-        console.log(res);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     like(id).then((res) => {
+  //       console.log(res);
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   //this method unlikes an event
-  const unlikeEvenet = (id) => {
-    try {
-      unlike(id);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const unlikeEvenet = (id) => {
+  //   try {
+  //     unlike(id);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className="flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500">
@@ -200,6 +203,7 @@ function EventTable(props) {
             ))}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
     </div>
   );
