@@ -10,7 +10,7 @@ function EditPlaceForm(props) {
       <form action="">
         <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Name
@@ -27,7 +27,7 @@ function EditPlaceForm(props) {
 
         <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Location
@@ -42,9 +42,9 @@ function EditPlaceForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Details
@@ -59,9 +59,9 @@ function EditPlaceForm(props) {
           />
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Terrain
@@ -83,9 +83,9 @@ function EditPlaceForm(props) {
           </select>
         </div>
 
-        <div class="flex items-center mb-5">
+        <div className="flex items-center mb-5">
           <label
-            for="countrypopulation"
+            htmlFor="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Photo

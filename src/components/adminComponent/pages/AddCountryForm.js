@@ -24,7 +24,7 @@ function AddCountryForm(props) {
                 className=" bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 focus:border-emerald-300 dark:focus:border-neutral-400 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="countryname"
+                htmlFor="countryname"
                 className="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Country Name
@@ -42,7 +42,7 @@ function AddCountryForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 focus:border-emerald-300 dark:focus:border-neutral-400 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="countrycapital"
+                htmlFor="countrycapital"
                 className="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Country Capital
@@ -60,7 +60,7 @@ function AddCountryForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:focus:border-neutral-400 focus:border-emerald-300 dark:text-gray-50 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="countrypopulation"
+                htmlFor="countrypopulation"
                 className="transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 dark:text-gray-50 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Coutnry Population
