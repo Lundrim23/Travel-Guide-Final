@@ -7,14 +7,31 @@ import Slide from "@mui/material/Slide";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
 
-import AlbaniaImg from "./Images/Albania.png";
-import KosovaImg from "./Images/Kosovo.png";
-import MacedoniaImg from "./Images/Macedonia.png";
-import MontenegroImg from "./Images/Montenegro.png";
+import AlbaniaImg from "./Images/Albania.jpg";
+import KosovaImg from "./Images/Kosovo.jpg";
+import MacedoniaImg from "./Images/Macedonia.jpg";
+import MontenegroImg from "./Images/Montenegro.jpg";
+import Searchbar from "../SearchBar/Searchbar";
+import Data from "../SearchBar/searchBarData.json";
+
+import "./styles.css";
 
 const ButtonStyles = styled.div`
+  .vertical {
+    border-left: 6px solid black;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+  }
+
+  .root {
+    width: 900px;
+  }
+
+  margin: auto;
+
   text-align: center;
-  // margin: auto;
+
   display: flex;
   display: grid;
   margin-top: 40px;
@@ -26,7 +43,6 @@ const ButtonStyles = styled.div`
     width: 14%;
     border-radius: 25px;
     box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.3);
-    //box-shadow: 0 5px 16px 23px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -77,60 +93,86 @@ export default function AlertDialogSlide() {
           keepMounted
           onClose={handleClose}
           aria-describedby="alert-dialog-slide-description"
+          sx={{
+            "& .MuiDialog-container": {
+              "& .MuiPaper-root": {
+                width: "100%",
+                maxWidth: "800px",
+                height: "100%",
+                maxHeight: "510px",
+              },
+            },
+          }}
         >
           <button
-            className="md:ml-[450px] ml-[200px] mt-4 mr-4 md"
+            className="md:ml-[450px] ml-[200px] mt-4 mr-4 "
             onClick={handleClose}
           >
-            <MdClose size={25} />
+            <MdClose className="float-right" size={25} />
           </button>
 
           <DialogContent>
             <DialogContentText>
-              <h1 className="text-[16px]  font-bold">Search by country</h1>
-              <div className="grid md:grid-rows-2 md:grid-flow-col  gap-4 mt-6 ml-8">
-                <div className="w-40">
-                  <a href="/Albania" className=" w-30">
-                    <img
-                      className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl ease-in duration-200"
-                      src={AlbaniaImg}
-                      alt=""
-                    ></img>
-                  </a>
-                  <h1 className="mt-2">Albania</h1>
+              <div className="searchbar_div">
+                <h1 className="textPlaces">Search by places</h1>
+                <div className="Search">
+                  <div className="SearchButton">
+                    <Searchbar
+                      className="center"
+                      placeholder="Search for destination..."
+                      data={Data}
+                    ></Searchbar>
+                  </div>
                 </div>
+              </div>
 
-                <div className="w-40">
-                  <a href="/Macedonia" className=" w-40">
-                    <img
-                      className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl ease-in duration-200"
-                      src={MacedoniaImg}
-                      alt=""
-                    ></img>
-                  </a>
-                  <h1 className="mt-2">Macedonia</h1>
-                </div>
+              <div className="searchgrid_div">
+                <h1 className="mb-4">Search by counties</h1>
 
-                <div className="w-40">
-                  <a href="/Kosovo" className=" w-40">
-                    <img
-                      className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl ease-in duration-200"
-                      src={KosovaImg}
-                      alt=""
-                    ></img>
-                  </a>
-                  <h1 className="mt-2">Kosovo</h1>
-                </div>
+                <div className="  md:grid-rows-2 md:grid-flow-col inline-grid  gap-4 ">
+                  <div className="w-40">
+                    <a href="/Albania" className=" w-30">
+                      <img
+                        className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
+                        src={AlbaniaImg}
+                        alt=""
+                      ></img>
+                    </a>
+                    <h1 className="mt-2">Albania</h1>
+                  </div>
 
-                <div className="w-40">
-                  <a href="/Montenegro" className=" w-40">
-                    <img
-                      className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl ease-in duration-200"
-                      src={MontenegroImg}
-                      alt=""
-                    ></img>
-                  </a>
-                  <h1 className="mt-2">Montenegro</h1>
+                  <div className="w-40">
+                    <a href="/Macedonia" className=" w-40">
+                      <img
+                        className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[190px]"
+                        src={MacedoniaImg}
+                        alt=""
+                      ></img>
+                    </a>
+                    <h1 className="mt-2">Macedonia</h1>
+                  </div>
+
+                  <div className="w-40">
+                    <a href="/Kosovo" className=" w-40">
+                      <img
+                        className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
+                        src={KosovaImg}
+                        alt=""
+                      ></img>
+                    </a>
+                    <h1 className="mt-2">Kosovo</h1>
+                  </div>
+
+                  <div className="w-40">
+                    <a href="/Montenegro" className=" w-40">
+                      <img
+                        className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
+                        src={MontenegroImg}
+                        alt=""
+                      ></img>
+                    </a>
+                    <h1 className="mt-2">Montenegro</h1>
+                  </div>
                 </div>
               </div>
             </DialogContentText>
