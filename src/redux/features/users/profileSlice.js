@@ -8,11 +8,13 @@ const profileSlice = createSlice({
   reducers: {
     
     editUser: (state, action) => {
-      const { id, name, email } = action.payload;
+      const { id, name, email, password } = action.payload;
       const existingUser = state.find(user => user.id === id);
       if(existingUser) {
         existingUser.name = name;
         existingUser.email = email;
+        existingUser.password = password;
+
       }
     }
   }

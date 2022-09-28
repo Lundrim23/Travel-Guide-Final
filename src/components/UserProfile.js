@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import React from 'react'
 import {Link} from 'react-router-dom'
 
 
 const UserProfile= () => {
-    // const dispatch = useDispatch();
-    const users = useSelector(store => store.users);
+    //  const dispatch = useDispatch();
+    const users = useSelector((state) => state.users.users);
   
   return (
     <div >

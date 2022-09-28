@@ -14,14 +14,15 @@ const UserProfileSettings = () => {
   const users = useSelector((state) => state.users.users);
   const navigate = useNavigate();
   const existingUser = users.filter(user => user.id === params.id);
-  const { name, email } = existingUser;
+  const { name, email, password } = existingUser;
   const [values, setValues] = useState({
     name,
-    email
+    email,
+    password
  });
 
  const handleEditUser = () => {
-   setValues({ name: '', email: '' });
+   setValues({ name: '', email: '',password:'' });
    dispatch(editUser({
      id: params.id,
      name: values.name,
