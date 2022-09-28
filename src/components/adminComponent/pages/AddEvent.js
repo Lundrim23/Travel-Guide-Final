@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
-import EventTable from "./EventTable";
-import AddEvent from "./AddEvent";
-import {
-  addEvents,
-  deleteEvent,
-  getEvents,
-  like,
-  unlike,
-  updateEvents,
-  // uploadCloudinary,
-} from "../../utils/fetch";
+import React from "react";
+import { useState } from "react";
+import { addEvents } from "../../../utils/fetch";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddEventForm from "./AddEventForm";
 
-const EventComponent = () => {
+export default function AddEvent() {
   const [input, setInput] = useState({
     eventName: "",
     eventOrganizator: "",
@@ -21,29 +15,9 @@ const EventComponent = () => {
     imageUrl: "",
   });
 
-  //this one displays event on the table
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        //this method gets data from db and populates state with data
-        getEvents().then(function (response) {
-          setEvents(response.data);
-        });
-      } catch (err) {
-        if (err.response) {
-          //not in the 200 respose range
-          console.log(err.response.data);
-          console.log(err.response.status);
-          console.log(err.response.headers);
-        } else {
-          console.log(`Error: ${err.message}`);
-        }
-      }
-    };
-    fetchEvents();
-  }, []);
+  const notify = () => {
+    toast.success("Event Added Successfuly");
+  };
 
   //this one populates state with data
   function handleChange(event) {
@@ -58,7 +32,7 @@ const EventComponent = () => {
   }
 
   //this method uploads photo in cloudinary
-  const [photoUpload, setPhotoUpload] = useState("");
+  //const [photoUpload, setPhotoUpload] = useState("");
   // const uploadPhoto = async (event) => {
   //   const files = event.target.files;
   //   const formData = new FormData();
@@ -135,7 +109,14 @@ const EventComponent = () => {
           // var json = { location: url }; //set it in the format tinyMCE wants it
           // success(json.location);
           console.log(url);
-          setPhotoUpload(url);
+          //setPhotoUpload(url);
+
+          setInput((prevInput) => {
+            return {
+              ...prevInput,
+              imageUrl: url,
+            };
+          });
         }
       };
 
@@ -168,117 +149,23 @@ const EventComponent = () => {
       location: input.location,
       address: input.address,
       description: input.description,
-      imageUrl: photoUpload,
+      imageUrl: input.imageUrl,
     };
 
     try {
-      addEvents(newEvent).then((response) => {
-        setEvents([...events, response.data]);
-      });
+      notify();
+      addEvents(newEvent);
     } catch (err) {
       console.log(`Error: ${err.message}`);
     }
   };
-
-  //this one updates an event
-  const update = async (id) => {
-    const article = {
-      eventName: input.eventName,
-      eventOrganizator: input.eventOrganizator,
-      eventTags: input.eventTags,
-      location: input.location,
-      address: input.address,
-      description: input.description,
-      imageUrl: photoUpload,
-    };
-
-    try {
-      updateEvents(id, article).then((response) => {
-        setEvents(
-          events.map((event) =>
-            event.id === id ? { ...response.data } : event
-          )
-        );
-      });
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
-
-  // this one deletes an event
-  const remove = async (id) => {
-    try {
-      deleteEvent(id);
-      const myalldata = events.filter((item) => item._id !== id);
-      setEvents(myalldata);
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
-
-  //this method sorts by name
-  const [order, setOrder] = useState("ASC");
-  const sort = (col) => {
-    if (order === "ASC") {
-      const sorted = [...events].sort((a, b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
-      );
-      setEvents(sorted);
-      setOrder("DSC");
-    }
-    if (order === "DSC") {
-      const sorted = [...events].sort((a, b) =>
-        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
-      );
-      setEvents(sorted);
-      setOrder("ASC");
-    }
-  };
-
-  //this method likes an event
-  const likeEvent = async (id) => {
-    try {
-      // like(id).then((response) => {
-      //   setEvents([...events, response.data]);
-      // });
-
-      like(id).then((res) => {
-        console.log(res);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //this method unlikes an event
-  const unlikeEvenet = (id) => {
-    try {
-      unlike(id);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
-    <>
-      <AddEvent
-        handleChange={handleChange}
-        handleClick={handleClick}
-        // uploadPhoto={uploadPhoto}
-        processFile={processFile}
-        input={input}
-      />
-
-      <EventTable
-        events={events}
-        update={update}
-        remove={remove}
-        sort={sort}
-        like={likeEvent}
-        unlike={unlikeEvenet}
-      />
-    </>
+    <AddEventForm
+      handleChange={handleChange}
+      input={input}
+      processFile={processFile}
+      handleClick={handleClick}
+    />
   );
-};
-
-export default EventComponent;
+}

@@ -10,24 +10,24 @@ const UserProfile= () => {
   return (
     <div >
    
-<div class="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
-    <div class="px-6">
-        <div class="flex flex-wrap justify-center">
-            <div class="w-full flex justify-center">
-                <div class="relative">
+<div className="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
+    <div className="px-6">
+        <div className="flex flex-wrap justify-center">
+            <div className="w-full flex justify-center">
+                <div className="relative">
                     <img src="https://e7.pngegg.com/pngimages/122/453/png-clipart-computer-icons-user-profile-avatar-female-profile-heroes-head.png" 
-                    class="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+                    className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
                 </div>
             </div>
-            <div class="w-full text-center mt-20">
-                <div class="flex justify-center lg:pt-4 pt-8 pb-0">
-                    <div class="p-3 text-center">
-                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">10</span>
-                        <span class="text-sm text-slate-400">Likes</span>
+            <div className="w-full text-center mt-20">
+                <div className="flex justify-center lg:pt-4 pt-8 pb-0">
+                    <div className="p-3 text-center">
+                        <span className="text-xl font-bold block uppercase tracking-wide text-slate-700">10</span>
+                        <span className="text-sm text-slate-400">Likes</span>
                     </div>
-                    <div class="p-3 text-center">
-                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">3</span>
-                        <span class="text-sm text-slate-400">Reviews</span>
+                    <div className="p-3 text-center">
+                        <span className="text-xl font-bold block uppercase tracking-wide text-slate-700">3</span>
+                        <span className="text-sm text-slate-400">Reviews</span>
                     </div>
 
                   

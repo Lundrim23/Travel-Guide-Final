@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import PlaceTable from "./PlaceTable";
-import AddNewPlace from "./AddNewPlace";
-import {
-  addPlace,
-  deletePlace,
-  getPlaces,
-  updatePlacee,
-  // uploadCloudinary,
-} from "../../utils/fetch";
+import { addPlace, getPlaces } from "../../../utils/fetch";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AddPlaceForm from "./AddPlaceForm";
 
-const PlaceComponent = () => {
+export default function AddPlace() {
   const [place, setPlace] = useState({
     placeName: "",
     placeLocation: "",
@@ -19,6 +14,10 @@ const PlaceComponent = () => {
   });
 
   const [displayPlaces, setDisplayPlaces] = useState([]);
+
+  const notify = () => {
+    toast.success("Place Added Successfuly");
+  };
 
   useEffect(() => {
     //this method gets all places
@@ -53,16 +52,16 @@ const PlaceComponent = () => {
     });
   }
 
-  const [uplphoto, setUplphoto] = useState("");
+  // const [uplphoto, setUplphoto] = useState("");
   //this method uploads photo in cloudinary
-  const imageUpload = async (event) => {
-    // const files = event.target.files;
-    // const data = new FormData();
-    // data.append("file", files[0]);
-    // data.append("upload_preset", "jipopo2x");
-    // const res = await uploadCloudinary(data);
-    // setUplphoto(res.data.secure_url);
-  };
+  // const imageUpload = async (event) => {
+  // const files = event.target.files;
+  // const data = new FormData();
+  // data.append("file", files[0]);
+  // data.append("upload_preset", "jipopo2x");
+  // const res = await uploadCloudinary(data);
+  // setUplphoto(res.data.secure_url);
+  // };
   const processFile = async (e) => {
     var file = e.target.files[0];
 
@@ -127,7 +126,14 @@ const PlaceComponent = () => {
           // var json = { location: url }; //set it in the format tinyMCE wants it
           // success(json.location);
           console.log(url);
-          setUplphoto(url);
+          // setUplphoto(url);
+
+          setPlace((prevInput) => {
+            return {
+              ...prevInput,
+              placePhoto: url,
+            };
+          });
         }
       };
 
@@ -163,10 +169,11 @@ const PlaceComponent = () => {
       placeLocation: place.placeLocation,
       placeDetails: place.placeDetails,
       terrain: valuee,
-      placePhoto: uplphoto,
+      placePhoto: place.placePhoto,
     };
 
     try {
+      notify();
       addPlace(newPlace).then((response) => {
         setDisplayPlaces([...displayPlaces, response.data]);
       });
@@ -175,78 +182,14 @@ const PlaceComponent = () => {
     }
   };
 
-  //this method updates an event
-  const updatePlace = async (id) => {
-    const updatePlace = {
-      placeName: place.placeName,
-      placeLocation: place.placeLocation,
-      placeDetails: place.placeDetails,
-      placePhoto: uplphoto,
-      terrain: place.terrain,
-    };
-
-    try {
-      updatePlacee(id, updatePlace).then((response) => {
-        setDisplayPlaces(
-          displayPlaces.map((plac) =>
-            plac.id === id ? { ...response.data } : displayPlaces
-          )
-        );
-      });
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
-
-  //this method deletes a place
-  const removePlace = async (id) => {
-    try {
-      deletePlace(id);
-      const myAllData = displayPlaces.filter((place) => place._id !== id);
-      setDisplayPlaces(myAllData);
-    } catch (err) {
-      console.log(`Error: ${err.message}`);
-    }
-  };
-
-  //this method sorts by name
-  const [order, setOrder] = useState("ASC");
-  const sort = (col) => {
-    if (order === "ASC") {
-      const sorted = [...displayPlaces].sort((a, b) =>
-        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
-      );
-      setDisplayPlaces(sorted);
-      setOrder("DSC");
-    }
-    if (order === "DSC") {
-      const sorted = [...displayPlaces].sort((a, b) =>
-        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
-      );
-      setDisplayPlaces(sorted);
-      setOrder("ASC");
-    }
-  };
-
   return (
-    <>
-      <AddNewPlace
-        imageUpload={imageUpload}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-        place={place}
-        valuee={valuee}
-        provo={provo}
-        processFile={processFile}
-      />
-      <PlaceTable
-        displayPlaces={displayPlaces}
-        remove={removePlace}
-        update={updatePlace}
-        sort={sort}
-      />
-    </>
+    <AddPlaceForm
+      handleChange={handleChange}
+      place={place}
+      valuee={valuee}
+      provo={provo}
+      processFile={processFile}
+      handleSubmit={handleSubmit}
+    />
   );
-};
-
-export default PlaceComponent;
+}
