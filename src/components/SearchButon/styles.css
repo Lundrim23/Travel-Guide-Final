@@ -1,0 +1,56 @@
+.searchbar_div {
+  width: 40%;
+  float: left;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.SearchButton {
+  position: relative;
+  top: 35%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.Search {
+  box-shadow: 5px 0 1px -2px rgba(0, 0, 0, 0.5);
+  height: 360px;
+  width: 308px;
+}
+.searchgrid_div {
+  width: 40%;
+  float: right;
+  height: 400px;
+  width: 338px;
+}
+
+@media screen and (max-width: 768px) {
+  .textPlaces {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .searchbar_div {
+    width: 350px;
+  }
+  .MuiPaper-root {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .Search {
+    box-shadow: 0px 5px 0px -1px rgba(0, 0, 0, 0.8);
+    height: 250px;
+    width: 350px;
+  }
+  .searchgrid_div {
+    float: left;
+    width: 250px;
+  }
+}
