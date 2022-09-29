@@ -80,6 +80,26 @@ function EditEventForm(props) {
         <div class="flex items-center mb-5">
           <label
             for="countrypopulation"
+            className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
+          >
+            Terrain
+          </label>
+          <select
+            className="bg-gray-100 border ml-2 border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-600 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"
+            value={props.input.type}
+            onChange={props.provo}
+          >
+                <option>--Choose Event Type--</option>
+                <option value="Beach Event">Beach Event</option>
+                <option value="Festival">Festival</option>
+                <option value="Art and Movie Culture">Art and Movie Culture</option>
+                <option value="Food and Culture Events">Food and Culture Events</option>
+          </select>
+        </div>
+
+        <div class="flex items-center mb-5">
+          <label
+            for="countrypopulation"
             className="inline-block w-16 mr-8 text-left font-bold text-gray-600 dark:text-gray-200"
           >
             Description
