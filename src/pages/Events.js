@@ -9,6 +9,8 @@ import EventPart from "../components/EventPart";
 
 import Posts from "../redux/features/posts/Posts";
 import MostLikedPosts from "../redux/features/posts/MostLikedPosts";
+import ArtandMovies from "../redux/features/posts/ArtandMovies";
+import FoodnCulture from "../redux/features/posts/FoodnCulture";
 function Events() {
   return (
     <div>
@@ -85,7 +87,8 @@ function Events() {
       <EventFilms />
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-slate-50 ">
-        <EventCard
+        <ArtandMovies />
+        {/* <EventCard
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
@@ -99,13 +102,14 @@ function Events() {
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
-        />
+        /> */}
       </div>
 
       <EventPart />
       <EventTitle TitleEvent="Food and Culture Events" />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-slate-50 ">
-        <EventCard
+        <FoodnCulture />
+        {/* <EventCard
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
@@ -119,7 +123,7 @@ function Events() {
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
-        />
+        /> */}
       </div>
 
       <div className="h-40 bg-slate-50"></div>

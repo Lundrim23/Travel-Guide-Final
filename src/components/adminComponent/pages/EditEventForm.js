@@ -82,7 +82,7 @@ function EditEventForm(props) {
             for="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
-            Terrain
+            Type
           </label>
           <select
             className="bg-gray-100 border ml-2 border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-600 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"

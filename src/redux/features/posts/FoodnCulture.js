@@ -1,22 +1,18 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { mostLikedEvents, beachEvent } from "./postsSlice";
+import { FoodndCulture } from "./postsSlice";
 import { FaThumbsUp, FaThumbsDown, FaHeart } from "react-icons/fa";
 import { like, unlike } from "../../../utils/fetch";
 
-function MostLikedPosts() {
+function FoodnCulture() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(mostLikedEvents({}));
-  // }, [dispatch]);
   useEffect(() => {
-    dispatch(beachEvent());
+    dispatch(FoodndCulture({}));
   }, [dispatch]);
 
-  // const likeposts = useSelector((state) => state.posts.lista);
-  const likeposts = useSelector((state) => state.posts.beachevents);
+  const foodandculture = useSelector((state) => state.posts.foodculture);
 
   //this method likes an event later will change in redux
   const likeEvent = async (id) => {
@@ -40,7 +36,7 @@ function MostLikedPosts() {
 
   return (
     <>
-      {likeposts.slice(0, 3).map((post) => {
+      {foodandculture.map((post) => {
         return (
           <div key={post._id}>
             <div className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-10 mr-10 mt-20">
@@ -93,4 +89,4 @@ function MostLikedPosts() {
   );
 }
 
-export default MostLikedPosts;
+export default FoodnCulture;
