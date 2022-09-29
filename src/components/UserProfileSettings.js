@@ -1,42 +1,13 @@
-import { useState } from "react"
+import React from "react";
 import TextField from "./TextField"
-import { useDispatch, useSelector } from "react-redux"
- import { useNavigate, useParams } from "react-router-dom"
-
- import { editUser } from "../redux/features/users/profileSlice"
+import { useNavigate } from "react-router-dom";
 
 
-const UserProfileSettings = () => {
-
-  
-  const params = useParams();
-  const dispatch = useDispatch();
-  const users = useSelector((state) => state.users.users);
+function UserProfileSettings (props) {
   const navigate = useNavigate();
-  const existingUser = users.filter(user => user.id === params.id);
-  const { name, email, password } = existingUser;
-  const [values, setValues] = useState({
-    name,
-    email,
-    password
- });
-
- const handleEditUser = () => {
-   setValues({ name: '', email: '',password:'' });
-   dispatch(editUser({
-     id: params.id,
-     name: values.name,
-     email: values.email,
-     password: values.password
-   }));
-   navigate('/');
- }
-
-
+  
   return (
     <div>
-
-
       <div class="bg-violet-50 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 mt-40 mb-40 ml-20 mr-20">
         <div>
           <h1 className='font-bold text-slate-500 pb-12 text-2xl text-center'>Edit your profile in the form below</h1>
@@ -46,15 +17,16 @@ const UserProfileSettings = () => {
             <TextField
               label="UserName"
               inputProps={{ type: 'text', placeholder: 'UserName..' }}
+              onChange={(e) => props.handleEdit(e)}
+              value={props.input.username}
             />
           </div>
 
           <div class="md:w-1/2 px-3">
             <TextField
               label="Name"
-              value={values.name}
-              onChange={(e) => setValues({ ...values, name: e.target.value })}
               inputProps={{ type: 'text', placeholder: 'Name..' }}
+          
             />
           </div>
         </div>
@@ -63,14 +35,15 @@ const UserProfileSettings = () => {
         <TextField
           label="Email"
           inputProps={{ type: 'text', placeholder: 'Email' }}
-          value={values.email}
-         onChange={(e) => setValues({ ...values, email: e.target.value })}
+         
+         value={props.input.email}
+         onChange={(e) => props.handleEdit(e)}
         />
 
         <TextField
           label="Password"
-          value={values.password}
-          onChange={(e) => setValues({ ...values, password: e.target.value })}
+          value={props.input.password}
+          onChange={(e) => props.handleEdit(e)}
           inputProps={{ type: 'text', placeholder: 'Password' }}
         />
 
@@ -81,11 +54,12 @@ const UserProfileSettings = () => {
 
 
         <div className='pt-12 pb-8 flex flex-wrap justify-center'>
-          <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full">
+          <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full"
+           onClick={() => navigate("/users")}>
             Cancel
           </button>
           <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full ml-4"
-           onClick={handleEditUser}
+           onClick={() => props.update(props.input._id)}
           >
             Save Changes
           </button>
