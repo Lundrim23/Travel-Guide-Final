@@ -17,10 +17,22 @@ export const likePost = createAsyncThunk("like/likePost", async (id) => {
   console.log("like", like);
 });
 
+export const mostLikedEvents = createAsyncThunk(
+  "events/mostLikedEvents",
+  async () => {
+    const response = await axios.get(
+      "http://localhost:5000/api/events/getfromlikes"
+    );
+    console.log("most liked events ", response);
+    return response.data;
+  }
+);
+
 const postsSlice = createSlice({
   name: "posts",
   initialState: {
     list: [],
+    lista: [],
     status: null,
   },
   extraReducers: {
@@ -34,11 +46,13 @@ const postsSlice = createSlice({
     [getPosts.rejected]: (state, action) => {
       state.status = "failed";
     },
-
     [likePost.fulfilled]: (state, action) => {
-      console.log("Saying", action.payload);
-      
-    }
+      console.log("Saying", action.payload); 
+    },
+    [mostLikedEvents.fulfilled]: (state, { payload }) => {
+      state.lista = payload;
+      state.status = "success";
+    },
     },
 });
 

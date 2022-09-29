@@ -8,6 +8,7 @@ import EventFilms from "../components/EventFilms";
 import EventPart from "../components/EventPart";
 
 import Posts from "../redux/features/posts/Posts";
+import MostLikedPosts from "../redux/features/posts/MostLikedPosts";
 function Events() {
   return (
     <div>
@@ -17,7 +18,8 @@ function Events() {
       </div>
       {/* <Posts /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-slate-50 to-gray-300 pt-10 ">
-        <EventCard
+        <MostLikedPosts />
+        {/* <EventCard
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
@@ -31,7 +33,7 @@ function Events() {
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
-        />
+        /> */}
       </div>
 
       <div className="h-40 bg-gray-300"></div>
@@ -46,7 +48,7 @@ function Events() {
         <Posts />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-gray-300 to-slate-50">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-gray-300 to-slate-50">
         <EventCard
           EventPlace="Prishtine,Kosove"
           EventName="SunnyHill"
@@ -77,7 +79,7 @@ function Events() {
           EventName="SunnyHill"
           EventText="hwhfowfcohofcowfhcow"
         />
-      </div>
+      </div> */}
       <div className="h-20 bg-slate-50"></div>
 
       <EventFilms />
