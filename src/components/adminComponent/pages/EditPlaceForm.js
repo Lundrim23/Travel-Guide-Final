@@ -24,22 +24,24 @@ function EditPlaceForm(props) {
             className="flex-1 py-2 pl-2 border-b-2 bg-gray-100 border-gray-400 dark:bg-neutral-600 dark:text-gray-50 rounded-md focus:border-teal-400 text-gray-600 placeholder-gray-400 outline-none"
           />
         </div>
-
-        <div className="flex items-center mb-5">
+        <div class="flex items-center mb-5">
           <label
             for="countrypopulation"
             className="inline-block w-16 mr-6 text-left font-bold text-gray-600 dark:text-gray-200"
           >
-            Location
+            Terrain
           </label>
-          <input
+          <select
+            className="bg-gray-100 border ml-2 border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-600 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-teal-500"
             value={props.place.placeLocation}
-            onChange={(e) => props.handleEdit(e)}
-            name="placeLocation"
-            type="text"
-            id="countrycapital"
-            className="flex-1 py-2 pl-2 border-b-2 bg-gray-100 border-gray-400 dark:bg-neutral-600 dark:text-gray-50 rounded-md focus:border-teal-400 text-gray-600 placeholder-gray-400 outline-none"
-          />
+            onChange={props.addcountry}
+          >
+            <option>--Choose--</option>
+            <option value="Kosovo">Kosovo</option>
+                <option value="Albania">Albania</option>
+                <option value="Macedonia">Macedonia</option>
+                <option value="Montenegro">Montenegro</option>
+          </select>
         </div>
 
         <div class="flex items-center mb-5">

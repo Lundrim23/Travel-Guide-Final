@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlaces } from "./placesSlice";
+import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import { likePlace, unlikePlace } from "../../../utils/fetch";
 
 function AllPlaces() {
   const dispatch = useDispatch();
@@ -11,6 +13,24 @@ function AllPlaces() {
   }, [dispatch]);
 
   const places = useSelector((state) => state.places.list);
+
+  const LikePlace = async (id) => {
+    try {
+      likePlace(id).then((res) => {
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const unlikePlace = async (id) => {
+    try {
+      unlikePlace(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -26,9 +46,11 @@ function AllPlaces() {
               //alt={props.name}
               src={place.placePhoto}
             />
-            <h1 className="text-2xl pt-2 px-2">{place.placeName}</h1>
-            <h3 className="max-w-fit p-2 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
-              {place.placeDetails}
+            <h1 maxLength={10} className="text-2xl pt-2 px-2">
+              {place.placeName}
+            </h1>
+            <h3 className="max-w-fit p-2 h-16 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
+              {place.placeDetails.substring(0, 100)}
             </h3>
             <button
               type="button"
@@ -39,6 +61,32 @@ function AllPlaces() {
                 Read more
               </span>
             </button>
+
+            <div className=" py-3 flex flex-wrap items-center relative">
+              <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
+              <p className="text-gray-400 text-sm ml-2">: {place.likes.length}</p>
+              <button
+                onClick={() => LikePlace(place._id)}
+                className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
+              >
+                <FaThumbsUp
+                  color="#f43f5e"
+                  icon="fa-solid FaThumbsUp"
+                  className=""
+                />
+              </button>
+              <button
+                onClick={() => unlikePlace(place._id)}
+                className="ml-3 hover:bg-slate-100 hover:ring hover:ring-violet-300 hover:p-1"
+              >
+                <FaThumbsDown
+                  color="#818cf8"
+                  icon="FaThumbsDown"
+                  className=""
+                />
+              </button>
+              <div className="flex flex-wrap "></div>
+            </div>
           </div>
         );
       })}
