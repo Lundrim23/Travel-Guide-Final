@@ -13,6 +13,7 @@ import Users from "./pages/Users";
 import SearchPage from "./pages/SearchPage";
 import Api from "./pages/Api";
 import SpecificPlace from "./pages/SpecificPlace";
+import Chat from "./pages/Chat";
 
 import "./App.css";
 import Reviews from "./pages/Reviews";
@@ -47,6 +48,7 @@ function App() {
           <Route path="UserProfileSettings" element={<UserProfileSettings />} />
         </Route>
         <Route path="register" element={<Register />} />
+        <Route path="chat" element={<Chat />} />
 
         <Route path="admin" element={<Newadmin />}>
           <Route path="" element={<Homee />} />
