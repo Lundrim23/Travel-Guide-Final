@@ -6,6 +6,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import Slide from "@mui/material/Slide";
 import styled from "styled-components";
 import { MdClose } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 import AlbaniaImg from "./Images/Albania.jpg";
 import KosovaImg from "./Images/Kosovo.jpg";
@@ -131,46 +132,46 @@ export default function AlertDialogSlide() {
 
                 <div className="  md:grid-rows-2 md:grid-flow-col inline-grid  gap-4 ">
                   <div className="w-40">
-                    <a href="/Albania" className=" w-30">
+                  <Link to="/search" state={{ AlbaniaCheck: true }}>
                       <img
                         className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
                         src={AlbaniaImg}
                         alt=""
                       ></img>
-                    </a>
+                    </Link>
                     <h1 className="mt-2">Albania</h1>
                   </div>
 
                   <div className="w-40">
-                    <a href="/Macedonia" className=" w-40">
+                    <Link to="/search" state={{ MacedoniaCheck: true }}>
                       <img
                         className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[190px]"
                         src={MacedoniaImg}
                         alt=""
                       ></img>
-                    </a>
+                    </Link>
                     <h1 className="mt-2">Macedonia</h1>
                   </div>
 
                   <div className="w-40">
-                    <a href="/Kosovo" className=" w-40">
+                    <Link to="/search" state={{ KosovoCheck: true }}>
                       <img
                         className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
                         src={KosovaImg}
                         alt=""
                       ></img>
-                    </a>
+                    </Link>
                     <h1 className="mt-2">Kosovo</h1>
                   </div>
 
                   <div className="w-40">
-                    <a href="/Montenegro" className=" w-40">
+                    <Link to="/search" state={{ MontenegroCheck: true }}>
                       <img
                         className="rounded-[20px] h-40 border-[2px] border-stone-200 hover:border-black hover:border-[1px] hover:shadow-2xl w-[150px]"
                         src={MontenegroImg}
                         alt=""
                       ></img>
-                    </a>
+                    </Link>
                     <h1 className="mt-2">Montenegro</h1>
                   </div>
                 </div>
