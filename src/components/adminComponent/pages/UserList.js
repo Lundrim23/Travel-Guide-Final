@@ -3,16 +3,41 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Delete, SortIcon } from "../../AllSvgs";
 import io from "socket.io-client";
+import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import TextField from "@mui/material/TextField";
 
 import {
   updateUser,
   loadUsers,
   deleteUser,
+  messageReceived,
 } from "../../../redux/features/users/userSlice";
+
+import { addMessage } from "../../../redux/features/users/userMessageSlice";
+
 const socket = io.connect("http://localhost:5000");
 
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "50%",
+  height: "50%",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function UserList() {
-  const [messageReceived, setMessageReceived] = useState("");
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const dispatch = useDispatch();
 
@@ -22,12 +47,16 @@ export default function UserList() {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      setMessageReceived(data);
+      dispatch(messageReceived({ message: data }));
+      dispatch(
+        addMessage({ message: data.message, room: data.room, sent: false })
+      );
     });
   }, [socket]);
 
   const users = useSelector((state) => state.users.users);
   const amount = useSelector((state) => state.users.amount);
+  const userMessages = useSelector((state) => state.userMessages.userMessages);
 
   if (amount < 1) {
     return (
@@ -87,6 +116,9 @@ export default function UserList() {
               <th scope="col" className="py-3 px-6 dark:text-gray-50">
                 <span className="">Delete</span>
               </th>
+              <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                <span className="">Message</span>
+              </th>
             </tr>
           </thead>
           {users.map((user) => {
@@ -107,9 +139,6 @@ export default function UserList() {
                   <td className="py-4 px-6">{user.name}</td>
                   <td className="py-4 px-6">{user.email}</td>
                   <td className="py-4 px-6">{user.role}</td>
-                  {/* <td className="py-4 px-6">name</td>
-                  <td className="py-4 px-6">email</td>
-                  <td className="py-4 px-6">role</td> */}
                   <td className="py-4 px-6 text-left">
                     <button className="font-medium text-white bg-green-500 px-2 py-1 rounded-full dark:text-gray-50 hover:underline">
                       Block
@@ -123,12 +152,51 @@ export default function UserList() {
                       <Delete />
                     </button>
                   </td>
-
                   <td className="py-4 px-6 text-left">
-                    {messageReceived.room === `${user.id}` ? (
-                      <button className="font-medium text-red-500 dark:text-red-500 hover:underline">
-                        Message
-                      </button>
+                    {user.messaged ? (
+                      <div>
+                        <Button
+                          onClick={handleOpen}
+                          className="font-medium text-red-500  dark:text-red-500 hover:underline"
+                        >
+                          <MailOutlineRoundedIcon />
+                        </Button>
+                        <Modal
+                          open={open}
+                          onClose={handleClose}
+                          aria-labelledby="modal-modal-title"
+                          aria-describedby="modal-modal-description"
+                        >
+                          <Box sx={style}>
+                            <Typography
+                              id="modal-modal-title"
+                              variant="h6"
+                              component="h2"
+                            >
+                              Text in a modal
+                            </Typography>
+                            <Typography
+                              id="modal-modal-description"
+                              sx={{ mt: 2 }}
+                            >
+                              {userMessages.map((message) => {
+                                if (message.room === `${user.id}`) {
+                                  message.message.map((item) => {
+                                    console.log(item.message);
+                                    return <p>{item.message}</p>;
+                                  });
+                                }
+                              })}
+                            </Typography>
+                            <div></div>
+                            <TextField
+                              id="standard-basic"
+                              label="Standard"
+                              variant="standard"
+                            />
+                          </Box>
+                        </Modal>
+                      </div>
                     ) : (
                       ""
                     )}

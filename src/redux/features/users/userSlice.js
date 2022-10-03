@@ -24,13 +24,25 @@ export const userSlice = createSlice({
       state.users = state.users.filter(({ id }) => id !== action.payload.id);
       state.amount = state.users.length;
     },
+    messageReceivedSuccess: (state, action) => {
+      state.users = state.users.map((user) => {
+        if (user.id === parseInt(action.payload.room)) {
+          user.messaged = true;
+        }
+        return user;
+      });
+    },
   },
 });
 
 export default userSlice.reducer;
 
-const { loadUsersSuccess, updateUserSuccess, deleteUserSuccess } =
-  userSlice.actions;
+const {
+  loadUsersSuccess,
+  updateUserSuccess,
+  deleteUserSuccess,
+  messageReceivedSuccess,
+} = userSlice.actions;
 
 export const loadUsers = () => (dispatch) => {
   // try {
@@ -52,4 +64,8 @@ export const updateUser = (user) => (dispatch) => {
 export const deleteUser = (id) => (dispatch) => {
   // api call delete request
   dispatch(deleteUserSuccess(id));
+};
+
+export const messageReceived = (message) => (dispatch) => {
+  dispatch(messageReceivedSuccess(message.message));
 };
