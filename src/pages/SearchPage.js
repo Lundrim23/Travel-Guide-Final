@@ -3,14 +3,21 @@ import FilterSideBar from '../components/SearchPage/FilterSideBar';
 import List from '../components/SearchPage/List';
 import SearchBar from '../components/SearchPage/SearchBar';
 import { dataList } from '../Data/SearchResults';
+import { useLocation } from 'react-router-dom';
 
 const SearchPage = () => {
 
+  const location = useLocation()
+  const { AlbaniaCheck } = location.state
+  const { MacedoniaCheck } = location.state
+  const { KosovoCheck } = location.state
+  const { MontenegroCheck } = location.state
+
   const [countries, setCountries] = useState([
-    { id: 1, checked: false, label: 'Albania' },
-    { id: 2, checked: false, label: 'Kosovo' },
-    { id: 3, checked: false, label: 'North Macedonia' },
-    { id: 4, checked: false, label: 'Montenegro' },
+    { id: 1, checked: (AlbaniaCheck), label: 'Albania' },
+    { id: 2, checked: (KosovoCheck), label: 'Kosovo' },
+    { id: 3, checked: (MacedoniaCheck), label: 'North Macedonia' },
+    { id: 4, checked: (MontenegroCheck), label: 'Montenegro' },
   ]);
 
 
