@@ -9,6 +9,19 @@ export default function UpdateProfile() {
         password:""
     });
 
+
+
+    const handleEdit = (e) => {
+      const { username, value } = e.target;
+  
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          [username]: value,
+        };
+      });
+    };
+
     // update
     const update = async (id) => {
         const article = {
@@ -23,16 +36,7 @@ export default function UpdateProfile() {
         }
       };
     
-      const handleEdit = (e) => {
-        const { username, value } = e.target;
-    
-        setInput((prevInput) => {
-          return {
-            ...prevInput,
-            [username]: value,
-          };
-        });
-      };
+     
     
   return (
     
