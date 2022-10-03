@@ -36,38 +36,35 @@ function PlacesCardss() {
     <>
       {placesinMacedonia.map((place) => {
         return (
-          <div key={place._id}>
-            <div className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-20 ">
-              <img
-                className="aspect-video w-96 rounded-t-2xl object-cover object-center"
-                src={place.placePhoto}
-                alt="decorative"
-              />
-              <div className="p-4">
-                <small className="text-emerald-800 text-xs">
-                  {place.placeLocation}
-                </small>
-                <h1 className="text-2xl font-medium text-gray-800 pb-2">
-                  {place.placeName}
-                </h1>
-                <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
-                  {place.placeDetails}
-                </p>
-                <button
-                  type="button"
-                  title="more about"
-                  className="w-full order-first py-2 px-3 mt-2 text-center rounded-xl bg-gray-100 transition hover:bg-gray-200 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
-                >
-                  <span className="block text-gray-600 font-semibold">
-                    Read more
-                  </span>
-                </button>
-              </div>
-              <div className=" py-3 flex flex-wrap items-center relative">
+          <div
+            className="w-80 mx-3 my-5 rounded-2xl shadow-xl shadow-slate-300/60"
+            key={place._id}
+          >
+            <img
+              className="w-full h-[300px]  hover:opacity-75 object-cover rounded-t-2xl "
+              //src={props.img}
+              //alt={props.name}
+              src={place.placePhoto}
+            />
+            <h1 maxLength={10} className="text-2xl pt-2 px-2">
+              {place.placeName}
+            </h1>
+            <h3 className="max-w-fit p-2 h-16 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
+              {place.placeDetails.substring(0, 100)}
+            </h3>
+            <button
+              type="button"
+              title="more about"
+              className="w-full order-first py-2 px-3 ml-2 mb-2 text-center rounded-xl bg-gray-200 transition hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
+            >
+              <span className="block text-gray-600 font-semibold">
+                Read more
+              </span>
+            </button>
+
+            <div className=" py-3 flex flex-wrap items-center relative">
               <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
-              <p className="text-gray-400 text-sm ml-2">
-                : {place.likes.length}
-              </p>
+              <p className="text-gray-400 text-sm ml-2">: {place.likes.length}</p>
               <button
                 onClick={() => LikePlace(place._id)}
                 className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
@@ -89,7 +86,6 @@ function PlacesCardss() {
                 />
               </button>
               <div className="flex flex-wrap "></div>
-            </div>
             </div>
           </div>
         );

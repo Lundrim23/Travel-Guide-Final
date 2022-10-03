@@ -65,9 +65,7 @@ function PlacesMontenegro() {
 
             <div className=" py-3 flex flex-wrap items-center relative">
               <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
-              <p className="text-gray-400 text-sm ml-2">
-                : {place.likes.length}
-              </p>
+              <p className="text-gray-400 text-sm ml-2">: {place.likes.length}</p>
               <button
                 onClick={() => LikePlace(place._id)}
                 className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
