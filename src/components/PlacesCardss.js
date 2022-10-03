@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMostLikedPlaceAlbania } from "../redux/features/places/placesSlice";
-import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { likePlace, unlikePlace } from "../utils/fetch";
+import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
+import { getMostLikedPlaceMacedonia } from "../redux/features/places/placesSlice";
 
-const PlacesCards = () => {
+function PlacesCardss() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMostLikedPlaceAlbania({}));
+    dispatch(getMostLikedPlaceMacedonia({}));
   }, [dispatch]);
 
-  const placesinAlbania = useSelector((state) => state.places.placesinAlbania);
+  const placesinMacedonia = useSelector(
+    (state) => state.places.placesinMacedonia
+  );
 
   const LikePlace = async (id) => {
     try {
@@ -30,16 +32,16 @@ const PlacesCards = () => {
       console.log(error);
     }
   };
-
   return (
     <>
-      {placesinAlbania.map((place) => {
+      {placesinMacedonia.map((place) => {
         return (
           <div key={place._id}>
             <div className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-20 ">
               <img
                 className="aspect-video w-96 rounded-t-2xl object-cover object-center"
                 src={place.placePhoto}
+                alt="decorative"
               />
               <div className="p-4">
                 <small className="text-emerald-800 text-xs">
@@ -62,38 +64,38 @@ const PlacesCards = () => {
                 </button>
               </div>
               <div className=" py-3 flex flex-wrap items-center relative">
-                <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
-                <p className="text-gray-400 text-sm ml-2">
-                  : {place.likes.length}
-                </p>
-                <button
-                  onClick={() => LikePlace(place._id)}
-                  className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
-                >
-                  <FaThumbsUp
-                    color="#f43f5e"
-                    icon="fa-solid FaThumbsUp"
-                    className=""
-                  />
-                </button>
-                <button
-                  onClick={() => UnlikePlace(place._id)}
-                  className="ml-3 hover:bg-slate-100 hover:ring hover:ring-violet-300 hover:p-1"
-                >
-                  <FaThumbsDown
-                    color="#818cf8"
-                    icon="FaThumbsDown"
-                    className=""
-                  />
-                </button>
-                <div className="flex flex-wrap "></div>
-              </div>
+              <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
+              <p className="text-gray-400 text-sm ml-2">
+                : {place.likes.length}
+              </p>
+              <button
+                onClick={() => LikePlace(place._id)}
+                className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
+              >
+                <FaThumbsUp
+                  color="#f43f5e"
+                  icon="fa-solid FaThumbsUp"
+                  className=""
+                />
+              </button>
+              <button
+                onClick={() => UnlikePlace(place._id)}
+                className="ml-3 hover:bg-slate-100 hover:ring hover:ring-violet-300 hover:p-1"
+              >
+                <FaThumbsDown
+                  color="#818cf8"
+                  icon="FaThumbsDown"
+                  className=""
+                />
+              </button>
+              <div className="flex flex-wrap "></div>
+            </div>
             </div>
           </div>
         );
       })}
     </>
   );
-};
+}
 
-export default PlacesCards;
+export default PlacesCardss;
