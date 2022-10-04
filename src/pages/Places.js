@@ -17,6 +17,7 @@ import Montenegro from "../assets/montenegro-img/anton-matis-btrBrLNldMk-unsplas
 import AllPlaces from "../redux/features/places/AllPlaces.js";
 import PlacesCardss from "../components/PlacesCardss";
 import PlacesMontenegro from "../components/PlacesMontenegro";
+import { useState } from "react";
 
 const createPlace = (place) => {
   return (
@@ -127,7 +128,9 @@ const contryToVisit = (countries) => {
         </h1>
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
           {/* best places in kosovo */}
-          <AllPlaces />
+          <AllPlaces 
+            terrain="Monuments & Statues"
+          />
         </div>
         {/* <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
           {x.places.slice(0, 6).map((y) => createPlace(y))}
@@ -182,6 +185,11 @@ const secondCountryToVisit = (secondCountry) => {
 };
 
 function Places() {
+  const [showTerrain, setShowTerrain] = useState("");
+
+  console.log("Show terrain", showTerrain);
+
+
   const slideLeft = () => {
     var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 400;

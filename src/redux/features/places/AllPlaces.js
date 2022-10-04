@@ -4,15 +4,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPlaces } from "./placesSlice";
 import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { likePlace, unlikePlace } from "../../../utils/fetch";
+import { useState } from "react";
 
-function AllPlaces() {
+function AllPlaces(props) {
   const dispatch = useDispatch();
+
+  //const [places, setPlaces] = useState("");
 
   useEffect(() => {
     dispatch(getPlaces({}));
   }, [dispatch]);
 
+ 
   const places = useSelector((state) => state.places.list);
+
+  //const places = placess.filter((item) => item.placeDetails === props.terrain)
+
+  //console.log(places);
+  // console.log(
+  //   "Places here",
+  //   places.filter((item) => item.placeDetails === "Monuments & Statues")
+  // );
+
+
 
   const LikePlace = async (id) => {
     try {
@@ -24,7 +38,7 @@ function AllPlaces() {
     }
   };
 
-  const unlikePlace = async (id) => {
+  const UnlikePlace = async (id) => {
     try {
       unlikePlace(id);
     } catch (error) {
@@ -64,7 +78,9 @@ function AllPlaces() {
 
             <div className=" py-3 flex flex-wrap items-center relative">
               <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
-              <p className="text-gray-400 text-sm ml-2">: {place.likes.length}</p>
+              <p className="text-gray-400 text-sm ml-2">
+                : {place.likes.length}
+              </p>
               <button
                 onClick={() => LikePlace(place._id)}
                 className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
@@ -76,7 +92,7 @@ function AllPlaces() {
                 />
               </button>
               <button
-                onClick={() => unlikePlace(place._id)}
+                onClick={() => UnlikePlace(place._id)}
                 className="ml-3 hover:bg-slate-100 hover:ring hover:ring-violet-300 hover:p-1"
               >
                 <FaThumbsDown
