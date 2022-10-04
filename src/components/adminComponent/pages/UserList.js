@@ -3,12 +3,10 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Delete, SortIcon } from "../../AllSvgs";
 import io from "socket.io-client";
-import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import TextField from "@mui/material/TextField";
+
+import ActionButton from "../../Chat/ActionButton";
+import Popup from "../../Chat/PopUp";
+import MessageRoom from "../../Chat/MessageRoom";
 
 import {
   updateUser,
@@ -21,29 +19,21 @@ import { addMessage } from "../../../redux/features/users/userMessageSlice";
 
 const socket = io.connect("http://localhost:5000");
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "50%",
-  height: "50%",
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 export default function UserList() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  const [messages, setMessages] = useState(null);
+  const [room, setRoom] = useState("");
+  const [openPopup, setOpenPopup] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadUsers());
   }, [dispatch]);
+
+  useEffect(() => {
+    if (room) {
+      socket.emit("join_room", room);
+    }
+  });
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
@@ -54,9 +44,19 @@ export default function UserList() {
     });
   }, [socket]);
 
+  const openInPopup = (item, room) => {
+    setRoom(room);
+    setMessages(item);
+    setOpenPopup(true);
+  };
+
   const users = useSelector((state) => state.users.users);
   const amount = useSelector((state) => state.users.amount);
   const userMessages = useSelector((state) => state.userMessages.userMessages);
+
+  useEffect(() => {
+    console.log(userMessages);
+  });
 
   if (amount < 1) {
     return (
@@ -69,144 +69,125 @@ export default function UserList() {
   }
 
   return (
-    <div className="flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500 ">
-      <div className="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
-            <tr>
-              <th
-                scope="col"
-                className="py-3 px-6 cursor-pointer dark:text-gray-50"
-              >
-                <div className="flex items-center">
-                  Id
-                  <SortIcon />
-                </div>
-              </th>
-              <th
-                scope="col"
-                className="py-3 px-6 cursor-pointer dark:text-gray-50"
-              >
-                <div className="flex items-center">
-                  Name
-                  <SortIcon />
-                </div>
-              </th>
-              <th
-                scope="col"
-                className="py-3 px-6 cursor-pointer dark:text-gray-50"
-              >
-                <div className="flex items-center">
-                  Email
-                  <SortIcon />
-                </div>
-              </th>
-              <th
-                scope="col"
-                className="py-3 px-6 cursor-pointer dark:text-gray-50"
-              >
-                <div className="flex items-center">
-                  Role
-                  <SortIcon />
-                </div>
-              </th>
-              <th scope="col" className="py-3 px-6 dark:text-gray-50">
-                <span className="">Block</span>
-              </th>
-              <th scope="col" className="py-3 px-6 dark:text-gray-50">
-                <span className="">Delete</span>
-              </th>
-              <th scope="col" className="py-3 px-6 dark:text-gray-50">
-                <span className="">Message</span>
-              </th>
-            </tr>
-          </thead>
-          {users.map((user) => {
-            socket.emit("join_room", `${user.id}`);
+    <>
+      <div className="flex-auto w-10/12 px-5 dark:bg-neutral-800 transition delay-500 ">
+        <div className="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
+              <tr>
+                <th
+                  scope="col"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                >
+                  <div className="flex items-center">
+                    Id
+                    <SortIcon />
+                  </div>
+                </th>
+                <th
+                  scope="col"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                >
+                  <div className="flex items-center">
+                    Name
+                    <SortIcon />
+                  </div>
+                </th>
+                <th
+                  scope="col"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                >
+                  <div className="flex items-center">
+                    Email
+                    <SortIcon />
+                  </div>
+                </th>
+                <th
+                  scope="col"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                >
+                  <div className="flex items-center">
+                    Role
+                    <SortIcon />
+                  </div>
+                </th>
+                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                  <span className="">Block</span>
+                </th>
+                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                  <span className="">Delete</span>
+                </th>
+                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                  <span className="">Message</span>
+                </th>
+              </tr>
+            </thead>
+            {users.map((user) => {
+              socket.emit("join_room", `${user.id}`);
 
-            return (
-              <tbody
-                key={user.id}
-                className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50"
-              >
-                <tr className="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
-                  <th
-                    scope="row"
-                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {user.id}
-                  </th>
-                  <td className="py-4 px-6">{user.name}</td>
-                  <td className="py-4 px-6">{user.email}</td>
-                  <td className="py-4 px-6">{user.role}</td>
-                  <td className="py-4 px-6 text-left">
-                    <button className="font-medium text-white bg-green-500 px-2 py-1 rounded-full dark:text-gray-50 hover:underline">
-                      Block
-                    </button>
-                  </td>
-                  <td className="py-4 px-6 text-left">
-                    <button
-                      onClick={() => dispatch(deleteUser({ id: user.id }))}
-                      className="font-medium text-red-500 dark:text-red-500 hover:underline"
+              return (
+                <tbody
+                  key={user.id}
+                  className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50"
+                >
+                  <tr className="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
+                    <th
+                      scope="row"
+                      className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                     >
-                      <Delete />
-                    </button>
-                  </td>
-                  <td className="py-4 px-6 text-left">
-                    {user.messaged ? (
-                      <div>
-                        <Button
-                          onClick={handleOpen}
-                          className="font-medium text-red-500  dark:text-red-500 hover:underline"
-                        >
-                          <MailOutlineRoundedIcon />
-                        </Button>
-                        <Modal
-                          open={open}
-                          onClose={handleClose}
-                          aria-labelledby="modal-modal-title"
-                          aria-describedby="modal-modal-description"
-                        >
-                          <Box sx={style}>
-                            <Typography
-                              id="modal-modal-title"
-                              variant="h6"
-                              component="h2"
-                            >
-                              Text in a modal
-                            </Typography>
-                            <Typography
-                              id="modal-modal-description"
-                              sx={{ mt: 2 }}
-                            >
-                              {userMessages.map((message) => {
+                      {user.id}
+                    </th>
+                    <td className="py-4 px-6">{user.name}</td>
+                    <td className="py-4 px-6">{user.email}</td>
+                    <td className="py-4 px-6">{user.role}</td>
+                    <td className="py-4 px-6 text-left">
+                      <button className="font-medium text-white bg-green-500 px-2 py-1 rounded-full dark:text-gray-50 hover:underline">
+                        Block
+                      </button>
+                    </td>
+                    <td className="py-4 px-6 text-left">
+                      <button
+                        onClick={() => dispatch(deleteUser({ id: user.id }))}
+                        className="font-medium text-red-500 dark:text-red-500 hover:underline"
+                      >
+                        <Delete />
+                      </button>
+                    </td>
+                    <td className="py-4 px-6 text-left">
+                      {user.messaged ? (
+                        <ActionButton
+                          color="primary"
+                          onClick={() => {
+                            openInPopup(
+                              userMessages.map((message) => {
                                 if (message.room === `${user.id}`) {
-                                  message.message.map((item) => {
-                                    console.log(item.message);
-                                    return <p>{item.message}</p>;
+                                  return message.message.map((item) => {
+                                    return item.message;
                                   });
                                 }
-                              })}
-                            </Typography>
-                            <div></div>
-                            <TextField
-                              id="standard-basic"
-                              label="Standard"
-                              variant="standard"
-                            />
-                          </Box>
-                        </Modal>
-                      </div>
-                    ) : (
-                      ""
-                    )}
-                  </td>
-                </tr>
-              </tbody>
-            );
-          })}
-        </table>
+                              }),
+                              `${user.id}`
+                            );
+                          }}
+                        ></ActionButton>
+                      ) : (
+                        ""
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+        </div>
       </div>
-    </div>
+      <Popup
+        title="Message Room"
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup}
+      >
+        <MessageRoom messages={messages} room={room} socket={socket} />
+      </Popup>
+    </>
   );
 }

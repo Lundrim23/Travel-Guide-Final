@@ -9,7 +9,7 @@ function Chat() {
   const [messageList, setMessageList] = useState([]);
 
   const joinRoom = () => {
-    if (room !== "") {
+    if (room) {
       socket.emit("join_room", room);
     }
   };
@@ -21,6 +21,7 @@ function Chat() {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      console.log(data);
       setMessageList((list) => [
         ...list,
         { display: "right", message: data.message },
@@ -33,14 +34,24 @@ function Chat() {
       <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
         <div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
           <div className="flex flex-col">
-            <h1 className="mt-10">Message:</h1>
-            {messageList.map((messageContent) => {
-              if (messageContent.display === "left") {
-                return <h1 className="m-0">{messageContent.message}</h1>;
-              } else {
-                return <h1 className="m-5">{messageContent.message}</h1>;
-              }
-            })}
+            <h1 className="mt-">Message:</h1>
+            <div className="flex flex-col flex-grow  justify-between ">
+              {messageList.map((messageContent) => {
+                if (messageContent.display === "left") {
+                  return (
+                    <h1 className="mt-2 flex justify-end text-slate-500 break-all">
+                      {messageContent.message}
+                    </h1>
+                  );
+                } else {
+                  return (
+                    <h1 className="mt-2 flex justify-start text-slate-500 break-all">
+                      {messageContent.message}
+                    </h1>
+                  );
+                }
+              })}
+            </div>
           </div>
         </div>
 
