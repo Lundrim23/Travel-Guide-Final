@@ -39,8 +39,6 @@ function Places() {
 
   const [value, setValue] = useState("");
 
-  console.log("vlera", value);
-
   return (
     <>
       <PlacesSlider />

@@ -52,7 +52,7 @@ function FoodnCulture() {
                 </h1>
 
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
-                  {post.description}
+                  {post.description.substring(0, 120) + "..."}
                 </p>
                 {/* icons */}
                 <div className="pt-6 flex flex-wrap ml- ">

@@ -11,10 +11,6 @@ function PlacesCardss(props) {
     dispatch(getMostLikedPlaceMacedonia({}));
   }, [dispatch]);
 
-  // const placesinMacedonia = useSelector(
-  //   (state) => state.places.placesinMacedonia
-  // );
-
   const allPlaces = useSelector((state) => state.places.placesinMacedonia);
 
   const placesFiltered = allPlaces.filter(
@@ -57,7 +53,7 @@ function PlacesCardss(props) {
               {place.placeName}
             </h1>
             <h3 className="max-w-fit p-2 h-16 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
-              {place.placeDetails.substring(0, 100)}
+              {place.placeDetails.substring(0, 120) + "..."}
             </h3>
             <button
               type="button"

@@ -89,11 +89,11 @@ function EditEventForm(props) {
             value={props.input.type}
             onChange={props.provo}
           >
-                <option>--Choose Event Type--</option>
-                <option value="Beach Event">Beach Event</option>
-                <option value="Festival">Festival</option>
-                <option value="Art and Movie Culture">Art and Movie Culture</option>
-                <option value="Food and Culture Events">Food and Culture Events</option>
+            <option>--Choose Event Type--</option>
+            <option value="Beach">Beach Event</option>
+            <option value="Festival">Festival</option>
+            <option value="Art and Movie Culture">Art and Movie Culture</option>
+            <option value="Food and Culture Events">Food and Culture Events</option>
           </select>
         </div>
 

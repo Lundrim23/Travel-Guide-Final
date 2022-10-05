@@ -1,21 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { mostLikedEvents, beachEvent } from "./postsSlice";
+import { beachEvent } from "./postsSlice";
 import { FaThumbsUp, FaThumbsDown, FaHeart } from "react-icons/fa";
 import { like, unlike } from "../../../utils/fetch";
 
 function MostLikedPosts() {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(mostLikedEvents({}));
-  // }, [dispatch]);
   useEffect(() => {
     dispatch(beachEvent());
   }, [dispatch]);
 
-  // const likeposts = useSelector((state) => state.posts.lista);
   const likeposts = useSelector((state) => state.posts.beachevents);
 
   //this method likes an event later will change in redux
@@ -56,7 +52,7 @@ function MostLikedPosts() {
                 </h1>
 
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
-                  {post.description}
+                  {post.description.substring(0, 120) + "..."}
                 </p>
                 {/* icons */}
                 <div className="pt-6 flex flex-wrap ml- ">

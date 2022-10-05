@@ -58,7 +58,7 @@ const PlacesCards = (props) => {
                   {place.placeName}
                 </h1>
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
-                  {place.placeDetails}
+                  {place.placeDetails.substring(0, 120) + "..."}
                 </p>
                 <button
                   type="button"

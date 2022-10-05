@@ -95,8 +95,8 @@ function AddEventForm(props) {
                 <option>--Choose Event Type--</option>
                 <option value="Beach">Beach Event</option>
                 <option value="Festival">Festival</option>
-                <option value="Cultural Heritage">Art and Movie Culture</option>
-                <option value="Lake">Food and Culture Events</option>
+                <option value="Art and Movie Culture">Art and Movie Culture</option>
+                <option value="Food and Culture Events">Food and Culture Events</option>
               </select>
             </div>
 

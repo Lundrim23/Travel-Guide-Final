@@ -8,8 +8,6 @@ import { likePlace, unlikePlace } from "../../../utils/fetch";
 function AllPlaces(props) {
   const dispatch = useDispatch();
 
-  //const [places, setPlaces] = useState("");
-
   useEffect(() => {
     dispatch(getPlaces({}));
   }, [dispatch]);
@@ -21,14 +19,6 @@ function AllPlaces(props) {
   );
 
   const places = props.value ? placesFiltered : allPlaces;
-
-  //const places = placess.filter((item) => item.placeDetails === props.terrain)
-
-  //console.log(places);
-  // console.log(
-  //   "Places here",
-  //   places.filter((item) => item.placeDetails === "Monuments & Statues")
-  // );
 
   const LikePlace = async (id) => {
     try {
@@ -66,7 +56,7 @@ function AllPlaces(props) {
               {place.placeName}
             </h1>
             <h3 className="max-w-fit p-2 h-16 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
-              {place.placeDetails.substring(0, 100)}
+              {place.placeDetails.substring(0, 120) + "..."}
             </h3>
             <button
               type="button"
