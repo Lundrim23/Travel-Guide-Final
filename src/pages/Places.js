@@ -21,10 +21,6 @@ import BestPlacesInMontenegro from "../components/BestPlacesInMontenegro";
 const createPlace = (place) => {
   return (
     <PlacesCard
-    // key={place.id}
-    // img={place.image}
-    // name={place.name}
-    // title={place.title}
     />
   );
 };
@@ -48,7 +44,6 @@ function Places() {
   return (
     <>
       <PlacesSlider />
-      {/* <section className="max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row  justify-around "> */}
       <section className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around ">
         <PlaceFilters vlera={setValue} />
       </section>
