@@ -7,6 +7,7 @@ import io from "socket.io-client";
 import ActionButton from "../../Chat/ActionButton";
 import Popup from "../../Chat/PopUp";
 import MessageRoom from "../../Chat/MessageRoom";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 import {
   updateUser,
@@ -156,7 +157,6 @@ export default function UserList() {
                     <td className="py-4 px-6 text-left">
                       {user.messaged ? (
                         <ActionButton
-                          color="primary"
                           onClick={() => {
                             openInPopup(
                               userMessages.map((message) => {
@@ -169,9 +169,11 @@ export default function UserList() {
                               `${user.id}`
                             );
                           }}
-                        ></ActionButton>
+                        >
+                          <EmailOutlinedIcon />
+                        </ActionButton>
                       ) : (
-                        ""
+                        "N/A"
                       )}
                     </td>
                   </tr>
