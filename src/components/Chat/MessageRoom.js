@@ -60,3 +60,5 @@ export default function MessageRoom(props) {
     </div>
   );
 }
+
+// mesazhet qe po i dergojm nuk po shfaqen ne messageRoom

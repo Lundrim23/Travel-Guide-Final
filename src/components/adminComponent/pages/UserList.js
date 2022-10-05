@@ -78,47 +78,56 @@ export default function UserList() {
               <tr>
                 <th
                   scope="col"
-                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50 "
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center ">
                     Id
                     <SortIcon />
                   </div>
                 </th>
                 <th
                   scope="col"
-                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50 "
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center ">
                     Name
                     <SortIcon />
                   </div>
                 </th>
                 <th
                   scope="col"
-                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50 "
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center ">
                     Email
                     <SortIcon />
                   </div>
                 </th>
                 <th
                   scope="col"
-                  className="py-3 px-6 cursor-pointer dark:text-gray-50"
+                  className="py-3 px-6 cursor-pointer dark:text-gray-50 "
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center ">
                     Role
                     <SortIcon />
                   </div>
                 </th>
-                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                <th
+                  scope="col"
+                  className="py-3 px-6 dark:text-gray-50 text-center"
+                >
                   <span className="">Block</span>
                 </th>
-                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                <th
+                  scope="col"
+                  className="py-3 px-6 dark:text-gray-50 text-center"
+                >
                   <span className="">Delete</span>
                 </th>
-                <th scope="col" className="py-3 px-6 dark:text-gray-50">
+                <th
+                  scope="col"
+                  className="py-3 px-6 dark:text-gray-50 text-center"
+                >
                   <span className="">Message</span>
                 </th>
               </tr>
@@ -141,20 +150,20 @@ export default function UserList() {
                     <td className="py-4 px-6">{user.name}</td>
                     <td className="py-4 px-6">{user.email}</td>
                     <td className="py-4 px-6">{user.role}</td>
-                    <td className="py-4 px-6 text-left">
-                      <button className="font-medium text-white bg-green-500 px-2 py-1 rounded-full dark:text-gray-50 hover:underline">
+                    <td className="py-4 px-6 text-left text-center">
+                      <button className="font-medium text-white bg-green-500 px-2 py-1 rounded-full dark:text-gray-50 hover:underline text-center">
                         Block
                       </button>
                     </td>
-                    <td className="py-4 px-6 text-left">
+                    <td className="py-4 px-6 text-left text-center">
                       <button
                         onClick={() => dispatch(deleteUser({ id: user.id }))}
-                        className="font-medium text-red-500 dark:text-red-500 hover:underline"
+                        className="font-medium text-red-500 dark:text-red-500 hover:underline "
                       >
                         <Delete />
                       </button>
                     </td>
-                    <td className="py-4 px-6 text-left">
+                    <td className="py-4 px-6 text-center">
                       {user.messaged ? (
                         <ActionButton
                           onClick={() => {
@@ -170,7 +179,10 @@ export default function UserList() {
                             );
                           }}
                         >
-                          <EmailOutlinedIcon />
+                          <EmailOutlinedIcon
+                            sx={{ fontSize: 30 }}
+                            color="primary"
+                          />
                         </ActionButton>
                       ) : (
                         "N/A"

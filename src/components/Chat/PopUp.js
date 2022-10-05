@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Dialog,
   DialogTitle,
@@ -27,7 +28,7 @@ export default function Popup(props) {
   return (
     <Dialog
       open={openPopup}
-      maxWidth="md"
+      maxWidth="lg"
       classes={{ paper: classes.dialogWrapper }}
     >
       <DialogTitle className={classes.dialogTitle}>
@@ -36,7 +37,6 @@ export default function Popup(props) {
             {title}
           </Typography>
           <ActionButton
-            color="secondary"
             onClick={() => {
               setOpenPopup(false);
             }}
