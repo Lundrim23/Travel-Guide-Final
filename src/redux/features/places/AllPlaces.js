@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPlaces } from "./placesSlice";
 import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { likePlace, unlikePlace } from "../../../utils/fetch";
-import { useState } from "react";
 
 function AllPlaces(props) {
   const dispatch = useDispatch();
@@ -15,8 +14,13 @@ function AllPlaces(props) {
     dispatch(getPlaces({}));
   }, [dispatch]);
 
- 
-  const places = useSelector((state) => state.places.list);
+  const allPlaces = useSelector((state) => state.places.list);
+
+  const placesFiltered = allPlaces.filter(
+    (item) => item.terrain === props.value
+  );
+
+  const places = props.value ? placesFiltered : allPlaces;
 
   //const places = placess.filter((item) => item.placeDetails === props.terrain)
 
@@ -25,8 +29,6 @@ function AllPlaces(props) {
   //   "Places here",
   //   places.filter((item) => item.placeDetails === "Monuments & Statues")
   // );
-
-
 
   const LikePlace = async (id) => {
     try {
@@ -57,7 +59,7 @@ function AllPlaces(props) {
             <img
               className="w-full h-[300px]  hover:opacity-75 object-cover rounded-t-2xl "
               //src={props.img}
-              //alt={props.name}
+              alt="cultur"
               src={place.placePhoto}
             />
             <h1 maxLength={10} className="text-2xl pt-2 px-2">

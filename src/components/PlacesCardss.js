@@ -4,16 +4,24 @@ import { likePlace, unlikePlace } from "../utils/fetch";
 import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { getMostLikedPlaceMacedonia } from "../redux/features/places/placesSlice";
 
-function PlacesCardss() {
+function PlacesCardss(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMostLikedPlaceMacedonia({}));
   }, [dispatch]);
 
-  const placesinMacedonia = useSelector(
-    (state) => state.places.placesinMacedonia
+  // const placesinMacedonia = useSelector(
+  //   (state) => state.places.placesinMacedonia
+  // );
+
+  const allPlaces = useSelector((state) => state.places.placesinMacedonia);
+
+  const placesFiltered = allPlaces.filter(
+    (item) => item.terrain === props.value
   );
+
+  const placesinMacedonia = props.value ? placesFiltered : allPlaces;
 
   const LikePlace = async (id) => {
     try {
@@ -42,8 +50,7 @@ function PlacesCardss() {
           >
             <img
               className="w-full h-[300px]  hover:opacity-75 object-cover rounded-t-2xl "
-              //src={props.img}
-              //alt={props.name}
+              alt="cult"
               src={place.placePhoto}
             />
             <h1 maxLength={10} className="text-2xl pt-2 px-2">
@@ -64,7 +71,9 @@ function PlacesCardss() {
 
             <div className=" py-3 flex flex-wrap items-center relative">
               <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
-              <p className="text-gray-400 text-sm ml-2">: {place.likes.length}</p>
+              <p className="text-gray-400 text-sm ml-2">
+                : {place.likes.length}
+              </p>
               <button
                 onClick={() => LikePlace(place._id)}
                 className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"

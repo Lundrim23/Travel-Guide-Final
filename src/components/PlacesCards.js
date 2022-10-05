@@ -4,14 +4,22 @@ import { getMostLikedPlaceAlbania } from "../redux/features/places/placesSlice";
 import { FaHeart, FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { likePlace, unlikePlace } from "../utils/fetch";
 
-const PlacesCards = () => {
+const PlacesCards = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMostLikedPlaceAlbania({}));
   }, [dispatch]);
 
-  const placesinAlbania = useSelector((state) => state.places.placesinAlbania);
+  //const placesinAlbania = useSelector((state) => state.places.placesinAlbania);
+
+  const allPlaces = useSelector((state) => state.places.placesinAlbania);
+
+  const placesFiltered = allPlaces.filter(
+    (item) => item.terrain === props.value
+  );
+
+  const placesinAlbania = props.value ? placesFiltered : allPlaces;
 
   const LikePlace = async (id) => {
     try {
@@ -40,6 +48,7 @@ const PlacesCards = () => {
               <img
                 className="aspect-video w-96 rounded-t-2xl object-cover object-center"
                 src={place.placePhoto}
+                alt="cult"
               />
               <div className="p-4">
                 <small className="text-emerald-800 text-xs">
