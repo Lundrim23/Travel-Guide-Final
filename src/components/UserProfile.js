@@ -1,20 +1,42 @@
-import React from 'react'
-
+import React, { useEffect, useState } from "react";
+ import { getOneUser } from "../utils/services/users.service";
 import {Link} from 'react-router-dom'
 
+ function UserProfile(props) {
+   const [user,setUser] = useState([]);
+     useEffect(() => {
+       const fetchUsers = async () => {
+        try{
+          //this method gets data from db and populates state with data    
+           getOneUser().then(function(response){
+          setUser(response.data());
+           });
+       } catch (err) {
+          if (err.response) {
+             //not in the 200 respose range
+            console.log(err.response.data);
+        console.log(err.response.status);
+           console.log(err.response.headers);
+      } else {
+         console.log(`Error: ${err.message}`);
+         }
+       }
+      };
+      fetchUsers();
 
-const UserProfile = (props) => {
 
+      
+    }, []);
   return (
     <div >
-   
+  
 <div className="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
     <div className="px-6">
         <div className="flex flex-wrap justify-center">
             <div className="w-full flex justify-center">
                 <div className="relative">
                     <img src="https://e7.pngegg.com/pngimages/122/453/png-clipart-computer-icons-user-profile-avatar-female-profile-heroes-head.png" 
-                    className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+                    className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"></img>
                 </div>
             </div>
             <div className="w-full text-center mt-20">
@@ -27,22 +49,15 @@ const UserProfile = (props) => {
                         <span className="text-xl font-bold block uppercase tracking-wide text-slate-700">3</span>
                         <span className="text-sm text-slate-400">Reviews</span>
                     </div>
-
-                  
                 </div>
             </div>
         </div>
-
         <div class="text-center mt-2"> 
-        
             <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">{user.username}</h3>
-            <p class="text-s text-slate-700 font-bold leading-normal mb-1">email</p>
+            <p class="text-s text-slate-700 font-bold leading-normal mb-1">{user.email}</p>
             <div class="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
                 <i class="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>Paris, France
             </div>
-
-            
-
         </div>
         <div class="mt-6 py-6 border-t border-slate-200 text-center">
             <div class="flex flex-wrap justify-center">
@@ -54,7 +69,6 @@ const UserProfile = (props) => {
                 </div>
             </div>
         </div>
-
         <div>
     <p>
         Reviews by this user 
@@ -63,16 +77,16 @@ const UserProfile = (props) => {
 </div>
     </div>
 </div>
+       
 
 
-
-
+     
 
 
   
 </div>
     
-  )
-}
+  
+  )}
 
-export default UserProfile
+export default UserProfile;

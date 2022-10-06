@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextField = ({ label, inputProps, onChange, value,placeholder }) => {
+const TextField = ({ label, inputProps, onChange, value, }) => {
   return (
     <div>
       <div class="-mx-3 md:flex mb-6">
@@ -12,6 +12,8 @@ const TextField = ({ label, inputProps, onChange, value,placeholder }) => {
     {...inputProps}
     onChange={onChange}
     value={value}
+   
+    
     
   >
   </input>

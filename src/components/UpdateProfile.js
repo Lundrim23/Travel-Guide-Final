@@ -9,12 +9,12 @@ export default function UpdateProfile() {
         email:"",
         password:""
     });
-
     const { id } = useParams();
-
     useEffect(() => {
       const editUserById = () => {
         getOneUser(id).then(function (res) {
+          console.log("data deri qitu", res.data)
+          console.log( props.input.username)
           setUser(res.data);
         });
       };
@@ -22,46 +22,40 @@ export default function UpdateProfile() {
       editUserById();
     }, [id]);
 
-
 // populate state me data
     const handleEdit = (e) => {
-      const { username, value } = e.target;
+      const { name , value } = e.target;{
+        
+      }
   
       setInput((prevInput) => {
         return {
           ...prevInput,
-          [username]: value,
+          [name]: value,
         };
       });
     };
-
     // update
-  
-    const update = async (id) => {
+    const updateUser = async (id) => {
         const updateUser = {
           username:user.username,
           email:user.email,
           password:user.password
-          
         };
-    
         try {
-          updateUser(id, article);
-          
+          updateUser(id, updateUser);
         } catch (err) {
           console.log(`Error: ${err.message}`);
         }
       };
-    
-     
-    
   return (
     
     <UserProfileSettings
     handleEdit={handleEdit}
-    input={input}
-    update={update}
+    input={user}
+    update={updateUser}
      />
+      
   )
 }
 
