@@ -160,6 +160,15 @@ function EditPlace() {
     });
   };
 
+  const addcountry = (event) => {
+    setPlace((prevInput) => {
+      return {
+        ...prevInput,
+        placeLocation: event.target.value,
+      };
+    });
+  };
+
   //this method populates state with data
   function handleEdit(event) {
     const { name, value } = event.target;
@@ -179,6 +188,7 @@ function EditPlace() {
           <EditPlaceForm
             place={place}
             handleEdit={handleEdit}
+            addcountry={addcountry}
             provo={provo}
             processFile={processFile}
             update={update}

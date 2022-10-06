@@ -11,6 +11,7 @@ export default function AddEvent() {
     eventOrganizator: "",
     eventTags: "",
     address: "",
+    type: "",
     description: "",
     imageUrl: "",
   });
@@ -138,6 +139,12 @@ export default function AddEvent() {
     function noop() {}
   };
 
+  //this one saves the dropdown list value
+  const [valuee, setValuee] = useState("");
+  const provo = (event) => {
+    setValuee(event.target.value);
+  };
+
   //this one saves data to db throught be
   const handleClick = async (event, id) => {
     event.preventDefault();
@@ -148,6 +155,7 @@ export default function AddEvent() {
       eventTags: input.eventTags,
       location: input.location,
       address: input.address,
+      type: valuee,
       description: input.description,
       imageUrl: input.imageUrl,
     };
@@ -164,6 +172,8 @@ export default function AddEvent() {
     <AddEventForm
       handleChange={handleChange}
       input={input}
+      valuee={valuee}
+      provo={provo}
       processFile={processFile}
       handleClick={handleClick}
     />
