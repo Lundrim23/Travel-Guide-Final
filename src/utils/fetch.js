@@ -67,6 +67,13 @@ export function getPlaceById(id){
   return api.get('/places/get/' + id)
 }
 
+export function likePlace(id) {
+  return api.put("/places/like/"+id)
+}
+export function unlikePlace(id) {
+  return api.put("/places/unlike/"+id)
+}
+
 //country module api calls
 export function getCountries() {
   return api.get("/countries/get");

@@ -2,12 +2,14 @@ import React from "react";
 
 import EventHero from "../components/EventHero";
 import EventSection from "../components/EventSection";
-import EventCard from "../components/EventCard";
 import EventTitle from "../components/EventTitle";
 import EventFilms from "../components/EventFilms";
 import EventPart from "../components/EventPart";
-
 import Posts from "../redux/features/posts/Posts";
+import MostLikedPosts from "../redux/features/posts/MostLikedPosts";
+import ArtandMovies from "../redux/features/posts/ArtandMovies";
+import FoodnCulture from "../redux/features/posts/FoodnCulture";
+
 function Events() {
   return (
     <div>
@@ -17,21 +19,7 @@ function Events() {
       </div>
       {/* <Posts /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-slate-50 to-gray-300 pt-10 ">
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
+        <MostLikedPosts />
       </div>
 
       <div className="h-40 bg-gray-300"></div>
@@ -45,79 +33,18 @@ function Events() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-300 pt-10 ">
         <Posts />
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-gray-300 to-slate-50">
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-      </div>
       <div className="h-20 bg-slate-50"></div>
 
       <EventFilms />
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-slate-50 ">
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
+        <ArtandMovies />
       </div>
 
       <EventPart />
       <EventTitle TitleEvent="Food and Culture Events" />
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-slate-50 ">
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
-        <EventCard
-          EventPlace="Prishtine,Kosove"
-          EventName="SunnyHill"
-          EventText="hwhfowfcohofcowfhcow"
-        />
+        <FoodnCulture />
       </div>
 
       <div className="h-40 bg-slate-50"></div>
