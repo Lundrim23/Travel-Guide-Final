@@ -1,32 +1,52 @@
 import React, { useEffect, useState } from "react";
  import { getOneUser } from "../utils/services/users.service";
 import {Link} from 'react-router-dom'
+import { getUserById, updateUserById } from "../utils/fetch";
 
  function UserProfile(props) {
-   const [user,setUser] = useState([]);
-     useEffect(() => {
-       const fetchUsers = async () => {
-        try{
-          //this method gets data from db and populates state with data    
-           getOneUser().then(function(response){
-          setUser(response.data());
-           });
-       } catch (err) {
-          if (err.response) {
-             //not in the 200 respose range
-            console.log(err.response.data);
-        console.log(err.response.status);
-           console.log(err.response.headers);
-      } else {
-         console.log(`Error: ${err.message}`);
-         }
-       }
-      };
-      fetchUsers();
+   const [user, setUser] = useState({
+    username: "",
+    email: "",
+    phone: "",
+   })
 
+   const id = "633154a87cb793d9ccf5757c"
 
-      
-    }, []);
+   useEffect(() => {
+    const editUserById = () => {
+        getUserById(id).then(function (res) {
+            setUser(res.data);
+            console.log("resi", res);
+        });
+    };
+    editUserById();
+   }, []);
+
+   const update = async (id) => {
+    const useri = {
+        username: user.username,
+        email: user.email,
+        phone: user.phone,
+    };
+
+    try{
+        updateUserById(id, useri);
+    } catch (err) {
+        console.log(`Error: ${err.message}`);
+    }
+   };
+
+   const handleEdit = (e) => {
+    const {name, value} = e.target;
+
+    setUser((prevInput) => {
+        return {
+            ...prevInput,
+            [name]: value,
+        };
+    });
+   };
+
   return (
     <div >
   
@@ -52,6 +72,35 @@ import {Link} from 'react-router-dom'
                 </div>
             </div>
         </div>
+
+        <input
+            placeholder="name"
+            onChange={(e) => handleEdit(e)}
+            value={user.username}
+            name="username"
+            type="text"
+            />
+        <input 
+            placeholder="email"
+            onChange={(e) => handleEdit(e)}
+            value={user.email}
+            name="email"
+            type="text"
+        />
+        <input 
+            placeholder="phone"
+            onChange={(e) => handleEdit(e)}
+            value={user.phone}
+            name="phone"
+            type="text"
+        />
+
+        <button
+            onClick={() => update(user._id)}
+        >
+            Submit
+        </button>
+
         <div class="text-center mt-2"> 
             <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">{user.username}</h3>
             <p class="text-s text-slate-700 font-bold leading-normal mb-1">{user.email}</p>
