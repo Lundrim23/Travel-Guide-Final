@@ -73,33 +73,7 @@ import { getUserById, updateUserById } from "../utils/fetch";
             </div>
         </div>
 
-        <input
-            placeholder="name"
-            onChange={(e) => handleEdit(e)}
-            value={user.username}
-            name="username"
-            type="text"
-            />
-        <input 
-            placeholder="email"
-            onChange={(e) => handleEdit(e)}
-            value={user.email}
-            name="email"
-            type="text"
-        />
-        <input 
-            placeholder="phone"
-            onChange={(e) => handleEdit(e)}
-            value={user.phone}
-            name="phone"
-            type="text"
-        />
-
-        <button
-            onClick={() => update(user._id)}
-        >
-            Submit
-        </button>
+       
 
         <div class="text-center mt-2"> 
             <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">{user.username}</h3>
@@ -118,14 +92,75 @@ import { getUserById, updateUserById } from "../utils/fetch";
                 </div>
             </div>
         </div>
-        <div>
-    <p>
-        Reviews by this user 
-    </p>
-    <p>Likes</p>
-</div>
+      
     </div>
+
+
+
+    </div>
+
+
+  <div>
+  <div>
+      <div class="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 mt-40 mb-40 ">
+        <div>
+          <h1 className='font-bold text-slate-500 pb-12 text-2xl text-center'>Edit your profile in the form below</h1>
+        </div>
+        <div class="-mx-3 md:flex justify-center">
+          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-email">Username</label>
+  
+          <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
+            placeholder="name"
+            onChange={(e) => handleEdit(e)}
+            value={user.username}
+            name="username"
+            type="text"
+            />
+          
+              <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-email">Email</label>
+        <input  class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
+            placeholder="email"
+            onChange={(e) => handleEdit(e)}
+            value={user.email}
+            name="email"
+            type="text"
+        />
+
+        <p class="text-blue-600 text-xs italic pb-4">Please fill out this field.</p>
+   
+          <label class="block uppercase tracking-wide text-slate-500 text-xs font-bold mb-2" for="grid-email">Phone</label>
+        <input class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
+            placeholder="phone"
+            onChange={(e) => handleEdit(e)}
+            value={user.phone}
+            name="phone"
+            type="text"
+        />
+
+        <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full mt-4 "
+            onClick={() => update(user._id)}
+        >
+            Submit
+        </button>
+        <Link to="/"> 
+        <button class="bg-indigo-400 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full ml-4"
+           onClick={() => ("/")}>
+            Cancel
+          </button>
+          </Link>
+          </div>
+          </div>
+          </div>
+          </div>
+  </div>
+
 </div>
+
+
+
+
+
        
 
 
@@ -133,8 +168,7 @@ import { getUserById, updateUserById } from "../utils/fetch";
 
 
   
-</div>
-    
+
   
   )}
 
