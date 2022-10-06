@@ -99,16 +99,16 @@ function EventTable(props) {
       </Link>
 
       <Outlet />
-      <div class="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
+      <div className="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
             <tr className="dark:text-gray-50 cursor-pointer">
               <th
                 onClick={() => sort("eventName")}
                 scope="col"
-                class="py-3 px-6"
+                className="py-3 px-6"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Event Name
                   <SortIcon />
                 </div>
@@ -116,9 +116,9 @@ function EventTable(props) {
               <th
                 onClick={() => sort("eventOrganizator")}
                 scope="col"
-                class="py-3 px-6"
+                className="py-3 px-6"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Event Organizator
                   <SortIcon />
                 </div>
@@ -126,15 +126,15 @@ function EventTable(props) {
               <th
                 onClick={() => sort("eventTags")}
                 scope="col"
-                class="py-3 px-6"
+                className="py-3 px-6"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Event Tags
                   <SortIcon />
                 </div>
               </th>
-              <th onClick={() => sort("address")} scope="col" class="py-3 px-6">
-                <div class="flex items-center">
+              <th onClick={() => sort("address")} scope="col" className="py-3 px-6">
+                <div className="flex items-center">
                   Event Address
                   <SortIcon />
                 </div>
@@ -150,31 +150,30 @@ function EventTable(props) {
               <th
                 onClick={() => sort("description")}
                 scope="col"
-                class="py-3 px-6"
+                className="py-3 px-6"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Event Description
                   <SortIcon />
                 </div>
               </th>
-              <th scope="col" class="py-3 px-6 cursor-auto">
+              <th scope="col" className="py-3 px-6 cursor-auto">
                 Event Image
               </th>
-              <th scope="col" class="py-3 px-6 cursor-auto">
+              <th scope="col" className="py-3 px-6 cursor-auto">
                 <span>Edit</span>
               </th>
-              <th scope="col" class="py-3 px-6 cursor-auto">
+              <th scope="col" className="py-3 px-6 cursor-auto">
                 <span>Delete</span>
               </th>
             </tr>
           </thead>
           <tbody className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50">
             {events.map((event) => (
-              <>
-                <tr class="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
+                <tr key={event._id} className="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
                   <th
                     scope="row"
-                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     {event.eventName}
                   </th>
@@ -186,20 +185,19 @@ function EventTable(props) {
                   <td class="py-4 px-6">
                     {" "}
                     <img
-                      cloudName="starlabstitans"
                       className="w-12"
                       src={event.imageUrl}
                       alt="on Table"
                     />
                   </td>
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6 text-left">
                     <Link to={`editevent/${event._id}`}>
                       <button className="font-medium text-blue-600 dark:text-blue-500 dark:bg-gray-700 px-2 py-1 rounded-full hover:underline">
                         Edit
                       </button>
                     </Link>
                   </td>
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6 text-left">
                     <button
                       onClick={() => remove(event._id)}
                       className="font-medium text-red-500 dark:text-red-500 hover:underline"
@@ -208,7 +206,6 @@ function EventTable(props) {
                     </button>
                   </td>
                 </tr>
-              </>
             ))}
           </tbody>
         </table>

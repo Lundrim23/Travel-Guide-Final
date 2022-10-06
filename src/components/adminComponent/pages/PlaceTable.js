@@ -73,16 +73,16 @@ function PlaceTable() {
       </Link>
 
       <Outlet />
-      <div class="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
+      <div className="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
             <tr>
               <th
                 onClick={() => sort("placeName")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Place Name
                   <SortIcon />
                 </div>
@@ -90,9 +90,9 @@ function PlaceTable() {
               <th
                 onClick={() => sort("placeLocation")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Place Location
                   <SortIcon />
                 </div>
@@ -100,9 +100,9 @@ function PlaceTable() {
               <th
                 onClick={() => sort("placeDetails")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Place Details
                   <SortIcon />
                 </div>
@@ -110,41 +110,41 @@ function PlaceTable() {
               <th
                 onClick={() => sort("terrain")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Place Terrain
                   <SortIcon />
                 </div>
               </th>
               <th
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
                 Place Photo
               </th>
-              <th scope="col" class="py-3 px-6 dark:text-gray-50">
+              <th scope="col" className="py-3 px-6 dark:text-gray-50">
                 <span>Edit</span>
               </th>
-              <th scope="col" class="py-3 px-6 dark:text-gray-50">
+              <th scope="col" className="py-3 px-6 dark:text-gray-50">
                 <span>Delete</span>
               </th>
             </tr>
           </thead>
           <tbody className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50">
             {displayPlaces.map((place) => (
-              <>
-                <tr class="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
+                <tr key={place._id} className="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
                   <th
+                  key={place._id}
                     scope="row"
-                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     {place.placeName}
                   </th>
-                  <td class="py-4 px-6">{place.placeLocation}</td>
-                  <td class="py-4 px-6">{place.placeDetails}</td>
-                  <td class="py-4 px-6">{place.terrain}</td>
-                  <td class="py-4 px-6">
+                  <td className="py-4 px-6">{place.placeLocation}</td>
+                  <td className="py-4 px-6">{place.placeDetails}</td>
+                  <td className="py-4 px-6">{place.terrain}</td>
+                  <td className="py-4 px-6">
                     {" "}
                     <img
                       className="w-12"
@@ -152,7 +152,7 @@ function PlaceTable() {
                       alt="On table"
                     />
                   </td>
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6 text-left">
                     <Link to={`editplace/${place._id}`}>
                       <button className="font-medium text-blue-600 dark:text-blue-500 dark:bg-gray-700 px-2 py-1 rounded-full hover:underline">
                         Edit
@@ -160,7 +160,7 @@ function PlaceTable() {
                     </Link>
                   </td>
 
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6 text-left">
                     <button
                       onClick={() => removePlace(place._id)}
                       className="font-medium text-red-500 dark:text-red-500 hover:underline"
@@ -169,7 +169,6 @@ function PlaceTable() {
                     </button>
                   </td>
                 </tr>
-              </>
             ))}
           </tbody>
         </table>

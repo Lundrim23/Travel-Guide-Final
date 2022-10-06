@@ -25,7 +25,7 @@ function AddEventForm(props) {
                 className=" bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="eventname"
+                htmlFor="eventname"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event name
@@ -43,7 +43,7 @@ function AddEventForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="eventorganizator"
+                htmlFor="eventorganizator"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event organizator
@@ -61,7 +61,7 @@ function AddEventForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="eventtags"
+                htmlFor="eventtags"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event tags
@@ -79,7 +79,7 @@ function AddEventForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               />
               <label
-                for="eventaddress"
+                htmlFor="eventaddress"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event address
@@ -112,7 +112,7 @@ function AddEventForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               ></textarea>
               <label
-                for="eventdescription"
+                htmlFor="eventdescription"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 event description

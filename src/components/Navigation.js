@@ -203,7 +203,7 @@ const Navigation = () => {
                 )}
               </button>
             </div>
-            <div className="flex items-center bg-gray-800">
+            {/* <div className="flex items-center bg-gray-800">
               <form method="GET">
                 <div className="relative text-gray-600 focus-within:text-gray-400">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -233,7 +233,7 @@ const Navigation = () => {
                   ></input>
                 </div>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
 

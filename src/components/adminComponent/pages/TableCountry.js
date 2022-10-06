@@ -76,16 +76,16 @@ const TableCountry = () => {
       </Link>
 
       <Outlet />
-      <div class="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
+      <div className="overflow-x-auto relative sm:rounded-lg shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-neutral-700 transition dark:text-gray-400">
             <tr>
               <th
                 onClick={() => sort("CountryName")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Country Name
                   <SortIcon />
                 </div>
@@ -93,9 +93,9 @@ const TableCountry = () => {
               <th
                 onClick={() => sort("CapitalCity")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Country Capital
                   <SortIcon />
                 </div>
@@ -103,34 +103,33 @@ const TableCountry = () => {
               <th
                 onClick={() => sort("Population")}
                 scope="col"
-                class="py-3 px-6 cursor-pointer dark:text-gray-50"
+                className="py-3 px-6 cursor-pointer dark:text-gray-50"
               >
-                <div class="flex items-center">
+                <div className="flex items-center">
                   Country Population
                   <SortIcon />
                 </div>
               </th>
-              <th scope="col" class="py-3 px-6 dark:text-gray-50">
+              <th scope="col" className="py-3 px-6 dark:text-gray-50">
                 <span>Edit</span>
               </th>
-              <th scope="col" class="py-3 px-6 dark:text-gray-50">
+              <th scope="col" className="py-3 px-6 dark:text-gray-50">
                 <span>Delete</span>
               </th>
             </tr>
           </thead>
           <tbody className="dark:bg-neutral-900 transition dark:divide-neutral-700 dark:text-gray-50">
             {displayCountries.map((country) => (
-              <>
-                <tr class="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
+                <tr key={country._id} className="bg-white border-b dark:bg-neutral-600 transition dark:border-none">
                   <th
                     scope="row"
-                    class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     {country.CountryName}
                   </th>
-                  <td class="py-4 px-6"> {country.CapitalCity}</td>
-                  <td class="py-4 px-6">{country.Population}</td>
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6"> {country.CapitalCity}</td>
+                  <td className="py-4 px-6">{country.Population}</td>
+                  <td className="py-4 px-6 text-left">
                     <Link to={`editcountry/${country._id}`}>
                       <button
                         // onClick={() => updateCountry(country._id)}
@@ -141,7 +140,7 @@ const TableCountry = () => {
                     </Link>
                   </td>
 
-                  <td class="py-4 px-6 text-left">
+                  <td className="py-4 px-6 text-left">
                     <button
                       onClick={() => deleteCountry(country._id)}
                       className="font-medium text-red-500 dark:text-red-500 hover:underline"
@@ -150,7 +149,6 @@ const TableCountry = () => {
                     </button>
                   </td>
                 </tr>
-              </>
             ))}
           </tbody>
         </table>

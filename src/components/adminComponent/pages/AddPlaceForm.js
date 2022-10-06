@@ -25,7 +25,7 @@ function AddPlaceForm(props) {
                 value={props.place.placeName}
               />
               <label
-                for="placename"
+                htmlFor="placename"
                 className="dark:text-gray-50 transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 Place Name
@@ -56,14 +56,14 @@ function AddPlaceForm(props) {
                 className="bg-gray-100 dark:bg-neutral-800 dark:border-neutral-600 dark:text-gray-50 focus:border-emerald-300 w-full px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
               ></textarea>
               <label
-                for="placedetails"
+                htmlFor="placedetails"
                 className="transform transition-all dark:text-gray-50 absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
               >
                 place details
               </label>
             </div>
 
-            <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
+            <div className="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <select
                 value={props.valuee}
                 onChange={props.provo}
@@ -80,7 +80,7 @@ function AddPlaceForm(props) {
                 <option value="Waterfall">Waterfall</option>
               </select>
             </div>
-            <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
+            <div className="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               {props.place.placePhoto ? (
                 <img
                   src={props.place.placePhoto}

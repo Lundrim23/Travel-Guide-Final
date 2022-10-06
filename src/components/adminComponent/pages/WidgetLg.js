@@ -33,6 +33,7 @@ export default function WidgetLg() {
       </h3>
 
       <table className="w-full border-spacing-48 ">
+      <thead>
         <tr className="dark:text-gray-200">
           <th className="text-left">Event Name</th>
           <th className="text-left">Event Organizator</th>
@@ -41,9 +42,10 @@ export default function WidgetLg() {
           <th className="text-left">Event Description</th>
           <th className="text-left">Event Image</th>
         </tr>
+        </thead>
+        <tbody>
         {events.slice(0, 2).map((event) => (
-          <>
-            <tr className="dark:text-gray-400">
+            <tr key={event._id} className="dark:text-gray-400">
               <td className="font-light">{event.eventName}</td>
               <td className="font-light">{event.eventOrganizator}</td>
               <td className="font-light">{event.eventTags}</td>
@@ -58,8 +60,8 @@ export default function WidgetLg() {
                 {/* <span>User</span> */}
               </td>
             </tr>
-          </>
         ))}
+        </tbody>
       </table>
     </div>
   );
