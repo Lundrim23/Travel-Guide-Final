@@ -28,7 +28,6 @@ function Chat() {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
-      console.log(data);
       setMessageList((list) => [
         ...list,
         { display: "right", message: data.message },
@@ -37,21 +36,21 @@ function Chat() {
   }, [socket]);
 
   return (
-    <body class="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
-      <div class="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
-        <div class="flex flex-col flex-grow h-0 p-4 overflow-auto">
+    <body className="flex flex-col items-center justify-center w-screen min-h-screen bg-gray-100 text-gray-800 p-10">
+      <div className="flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
+        <h1 className="p-3">Message Room</h1>
+        <div className="flex flex-col flex-grow h-0 p-4 overflow-auto">
           <div className="flex flex-col">
-            <h1 className="mt-">Message:</h1>
             <div className="flex flex-col flex-grow  justify-between ">
               {messageList.map((messageContent) => {
                 if (messageContent.display === "left") {
                   return (
-                    <div class="col-start-6 col-end-13 p-3 rounded-lg">
-                      <div class="flex items-center justify-start flex-row-reverse">
-                        <div class="flex place-self-start items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
+                    <div className="col-start-6 col-end-13 p-3 rounded-lg">
+                      <div className="flex items-center justify-start flex-row-reverse">
+                        <div className="flex place-self-start items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
                           B
                         </div>
-                        <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                        <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
                           <div>{messageContent.message}</div>
                         </div>
                       </div>
@@ -59,12 +58,12 @@ function Chat() {
                   );
                 } else {
                   return (
-                    <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                      <div class="flex flex-row items-center ">
-                        <div class="flex place-self-start items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                    <div className="col-start-1 col-end-8 p-3 rounded-lg">
+                      <div className="flex flex-row items-center ">
+                        <div className="flex place-self-start items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
                           A
                         </div>
-                        <div class="max-w-sm relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                        <div className="max-w-sm relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
                           <div>{messageContent.message}</div>
                         </div>
                       </div>
@@ -76,7 +75,7 @@ function Chat() {
           </div>
         </div>
 
-        <div class="bg-gray-300 p-4 flex flex-row justify-between">
+        <div className="bg-gray-300 p-4 flex flex-row justify-between">
           <input
             className="flex items-center  h-10 w-3/4 rounded px-3 text-sm"
             placeholder="Room Number..."

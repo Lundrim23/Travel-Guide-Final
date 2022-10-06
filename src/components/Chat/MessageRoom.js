@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 
@@ -7,6 +7,7 @@ import { addMessage } from "../../redux/features/users/userMessageSlice";
 export default function MessageRoom(props) {
   const { messages, room, socket } = props;
   const [message, setMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
 
   const inputRef = useRef(null);
   const dispatch = useDispatch();
@@ -18,20 +19,26 @@ export default function MessageRoom(props) {
 
   const sendMessage = () => {
     socket.emit("send_message", { message, room });
+    setMessageList((list) => [...list, message]);
     dispatch(addMessage({ message: message, room: room, sent: true }));
   };
 
+  useEffect(() => {
+    setMessageList((list) => [...list, messages]);
+  }, []);
+
   return (
     <div className="w-96 h-80 flex flex-col justify-between">
-      {messages.map((message, index) => {
+      {messageList.map((message) => {
+        console.log(messageList);
         return (
-          <div class="col-start-6 col-end-13 p-3 rounded-lg">
-            <div class="flex items-center justify-start flex-row-reverse">
-              <div class="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
+          <div className="col-start-6 col-end-13 p-3 rounded-lg">
+            <div className="flex items-center justify-start flex-row-reverse">
+              <div className="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
                 B
               </div>
-              <div class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
-                <div key={index}>{message}</div>
+              <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                <div>{message}</div>
               </div>
             </div>
           </div>

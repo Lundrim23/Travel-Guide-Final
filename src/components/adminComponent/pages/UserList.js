@@ -46,18 +46,15 @@ export default function UserList() {
   }, [socket]);
 
   const openInPopup = (item, room) => {
+    const msgs = item.filter((item) => item);
     setRoom(room);
-    setMessages(item);
+    setMessages(msgs);
     setOpenPopup(true);
   };
 
   const users = useSelector((state) => state.users.users);
   const amount = useSelector((state) => state.users.amount);
   const userMessages = useSelector((state) => state.userMessages.userMessages);
-
-  useEffect(() => {
-    console.log(userMessages);
-  });
 
   if (amount < 1) {
     return (
