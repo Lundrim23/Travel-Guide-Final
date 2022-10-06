@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   LineChart,
   Line,
@@ -8,6 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { getAllUsers } from "../../../redux/features/users/userSlice";
 
 const data = [
   {
@@ -41,6 +44,16 @@ const data = [
 ];
 
 export default function Chart() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllUsers({}));
+  }, [dispatch])
+
+  const users = useSelector((state) => state.users.allUser);
+  //createdAt
+  console.log("Userat ", users);
+
   return (
     <div className="m-5 p-5 dark:bg-neutral-700 transition shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-lg">
       {/* chart tiele */}
