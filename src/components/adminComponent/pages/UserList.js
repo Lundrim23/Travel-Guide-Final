@@ -47,9 +47,23 @@ export default function UserList() {
 
   const openInPopup = (item, room) => {
     const msgs = item.filter((item) => item);
+
     setRoom(room);
-    setMessages(msgs);
+    setMessages(flattenMessages(msgs));
     setOpenPopup(true);
+  };
+
+  const flattenMessages = (members) => {
+    let children = [];
+
+    return members
+      .map((m) => {
+        if (m.children && m.children.length) {
+          children = [...children, ...m.children];
+        }
+        return m;
+      })
+      .concat(children.length ? flattenMessages(children) : children);
   };
 
   const users = useSelector((state) => state.users.users);
@@ -168,7 +182,7 @@ export default function UserList() {
                               userMessages.map((message) => {
                                 if (message.room === `${user.id}`) {
                                   return message.message.map((item) => {
-                                    return item.message;
+                                    return item;
                                   });
                                 }
                               }),

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
-
 import { addMessage } from "../../redux/features/users/userMessageSlice";
 
 export default function MessageRoom(props) {
@@ -17,9 +16,22 @@ export default function MessageRoom(props) {
     event.target.reset();
   };
 
+  const flattenMessages = (members) => {
+    let children = [];
+
+    return members
+      .map((m) => {
+        if (m.children && m.children.length) {
+          children = [...children, ...m.children];
+        }
+        return m;
+      })
+      .concat(children.length ? flattenMessages(children) : children);
+  };
+
   const sendMessage = () => {
     socket.emit("send_message", { message, room });
-    setMessageList((list) => [...list, message]);
+    setMessageList((list) => [...list, { message: message, sent: true }]);
     dispatch(addMessage({ message: message, room: room, sent: true }));
   };
 
@@ -29,21 +41,22 @@ export default function MessageRoom(props) {
 
   return (
     <div className="w-96 h-80 flex flex-col justify-between">
-      {messageList.map((message) => {
-        console.log(messageList);
-        return (
-          <div className="col-start-6 col-end-13 p-3 rounded-lg">
-            <div className="flex items-center justify-start flex-row-reverse">
-              <div className="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
-                B
+      {messageList.length > 0
+        ? messageList.flat(Infinity).map((item) => {
+            return (
+              <div className="col-start-6 col-end-13 p-3 rounded-lg">
+                <div className="flex items-center justify-start flex-row-reverse">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
+                    {item.sent ? "B" : "F"}
+                  </div>
+                  <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                    <p>{item.message}</p>
+                  </div>
+                </div>
               </div>
-              <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
-                <div>{message}</div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
+            );
+          })
+        : ""}
       <form onSubmit={handleSubmit} className="flex flex-row justify-between ">
         <input
           className="flex items-center h-10 w-3/4 rounded px-3 text-sm "
