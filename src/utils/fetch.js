@@ -112,3 +112,13 @@ export function updateReview(id, data) {
 export function deleteReview(id) {
   return api.delete("/reviews/delete/" + id);
 }
+
+
+// users
+export function getUserById(id) {
+  return api.get("/users/get/" +id);
+}
+
+export function updateUserById(id, data){
+  return api.patch("/users/update/" +id, data);
+}
