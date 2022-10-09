@@ -14,7 +14,6 @@ let firstRender = true;
 const Navigation = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState();
-  const [apiData, setapiData] = useState();
 
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
