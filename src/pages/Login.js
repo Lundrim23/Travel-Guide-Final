@@ -13,10 +13,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const LogIn = () => {
   const dispatch = useDispatch();
 
-
-  const notify = () => {toast.success("Login Successful")}
-
-
+  const notify = () => {
+    toast.success("Login Successful");
+  };
 
   const history = useNavigate();
 
@@ -55,8 +54,8 @@ const LogIn = () => {
         })
         .then((error) => {
           if (!error.response) {
-          notify();
-          dispatch(authActions.login()).then(history("/"));
+            notify();
+            dispatch(authActions.login()).then(history("/"));
           }
         });
     },

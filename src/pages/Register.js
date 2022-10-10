@@ -10,6 +10,7 @@ import * as UserService from "../utils/services/users.service";
 import Navigation from "../components/Navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from "../components/Spinner";
 
 function Register() {
   const notify =() => {
@@ -60,6 +61,7 @@ function Register() {
         })
         .then((error) => {
           if (!error.response) {
+            <Spinner/>
             notify();
             history("/");
           }
