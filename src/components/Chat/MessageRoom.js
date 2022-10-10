@@ -40,21 +40,36 @@ export default function MessageRoom(props) {
   }, []);
 
   return (
-    <div className="w-96 h-80 flex flex-col justify-between">
+    <div className="w-96 h-80 flex flex-col justify-between  ">
       {messageList.length > 0
         ? messageList.flat(Infinity).map((item) => {
-            return (
-              <div className="col-start-6 col-end-13 p-3 rounded-lg">
-                <div className="flex items-center justify-start flex-row-reverse">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
-                    {item.sent ? "B" : "F"}
-                  </div>
-                  <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
-                    <p>{item.message}</p>
+            if (item.sent === true) {
+              return (
+                <div className="col-start-6 col-end-13 p-3 rounded-lg">
+                  <div className="flex items-center justify-start flex-row-reverse">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-full bg-zinc-400 flex-shrink-0">
+                      B
+                    </div>
+                    <div className="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl">
+                      <p>{item.message}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
+              );
+            } else {
+              return (
+                <div className="col-start-1 col-end-8  p-3 rounded-lg">
+                  <div className="flex flex-row items-center">
+                    <div className="flex place-self-start items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0">
+                      A
+                    </div>
+                    <div className="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+                      <p>{item.message}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
           })
         : ""}
       <form onSubmit={handleSubmit} className="flex flex-row justify-between ">
@@ -80,5 +95,3 @@ export default function MessageRoom(props) {
     </div>
   );
 }
-
-// mesazhet qe po i dergojm nuk po shfaqen ne messageRoom
