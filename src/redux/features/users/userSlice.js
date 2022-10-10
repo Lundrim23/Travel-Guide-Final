@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import getUsers from "./load.users";
 
-export const getAllUsers = createAsyncThunk(
-  "getallusers/getAllUsers",
+export const countNewUsers = createAsyncThunk(
+  "countusers/countNewUsers",
   async () => {
     const response = await axios.get(
-      "http://localhost:5000/api/users/get"
+      "http://localhost:5000/api/users/countUsers"
     );
     return response.data;
   }
@@ -38,7 +38,7 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: {
-    [getAllUsers.fulfilled]: (state, { payload }) => {
+    [countNewUsers.fulfilled]: (state, { payload }) => {
       state.allUser = payload;
       state.status = 'success';
     }
