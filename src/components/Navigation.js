@@ -66,19 +66,19 @@ const Navigation = () => {
   }, []);
   return (
     <div>
-      <nav className="bg-gray-800">
+      <nav className="bg-[#051622] h-15" >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <img
                   className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                  src="https://technext.github.io/trips/images/logo.png"
                   alt="Workflow"
                 />
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-7">
                   <Link
                     to="/"
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -88,42 +88,44 @@ const Navigation = () => {
 
                   <Link
                     to="/about"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     About
                   </Link>
 
                   <Link
                     to="/places"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Places
                   </Link>
 
                   <Link
                     to="/events"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Events
                   </Link>
 
                   <Link
                     to="/api"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Hotel/Restaurants
+                    Near you
                   </Link>
 
                   <Link
                     to="/contact"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Contact
                   </Link>
+                  <div className="px-20 mr-40 text-[#051622]"> TestTestTestTestt</div>
                   {!isLoggedIn && (
                     <Link
                       to="/register"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-slate-100 bg-[#0A2C43] ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 
+                      rounded-md text-sm font-medium mr-10 "
                     >
                       Register
                     </Link>
@@ -131,9 +133,9 @@ const Navigation = () => {
                   {!isLoggedIn && (
                     <Link
                       to="/login"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-slate-100 bg-[#0A2C43]  ring-2 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 rounded-md text-sm font-medium"
                     >
-                      Login
+                     Login
                     </Link>
                   )}
                   {isLoggedIn && (
@@ -157,6 +159,8 @@ const Navigation = () => {
                   )}
                 </div>
               </div>
+
+              {/*  */}
               <ToastContainer autoClose={2000} hideProgressBar={true} />
             </div>
             <div className="-mr-2 flex md:hidden">
