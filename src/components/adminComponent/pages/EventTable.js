@@ -139,6 +139,14 @@ function EventTable(props) {
                   <SortIcon />
                 </div>
               </th>
+
+              <th onClick={() => sort("type")} scope="col" class="py-3 px-6">
+                <div class="flex items-center">
+                  Event Type
+                  <SortIcon />
+                </div>
+              </th>
+
               <th
                 onClick={() => sort("description")}
                 scope="col"
@@ -169,11 +177,12 @@ function EventTable(props) {
                   >
                     {event.eventName}
                   </th>
-                  <td className="py-4 px-6">{event.eventOrganizator}</td>
-                  <td className="py-4 px-6">{event.eventTags}</td>
-                  <td className="py-4 px-6">{event.address}</td>
-                  <td className="py-4 px-6">{event.description}</td>
-                  <td className="py-4 px-6">
+                  <td class="py-4 px-6">{event.eventOrganizator}</td>
+                  <td class="py-4 px-6">{event.eventTags}</td>
+                  <td class="py-4 px-6">{event.address}</td>
+                  <td class="py-4 px-6">{event.type}</td>
+                  <td class="py-4 px-6">{event.description}</td>
+                  <td class="py-4 px-6">
                     {" "}
                     <img
                       className="w-12"

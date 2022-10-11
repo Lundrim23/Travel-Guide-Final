@@ -160,13 +160,18 @@ export default function AddPlace() {
     setValuee(event.target.value);
   };
 
+  const [country, setCountry] = useState('');
+  const addcountry = (event) => {
+    setCountry(event.target.value);
+  }
+
   //Submit method to submit all data in db ("creates a new place")
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const newPlace = {
       placeName: place.placeName,
-      placeLocation: place.placeLocation,
+      placeLocation: country,
       placeDetails: place.placeDetails,
       terrain: valuee,
       placePhoto: place.placePhoto,
@@ -188,6 +193,8 @@ export default function AddPlace() {
       place={place}
       valuee={valuee}
       provo={provo}
+      country={country}
+      addcountry={addcountry}
       processFile={processFile}
       handleSubmit={handleSubmit}
     />

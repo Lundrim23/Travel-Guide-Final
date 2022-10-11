@@ -9,7 +9,8 @@ const EventTitle = (props) => {
             {props.TitleEvent}
           </p>
           <p className=" text-center text-2xl font-light text-gray-700">
-            All article are verified by 2 experts and valdiate by the CTO
+            {/* All article are verified by 2 experts and valdiate by the CTO */}
+            Top 3 most-liked events.
           </p>
         </div>
       </div>

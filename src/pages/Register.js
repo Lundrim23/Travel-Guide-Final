@@ -7,8 +7,10 @@ import { userSchema } from "./Utils/Schema/user-validation.schema";
 import axios from "axios";
 import { useState } from "react";
 import * as UserService from "../utils/services/users.service";
+import Navigation from "../components/Navigation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Spinner from "../components/Spinner";
 
 function Register() {
   const notify =() => {
@@ -59,6 +61,7 @@ function Register() {
         })
         .then((error) => {
           if (!error.response) {
+            <Spinner/>
             notify();
             history("/");
           }
@@ -66,6 +69,7 @@ function Register() {
     },
   });
   return (
+    
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
         <div className="bg-white rounded-2xl shadow-2xl flex lg:w-1/3 md:w-2/3 sm:w-full">

@@ -31,23 +31,18 @@ function AddPlaceForm(props) {
                 Place Name
               </label>
             </div>
-
-            <div className="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
-              <input
-                type="text"
-                id="placelocation"
-                required
-                className="bg-gray-100 dark:bg-neutral-800 dark:text-gray-50 dark:border-neutral-600 dark:focus:border-neutral-400 focus:border-emerald-300 w-full h-10 px-4 text-sm peer bg-transparent border-2 rounded-lg outline-none"
-                onChange={props.handleChange}
-                name="placeLocation"
-                value={props.place.placeLocation}
-              />
-              <label
-                htmlFor="placelocation"
-                className="dark:text-gray-50 transform transition-all absolute top-0 left-4 h-full flex items-center pl-3 text-sm text-gray-500 group-focus-within:text-xs peer-valid:text-xs group-focus-within:h-1/2 peer-valid:h-1/2 group-focus-within:-translate-y-full peer-valid:-translate-y-full group-focus-within:pl-0 peer-valid:pl-0"
+            <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
+              <select
+                value={props.country}
+                onChange={props.addcountry}
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-800 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-neutral-400"
               >
-                Place Location
-              </label>
+                <option>--Choose Place Location--</option>
+                <option value="Kosovo">Kosovo</option>
+                <option value="Albania">Albania</option>
+                <option value="Macedonia">Macedonia</option>
+                <option value="Montenegro">Montenegro</option>
+              </select>
             </div>
             <div className="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <textarea

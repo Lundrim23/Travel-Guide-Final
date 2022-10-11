@@ -67,6 +67,13 @@ export function getPlaceById(id){
   return api.get('/places/get/' + id)
 }
 
+export function likePlace(id) {
+  return api.put("/places/like/"+id)
+}
+export function unlikePlace(id) {
+  return api.put("/places/unlike/"+id)
+}
+
 //country module api calls
 export function getCountries() {
   return api.get("/countries/get");
@@ -104,4 +111,14 @@ export function updateReview(id, data) {
 
 export function deleteReview(id) {
   return api.delete("/reviews/delete/" + id);
+}
+
+
+// users
+export function getUserById(id) {
+  return api.get("/users/get/" +id);
+}
+
+export function updateUserById(id, data){
+  return api.patch("/users/update/" +id, data);
 }

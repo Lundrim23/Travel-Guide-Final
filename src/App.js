@@ -45,11 +45,10 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />
-          <Route path="UserProfileSettings" element={<UserProfileSettings />} />
+          <Route path="userprofilesettings" element={<UserProfileSettings />} />
+          <Route path="register" element={<Register />} />
         </Route>
-        <Route path="register" element={<Register />} />
         <Route path="chat" element={<Chat />} />
-
         <Route path="admin" element={<Newadmin />}>
           <Route path="" element={<Homee />} />
           <Route path="users" element={<UserList />} />

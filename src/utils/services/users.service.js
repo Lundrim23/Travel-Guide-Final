@@ -58,3 +58,17 @@ export async function refreshToken() {
 export async function logout(logOut) {
   return await api.post("logout", logOut);
 }
+
+// user get one all and update
+export function getOneUser (id){
+  return api.get('/users/get/' + id);
+}
+
+
+export function updateUser(id, data) {
+  return api.patch("/users/update/" + id, data);
+}
+
+export function getAllUsers() {
+  return api.get("/users/get");
+ }

@@ -1,17 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts } from "./postsSlice";
+import { beachEvent } from "./postsSlice";
 import { FaThumbsUp, FaThumbsDown, FaHeart } from "react-icons/fa";
 import { like, unlike } from "../../../utils/fetch";
 
-const Posts = () => {
+function MostLikedPosts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPosts({}));
+    dispatch(beachEvent());
   }, [dispatch]);
 
-  const posts = useSelector((state) => state.posts.list);
+  const likeposts = useSelector((state) => state.posts.beachevents);
 
   //this method likes an event later will change in redux
   const likeEvent = async (id) => {
@@ -35,7 +36,7 @@ const Posts = () => {
 
   return (
     <>
-      {posts.map((post) => {
+      {likeposts.slice(0, 3).map((post) => {
         return (
           <div key={post._id}>
             <div className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-10 mr-10 mt-20">
@@ -53,7 +54,6 @@ const Posts = () => {
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
                   {post.description.substring(0, 120) + "..."}
                 </p>
-
                 {/* icons */}
                 <div className="pt-6 flex flex-wrap ml- ">
                   <FaHeart color="#f43f5e" class="mr-2" icon="FaHeart" />
@@ -78,7 +78,6 @@ const Posts = () => {
                       className=""
                     />
                   </button>
-
                   <div className="flex flex-wrap "></div>
                 </div>
               </div>
@@ -88,6 +87,6 @@ const Posts = () => {
       })}
     </>
   );
-};
+}
 
-export default Posts;
+export default MostLikedPosts;

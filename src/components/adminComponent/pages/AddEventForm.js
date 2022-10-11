@@ -86,6 +86,20 @@ function AddEventForm(props) {
               </label>
             </div>
 
+            <div class="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
+              <select
+                value={props.valuee}
+                onChange={props.provo}
+                className="bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-neutral-800 transition dark:border-neutral-900 dark:text-gray-50 dark:focus:border-neutral-400"
+              >
+                <option>--Choose Event Type--</option>
+                <option value="Beach">Beach Event</option>
+                <option value="Festival">Festival</option>
+                <option value="Art and Movie Culture">Art and Movie Culture</option>
+                <option value="Food and Culture Events">Food and Culture Events</option>
+              </select>
+            </div>
+
             <div className="flex items-center mb-8 py-2 px-3 rounded-2xl relative group">
               <textarea
                 onChange={props.handleChange}

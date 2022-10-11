@@ -22,7 +22,10 @@ function Home() {
 
         <LogoSlider />
 
-        <CardTitle title="Places to visit" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
+        <CardTitle
+          title="Places to visit"
+          subtitle="All article are verified by 2 experts and valdiate by the CTO"
+        />
 
         <Homeplaces />
 
@@ -30,7 +33,10 @@ function Home() {
 
         <RegisterDivider />
 
-        <CardTitle title="Events" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
+        <CardTitle
+          title="Events"
+          subtitle="All article are verified by 2 experts and valdiate by the CTO"
+        />
 
         <div className="max-w-[1270px] mx-auto p-4 py-12 grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-6">
           <Categories
@@ -67,7 +73,10 @@ function Home() {
           />
         </div>
 
-        <CardTitle title="Services" subtitle="All article are verified by 2 experts and valdiate by the CTO"/>
+        <CardTitle
+          title="Services"
+          subtitle="All article are verified by 2 experts and valdiate by the CTO"
+        />
 
         <Services />
       </div>

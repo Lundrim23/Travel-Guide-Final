@@ -11,6 +11,7 @@ export default function EditEvent() {
     eventOrganizator: "",
     eventTags: "",
     address: "",
+    type: "",
     description: "",
     imageUrl: "",
   });
@@ -145,6 +146,7 @@ export default function EditEvent() {
       eventTags: input.eventTags,
       location: input.location,
       address: input.address,
+      type: input.type,
       description: input.description,
       imageUrl: input.imageUrl,
     };
@@ -168,6 +170,15 @@ export default function EditEvent() {
     });
   };
 
+  const provo = (event) => {
+    setInput((prevInput) => {
+      return {
+        ...prevInput,
+        type: event.target.value,
+      }
+    })
+  }
+
   return (
     <>
       {input && (
@@ -175,6 +186,7 @@ export default function EditEvent() {
           <EditEventForm
             handleEdit={handleEdit}
             input={input}
+            provo={provo}
             processFile={processFile}
             update={update}
           />
