@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/features/loginSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import io from "socket.io-client";
+export const socket = io.connect("http://localhost:5000");
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
@@ -14,6 +16,7 @@ const Navigation = () => {
   const [user, setUser] = useState();
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const userId = localStorage.getItem("user_id");
 
   const sendLogoutRequest = async () => {
     const res = await axios.post(
@@ -30,8 +33,17 @@ const Navigation = () => {
   };
   const handleLogout = () => {
     sendLogoutRequest()
-      .then(() => dispatch(authActions.logout()))
+      .then(() => {
+        dispatch(authActions.logout());
+        localStorage.setItem("user_id", undefined);
+      })
       .then(window.location.reload(false));
+  };
+
+  const joinRoom = () => {
+    if (userId) {
+      socket.emit("join_room", userId);
+    }
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -153,6 +165,15 @@ const Navigation = () => {
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
                       Logout
+                    </Link>
+                  )}
+                  {isLoggedIn && (
+                    <Link
+                      to="/chat"
+                      onClick={joinRoom}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Chat
                     </Link>
                   )}
                 </div>

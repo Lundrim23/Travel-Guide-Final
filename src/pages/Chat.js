@@ -1,24 +1,17 @@
-import io from "socket.io-client";
 import { useEffect, useState, useRef } from "react";
-
-const socket = io.connect("http://localhost:5000");
+import { socket } from "../components/Navigation";
 
 function Chat() {
-  const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+
+  const room = localStorage.getItem("user_id");
 
   const inputRef = useRef(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     event.target.reset();
-  };
-
-  const joinRoom = () => {
-    if (room) {
-      socket.emit("join_room", room);
-    }
   };
 
   const sendMessage = () => {
@@ -75,21 +68,6 @@ function Chat() {
           </div>
         </div>
 
-        <div className="bg-gray-300 p-4 flex flex-row justify-between">
-          <input
-            className="flex items-center  h-10 w-3/4 rounded px-3 text-sm"
-            placeholder="Room Number..."
-            onChange={(event) => {
-              setRoom(event.target.value);
-            }}
-          />
-          <button
-            className="bg-cyan-500 text-white active:bg-cyan-600 font-bold uppercase text-xs px-4 py-2 rounded-full shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-            onClick={joinRoom}
-          >
-            Join Room
-          </button>
-        </div>
         <form
           onSubmit={handleSubmit}
           class="bg-gray-300 p-4 flex flex-row justify-between"

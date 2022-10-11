@@ -14,7 +14,7 @@ import {
   loadUsers,
   deleteUser,
   messageReceived,
-} from "../../../redux/features/users/userSlice";
+} from "../../../redux/features/users/usersSlice";
 
 import { addMessage } from "../../../redux/features/users/userMessageSlice";
 
@@ -49,21 +49,8 @@ export default function UserList() {
     const msgs = item.filter((item) => item);
 
     setRoom(room);
-    setMessages(flattenMessages(msgs));
+    setMessages(msgs.flat(Infinity));
     setOpenPopup(true);
-  };
-
-  const flattenMessages = (members) => {
-    let children = [];
-
-    return members
-      .map((m) => {
-        if (m.children && m.children.length) {
-          children = [...children, ...m.children];
-        }
-        return m;
-      })
-      .concat(children.length ? flattenMessages(children) : children);
   };
 
   const users = useSelector((state) => state.users.users);
@@ -144,7 +131,7 @@ export default function UserList() {
               </tr>
             </thead>
             {users.map((user) => {
-              socket.emit("join_room", `${user.id}`);
+              socket.emit("join_room", user.id);
 
               return (
                 <tbody

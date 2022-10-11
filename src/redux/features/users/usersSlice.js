@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import getUsers from "./load.users";
 
-export const userSlice = createSlice({
+export const usersSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
@@ -26,7 +26,7 @@ export const userSlice = createSlice({
     },
     messageReceivedSuccess: (state, action) => {
       state.users = state.users.map((user) => {
-        if (user.id === parseInt(action.payload.room)) {
+        if (user.id === action.payload.room) {
           user.messaged = true;
         }
         return user;
@@ -35,14 +35,14 @@ export const userSlice = createSlice({
   },
 });
 
-export default userSlice.reducer;
+export default usersSlice.reducer;
 
 const {
   loadUsersSuccess,
   updateUserSuccess,
   deleteUserSuccess,
   messageReceivedSuccess,
-} = userSlice.actions;
+} = usersSlice.actions;
 
 export const loadUsers = () => (dispatch) => {
   // try {

@@ -16,19 +16,6 @@ export default function MessageRoom(props) {
     event.target.reset();
   };
 
-  const flattenMessages = (members) => {
-    let children = [];
-
-    return members
-      .map((m) => {
-        if (m.children && m.children.length) {
-          children = [...children, ...m.children];
-        }
-        return m;
-      })
-      .concat(children.length ? flattenMessages(children) : children);
-  };
-
   const sendMessage = () => {
     socket.emit("send_message", { message, room });
     setMessageList((list) => [...list, { message: message, sent: true }]);
