@@ -1,13 +1,13 @@
 import axios from "axios";
 
- const api = axios.create({
+const api = axios.create({
   // baseURL: process.env.REACT_APP_BASE_URL
-  baseURL: "http://localhost:5000/api"
+  baseURL: "http://localhost:5000/api",
 });
 
 export const cloudinaryApi = axios.create({
   // baseURL: process.env.REACT_APP_CLOUDINARY_UPLOAD,
-  baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload"
+  baseURL: "https://api.cloudinary.com/v1_1/starlabstitans/image/upload",
 });
 
 export const reviews = axios.create({
@@ -35,15 +35,15 @@ export function deleteEvent(id) {
   return api.delete("/events/delete/" + id);
 }
 
-export function getEventById(id){
-  return api.get('/events/get/' + id);
+export function getEventById(id) {
+  return api.get("/events/get/" + id);
 }
 
 export function like(id) {
-  return api.put("/events/like/"+id)
+  return api.put("/events/like/" + id);
 }
 export function unlike(id) {
-  return api.put("/events/unlike/"+id)
+  return api.put("/events/unlike/" + id);
 }
 
 //place module api calls
@@ -63,15 +63,15 @@ export function deletePlace(id) {
   return api.delete("/places/delete/" + id);
 }
 
-export function getPlaceById(id){
-  return api.get('/places/get/' + id)
+export function getPlaceById(id) {
+  return api.get("/places/get/" + id);
 }
 
 export function likePlace(id) {
-  return api.put("/places/like/"+id)
+  return api.put("/places/like/" + id);
 }
 export function unlikePlace(id) {
-  return api.put("/places/unlike/"+id)
+  return api.put("/places/unlike/" + id);
 }
 
 //country module api calls
@@ -91,7 +91,7 @@ export function deleteCountryy(id) {
   return api.delete("/countries/delete/" + id);
 }
 
-export function getCoutrybyId(id){
+export function getCoutrybyId(id) {
   return api.get("/countries/get/" + id);
 }
 
@@ -111,4 +111,10 @@ export function updateReview(id, data) {
 
 export function deleteReview(id) {
   return api.delete("/reviews/delete/" + id);
+}
+
+//users
+
+export function findUsers() {
+  return api.get("/users/get");
 }

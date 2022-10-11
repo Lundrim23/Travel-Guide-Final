@@ -33,34 +33,33 @@ export default function WidgetLg() {
       </h3>
 
       <table className="w-full border-spacing-48 ">
-      <thead>
-        <tr className="dark:text-gray-200">
-          <th className="text-left">Event Name</th>
-          <th className="text-left">Event Organizator</th>
-          <th className="text-left">Event Tags</th>
-          <th className="text-left">Event Address</th>
-          <th className="text-left">Event Description</th>
-          <th className="text-left">Event Image</th>
-        </tr>
+        <thead>
+          <tr className="dark:text-gray-200">
+            <th className="text-left">Event Name</th>
+            <th className="text-left">Event Address</th>
+            <th className="text-left">Event Description</th>
+            <th className="text-left">Event Image</th>
+          </tr>
         </thead>
         <tbody>
-        {events.slice(0, 2).map((event) => (
+          {events.slice(0, 8).map((event) => (
             <tr key={event._id} className="dark:text-gray-400">
-              <td className="font-light">{event.eventName}</td>
-              <td className="font-light">{event.eventOrganizator}</td>
-              <td className="font-light">{event.eventTags}</td>
-              <td className="font-light">{event.address}</td>
-              <td className="font-light">{event.description}</td>
-              <td className="flex items-center">
+              <td className="font-light">{event.eventName.substring(0, 23)}</td>
+              <td className="font-light">
+                {event.address.substring(0, 15) + "..."}
+              </td>
+              <td className="font-light">
+                {event.description.substring(0, 90) + "..."}
+              </td>
+              <td className="my-1 flex items-center">
                 <img
-                  className="w-10 rounded-full object-cover mr-2"
+                  className="w-10 h-10 rounded-lg object-cover mr-2"
                   src={event.imageUrl}
                   alt="user"
                 />
-                {/* <span>User</span> */}
               </td>
             </tr>
-        ))}
+          ))}
         </tbody>
       </table>
     </div>
