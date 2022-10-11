@@ -2,6 +2,7 @@ import React from "react";
 import AboutHero from "../assets/img/about-hero.png";
 import contacts from "../Data/contacts";
 import TeamCard from "../components/TeamCard";
+import LogoSlider from "../components/LogoSlider"
 
 function createCard(contact) {
   return (
@@ -143,7 +144,9 @@ function About() {
             </div>
           </section>
         </div>
+
       </div>
+      <LogoSlider />
     </>
   );
 }
