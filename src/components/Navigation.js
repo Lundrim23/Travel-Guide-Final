@@ -87,13 +87,6 @@ const Navigation = () => {
                   </Link>
 
                   <Link
-                    to="/about"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  >
-                    About
-                  </Link>
-
-                  <Link
                     to="/places"
                     className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
@@ -112,6 +105,13 @@ const Navigation = () => {
                     className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Near you
+                  </Link>
+
+                      <Link
+                    to="/about"
+                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >
+                    About
                   </Link>
 
                   <Link
@@ -133,7 +133,7 @@ const Navigation = () => {
                   {!isLoggedIn && (
                     <Link
                       to="/login"
-                      className="text-slate-100 bg-[#0A2C43]  ring-2 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 rounded-md text-sm font-medium"
+                      className="text-slate-100 bg-[#0A2C43]  ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 rounded-md text-sm font-medium"
                     >
                      Login
                     </Link>
@@ -141,7 +141,8 @@ const Navigation = () => {
                   {isLoggedIn && (
                     <Link
                       to="/users/"
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-slate-100 bg-[#0A2C43] ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 
+                      rounded-md text-sm font-medium mr-10"
                     >
                       {user &&
                         user.username.charAt(0).toUpperCase() +
@@ -152,7 +153,8 @@ const Navigation = () => {
                     <Link
                       to="/"
                       onClick={handleLogout}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      className="text-slate-100 bg-[#0A2C43] ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 
+                      rounded-md text-sm font-medium mr-10"
                     >
                       Logout
                     </Link>
@@ -301,7 +303,7 @@ const Navigation = () => {
                 </Link>
                 <Link
                   to="/users/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {user &&
                     user.username.charAt(0).toUpperCase() +
@@ -311,7 +313,7 @@ const Navigation = () => {
                   <Link
                     to="/"
                     onClick={handleLogout}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white  block px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Logout
                   </Link>
