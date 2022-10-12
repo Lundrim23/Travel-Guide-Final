@@ -316,31 +316,37 @@ const Navigation = () => {
                 >
                   Contact
                 </Link>
+                {!isLoggedIn && (
                 <Link
                   to="/register"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Register
                 </Link>
+)}
+                {!isLoggedIn && (
                 <Link
                   to="/login"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Login
                 </Link>
+                )} 
+                { isLoggedIn && (
                 <Link
                   to="/users/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                 >
                   {user &&
                     user.username.charAt(0).toUpperCase() +
                       user.username.slice(1)}
                 </Link>
+                )}
                 {isLoggedIn && (
                   <Link
                     to="/"
                     onClick={handleLogout}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-medium"
                   >
                     Logout
                   </Link>
