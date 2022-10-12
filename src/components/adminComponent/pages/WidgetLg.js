@@ -38,7 +38,7 @@ export default function WidgetLg() {
             <th className="text-left">Event Name</th>
             <th className="text-left">Event Address</th>
             <th className="text-left">Event Description</th>
-            <th className="text-left">Event Image</th>
+            <th className="text-left">Image</th>
           </tr>
         </thead>
         <tbody>
