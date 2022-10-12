@@ -7,16 +7,15 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as UserService from "../utils/services/users.service";
 import { authActions } from "../redux/features/loginSlice";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const dispatch = useDispatch();
 
-
-  const notify = () => {toast.success("Login Successful")}
-
-
+  const notify = () => {
+    toast.success("Login Successful");
+  };
 
   const history = useNavigate();
 
@@ -45,18 +44,16 @@ const LogIn = () => {
         email: values.email,
         password: values.password,
       })
-        .catch((error) => {
-          if (error.response) {
-            throw Error("User doesnt exist, please check your credentials");
-          }
-        })
-        .catch((error) => {
-          setError(error.message);
-        })
-        .then((error) => {
-          if (!error.response) {
+        .then((res) => {
+          localStorage.setItem("user_id", res.data.user._id);
           notify();
           dispatch(authActions.login()).then(history("/"));
+        })
+        .catch((error) => {
+          if (error.response) {
+            setError(error.message);
+
+            throw Error("User doesnt exist, please check your credentials");
           }
         });
     },
