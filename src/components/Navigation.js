@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/features/loginSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {NavLink} from "react-router-dom";
+
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
@@ -79,47 +81,68 @@ const Navigation = () => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-7">
-                  <Link
+                  <NavLink
                     to="/"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+  
+                    className={({ isActive }) =>
+                      isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                    }
+                    
                   >
-                    Home
-                  </Link>
+                    {/* <button className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"></button> */}
 
-                  <Link
+                    Home
+                  </NavLink>
+
+                  <NavLink
                     to="/places"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className={({ isActive }) =>
+                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                  }
+                  
                   >
                     Places
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/events"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className={({ isActive }) =>
+                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                  }
+                  
                   >
                     Events
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/api"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className={({ isActive }) =>
+                      isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                    }
+                    
                   >
                     Near you
-                  </Link>
+                  </NavLink>
 
-                      <Link
+                      <NavLink
                     to="/about"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className={({ isActive }) =>
+                      isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                    }
+                    
                   >
                     About
-                  </Link>
+                  </NavLink>
 
-                  <Link
+                  <NavLink
                     to="/contact"
-                    className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className={({ isActive }) =>
+                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                  }
+                  
                   >
                     Contact
-                  </Link>
+                  </NavLink>
                   <div className="px-20 mr-40 text-[#051622]"> TestTestTestTestt</div>
                   {!isLoggedIn && (
                     <Link
