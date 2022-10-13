@@ -6,16 +6,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../redux/features/loginSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {NavLink} from "react-router-dom";
-
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
 
 const Navigation = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState();
+
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const userId = localStorage.getItem("user_id");
 
   const sendLogoutRequest = async () => {
     const res = await axios.post(
@@ -32,43 +33,60 @@ const Navigation = () => {
   };
   const handleLogout = () => {
     sendLogoutRequest()
-      .then(() => dispatch(authActions.logout()))
+      .then(() => {
+        dispatch(authActions.logout());
+        localStorage.setItem("user_id", undefined);
+      })
       .then(window.location.reload(false));
+  };
+
+  const joinRoom = () => {
+    if (userId) {
+      socket.emit("join_room", userId);
+    }
   };
 
   const [isOpen, setIsOpen] = useState(false);
   const refreshToken = async () => {
-    const res = await axios
-      .get("http://localhost:5000/api/users/refresh", {
-        withCredentials: true,
-      })
-      .catch((err) => console.log(err));
-
-    const data = await res.data;
-    return data;
+    try {
+      const data = await axios
+        .get(`http://localhost:5000/api/users/refresh`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUser(res.data.user);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   };
   const sendRequest = async () => {
-    const res = await axios
-      .get("http://localhost:5000/api/users/user", {
-        withCredentials: true,
-      })
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    return data;
+    try {
+      const data = await axios
+        .get(`http://localhost:5000/api/users/user`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          setUser(res.data.user);
+          setLoading(true);
+        });
+    } catch (e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
     if (firstRender) {
       firstRender = false;
     }
-    sendRequest().then((data) => setUser(data.user));
+    sendRequest();
     let interval = setInterval(() => {
-      refreshToken().then((data) => setUser(data.user));
+      refreshToken();
     }, 1000 * 29);
     return () => clearInterval(interval);
   }, []);
   return (
     <div>
-      <nav className="bg-[#051622] h-15" >
+      <nav className="bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -180,6 +198,15 @@ const Navigation = () => {
                       rounded-md text-sm font-medium mr-10"
                     >
                       Logout
+                    </Link>
+                  )}
+                  {isLoggedIn && (
+                    <Link
+                      to="/chat"
+                      onClick={joinRoom}
+                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Chat
                     </Link>
                   )}
                 </div>
@@ -312,31 +339,37 @@ const Navigation = () => {
                 >
                   Contact
                 </Link>
+                {!isLoggedIn && (
                 <Link
                   to="/register"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Register
                 </Link>
+)}
+                {!isLoggedIn && (
                 <Link
                   to="/login"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
                   Login
                 </Link>
+                )} 
+                { isLoggedIn && (
                 <Link
                   to="/users/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                 >
                   {user &&
                     user.username.charAt(0).toUpperCase() +
                       user.username.slice(1)}
                 </Link>
+                )}
                 {isLoggedIn && (
                   <Link
                     to="/"
                     onClick={handleLogout}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white  block px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Logout
                   </Link>

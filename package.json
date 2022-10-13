@@ -42,6 +42,7 @@
     "react-toastify": "^9.0.8",
     "recharts": "^2.1.14",
     "smooth-scrollbar": "^8.7.5",
+    "socket.io-client": "^4.5.2",
     "styled-components": "^5.3.5",
     "swiper": "^8.3.2",
     "tailwind-scrollbar-hide": "^1.1.7",
