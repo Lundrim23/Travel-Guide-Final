@@ -31,17 +31,21 @@ function About() {
       </div>
       <div className="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-around">
         <div className="border border-2 border-red-900 p-5 leading-8 h-full sm:sticky top-10  ">
-          <p className=" text-xl">
-            <a href="#1" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md " >Who are we ?</a>
+          <p className=" text-xl font-bold text-gray-800">
+            <a href="#1" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md hover:font-normal" >
+              Who are we ?</a>
           </p>
-          <p className=" text-xl">
-            <a href="#2" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md ">What we offer ?</a>
+          <p className=" text-xl font-bold text-gray-800">
+            <a href="#2" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md hover:font-normal">
+              What we offer ?</a>
           </p>
-          <p className=" text-xl">
-            <a href="#3"className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md ">Why should you choose us?</a>
+          <p className=" text-xl font-bold text-gray-800">
+            <a href="#3"className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md hover:font-normal">
+              Why should you choose us?</a>
           </p>
-          <p className=" text-xl">
-            <a href="#4" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md ">Our team</a>
+          <p className=" text-xl font-bold text-gray-800">
+            <a href="#4" className="hover:bg-gray-400  hover:text-white hover:p-1 hover:rounded-md hover:font-normal">
+              Our team</a>
           </p>
         </div>
 
