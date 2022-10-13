@@ -167,7 +167,7 @@ const Navigation = () => {
                   >
                     Contact
                   </NavLink>
-                  <div className="px-20 mr-40 text-[#051622]"> TestTestTestTestt</div>
+                  <div className="px-24 text-[#051622]"></div>
                   {!isLoggedIn && (
                     <Link
                       to="/register"
@@ -196,6 +196,15 @@ const Navigation = () => {
                           user.username.slice(1)}
                     </Link>
                   )}
+                     {isLoggedIn && (
+                    <Link
+                      to="/chat"
+                      onClick={joinRoom}
+                      className=" bg-[#0A2C43] ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Chat
+                    </Link>
+                  )} 
                   {isLoggedIn && (
                     <Link
                       to="/"
@@ -206,15 +215,7 @@ const Navigation = () => {
                       Logout
                     </Link>
                   )}
-                  {/* {isLoggedIn && (
-                    <Link
-                      to="/chat"
-                      onClick={joinRoom}
-                      className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Chat
-                    </Link>
-                  )} */}
+             
                 </div>
               </div>
 
