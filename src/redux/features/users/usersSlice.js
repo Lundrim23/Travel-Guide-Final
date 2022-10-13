@@ -12,7 +12,7 @@ export const countNewUsers = createAsyncThunk(
   }
 );
 
-export const userSlice = createSlice({
+export const usersSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
@@ -36,6 +36,14 @@ export const userSlice = createSlice({
       state.users = state.users.filter(({ id }) => id !== action.payload.id);
       state.amount = state.users.length;
     },
+    messageReceivedSuccess: (state, action) => {
+      state.users = state.users.map((user) => {
+        if (user.id === action.payload.room) {
+          user.messaged = true;
+        }
+        return user;
+      });
+    },
   },
   extraReducers: {
     [countNewUsers.fulfilled]: (state, { payload }) => {
@@ -45,10 +53,14 @@ export const userSlice = createSlice({
   }
 });
 
-export default userSlice.reducer;
+export default usersSlice.reducer;
 
-const { loadUsersSuccess, updateUserSuccess, deleteUserSuccess } =
-  userSlice.actions;
+const {
+  loadUsersSuccess,
+  updateUserSuccess,
+  deleteUserSuccess,
+  messageReceivedSuccess,
+} = usersSlice.actions;
 
 export const loadUsers = () => (dispatch) => {
   // try {
@@ -70,4 +82,8 @@ export const updateUser = (user) => (dispatch) => {
 export const deleteUser = (id) => (dispatch) => {
   // api call delete request
   dispatch(deleteUserSuccess(id));
+};
+
+export const messageReceived = (message) => (dispatch) => {
+  dispatch(messageReceivedSuccess(message.message));
 };

@@ -118,3 +118,11 @@ export function deleteReview(id) {
 export function findUsers() {
   return api.get("/users/get");
 }
+
+export function getUserById(id) {
+  return api.get("/users/get/" +id);
+}
+
+export function updateUserById(id, data){
+  return api.patch("/users/update/" +id, data);
+}
