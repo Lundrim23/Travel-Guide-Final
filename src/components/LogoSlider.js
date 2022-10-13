@@ -18,7 +18,7 @@ export default function LogoScroll() {
       <p className="pt-20 text-center text-2xl font-light text-gray-400">
         A mature support from hundreds of brands
       </p>
-      <div className="relative flex items-center justify-center  py-10">
+      <div className="pb-12 relative flex items-center justify-center  py-10">
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100 text-black"
           onClick={slideleft}
