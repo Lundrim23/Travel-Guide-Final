@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
+import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,7 +10,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Spinner from "../components/Spinner";
 import io from "socket.io-client";
 export const socket = io.connect("http://localhost:5000");
-import { NavLink } from "react-router-dom";
+
 
 axios.defaults.withCredentials = true;
 let firstRender = true;
@@ -202,10 +203,10 @@ const Navigation = () => {
                       className="text-slate-100 bg-[#0A2C43] ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 
                       rounded-md text-sm font-medium mr-10"
                     >
-                      Chat
+                      Logout
                     </Link>
                   )}
-                  {isLoggedIn && (
+                  {/* {isLoggedIn && (
                     <Link
                       to="/chat"
                       onClick={joinRoom}
@@ -213,7 +214,7 @@ const Navigation = () => {
                     >
                       Chat
                     </Link>
-                  )}
+                  )} */}
                 </div>
               </div>
 
