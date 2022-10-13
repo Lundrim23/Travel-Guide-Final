@@ -50,7 +50,7 @@ import { getUserById, updateUserById } from "../utils/fetch";
   return (
     <div >
   
-<div className="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-6 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
+<div className="relative max-w-md mx-auto lg:max-w-screen-xl md:max-w-2xl mt-24 min-w-0 break-words bg-stone-100 w-full mb-6 shadow-lg rounded-xl mt-40 mb-40">
     <div className="px-6">
         <div className="flex flex-wrap justify-center">
             <div className="w-full flex justify-center">
