@@ -10,7 +10,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-//import { countNewUsers } from "../../../redux/features/users/userSlice";
 import { countNewUsers } from "../../../redux/features/users/usersSlice";
 
 // const data1 = [
