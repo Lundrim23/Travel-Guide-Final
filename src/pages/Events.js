@@ -9,6 +9,7 @@ import Posts from "../redux/features/posts/Posts";
 import MostLikedPosts from "../redux/features/posts/MostLikedPosts";
 import ArtandMovies from "../redux/features/posts/ArtandMovies";
 import FoodnCulture from "../redux/features/posts/FoodnCulture";
+import { Outlet } from "react-router-dom";
 
 function Events() {
   return (
@@ -17,6 +18,7 @@ function Events() {
       <div className="bg-slate-50">
         <EventTitle TitleEvent="Best Beach Events" />
       </div>
+      <Outlet /> 
       {/* <Posts /> */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3  bg-gradient-to-b from-slate-50 to-gray-300 pt-10 ">
         <MostLikedPosts />

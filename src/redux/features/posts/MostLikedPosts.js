@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { beachEvent } from "./postsSlice";
 import { FaThumbsUp, FaThumbsDown, FaHeart } from "react-icons/fa";
 import { like, unlike } from "../../../utils/fetch";
+import { Link, useNavigate } from "react-router-dom";
+import FullPost from "../../../components/FullPost";
 
 function MostLikedPosts() {
   const dispatch = useDispatch();
@@ -47,9 +49,21 @@ function MostLikedPosts() {
               />
               <div className="p-4">
                 <small className="text-pink-500 text-xs">{post.address}</small>
-                <h1 className="text-2xl font-medium text-slate-600 pb-2">
-                  {post.eventName}
-                </h1>
+
+                <Link
+                  // to={`/events/fullpost/${post._id}`}
+                  to={{
+                    pathname: "/events/fullpost/",
+                    state: {
+                      id: post._id
+                    },
+                  }}
+                >
+                  <button className="text-2xl font-medium text-slate-600 pb-2">
+                    {post.eventName}
+                  </button>
+                </Link>
+
 
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
                   {post.description.substring(0, 120) + "..."}
