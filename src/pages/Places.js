@@ -8,8 +8,8 @@ import { data } from "../Data/PlacesReviewData";
 import PlacesAlbania from "../components/PlacesAlbania";
 import PlacesCards from "../components/PlacesCards";
 import PlacesMacedonia from "../components/PlacesMacedonia";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import AllPlaces from "../redux/features/places/AllPlaces.js";
 import PlacesCardss from "../components/PlacesCardss";
 import PlacesMontenegro from "../components/PlacesMontenegro";
@@ -19,12 +19,8 @@ import BestPlacesInKosovo from "../components/BestPlacesInKosovo";
 import BestPlacesInMontenegro from "../components/BestPlacesInMontenegro";
 
 const createPlace = (place) => {
-  return (
-    <PlacesCard
-    />
-  );
+  return <PlacesCard />;
 };
-
 
 function Places() {
   const slideLeft = () => {
@@ -57,19 +53,17 @@ function Places() {
       <section>
         <BestPlacesInMontenegro />
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-          <PlacesMontenegro 
-            value={value}
-          />
+          <PlacesMontenegro value={value} />
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 md:py-8">
         <h1 className="text-4xl mx-10 font-medium">Best places to visit...</h1>
         <div className="slider max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8 flex relative items-center ">
-          <BsFillArrowLeftCircleFill
+          <ArrowBackIosIcon
             className="px-2"
             onClick={slideLeft}
-            size={80}
+            sx={{ fontSize: 40 }}
           />
           <div
             id="slider"
@@ -77,10 +71,10 @@ function Places() {
           >
             {places.map((x) => createPlace(x))}
           </div>
-          <BsFillArrowRightCircleFill
+          <ArrowForwardIosIcon
             className="px-2"
             onClick={slideRight}
-            size={80}
+            sx={{ fontSize: 40 }}
           />
         </div>
       </section>
@@ -91,7 +85,7 @@ function Places() {
       </div>
 
       <PlacesMacedonia />
-      <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
+      <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
         <PlacesCardss value={value} />
       </div>
       <ReviewSlider reviews={data} />
