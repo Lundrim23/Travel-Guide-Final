@@ -17,14 +17,12 @@ import PlaceFilters from "../components/PlaceFilters";
 import { useState } from "react";
 import BestPlacesInKosovo from "../components/BestPlacesInKosovo";
 import BestPlacesInMontenegro from "../components/BestPlacesInMontenegro";
+import { useNavigate } from "react-router-dom";
+import { likePlace, unlikePlace } from "../utils/fetch";
 
 const createPlace = (place) => {
-  return (
-    <PlacesCard
-    />
-  );
+  return <PlacesCard />;
 };
-
 
 function Places() {
   const slideLeft = () => {
@@ -39,6 +37,38 @@ function Places() {
 
   const [value, setValue] = useState("");
 
+  const [IdPostit, setIdPostit] = useState();
+
+  console.log("id postit ", IdPostit);
+
+  const navigate = useNavigate();
+
+  const openprofile = () => {
+    navigate("/places/fullposti/", {
+      state: {
+        idpost: IdPostit,
+      },
+    });
+  };
+
+  const LikePlace = async (id) => {
+    try {
+      likePlace(id).then((res) => {
+        console.log(res);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const UnlikePlace = async (id) => {
+    try {
+      unlikePlace(id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <PlacesSlider />
@@ -50,15 +80,25 @@ function Places() {
       <section>
         <BestPlacesInKosovo />
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-          <AllPlaces value={value} />
+          <AllPlaces
+            value={value}
+            openprofile={openprofile}
+            setIdPostit={setIdPostit}
+            LikePlace={LikePlace}
+            UnlikePlace={UnlikePlace}
+          />
         </div>
       </section>
 
       <section>
         <BestPlacesInMontenegro />
         <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-          <PlacesMontenegro 
+          <PlacesMontenegro
             value={value}
+            openprofile={openprofile}
+            setIdPostit={setIdPostit}
+            LikePlace={LikePlace}
+            UnlikePlace={UnlikePlace}
           />
         </div>
       </section>
@@ -87,12 +127,24 @@ function Places() {
 
       <PlacesAlbania />
       <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
-        <PlacesCards value={value} />
+        <PlacesCards
+          value={value}
+          openprofile={openprofile}
+          setIdPostit={setIdPostit}
+          LikePlace={LikePlace}
+          UnlikePlace={UnlikePlace}
+        />
       </div>
 
       <PlacesMacedonia />
       <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
-        <PlacesCardss value={value} />
+        <PlacesCardss
+          value={value}
+          openprofile={openprofile}
+          setIdPostit={setIdPostit}
+          LikePlace={LikePlace}
+          UnlikePlace={UnlikePlace}
+        />
       </div>
       <ReviewSlider reviews={data} />
     </>

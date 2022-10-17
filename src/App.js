@@ -32,6 +32,7 @@ import EditCountry from "./components/adminComponent/pages/EditCountry";
 import TableCountry from "./components/adminComponent/pages/TableCountry";
 import Settings from "./components/adminComponent/pages/Settings";
 import FullPost from "./components/FullPost";
+import FullPostPlace from "./components/FullPostPlace";
 
 function App() {
   return (
@@ -41,10 +42,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="places" element={<Places />} />
           <Route path="about" element={<About />} />
-
           <Route path="events" element={<Events />} />
 
-          <Route path="/events/fullpost/" element={<FullPost />}/>
+          <Route path="/events/fullpost/" element={<FullPost />} />
+          <Route path="/places/fullposti/" element={<FullPostPlace />} />
 
           <Route path="api" element={<Api />} />
           <Route path="contact" element={<Contact />} />
