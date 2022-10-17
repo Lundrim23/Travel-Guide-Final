@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMostLikedPlace } from "../redux/features/places/placesSlice";
 
-function HomePart() {
+function HomePart(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,8 +14,6 @@ function HomePart() {
   }, [dispatch]);
 
   const mostLikedPlaces = useSelector((state) => state.places.mostLikedPlace);
-
-  console.log("mostlikedplace", mostLikedPlaces);
 
   return (
     <div>
@@ -27,7 +25,10 @@ function HomePart() {
                 key={place._id}
                 className="px-4 py-26 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
               >
-                <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div
+                  onMouseEnter={() => props.setIdPostit(place._id)}
+                  className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row"
+                >
                   <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
                     <div className="max-w-xl mb-6 ">
                       <h2 className=" text-3xl font-bold tracking-tight lg:text-white md:text-slate-500 sm:text-slate-500 sm:text-4xl sm:leading-none max-w-lg mb-6">
@@ -71,7 +72,10 @@ function HomePart() {
                           ></path>
                         </svg>
                       </span>
-                      <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                      <span
+                        onClick={() => props.openprofile()}
+                        className="cursor-pointer relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white"
+                      >
                         See More
                       </span>
                     </div>
@@ -94,7 +98,10 @@ function HomePart() {
                 key={place._id}
                 className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
               >
-                <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div
+                  onMouseEnter={() => props.setIdPostit(place._id)}
+                  className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row"
+                >
                   <img
                     className="logo lg:w-112 h-96 rounded-lg"
                     src={place.placePhoto}
@@ -147,7 +154,10 @@ function HomePart() {
                           ></path>
                         </svg>
                       </span>
-                      <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                      <span
+                        onClick={() => props.openprofile()}
+                        className="cursor-pointer relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white"
+                      >
                         See More
                       </span>
                     </a>
@@ -165,7 +175,10 @@ function HomePart() {
                 key={place._id}
                 className="px-4 py-26 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
               >
-                <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
+                <div
+                  onMouseEnter={() => props.setIdPostit(place._id)}
+                  className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row"
+                >
                   <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
                     <div className="max-w-xl mb-6 ">
                       <h2 className=" text-3xl font-bold tracking-tight text-white  sm:text-4xl sm:leading-none max-w-lg mb-6">
@@ -212,7 +225,10 @@ function HomePart() {
                           ></path>
                         </svg>
                       </span>
-                      <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white">
+                      <span
+                        onClick={() => props.openprofile()}
+                        className="cursor-pointer relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white"
+                      >
                         See More
                       </span>
                     </a>

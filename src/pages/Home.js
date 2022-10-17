@@ -13,8 +13,23 @@ import Food from "../assets/img/food.jpg";
 import Cocktails from "../assets/img/cocktails.jpg";
 import Beaches from "../assets/img/beaches.jpg";
 import Nightlife from "../assets/img/nightlife.jpg";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Home() {
+  const [IdPostit, setIdPostit] = useState();
+
+  const navigate = useNavigate();
+
+  const openprofile = () => {
+    navigate("/places/fullposti/", {
+      state: {
+        idpost: IdPostit,
+      },
+    });
+  };
+
+
   return (
     <>
       <div>
@@ -27,9 +42,9 @@ function Home() {
           subtitle="All article are verified by 2 experts and valdiate by the CTO"
         />
 
-        <Homeplaces />
+        <Homeplaces openprofile={openprofile} setIdPostit={setIdPostit} />
 
-        <HomePart />
+        <HomePart openprofile={openprofile} setIdPostit={setIdPostit} />
 
         <RegisterDivider />
 

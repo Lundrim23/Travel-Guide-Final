@@ -65,7 +65,6 @@ const PlacesCards = (props) => {
                     <FaThumbsUp
                       color="#f43f5e"
                       icon="fa-solid FaThumbsUp"
-                      className=""
                     />
                   </button>
                   <button
@@ -75,7 +74,6 @@ const PlacesCards = (props) => {
                     <FaThumbsDown
                       color="#818cf8"
                       icon="FaThumbsDown"
-                      className=""
                     />
                   </button>
                   <div className="flex flex-wrap "></div>

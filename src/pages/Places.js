@@ -39,8 +39,6 @@ function Places() {
 
   const [IdPostit, setIdPostit] = useState();
 
-  console.log("id postit ", IdPostit);
-
   const navigate = useNavigate();
 
   const openprofile = () => {

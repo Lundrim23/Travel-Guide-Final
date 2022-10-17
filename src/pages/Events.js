@@ -114,17 +114,6 @@ function Events() {
 
       <div className="h-40 bg-slate-50"></div>
     </div>
-
-    // import ReviewSlider from "../components/ReviewSlider";
-    // import { data } from "../Data/EventsReviewData";
-
-    // function Events() {
-    // return (
-    // <>
-    // <ReviewSlider reviews={data} />
-    // </>
-
-    // <ReviewSlider reviews={data} />
   );
 }
 
