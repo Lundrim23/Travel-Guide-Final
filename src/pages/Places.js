@@ -38,9 +38,9 @@ function Places() {
   return (
     <>
       <PlacesSlider />
-      <section className="w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around ">
+      <div className="max-w-7xl mx-auto py-3  sm:px-6 sm:py-5 lg:px-8 flex flex-row md:flex-wrap lg:flex-wrap overflow-x-auto scroll whitespace-nowrap scroll-smooth scrollbar-hide">
         <PlaceFilters vlera={setValue} />
-      </section>
+      </div>
       <div className="border bg-gray-400"></div>
 
       <section>
@@ -79,14 +79,14 @@ function Places() {
         </div>
       </section>
 
-      <PlacesAlbania />
-      <div className="max-w-[1640px] mx-auto p-4 py-12 grid lg:grid-cols-3 md:grid-cols-1 sm:grid-cols-1 gap-8">
+      <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
+        <PlacesAlbania />
         <PlacesCards value={value} />
       </div>
 
       <PlacesMacedonia />
       <div className="max-w-7xl mx-auto pt-8 px-4 sm:px-6 lg:px-8 flex flex-wrap sm:flex-row justify-around gap-4 sm:py-5 ">
-        <PlacesCardss value={value} />
+        <PlacesCards value={value} />
       </div>
       <ReviewSlider reviews={data} />
     </>
