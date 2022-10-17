@@ -42,9 +42,7 @@ function App() {
           <Route path="places" element={<Places />} />
           <Route path="about" element={<About />} />
 
-          <Route path="events" element={<Events />}>
-            {/* <Route path="/events/fullpost/:id" element={<FullPost />}/> */}
-          </Route>
+          <Route path="events" element={<Events />} />
 
           <Route path="/events/fullpost/" element={<FullPost />}/>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { beachEvent } from "./postsSlice";
@@ -36,12 +36,29 @@ function MostLikedPosts() {
     }
   };
 
+  const [IdPostit, setIdPostit] = useState();
+
+  console.log("IdPostit", IdPostit);
+
+  const navigate = useNavigate();
+
+  const openprofile = () => {
+    navigate("/events/fullpost/", {
+      state: {
+        idpost: IdPostit,
+      },
+    });
+  };
+
   return (
     <>
       {likeposts.slice(0, 3).map((post) => {
         return (
           <div key={post._id}>
-            <div className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-10 mr-10 mt-20">
+            <div
+              onMouseEnter={() => setIdPostit(post._id)}
+              className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-10 mr-10 mt-20"
+            >
               <img
                 className="aspect-video w-96 rounded-t-2xl object-cover object-center"
                 src={post.imageUrl}
@@ -49,21 +66,12 @@ function MostLikedPosts() {
               />
               <div className="p-4">
                 <small className="text-pink-500 text-xs">{post.address}</small>
-
-                <Link
-                  // to={`/events/fullpost/${post._id}`}
-                  to={{
-                    pathname: "/events/fullpost/",
-                    state: {
-                      id: post._id
-                    },
-                  }}
+                <button
+                  onClick={() => openprofile()}
+                  className="text-2xl font-medium text-slate-600 pb-2"
                 >
-                  <button className="text-2xl font-medium text-slate-600 pb-2">
-                    {post.eventName}
-                  </button>
-                </Link>
-
+                  {post.eventName}
+                </button>
 
                 <p className="text-sm tracking-tight font-light text-slate-400 leading-6">
                   {post.description.substring(0, 120) + "..."}
