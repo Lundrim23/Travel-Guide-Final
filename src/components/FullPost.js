@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
-import { BounceLoader } from "react-spinners";
+import { useLocation } from "react-router-dom";
 import { getEventById } from "../utils/fetch";
 
 function FullPost(props) {
@@ -28,14 +27,10 @@ function FullPost(props) {
 
   console.log("a po vjen najsen qitu ", location.state.idpost);
 
-  const override = {
-    display: "block",
-    margin: "20% auto",
-  };
-
   return (
     <div>
       <h1>Hello {location.state.idpost}</h1>
+      <h1>{input}</h1>
     </div>
   );
 }
