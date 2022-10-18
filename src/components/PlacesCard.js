@@ -16,7 +16,7 @@ function PlacesCard(props) {
 
   const [IdPostit, setIdPostit] = useState();
 
-  console.log("id postit ", IdPostit);
+  //console.log("id postit ", IdPostit);
 
   const navigate = useNavigate();
 

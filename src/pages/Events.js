@@ -17,7 +17,7 @@ import { beachEvent } from "../redux/features/posts/postsSlice";
 function Events() {
   const [IdPostit, setIdPostit] = useState();
 
-  console.log("IdPostit", IdPostit);
+  //console.log("IdPostit", IdPostit);
 
   const navigate = useNavigate();
 
