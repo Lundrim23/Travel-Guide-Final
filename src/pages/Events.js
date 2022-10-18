@@ -30,9 +30,10 @@ function Events() {
       </div>
 
       {/* posts from redux toolkit */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gray-300 pt-10 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 bg-gradient-to-b from-gray-300 to-slate-50 pt-10 ">
         <Posts />
       </div>
+   
       <div className="h-20 bg-slate-50"></div>
 
       <EventFilms />
