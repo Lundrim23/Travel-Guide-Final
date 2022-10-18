@@ -17,7 +17,7 @@ const Hero = () => {
         <p className="md:text-3xl sm:text-2xl text-xl text-[#6d6ff8] font-bold p-2">
           {/* TRAVELERS PARADISE */}
         </p>
-        <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
+        <h1 className="mt-10 md:text-7xl sm:text-6xl text-4xl font-bold md:py-6">
           EXPLORE BALKAN
         </h1>
         <p className="md:text-3xl sm:text-2xl text-xl font-bold py-2">
