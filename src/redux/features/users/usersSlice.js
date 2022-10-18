@@ -1,10 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 import getUsers from "./load.users";
+
+export const countNewUsers = createAsyncThunk(
+  "countusers/countNewUsers",
+  async () => {
+    const response = await axios.get(
+      "http://localhost:5000/api/users/countUsers"
+    );
+    return response.data;
+  }
+);
 
 export const usersSlice = createSlice({
   name: "users",
   initialState: {
     users: [],
+    allUser: [],
     amount: 0,
   },
   reducers: {
@@ -33,6 +45,12 @@ export const usersSlice = createSlice({
       });
     },
   },
+  extraReducers: {
+    [countNewUsers.fulfilled]: (state, { payload }) => {
+      state.allUser = payload;
+      state.status = 'success';
+    }
+  }
 });
 
 export default usersSlice.reducer;

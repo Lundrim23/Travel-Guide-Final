@@ -53,6 +53,16 @@ export const beachEvent = createAsyncThunk(
   }
 );
 
+export const eventsInlatest30Day = createAsyncThunk(
+  "events/eventsInlatest30Day",
+  async () => {
+    const response = await axios.get(
+      "http://localhost:5000/api/events/eventsInLast30Days"
+    );
+    return response.data;
+  }
+);
+
 const postsSlice = createSlice({
   name: "posts",
   initialState: {
@@ -61,6 +71,7 @@ const postsSlice = createSlice({
     artandmovie: [],
     foodculture: [],
     beachevents: [],
+    eventcount: [],
     status: null,
   },
   extraReducers: {
@@ -91,6 +102,10 @@ const postsSlice = createSlice({
     },
     [beachEvent.fulfilled]: (state, { payload }) => {
       state.beachevents = payload;
+      state.status = "success";
+    },
+    [eventsInlatest30Day.fulfilled]: (state, { payload }) => {
+      state.eventcount = payload;
       state.status = "success";
     },
   },
