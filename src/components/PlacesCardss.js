@@ -49,16 +49,19 @@ function PlacesCardss(props) {
               alt="cult"
               src={place.placePhoto}
             />
-            <h1 maxLength={10} className="text-2xl pt-2 px-2">
+            <small className="text-emerald-800 text-xs ml-2">
+              {place.placeLocation}
+            </small>
+            <h1 maxLength={10} className="text-2xl px-2">
               {place.placeName}
             </h1>
             <h3 className="max-w-fit p-2 h-16 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
-              {place.placeDetails.substring(0, 120) + "..."}
+              {place.placeDetails.substring(0, 90) + "..."}
             </h3>
             <button
               type="button"
               title="more about"
-              className="w-full order-first py-2 px-3 ml-2 mb-2 text-center rounded-xl bg-gray-200 transition hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
+              className="w-[120px] order-first py-2 px-3 ml-2 mb-2 text-center rounded-xl bg-gray-200 transition hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-200 sm:w-max"
             >
               <span className="block text-gray-600 font-semibold">
                 Read more

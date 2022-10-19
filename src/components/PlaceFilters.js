@@ -35,15 +35,15 @@ function PlaceFilters(props) {
   };
 
   return (
-    <>
+    <div className="mx-auto flex flex-row md:flex-wrap lg:flex-wrap md:gap-1 lg:gap-1">
       <div
         onClick={() => {
           props.vlera(null);
           notify();
         }}
-        className="container w-[150px] m-4 p-2 text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2 text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-[#051622] hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>All Places</p>
         </p>
       </div>
@@ -52,9 +52,9 @@ function PlaceFilters(props) {
           props.vlera("Mountain");
           notify2();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Mountains</p>
         </p>
       </div>
@@ -64,9 +64,9 @@ function PlaceFilters(props) {
           props.vlera("City");
           notify3();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Cities</p>
         </p>
       </div>
@@ -76,9 +76,9 @@ function PlaceFilters(props) {
           props.vlera("Lake");
           notify4();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Lakes</p>
         </p>
       </div>
@@ -88,9 +88,9 @@ function PlaceFilters(props) {
           props.vlera("Beach");
           notify5();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Beaches</p>
         </p>
       </div>
@@ -100,9 +100,9 @@ function PlaceFilters(props) {
           props.vlera("Park");
           notify6();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Parks</p>
         </p>
       </div>
@@ -111,9 +111,9 @@ function PlaceFilters(props) {
           props.vlera("Cultural Heritage");
           notify7();
         }}
-        className="container w-[150px] m-4 p-2 h-14 text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="font-semibold mt-1">
+        <p className="text-lg">
           <p>Cultural Heritage</p>
         </p>
       </div>
@@ -122,9 +122,9 @@ function PlaceFilters(props) {
           props.vlera("Rivers");
           notify8();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Rivers</p>
         </p>
       </div>
@@ -134,14 +134,14 @@ function PlaceFilters(props) {
           props.vlera("Waterfall");
           notify9();
         }}
-        className="container w-[150px] m-4 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
+        className="container place-self-center w-fit mx-2 p-2  text-center  rounded-[10px] border-[1px] border-gray-400 hover:bg-gray-800 hover:text-white hover:cursor-pointer hover:border-0 max-w-md"
       >
-        <p className="text-2xl">
+        <p className="text-lg">
           <p>Waterfalls</p>
         </p>
       </div>
       <ToastContainer />
-    </>
+    </div>
   );
 }
 

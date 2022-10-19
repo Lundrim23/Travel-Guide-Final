@@ -70,7 +70,7 @@ const PlacesCards = (props) => {
                   </span>
                 </button>
               </div>
-              <div className=" py-3 flex flex-wrap items-center relative">
+              <div className=" py-3 flex flex-wrap items-center relative justify-between">
                 <FaHeart color="#f43f5e" class="ml-3" icon="FaHeart" />
                 <p className="text-gray-400 text-sm ml-2">
                   : {place.likes.length}
