@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlaces } from "../redux/features/places/placesSlice";
 
-function Homeplaces() {
+function Homeplaces(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,9 +18,16 @@ function Homeplaces() {
           <div className="flex flex-wrap">
             {allPlaces.slice(0, 4).map((place) => {
               return (
-                <div key={place._id} className="pt-12 md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 ">
-                  <div className="mx-auto">
+                <div
+                  key={place._id}
+                  className="pt-12 md:w-6/12 lg:w-3/12 mb-6 px-6 sm:px-6 lg:px-4 "
+                >
+                  <div
+                    onMouseEnter={() => props.setIdPostit(place._id)}
+                    className="mx-auto cursor-pointer"
+                  >
                     <img
+                      onClick={() => props.openprofile()}
                       className="rounded-2xl h-48 w-80 pl-2 drop-shadow-md hover:drop-shadow-xl transition-all duration-200 delay-100"
                       src={place.placePhoto}
                       alt="asdasdw"
