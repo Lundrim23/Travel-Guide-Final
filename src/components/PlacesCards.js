@@ -62,19 +62,13 @@ const PlacesCards = (props) => {
                     onClick={() => props.LikePlace(place._id)}
                     className=" ml-52 hover:bg-slate-100 hover:ring hover:ring-rose-400 hover:p-1"
                   >
-                    <FaThumbsUp
-                      color="#f43f5e"
-                      icon="fa-solid FaThumbsUp"
-                    />
+                    <FaThumbsUp color="#f43f5e" icon="fa-solid FaThumbsUp" />
                   </button>
                   <button
                     onClick={() => props.UnlikePlace(place._id)}
                     className="ml-3 hover:bg-slate-100 hover:ring hover:ring-violet-300 hover:p-1"
                   >
-                    <FaThumbsDown
-                      color="#818cf8"
-                      icon="FaThumbsDown"
-                    />
+                    <FaThumbsDown color="#818cf8" icon="FaThumbsDown" />
                   </button>
                   <div className="flex flex-wrap "></div>
                 </div>

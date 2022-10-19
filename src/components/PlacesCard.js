@@ -42,6 +42,9 @@ function PlacesCard(props) {
                 src={place.placePhoto}
                 alt={place.placeName}
               />
+              <small className="text-emerald-800 text-xs ml-2">
+                {place.placeLocation}
+              </small>
               <h1 className="text-2xl pt-2 px-2">{place.placeName}</h1>
               <h3 className="max-w-fit p-2 text-md tracking-tight font-light text-slate-400 leading-6 text-ellipsis overflow-hidden">
                 {place.placeDetails}

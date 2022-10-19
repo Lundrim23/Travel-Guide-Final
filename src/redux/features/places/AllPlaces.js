@@ -33,6 +33,9 @@ function AllPlaces(props) {
                 alt="cultur"
                 src={place.placePhoto}
               />
+              <small className="text-emerald-800 text-xs ml-2">
+                {place.placeLocation}
+              </small>
               <h1 maxLength={10} className="text-2xl pt-2 px-2">
                 {place.placeName}
               </h1>

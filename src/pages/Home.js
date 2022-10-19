@@ -1,7 +1,7 @@
 import React from "react";
 
 import Hero from "../components/Hero";
-import LogoSlider from "../components/LogoSlider";
+// import LogoSlider from "../components/LogoSlider";
 import RegisterDivider from "../components/RegisterDivider";
 import CardTitle from "../components/CardTitle";
 import Categories from "../components/Categories";
@@ -35,7 +35,7 @@ function Home() {
       <div>
         <Hero />
 
-        <LogoSlider />
+        {/* <LogoSlider /> */}
 
         <CardTitle
           title="Places to visit"
