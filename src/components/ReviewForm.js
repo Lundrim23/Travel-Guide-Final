@@ -1,5 +1,5 @@
 import React from 'react'
-import Stars from './Stars';
+// import Stars from './Stars';
 
 
 
@@ -10,13 +10,13 @@ const ReviewForm = (props) => {
        
           {/*  */}
 <form>
-  <div className="bg-gradient-to-b from-gray-300 to-indigo-50 min-h-screen md:px-20 pt-6">
-    <div className=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto">
+  <div className="bg-gradient-to-b from-gray-200 to-white-50 min-h-screen md:px-20 pt-6 pb-60 ">
+    <div className=" bg-white rounded-md px-6 py-10 max-w-2xl mx-auto border-2 border-gray-100">
       <h1 className="text-center text-2xl font-bold text-gray-400 mb-10">ADD YOUR REVIEW</h1>
       <div className="space-y-4">
         <div>
         <label for="Rating" className="block mb-2 text-lg font-bold text-gray-700">Rate your experince in this place:</label>
-     <Stars />
+     {/* <Stars /> */}
         </div>
         <div>
           <label for="description" className="block mb-2 text-lg font-bold text-gray-700">Description:</label>
