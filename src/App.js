@@ -45,7 +45,7 @@ function App() {
           <Route path="events" element={<Events />} />
 
           <Route path="/events/fullpost/" element={<FullPost />} />
-          <Route path="/places/fullposti/" element={<FullPostPlace />} />
+          <Route path="/places/specific-place/" element={<SpecificPlace />} />
 
           <Route path="api" element={<Api />} />
           <Route path="contact" element={<Contact />} />
