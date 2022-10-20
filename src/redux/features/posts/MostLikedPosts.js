@@ -12,7 +12,7 @@ function MostLikedPosts(props) {
             <div
               onMouseEnter={() => props.setIdPostit(post._id)}
               className="mx-auto flex w-96 flex-col bg-white rounded-2xl shadow-xl shadow-slate-300/60 mb-10  mt-20">
-            >
+            
               <img
                 className="aspect-video w-96 rounded-t-2xl object-cover object-center"
                 src={post.imageUrl}
