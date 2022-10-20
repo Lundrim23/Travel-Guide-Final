@@ -8,11 +8,11 @@ const ReviewTable = (props) => {
       <h1 className="text-left text-2xl font-bold text-gray-400 ">REVIEWS AND RATINGS</h1>
       <label for="Rating" className="block mb-6 text-lg font-bold text-gray-700 ">Feel free to review your experience on the 
       form below </label>
-      <table className='ml-14'>
+      <table className='lg:ml-14 md:ml-0'>
       <tbody className="flex-1 sm:flex-none ">
         {props.reviews.map((reviews) => (
           <>
-            <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0  ">
+            <tr className="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-2  ">
               <td className="font-bold border-2 text-gray-900 border-grey-light border hover:bg-gray-100 p-3 ">
                 {reviews._id}
               </td>
