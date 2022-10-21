@@ -13,6 +13,8 @@ import { useDispatch } from "react-redux";
 import { like, unlike } from "../utils/fetch";
 import { useEffect } from "react";
 import { beachEvent } from "../redux/features/posts/postsSlice";
+import EventReview from "../components/EventReview";
+
 
 function Events() {
   const [IdPostit, setIdPostit] = useState();
@@ -114,6 +116,8 @@ function Events() {
       </div>
 
       <div className="h-40 bg-slate-50"></div>
+<div className=" bg-gradient-to-b from-slate-50 to-white h-20"></div>
+      <EventReview />
     </div>
   );
 }
