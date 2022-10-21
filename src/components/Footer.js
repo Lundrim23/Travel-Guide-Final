@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,16 +14,32 @@ const Footer = () => {
                 </h2>
                 <ul className="font-normal text-gray-400">
                   <li className="mb-4 hover:text-gray-800  ">
-                    <a href="#">Home</a>
+                  <Link
+                   to="/"
+                     >
+                      Home
+                    </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800  ">
-                    <a href="#">About</a>
+                  <Link
+                  to="/about"
+               >
+                  About
+                </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800 ">
-                    <a href="#">Contact Us</a>
+                  <Link
+                  to="/contact"
+               >
+                  Contact us
+                </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800 ">
-                    <a href="#">Search</a>
+                  <Link
+                  to="/"
+               >
+                  Main info
+                </Link>
                   </li>
                 </ul>
               </div>
@@ -34,16 +51,33 @@ const Footer = () => {
                 </h2>
                 <ul className="font-normal">
                   <li className="mb-4  hover:text-gray-800 ">
-                    <a href="#">Places</a>
+                  <Link
+                  to="/places"
+                 >
+                  Places
+                </Link>
+
                   </li>
                   <li className="mb-4  hover:text-gray-800">
-                    <a href="#">Events</a>
+                  <Link
+                  to="/events"
+               >
+                  Events
+                </Link>
                   </li>
                   <li className="mb-4  hover:text-gray-800">
-                    <a href="#">Restaurants</a>
+                  <Link
+                  to="/api"
+               >
+                  Restaurants
+                </Link>
                   </li>
                   <li className="mb-4  hover:text-gray-800">
-                    <a href="#">Hotels</a>
+                  <Link
+                  to="/api"
+               >
+                  Hotels
+                </Link>
                   </li>
                 </ul>
               </div>
@@ -55,16 +89,32 @@ const Footer = () => {
                 </h2>
                 <ul className="font-normal">
                   <li className="mb-4 hover:text-gray-800">
-                    <a href="#">Profile</a>
+                  <Link
+                  to="/api"
+               >
+                  Near you
+                </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800">
-                    <a href="#">Themes</a>
+                  <Link
+                  to="/reviews"
+               >
+                  Reviews
+                </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800 ">
-                    <a href="#">Plugins</a>
+                  <Link
+                  to="/search"
+               >
+                  Search
+                </Link>
                   </li>
                   <li className="mb-4 hover:text-gray-800 ">
-                    <a href="#">LinkedIn</a>
+                  <Link
+                   to="/"
+                     >
+                      Services
+                    </Link>
                   </li>
                 </ul>
               </div>
