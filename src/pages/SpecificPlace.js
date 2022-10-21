@@ -1,57 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ChakraProvider, theme } from "@chakra-ui/react";
-
-import SpecificPlaceTitle from "../components/SpecificPlaceTitle";
-import SpecificPlaceImages from "../components/SpecificPlaceImages";
-import SpecificPlaceInfo from "../components/SpecificPlaceInfo";
 import SpecificPlaceMap from "../components/SpecificPlaceMap";
-
-import SK1 from "../assets/img/syrikalter1.jpg";
-import SK2 from "../assets/img/syrikalter2.jpg";
-import SK3 from "../assets/img/syrikalter3.jpg";
-import SK4 from "../assets/img/syrikalter4.jpg";
-import SK5 from "../assets/img/syrikalter5.jpg";
+import { useLocation } from "react-router-dom";
+import { getPlaceById } from "../utils/fetch";
+import Map from "../assets/img/map.png";
 
 const SpecificPlace = () => {
+  const [place, setPlace] = useState({
+    placeName: "",
+    placeLocation: "",
+    placeDetails: "",
+    terrain: "",
+    placePhoto: "",
+    likes: "",
+  });
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const id = location.state.idpost;
+    getPlaceById(id).then(function (res) {
+      setPlace(res.data);
+      //console.log("res data", res.data);
+    });
+  }, []);
   return (
     <>
       <div className="max-w-[1240px] mx-auto py-16 px-4">
-        <SpecificPlaceTitle
-          title="SYRI I KALTERT"
-          subtitle="Shtrire ne zemer te qytetit te Sarandes"
-        />
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+            {place.placeName}
+          </h1>
+        </div>
 
-        <SpecificPlaceImages
-          img1={SK1}
-          img2={SK2}
-          img3={SK3}
-          img4={SK4}
-          img5={SK5}
-        />
-
-        <SpecificPlaceInfo
-          title1="THE BLUE EYE SPRING"
-          paragraph1="Syri i Kalter (The Blue Eye) is a fairy tale-like spring located in
-                        the south of Albania, Delvine district, near the town of Saranda.
-                        Not only the spring is the attraction but also the surrounding
-                        nature, the forest, and the clearest fresh waters I have seen in my
-                        life. Even clearer then in the becoming famous now Plitvice Lakes
-                        National Park in Croatia. You might have the impression that this
-                        place is completely unreal, out of this world, as if specially
-                        prepared for a movie set."
-          paragraph2="There are few foreign tourist in Albania, so the infrastructure and
-                        public services are not in perfect conditions. (Let this not
-                        discourage you from the adventure in Albania). However, it is
-                        possible to travel to The Blue Eye Spring from Saranda or the
-                        beautiful, green and resembling tropical places with white sandy
-                        beaches, Ksamil. A taxi can be arranged, the prices are affordable
-                        in Albania, and surely it's easy to find locals offering the tours
-                        there."
-          title2="PRURJA NE VIT"
-          description1="Mesatarja e prurjes ne vit eshte 5.9 meter kub per sekonde"
-          title3="TEMPERATURA E UJIT"
-          description2="Mesatarja e temperatures se ujit eshte 10 grade celzius"
-        />
+        <div className="grid grid-rows-none md:grid-cols-5 py-4 gap-2 md:gap-4">
+          <img
+            className="w-full h-full object-cover col-span-2 md:col-span-3 row-span-2 rounded-md"
+            src={place.placePhoto}
+            alt="Syri i Kalter"
+          />
+        </div>
+        <div className="grid lg:grid-cols-3 gap-4 px-4 py-16">
+          <div className="lg:col-span-2 flex flex-col justify-evenly">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                {place.placeName}
+              </h2>
+              <h3 className="font-bold text-gray-800 py-2">{place.terrain}</h3>
+              <p className="py-4">{place.placeDetails}</p>
+              <br />
+            </div>
+            <div className="grid sm:grid-cols-2 gap-8 py-4">
+              <div className="flex flex-col lg:flex-row items-center text-center">
+                <div>
+                  <h3 className="font-bold text-gray-800 py-2">
+                    {place.likes.length} Likes
+                  </h3>
+                  {/* <p className="py-1">{props.description1}</p> */}
+                </div>
+              </div>
+              <div className="flex flex-col lg:flex-row items-center text-center">
+                <div>
+                  {/* <h3 className="font-bold text-gray-800 py-2">{place.likes.length} Likes</h3> */}
+                  {/* <p className="py-1">{props.description2}</p> */}
+                </div>
+              </div>
+            </div>
+          </div>
+          <img
+            src={Map}
+            alt="map"
+            className="w-full mx-auto my-auto sm:w-1/2"
+          />
+        </div>
 
         <React.StrictMode>
           <ChakraProvider theme={theme}>

@@ -22,7 +22,7 @@ function Home() {
   const navigate = useNavigate();
 
   const openprofile = () => {
-    navigate("/places/fullposti/", {
+    navigate("/places/specific-place/", {
       state: {
         idpost: IdPostit,
       },
