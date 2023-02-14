@@ -24,7 +24,7 @@ export default function MessageRoom(props) {
 
   useEffect(() => {
     setMessageList((list) => [...list, messages]);
-  }, []);
+  }, [messages]);
 
   return (
     <div className="w-96 h-80 flex flex-col justify-between overflow-auto ">

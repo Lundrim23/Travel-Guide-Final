@@ -11,7 +11,7 @@ import Error from "./pages/Error";
 import LogIn from "./pages/Login";
 import Users from "./pages/Users";
 import SearchPage from "./pages/SearchPage";
-import Api from "./pages/Api";
+// import Api from "./pages/Api";
 import SpecificPlace from "./pages/SpecificPlace";
 import Chat from "./pages/Chat";
 
@@ -47,7 +47,7 @@ function App() {
           <Route path="/events/fullpost/" element={<FullPost />} />
           <Route path="/places/specific-place/" element={<SpecificPlace />} />
 
-          <Route path="api" element={<Api />} />
+          {/* <Route path="api" element={<Api />} /> */}
           <Route path="contact" element={<Contact />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="specific-place" element={<SpecificPlace />} />

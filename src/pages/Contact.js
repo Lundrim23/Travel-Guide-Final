@@ -8,10 +8,10 @@ function Contact() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_pxyn2op",
-      "template_droiwxf",
+      "service_e4kpql7",
+      "template_3ov4bc9",
       form.current,
-      "VFZnH8dS_3YfELjED"
+      "vIfNyGkvB233-2xaL"
     );
 
     e.target.reset();

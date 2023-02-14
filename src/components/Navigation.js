@@ -11,7 +11,6 @@ import Spinner from "../components/Spinner";
 import io from "socket.io-client";
 export const socket = io.connect("http://localhost:5000");
 
-
 axios.defaults.withCredentials = true;
 let firstRender = true;
 
@@ -92,7 +91,7 @@ const Navigation = () => {
   return (
     <div>
       {loading ? <Spinner /> : <Spinner />}
-      <nav className="bg-[#051622] h-15" >
+      <nav className="bg-[#051622] h-15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -105,25 +104,25 @@ const Navigation = () => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-7">
-                <NavLink
+                  <NavLink
                     to="/"
-  
                     className={({ isActive }) =>
-                      isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                      isActive
+                        ? "bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                        : "bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     }
-                    
                   >
                     {/* <button className="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"></button> */}
-
                     Home
                   </NavLink>
 
                   <NavLink
                     to="/places"
                     className={({ isActive }) =>
-                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
-                  }
-                  
+                      isActive
+                        ? "bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                        : "bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    }
                   >
                     Places
                   </NavLink>
@@ -131,14 +130,15 @@ const Navigation = () => {
                   <NavLink
                     to="/events"
                     className={({ isActive }) =>
-                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
-                  }
-                  
+                      isActive
+                        ? "bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                        : "bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    }
                   >
                     Events
                   </NavLink>
 
-                  <NavLink
+                  {/* <NavLink
                     to="/api"
                     className={({ isActive }) =>
                       isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
@@ -146,14 +146,15 @@ const Navigation = () => {
                     
                   >
                     Near you
-                  </NavLink>
+                  </NavLink> */}
 
-                      <NavLink
+                  <NavLink
                     to="/about"
                     className={({ isActive }) =>
-                      isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
+                      isActive
+                        ? "bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                        : "bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                     }
-                    
                   >
                     About
                   </NavLink>
@@ -161,13 +162,14 @@ const Navigation = () => {
                   <NavLink
                     to="/contact"
                     className={({ isActive }) =>
-                    isActive ? 'bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium' : 'bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium'
-                  }
-                  
+                      isActive
+                        ? "bg-gray-600 ring-1 ring-gray-400 text-white hover:bg-gray-700 font-bold px-3 py-2 rounded-md text-sm font-medium"
+                        : "bg-[#051622] text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    }
                   >
                     Contact
                   </NavLink>
-                  <div className="px-24 text-[#051622]"></div>
+                  {/* <div className="px-24 text-[#051622]"></div>
                   {!isLoggedIn && (
                     <Link
                       to="/register"
@@ -176,16 +178,16 @@ const Navigation = () => {
                     >
                       Register
                     </Link>
-                  )}
-                  {!isLoggedIn && (
+                  )} */}
+                  {/* {!isLoggedIn && (
                     <Link
                       to="/login"
                       className="text-slate-100 bg-[#0A2C43]  ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 rounded-md text-sm font-medium"
                     >
-                     Login
+                      Login
                     </Link>
-                  )}
-                  {isLoggedIn && (
+                  )} */}
+                  {/* {isLoggedIn && (
                     <Link
                       to="/users/"
                       className="text-slate-100 bg-[#0A2C43] ring-1 ring-gray-400 hover:bg-[#104061] hover:text-white px-6 py-2 
@@ -195,8 +197,8 @@ const Navigation = () => {
                         user.username.charAt(0).toUpperCase() +
                           user.username.slice(1)}
                     </Link>
-                  )}
-                     {isLoggedIn && (
+                  )} */}
+                  {/* {isLoggedIn && (
                     <Link
                       to="/chat"
                       onClick={joinRoom}
@@ -204,8 +206,8 @@ const Navigation = () => {
                     >
                       Chat
                     </Link>
-                  )} 
-                  {isLoggedIn && (
+                  )} */}
+                  {/* {isLoggedIn && (
                     <Link
                       to="/"
                       onClick={handleLogout}
@@ -214,8 +216,7 @@ const Navigation = () => {
                     >
                       Logout
                     </Link>
-                  )}
-             
+                  )} */}
                 </div>
               </div>
 
@@ -344,7 +345,7 @@ const Navigation = () => {
                   to="/api"
                   className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                 >
-                  Near you 
+                  Near you
                 </Link>
 
                 <Link
@@ -354,32 +355,32 @@ const Navigation = () => {
                   Contact
                 </Link>
                 {!isLoggedIn && (
-                <Link
-                  to="/register"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Register
-                </Link>
-)}
-                {!isLoggedIn && (
-                <Link
-                  to="/login"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Login
-                </Link>
-                )} 
-                { isLoggedIn && (
-                <Link
-                  to="/users/"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  {user &&
-                    user.username.charAt(0).toUpperCase() +
-                      user.username.slice(1)}
-                </Link>
+                  <Link
+                    to="/register"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Register
+                  </Link>
                 )}
-                    {isLoggedIn && (
+                {!isLoggedIn && (
+                  <Link
+                    to="/login"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Login
+                  </Link>
+                )}
+                {isLoggedIn && (
+                  <Link
+                    to="/users/"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    {user &&
+                      user.username.charAt(0).toUpperCase() +
+                        user.username.slice(1)}
+                  </Link>
+                )}
+                {isLoggedIn && (
                   <Link
                     to="/chat"
                     onClick={joinRoom}
