@@ -12,7 +12,6 @@
   gap: 14px;
   padding-top: 60px;
 }
-
 .top-bar input {
   display: flex;
   width: 362;
@@ -26,7 +25,6 @@
   font-size: 20px;
   font-weight: 400;
 }
-
 .search-icon {
   display: flex;
   justify-content: center;
@@ -37,7 +35,6 @@
   border-radius: 40px;
   cursor: pointer;
 }
-
 .weather-image {
   margin-top: 29px;
   display: flex;
